@@ -1,0 +1,188 @@
+---
+// The website mockup that floats in the hero. Authored in HTML/CSS rather than
+// a screenshot so it stays crisp at any size and carries no invented client.
+// Text is deliberately greeked except one real headline — nothing here should
+// read as a claim about work KOBAMA has shipped.
+//
+// Scaling: every internal dimension is in `em` against the mockup's own
+// font-size, so the whole thing scales as one object. The parent sets
+// `--mockup-fs` = renderedWidth / 62 (the design is 62em wide, 620px @ 10px).
+// Container queries would be the natural tool here, but Astro's Lightning CSS
+// pass drops `container-type` at this project's browser target.
+---
+
+<div class="mockup" aria-hidden="true">
+  <div class="mockup-chrome">
+    <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+    <div class="mockup-url"></div>
+  </div>
+  <div class="mockup-body">
+    <div class="mockup-nav">
+      <div class="m-brand"></div>
+      <div class="m-links">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="m-cta"></div>
+    </div>
+
+    <div class="mockup-hero">
+      <p class="m-headline">Een site die je bedrijf vooruit helpt.</p>
+      <div class="m-sub">
+        <span></span><span></span>
+      </div>
+      <div class="m-button"></div>
+    </div>
+
+    <div class="mockup-figure"></div>
+
+    <div class="mockup-cols">
+      <div class="m-col"><i></i><span></span><span></span></div>
+      <div class="m-col"><i></i><span></span><span></span></div>
+      <div class="m-col"><i></i><span></span><span></span></div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .mockup {
+    font-size: var(--mockup-fs, 10px);
+    width: 100%;
+    background: #fff;
+    border-radius: 1.18em 1.18em 0 0;
+    overflow: hidden;
+    box-shadow: 0 24px 60px -12px rgba(17, 26, 43, 0.32), 0 4px 14px -4px rgba(17, 26, 43, 0.2);
+    border: 1px solid rgba(17, 26, 43, 0.1);
+    border-bottom: none;
+  }
+
+  .mockup-chrome {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    padding: 1em 1.4em;
+    background: #f4f3f0;
+    border-bottom: 1px solid #e4e2dc;
+  }
+  .dot {
+    width: 0.8em;
+    height: 0.8em;
+    border-radius: 50%;
+    background: #d3d0c8;
+    flex: none;
+  }
+  .mockup-url {
+    flex: 1;
+    height: 1.6em;
+    margin-left: 1em;
+    border-radius: 0.4em;
+    background: #e8e6e0;
+  }
+
+  .mockup-body {
+    padding: 2.2em 3em 3.4em;
+  }
+
+  .mockup-nav {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    padding-bottom: 2.2em;
+    border-bottom: 1px solid #eceae4;
+  }
+  .m-brand {
+    width: 6em;
+    height: 1em;
+    background: #111111;
+    border-radius: 0.2em;
+    flex: none;
+  }
+  .m-links {
+    display: flex;
+    gap: 1.4em;
+    margin-left: auto;
+  }
+  .m-links span {
+    display: block;
+    width: 3.6em;
+    height: 0.6em;
+    border-radius: 0.2em;
+    background: #d8d5cc;
+  }
+  .m-cta {
+    width: 6.2em;
+    height: 2em;
+    border-radius: 0.3em;
+    border: 1px solid #111111;
+    flex: none;
+  }
+
+  .mockup-hero {
+    padding-block: 3.4em 2.6em;
+    max-width: 78%;
+  }
+  .m-headline {
+    font-family: "Inter", system-ui, sans-serif;
+    font-size: 2.5em;
+    line-height: 1.16;
+    letter-spacing: -0.03em;
+    font-weight: 500;
+    color: #111111;
+    /* own font-size is 2.5x the base, so em here is scaled accordingly */
+    margin-bottom: 0.64em;
+  }
+  .m-sub {
+    display: grid;
+    gap: 0.7em;
+    margin-bottom: 2.2em;
+  }
+  .m-sub span {
+    display: block;
+    height: 0.6em;
+    border-radius: 0.2em;
+    background: #ddd9d0;
+  }
+  .m-sub span:first-child {
+    width: 88%;
+  }
+  .m-sub span:last-child {
+    width: 62%;
+  }
+  .m-button {
+    width: 10.4em;
+    height: 2.6em;
+    border-radius: 0.3em;
+    background: #111111;
+  }
+
+  .mockup-figure {
+    height: 19em;
+    border-radius: 0.6em;
+    background:
+      linear-gradient(115deg, rgba(176, 96, 47, 0.16), rgba(147, 153, 187, 0.34)),
+      linear-gradient(to bottom, #cfd2e2, #aeb3cc);
+    margin-bottom: 2.6em;
+  }
+
+  .mockup-cols {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.4em;
+  }
+  .m-col i {
+    display: block;
+    width: 1.8em;
+    height: 0.2em;
+    background: #b0602f;
+    margin-bottom: 1.2em;
+  }
+  .m-col span {
+    display: block;
+    height: 0.5em;
+    border-radius: 0.2em;
+    background: #e2dfd7;
+    margin-bottom: 0.6em;
+  }
+  .m-col span:last-child {
+    width: 70%;
+  }
+</style>

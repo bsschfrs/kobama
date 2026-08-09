@@ -1,0 +1,817 @@
+---
+// v4 — Hollands licht. White editorial with a cinematic layered hero: sky,
+// floating site mockup, and a canal-facade foreground that lags on scroll and
+// dissolves into the navy intro section below.
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/source-serif-4/400-italic.css";
+import "../styles/reset.css";
+import { copy } from "../content/copy";
+import SiteMockup from "../components/SiteMockup.astro";
+
+const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
+---
+
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{copy.meta.title}</title>
+    <meta name="description" content={copy.meta.description} />
+    <link rel="preload" as="image" href="/images/hero-sky.webp" />
+    <link rel="preload" as="image" href="/images/hero-facades.webp" />
+    <!--
+      THESIS: Calm reads as competence. One cinematic Amsterdam viewport, then
+      extreme quiet — refusing the icon-grid landing page entirely.
+      OWN-WORLD: White ground, near-black text, hairline rules, periwinkle
+      #9399BB sky and #111A2B canal navy drawn straight from the photograph,
+      one Source Serif 4 italic word as the only ornament.
+      STORY: An SMB owner sees a site rise out of an Amsterdam canal, believes
+      this studio makes things that look better than what they have, books a call.
+      FIRST VIEWPORT: Headline left over open sky; the site mockup floats centre
+      and passes behind the gable row as it rises; water dissolves into navy.
+      FORM: User-chosen direction 4 of 5 ("Hollands licht"), extended with the
+      layered fora.so-style scroll transition at the user's request.
+      FINISH: unreviewed and undocumented is unfinished; this build ends with the
+      finish review, the verdict, and DESIGN.md.
+    -->
+    <style>
+      :root {
+        --bg: #ffffff;
+        --fg: #111111;
+        --accent: #b0602f;
+        --hairline: #d8d5cc;
+        --muted: #767267;
+        --navy: #111a2b;
+        --navy-soft: #1b2740;
+        --sky: #9399bb;
+        --sky-pale: #b6b2cd;
+      }
+      html,
+      body {
+        background: var(--bg);
+      }
+      body {
+        color: var(--fg);
+        font-family: "Inter", system-ui, sans-serif;
+        font-size: 15px;
+        line-height: 24px;
+        letter-spacing: -0.2px;
+        overflow-x: hidden;
+      }
+      em {
+        font-family: "Source Serif 4", serif;
+        font-style: italic;
+        font-weight: 400;
+      }
+      .wrap {
+        max-width: 1240px;
+        margin-inline: auto;
+        padding-inline: 40px;
+      }
+      @media (max-width: 640px) {
+        .wrap {
+          padding-inline: 24px;
+        }
+      }
+      .measure {
+        max-width: 520px;
+      }
+      h1,
+      h2,
+      h3 {
+        font-weight: 500;
+        letter-spacing: -0.03em;
+      }
+      h1 {
+        font-size: clamp(32px, 3.9vw, 54px);
+        line-height: 1.06;
+      }
+      h2 {
+        font-size: clamp(24px, 3.2vw, 40px);
+        line-height: 1.15;
+      }
+      .statement-text {
+        font-size: clamp(20px, 2.5vw, 31px);
+        line-height: 1.45;
+        font-weight: 400;
+        letter-spacing: -0.025em;
+      }
+
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 48px;
+        padding: 0 30px;
+        border: 1px solid var(--fg);
+        color: var(--fg);
+        font-size: 13px;
+        font-weight: 500;
+        transition: background 0.2s ease, color 0.2s ease;
+      }
+      .btn-primary:hover,
+      .btn-primary:focus-visible {
+        background: var(--fg);
+        color: #fff;
+      }
+      .btn-on-dark {
+        border-color: rgba(255, 255, 255, 0.55);
+        color: #fff;
+      }
+      .btn-on-dark:hover,
+      .btn-on-dark:focus-visible {
+        background: #fff;
+        color: var(--navy);
+      }
+      a:focus-visible,
+      button:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+      }
+
+      /* ---------- Nav ---------- */
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 60;
+        border-bottom: 1px solid transparent;
+        transition: background 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
+      }
+      .nav.is-solid {
+        background: rgba(255, 255, 255, 0.88);
+        backdrop-filter: blur(12px);
+        border-bottom-color: var(--hairline);
+      }
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 76px;
+      }
+      .brand {
+        font-weight: 500;
+        letter-spacing: 0.01em;
+      }
+      .nav-links {
+        display: none;
+        gap: 30px;
+        font-size: 14px;
+        color: var(--muted);
+      }
+      .nav-links a:hover {
+        color: var(--fg);
+      }
+      /* over the photograph the nav has to carry its own contrast */
+      .nav:not(.is-solid) .brand {
+        color: #0d1424;
+      }
+      .nav:not(.is-solid) .nav-links a {
+        color: #2c3348;
+      }
+      .nav:not(.is-solid) .nav-links a:hover {
+        color: #0d1424;
+      }
+      .nav:not(.is-solid) .btn-primary {
+        border-color: #0d1424;
+        color: #0d1424;
+      }
+      .nav:not(.is-solid) .btn-primary:hover,
+      .nav:not(.is-solid) .btn-primary:focus-visible {
+        background: #0d1424;
+        color: #fff;
+      }
+      @media (min-width: 880px) {
+        .nav-links {
+          display: flex;
+        }
+      }
+
+      /* ---------- Cinematic hero ---------- */
+      .hero-scroll {
+        position: relative;
+        height: 220vh;
+      }
+      .hero-stage {
+        position: sticky;
+        top: 0;
+        height: 100dvh;
+        overflow: hidden;
+        background: linear-gradient(to bottom, #a5a9c6 0%, var(--sky-pale) 46%, #8f93b4 72%, var(--navy) 100%);
+      }
+
+      .layer {
+        position: absolute;
+        inset: 0;
+        will-change: transform;
+      }
+
+      /* Navy underlay: sits above the sky and below the foreground, so when the
+         facades lag upward they uncover canal navy rather than lavender sky.
+         Hidden behind the facades at rest, so it costs nothing visually. */
+      .hero-stage::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 46vh;
+        z-index: 2;
+        pointer-events: none;
+        background: linear-gradient(
+          to bottom,
+          rgba(17, 26, 43, 0) 0%,
+          rgba(17, 26, 43, 0.65) 42%,
+          var(--navy) 84%
+        );
+      }
+
+      /* sky */
+      .layer-sky {
+        z-index: 1;
+      }
+      .layer-sky img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 30%;
+      }
+
+      /* headline block */
+      .layer-copy {
+        z-index: 3;
+        display: flex;
+        align-items: flex-start;
+        padding-top: clamp(120px, 17vh, 210px);
+        pointer-events: none;
+      }
+      .layer-copy .wrap {
+        width: 100%;
+      }
+      .hero-copy {
+        pointer-events: auto;
+        max-width: 490px;
+      }
+      .hero-copy h1 {
+        color: #0d1424;
+      }
+      .hero-copy p {
+        margin-top: 20px;
+        max-width: 430px;
+        /* 5.2:1 on the #9399BB sky — #2c3348 measured 4.49 and missed AA */
+        color: #232838;
+      }
+      .hero-copy .btn-primary {
+        margin-top: 34px;
+        border-color: #0d1424;
+        color: #0d1424;
+      }
+      .hero-copy .btn-primary:hover,
+      .hero-copy .btn-primary:focus-visible {
+        background: #0d1424;
+        color: #fff;
+      }
+
+      /* floating site mockup — sits right of the headline, its lower third
+         passing behind the gable row as it rises */
+      .layer-mockup {
+        z-index: 4;
+        display: flex;
+        align-items: center;
+        pointer-events: none;
+      }
+      .layer-mockup .wrap {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 0.42fr 0.58fr;
+        align-items: center;
+      }
+      /* --mockup-fs must always equal the holder's rendered width / 62 —
+         that ratio is what keeps the mockup proportional. */
+      .mockup-holder {
+        grid-column: 2;
+        width: 620px;
+        max-width: 100%;
+        margin-left: auto;
+        --mockup-fs: 10px;
+        transform: translateY(-1vh);
+      }
+      @media (max-width: 1240px) {
+        .mockup-holder {
+          width: 46vw;
+          --mockup-fs: 0.742vw;
+        }
+      }
+      @media (max-width: 900px) {
+        .layer-mockup {
+          align-items: flex-end;
+        }
+        .layer-mockup .wrap {
+          grid-template-columns: 1fr;
+        }
+        .mockup-holder {
+          grid-column: 1;
+          width: 380px;
+          --mockup-fs: 6.13px;
+          margin-inline: auto;
+          transform: translateY(-16vh);
+        }
+      }
+      /* the headline, subline and CTA always win over the mockup */
+      @media (max-width: 640px) {
+        .mockup-holder {
+          width: 280px;
+          --mockup-fs: 4.52px;
+          transform: translateY(-19vh);
+        }
+        .layer-copy {
+          padding-top: clamp(104px, 13vh, 150px);
+        }
+        .hero-copy p {
+          margin-top: 14px;
+        }
+        .hero-copy .btn-primary {
+          margin-top: 22px;
+        }
+      }
+
+      /* foreground facades + water */
+      .layer-facades {
+        z-index: 5;
+        inset: auto 0 0 0;
+        height: 54vh;
+        pointer-events: none;
+      }
+      .layer-facades img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 12%;
+      }
+      /* water dissolving into the navy of the section below */
+      .layer-facades::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(17, 26, 43, 0) 38%,
+          rgba(17, 26, 43, 0.55) 62%,
+          rgba(17, 26, 43, 0.92) 82%,
+          var(--navy) 96%
+        );
+      }
+      @media (max-width: 900px) {
+        .layer-facades {
+          height: 46vh;
+        }
+      }
+
+      .scroll-hint {
+        position: absolute;
+        left: 50%;
+        bottom: 26px;
+        transform: translateX(-50%);
+        z-index: 6;
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.65);
+      }
+
+      /* ---------- Intro (navy) ---------- */
+      .intro {
+        background: var(--navy);
+        color: rgba(255, 255, 255, 0.9);
+        padding-block: clamp(90px, 16vh, 180px) clamp(120px, 20vh, 220px);
+        position: relative;
+      }
+      .intro .statement-text {
+        color: rgba(255, 255, 255, 0.28);
+        transition: color 0.5s cubic-bezier(0.44, 0, 0.56, 1);
+        max-width: 780px;
+      }
+      .intro.is-revealed .statement-text {
+        color: #fff;
+      }
+      .intro .statement-text + .statement-text {
+        margin-top: 26px;
+      }
+      .intro-meta {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+        gap: 32px;
+        margin-top: clamp(56px, 9vh, 96px);
+        padding-top: 34px;
+        border-top: 1px solid rgba(255, 255, 255, 0.16);
+      }
+      .intro-meta h3 {
+        font-size: 15px;
+        font-weight: 500;
+        color: #fff;
+        margin-bottom: 8px;
+      }
+      .intro-meta p {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.6);
+        letter-spacing: -0.01em;
+      }
+      /* navy → white handoff, so the intro doesn't end on a hard edge either */
+      .intro::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 140px;
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--bg));
+        pointer-events: none;
+      }
+
+      /* ---------- Logos ---------- */
+      .logos {
+        display: flex;
+        gap: clamp(24px, 4vw, 56px);
+        align-items: center;
+        flex-wrap: wrap;
+        padding-block: 40px;
+        border-bottom: 1px solid var(--hairline);
+      }
+      .logos-label {
+        font-size: 12px;
+        color: var(--muted);
+        width: 100%;
+        margin-bottom: 4px;
+      }
+      .logo-chip {
+        width: 92px;
+        height: 26px;
+        background: var(--hairline);
+        opacity: 0.65;
+      }
+
+      section {
+        padding-block: clamp(80px, 15vh, 150px);
+      }
+
+      /* ---------- Transformatie ---------- */
+      .transform-wrap {
+        height: 250vh;
+        position: relative;
+        --progress: 0;
+      }
+      .transform-sticky {
+        position: sticky;
+        top: 0;
+        height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .transform-heading {
+        margin-bottom: 30px;
+      }
+      .transform-stage {
+        position: relative;
+        width: 100%;
+        max-width: 1080px;
+        margin-inline: auto;
+        aspect-ratio: 16 / 10;
+        border: 1px solid var(--fg);
+        overflow: hidden;
+      }
+      .transform-panel {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .transform-panel.before {
+        background: #f1efe9;
+      }
+      .transform-panel.after {
+        background: #fff;
+        border-left: 2px solid var(--accent);
+        clip-path: inset(0 calc((1 - var(--progress)) * 100%) 0 0);
+      }
+      .transform-tag {
+        font-size: 12px;
+        border: 1px solid var(--fg);
+        padding: 5px 14px;
+      }
+      .transform-note {
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .transform-caption {
+        margin-top: 20px;
+        text-align: center;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      /* ---------- Werkwijze ---------- */
+      .step {
+        display: grid;
+        grid-template-columns: 90px 1fr;
+        gap: 28px;
+        padding-block: 44px;
+        border-top: 1px solid var(--hairline);
+      }
+      .step:last-child {
+        border-bottom: 1px solid var(--hairline);
+      }
+      .step-number {
+        font-size: 13px;
+        color: var(--accent);
+      }
+      .step h3 {
+        font-size: clamp(21px, 2.2vw, 28px);
+        margin-bottom: 10px;
+      }
+      .step p {
+        color: var(--muted);
+        max-width: 560px;
+      }
+      .step-detail {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 18px;
+      }
+      .step-detail span {
+        font-size: 12px;
+        color: var(--muted);
+        border: 1px solid var(--hairline);
+        padding: 5px 12px;
+      }
+      @media (max-width: 640px) {
+        .step {
+          grid-template-columns: 1fr;
+          gap: 10px;
+        }
+      }
+
+      /* ---------- Werk ---------- */
+      .case {
+        border: 1px dashed var(--hairline);
+        padding: clamp(28px, 5vw, 56px);
+        min-height: 42vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+      .case + .case {
+        margin-top: 28px;
+      }
+      .case h3 {
+        font-size: clamp(21px, 2.2vw, 28px);
+        margin-bottom: 10px;
+      }
+      .case p {
+        color: var(--muted);
+        max-width: 560px;
+      }
+      .case p + p {
+        margin-top: 6px;
+      }
+
+      /* ---------- Team ---------- */
+      .people-grid {
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        gap: clamp(28px, 5vw, 56px);
+        align-items: start;
+      }
+      .portrait {
+        aspect-ratio: 3 / 4;
+        background: #f1efe9;
+        border: 1px dashed var(--hairline);
+      }
+      .people-grid p {
+        color: var(--muted);
+        max-width: 560px;
+      }
+      .price-line {
+        margin-top: 22px;
+        padding-top: 22px;
+        border-top: 1px solid var(--hairline);
+        color: var(--fg);
+        font-size: 15px;
+      }
+      @media (max-width: 640px) {
+        .people-grid {
+          grid-template-columns: 1fr;
+        }
+        .portrait {
+          max-width: 170px;
+        }
+      }
+
+      /* ---------- Closing ---------- */
+      .closing {
+        text-align: center;
+        border-top: 1px solid var(--hairline);
+      }
+      .closing h2 {
+        margin-bottom: 30px;
+      }
+
+      footer {
+        border-top: 1px solid var(--hairline);
+        padding-block: 44px;
+      }
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 16px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav" data-nav>
+      <div class="wrap nav-inner">
+        <span class="brand">{copy.nav.brand}</span>
+        <div class="nav-links">
+          <a href="#werkwijze">Werkwijze</a>
+          <a href="#werk">Werk</a>
+          <a href="#team">Team</a>
+        </div>
+        <a class="btn-primary" href="#contact">{copy.nav.cta}</a>
+      </div>
+    </nav>
+
+    <header class="hero-scroll" data-hero-scroll>
+      <div class="hero-stage" data-hero-stage>
+        <div class="layer layer-sky" data-layer="sky">
+          <img src="/images/hero-sky.webp" alt="" width="1080" height="1400" fetchpriority="high" />
+        </div>
+
+        <div class="layer layer-copy" data-layer="copy">
+          <div class="wrap">
+            <div class="hero-copy">
+              <h1>{copy.hero.heading}</h1>
+              <p>{copy.hero.sub}</p>
+              <a class="btn-primary" href="#contact">{copy.hero.cta}</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="layer layer-mockup" data-layer="mockup">
+          <div class="wrap">
+            <div class="mockup-holder">
+              <SiteMockup />
+            </div>
+          </div>
+        </div>
+
+        <div class="layer layer-facades" data-layer="facades">
+          <img src="/images/hero-facades.webp" alt="" width="1080" height="690" fetchpriority="high" />
+        </div>
+
+        <span class="scroll-hint" data-hero-hint>Scroll</span>
+      </div>
+    </header>
+
+    <main>
+      <section class="intro" data-reveal>
+        <div class="wrap">
+          <p class="statement-text">
+            KOBAMA is een klein team dat elk project <em>zelf</em> van begin tot eind doet.
+          </p>
+          <p class="statement-text">
+            Geen sjablonen, geen tussenlagen — één site, gebouwd door de mensen die hem ook
+            opleveren.
+          </p>
+
+          <div class="intro-meta">
+            <div>
+              <h3>Eén aanspreekpunt</h3>
+              <p>Je praat met de mensen die het werk doen, niet met een accountmanager.</p>
+            </div>
+            <div>
+              <h3>Vaste doorlooptijd</h3>
+              <p>Je weet vooraf wanneer je site live gaat, en dat verschuift niet stilletjes.</p>
+            </div>
+            <div>
+              <h3>Klaar bij oplevering</h3>
+              <p>Hosting, onderhoud, vindbaarheid en snelheid staan goed op dag één.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="wrap">
+        <div class="logos">
+          <span class="logos-label">Gewerkt voor — logo's volgen zodra de eerste projecten zijn opgeleverd</span>
+          {logoPlaceholders.map(() => (
+            <div class="logo-chip" role="img" aria-label="Klantlogo volgt"></div>
+          ))}
+        </div>
+      </div>
+
+      <section id="transformatie">
+        <div class="wrap">
+          <h2 class="transform-heading">{copy.transformatie.heading}</h2>
+        </div>
+        <div class="transform-wrap" data-scroll-transform>
+          <div class="transform-sticky">
+            <div class="wrap">
+              <div class="transform-stage">
+                <div class="transform-panel before">
+                  <span class="transform-tag">{copy.transformatie.before.label}</span>
+                  <span class="transform-note">{copy.transformatie.before.placeholderNote}</span>
+                </div>
+                <div class="transform-panel after">
+                  <span class="transform-tag">{copy.transformatie.after.label}</span>
+                  <span class="transform-note">{copy.transformatie.after.placeholderNote}</span>
+                </div>
+              </div>
+              <p class="transform-caption">{copy.transformatie.caption}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="werkwijze">
+        <div class="wrap">
+          <h2 style="margin-bottom: 20px;">{copy.werkwijze.heading}</h2>
+          {copy.werkwijze.steps.map((step, i) => (
+            <div class="step">
+              <span class="step-number">{step.number}</span>
+              <div>
+                <h3>{step.title}</h3>
+                <p>{step.body}</p>
+                {i === 2 && (
+                  <div class="step-detail">
+                    <span>Hosting</span>
+                    <span>Onderhoud</span>
+                    <span>Vindbaarheid</span>
+                    <span>Laadsnelheid</span>
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="werk">
+        <div class="wrap">
+          <h2 style="margin-bottom: 36px;">{copy.work.heading}</h2>
+          {copy.work.cases.map((c) => (
+            <div class="case">
+              <h3>{c.name}</h3>
+              <p>{c.problem}</p>
+              <p>{c.outcome}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="team">
+        <div class="wrap">
+          <h2 style="margin-bottom: 36px;">{copy.people.heading}</h2>
+          <div class="people-grid">
+            <div class="portrait" role="img" aria-label="Portret volgt"></div>
+            <div>
+              <p>{copy.people.bio}</p>
+              <p class="price-line">{copy.people.priceLine}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="closing" id="contact">
+        <div class="wrap">
+          <h2>{copy.closing.heading}</h2>
+          <a class="btn-primary" href="mailto:hallo@kobama.nl">{copy.closing.cta}</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap footer-inner">
+        <span>{copy.footer.brand} — {copy.footer.city}</span>
+        <a href="mailto:hallo@kobama.nl">{copy.footer.cta}</a>
+      </div>
+    </footer>
+
+    <script>
+      import { initScrollTransform } from "../scripts/scroll-transform";
+      import { initReveal } from "../scripts/reveal";
+      import { initCinematicHero } from "../scripts/hero-cinematic";
+      initCinematicHero();
+      initScrollTransform();
+      initReveal();
+    </script>
+  </body>
+</html>
