@@ -375,10 +375,56 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
         bottom: 26px;
         transform: translateX(-50%);
         z-index: 6;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+      .scroll-hint-label {
         font-size: 11px;
         letter-spacing: 0.14em;
         text-transform: uppercase;
         color: rgba(255, 255, 255, 0.65);
+      }
+      .scroll-hint-track {
+        position: relative;
+        width: 1px;
+        height: 28px;
+        background: rgba(255, 255, 255, 0.25);
+      }
+      .scroll-hint-dot {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        width: 5px;
+        height: 5px;
+        margin-left: -2px;
+        border-radius: 50%;
+        background: #fff;
+        animation: scroll-hint-travel 1.8s ease-in-out infinite;
+      }
+      @keyframes scroll-hint-travel {
+        0% {
+          top: 0;
+          opacity: 0;
+        }
+        15% {
+          opacity: 1;
+        }
+        85% {
+          opacity: 1;
+        }
+        100% {
+          top: 22px;
+          opacity: 0;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .scroll-hint-dot {
+          animation: none;
+          top: 10px;
+          opacity: 0.8;
+        }
       }
 
       /* ---------- Intro (navy) ---------- */
@@ -645,7 +691,6 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
           <a href="#werk">Werk</a>
           <a href="#team">Team</a>
         </div>
-        <a class="btn-primary" href="#contact">{copy.nav.cta}</a>
       </div>
     </nav>
 
@@ -677,7 +722,12 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
           <img src="/images/hero-facades.webp" alt="" width="1080" height="690" fetchpriority="high" />
         </div>
 
-        <span class="scroll-hint" data-hero-hint>Scroll</span>
+        <div class="scroll-hint" data-hero-hint>
+          <span class="scroll-hint-label">Scroll</span>
+          <span class="scroll-hint-track" aria-hidden="true">
+            <span class="scroll-hint-dot"></span>
+          </span>
+        </div>
       </div>
     </header>
 

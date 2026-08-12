@@ -20,7 +20,7 @@ export const copy = {
 
   hero: {
     heading: "Wij bouwen de site die je bedrijf nog niet heeft.",
-    sub: "Strategie, design en development in één traject — van eerste gesprek tot livegang.",
+    sub: "Eén zzp'er of dertig medewerkers, welke branche dan ook: je krijgt hetzelfde traject.",
     cta: "Plan een gesprek",
   },
 
