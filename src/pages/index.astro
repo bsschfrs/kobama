@@ -212,100 +212,82 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
       }
 
       /* headline block */
-      .layer-copy {
+      /* Headline and mockup share one normal-flow column (not two
+         separately-positioned absolute layers): the browser stacks and
+         centers them, so there's no vh-based math to keep in sync across
+         breakpoints. Each keeps its own data-layer for the scroll parallax. */
+      .layer-content {
         z-index: 3;
         display: flex;
         align-items: flex-start;
-        padding-top: clamp(120px, 17vh, 210px);
+        justify-content: center;
+        padding-top: clamp(120px, 15vh, 190px);
         pointer-events: none;
       }
-      .layer-copy .wrap {
+      .layer-content .wrap {
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
       .hero-copy {
         pointer-events: auto;
-        max-width: 490px;
+        max-width: min(90vw, 620px);
+        text-align: center;
       }
       .hero-copy h1 {
         color: #0d1424;
       }
+      /* Desktop-only: bigger, slightly heavier heading with room to sit on
+         one line. Mobile keeps its own smaller, bolder override below. */
+      @media (min-width: 1024px) {
+        .hero-copy {
+          max-width: min(92vw, 1040px);
+        }
+        .hero-copy h1 {
+          font-size: clamp(40px, 3.6vw, 62px);
+          font-weight: 600;
+          white-space: nowrap;
+        }
+      }
       .hero-copy p {
         margin-top: 20px;
+        margin-inline: auto;
         max-width: 430px;
+        font-size: 14px;
+        line-height: 1.5;
         /* 5.2:1 on the #9399BB sky — #2c3348 measured 4.49 and missed AA */
         color: #232838;
-      }
-      .hero-copy .btn-primary {
-        margin-top: 34px;
-        border-color: #0d1424;
-        color: #0d1424;
-      }
-      .hero-copy .btn-primary:hover,
-      .hero-copy .btn-primary:focus-visible {
-        background: #0d1424;
-        color: #fff;
-      }
-
-      /* floating site mockup — sits right of the headline, its lower third
-         passing behind the gable row as it rises */
-      .layer-mockup {
-        z-index: 4;
-        display: flex;
-        align-items: center;
-        pointer-events: none;
-      }
-      .layer-mockup .wrap {
-        width: 100%;
-        display: grid;
-        grid-template-columns: 0.42fr 0.58fr;
-        align-items: center;
       }
       /* --mockup-fs must always equal the holder's rendered width / 62 —
          that ratio is what keeps the mockup proportional. */
       .mockup-holder {
-        grid-column: 2;
-        width: 620px;
-        max-width: 100%;
-        margin-left: auto;
-        --mockup-fs: 10px;
-        transform: translateY(-1vh);
-      }
-      @media (max-width: 1240px) {
-        .mockup-holder {
-          width: 46vw;
-          --mockup-fs: 0.742vw;
-        }
+        width: min(50vw, 460px);
+        margin-top: 40px;
+        --mockup-fs: calc(min(50vw, 460px) / 62);
       }
       @media (max-width: 900px) {
-        .layer-mockup {
-          align-items: flex-end;
-        }
-        .layer-mockup .wrap {
-          grid-template-columns: 1fr;
-        }
         .mockup-holder {
-          grid-column: 1;
-          width: 380px;
-          --mockup-fs: 6.13px;
-          margin-inline: auto;
-          transform: translateY(-16vh);
+          width: min(64vw, 360px);
+          --mockup-fs: calc(min(64vw, 360px) / 62);
+          margin-top: 32px;
         }
       }
-      /* the headline, subline and CTA always win over the mockup */
       @media (max-width: 640px) {
-        .mockup-holder {
-          width: 280px;
-          --mockup-fs: 4.52px;
-          transform: translateY(-19vh);
-        }
-        .layer-copy {
+        .layer-content {
           padding-top: clamp(104px, 13vh, 150px);
+        }
+        .hero-copy h1 {
+          font-size: 28px;
+          font-weight: 700;
         }
         .hero-copy p {
           margin-top: 14px;
         }
-        .hero-copy .btn-primary {
-          margin-top: 22px;
+        .mockup-holder {
+          width: min(76vw, 300px);
+          --mockup-fs: calc(min(76vw, 300px) / 62);
+          margin-top: 26px;
         }
       }
 
@@ -667,19 +649,13 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
           <img src="/images/hero-sky.webp" alt="" width="1080" height="1400" fetchpriority="high" />
         </div>
 
-        <div class="layer layer-copy" data-layer="copy">
+        <div class="layer layer-content">
           <div class="wrap">
-            <div class="hero-copy">
+            <div class="hero-copy" data-layer="copy">
               <h1>{copy.hero.heading}</h1>
               <p>{copy.hero.sub}</p>
-              <a class="btn-primary" href="#contact">{copy.hero.cta}</a>
             </div>
-          </div>
-        </div>
-
-        <div class="layer layer-mockup" data-layer="mockup">
-          <div class="wrap">
-            <div class="mockup-holder">
+            <div class="mockup-holder" data-layer="mockup">
               <SiteMockup />
             </div>
           </div>

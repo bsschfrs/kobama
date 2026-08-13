@@ -98,7 +98,9 @@ niet de "gewone" AI-blauwtinten zijn.
 
 Inter (400/500) voor alles, **één uitzondering**: Source Serif 4 italic (400)
 voor precies één nadrukwoord per pagina (nu: "zelf" in de intro-sectie). Geen
-bold koppen.
+bold koppen, met **één uitzondering**: de hero-h1 is op mobiel (≤640px)
+30px/700 in plaats van 500, zodat de kop zich duidelijker onderscheidt van de
+kleinere (14px) subregel op dat formaat. Op desktop blijft h1 ongewijzigd.
 
 | Rol | Grootte | Regelhoogte | Letterspacing |
 |---|---|---|---|

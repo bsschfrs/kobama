@@ -4,20 +4,27 @@
 // Text is deliberately greeked except one real headline — nothing here should
 // read as a claim about work KOBAMA has shipped.
 //
+// The mockup's own CTA (`.m-button`) is the site's real "Plan een gesprek"
+// link, not decoration: it's the literal proof of the pitch (a KOBAMA site
+// ships with a working CTA) and doubles as the hero's only button. Every
+// other part of the mockup stays `aria-hidden` individually so this one real
+// link isn't buried under a blanket aria-hidden on the whole component.
+//
 // Scaling: every internal dimension is in `em` against the mockup's own
 // font-size, so the whole thing scales as one object. The parent sets
 // `--mockup-fs` = renderedWidth / 62 (the design is 62em wide, 620px @ 10px).
 // Container queries would be the natural tool here, but Astro's Lightning CSS
 // pass drops `container-type` at this project's browser target.
+import { copy } from "../content/copy";
 ---
 
-<div class="mockup" aria-hidden="true">
-  <div class="mockup-chrome">
+<div class="mockup">
+  <div class="mockup-chrome" aria-hidden="true">
     <span class="dot"></span><span class="dot"></span><span class="dot"></span>
     <div class="mockup-url"></div>
   </div>
   <div class="mockup-body">
-    <div class="mockup-nav">
+    <div class="mockup-nav" aria-hidden="true">
       <div class="m-brand"></div>
       <div class="m-links">
         <span></span><span></span><span></span>
@@ -26,16 +33,16 @@
     </div>
 
     <div class="mockup-hero">
-      <p class="m-headline">Een site die je bedrijf vooruit helpt.</p>
-      <div class="m-sub">
+      <p class="m-headline" aria-hidden="true">Een site die je bedrijf vooruit helpt.</p>
+      <div class="m-sub" aria-hidden="true">
         <span></span><span></span>
       </div>
-      <div class="m-button"></div>
+      <a class="m-button" href="#contact" data-layer="cta">{copy.hero.cta}</a>
     </div>
 
-    <div class="mockup-figure"></div>
+    <div class="mockup-figure" aria-hidden="true"></div>
 
-    <div class="mockup-cols">
+    <div class="mockup-cols" aria-hidden="true">
       <div class="m-col"><i></i><span></span><span></span></div>
       <div class="m-col"><i></i><span></span><span></span></div>
       <div class="m-col"><i></i><span></span><span></span></div>
@@ -148,10 +155,24 @@
     width: 62%;
   }
   .m-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: 10.4em;
     height: 2.6em;
     border-radius: 0.3em;
     background: #111111;
+    color: #fff;
+    font-family: "Inter", system-ui, sans-serif;
+    font-size: 0.85em;
+    font-weight: 500;
+    text-decoration: none;
+    pointer-events: auto;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .m-button:hover,
+  .m-button:focus-visible {
+    background: #2c2c2c;
   }
 
   .mockup-figure {
