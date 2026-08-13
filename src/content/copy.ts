@@ -16,6 +16,13 @@ export const copy = {
   nav: {
     brand: "KOBAMA",
     cta: "Plan een gesprek",
+    links: [
+      { label: "Transformatie", href: "#transformatie" },
+      { label: "Werkwijze", href: "#werkwijze" },
+      { label: "Werk", href: "#werk" },
+      { label: "Team", href: "#team" },
+      { label: "Contact", href: "#contact" },
+    ],
   },
 
   hero: {

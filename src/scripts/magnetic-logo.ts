@@ -1,7 +1,10 @@
-// Nudges the nav logo a few pixels toward the cursor whenever it's nearby,
-// as if it's inviting the click. Settles back with a CSS transition once the
-// cursor leaves the radius, so this only needs a plain mousemove listener,
-// no per-frame loop.
+// Sticky-cursor logo: within a wide catch radius the nav mark tracks the
+// cursor closely (like it's glued to it, up to a max reach), and once the
+// cursor leaves that radius it lets go and springs back to rest with a
+// couple of frames of overshoot — the "bounce" the brief asked for.
+//
+// Runs its own requestAnimationFrame spring instead of a CSS transition,
+// since a snap-back transition can't overshoot past its resting position.
 //
 // Desktop-with-a-mouse only (no proximity concept on touch) and off under
 // prefers-reduced-motion, matching cursor.ts.
@@ -13,28 +16,75 @@ export function initMagneticLogo(): void {
   const logo = document.querySelector<HTMLElement>("[data-magnetic]");
   if (!logo) return;
 
-  const radius = 90;
-  const maxPull = 12;
+  const radius = 170; // catch area the mark starts reaching for the cursor within
+  const stickMax = 30; // how far it can actually travel — the "stuck to the cursor" cap
+  const stiffness = 0.16;
+  const friction = 0.72; // < 1 so the release has a little spring overshoot (the "bounce")
+  const settleThreshold = 0.03;
 
-  window.addEventListener("mousemove", (e) => {
+  let targetX = 0;
+  let targetY = 0;
+  let x = 0;
+  let y = 0;
+  let vx = 0;
+  let vy = 0;
+  let raf = 0;
+
+  function tick() {
+    const ax = (targetX - x) * stiffness;
+    const ay = (targetY - y) * stiffness;
+    vx = (vx + ax) * friction;
+    vy = (vy + ay) * friction;
+    x += vx;
+    y += vy;
+    logo.style.transform = `translate(${x.toFixed(2)}px, ${y.toFixed(2)}px)`;
+
+    const atRest =
+      Math.abs(vx) < settleThreshold &&
+      Math.abs(vy) < settleThreshold &&
+      Math.abs(targetX - x) < settleThreshold &&
+      Math.abs(targetY - y) < settleThreshold;
+
+    if (atRest) {
+      x = targetX;
+      y = targetY;
+      logo.style.transform = targetX === 0 && targetY === 0 ? "" : `translate(${x}px, ${y}px)`;
+      raf = 0;
+      return;
+    }
+    raf = requestAnimationFrame(tick);
+  }
+
+  function ensureLoop() {
+    if (raf === 0) raf = requestAnimationFrame(tick);
+  }
+
+  function updateTarget(clientX: number, clientY: number) {
     const rect = logo.getBoundingClientRect();
     const cx = rect.left + rect.width / 2;
     const cy = rect.top + rect.height / 2;
-    const dx = e.clientX - cx;
-    const dy = e.clientY - cy;
+    const dx = clientX - cx;
+    const dy = clientY - cy;
     const distance = Math.hypot(dx, dy);
 
     if (distance > 0 && distance < radius) {
-      // Strength falls off with distance (1 at the centre, 0 at the edge of
-      // the radius); direction is the unit vector toward the cursor. Scaling
-      // by raw dx/dy here instead would make the pull grow with distance
-      // instead of shrink, since dx grows even as the falloff factor drops.
-      const strength = (1 - distance / radius) * maxPull;
-      const tx = (dx / distance) * strength;
-      const ty = (dy / distance) * strength;
-      logo.style.transform = `translate(${tx}px, ${ty}px)`;
+      // Full 1:1 pull near the mark (sticks to the cursor); capped at
+      // stickMax so it can't be dragged further than that even right up
+      // against the edge of the radius.
+      const reach = Math.min(distance, stickMax) / distance;
+      targetX = dx * reach;
+      targetY = dy * reach;
     } else {
-      logo.style.transform = "";
+      targetX = 0;
+      targetY = 0;
     }
+    ensureLoop();
+  }
+
+  window.addEventListener("mousemove", (e) => updateTarget(e.clientX, e.clientY));
+  window.addEventListener("mouseleave", () => {
+    targetX = 0;
+    targetY = 0;
+    ensureLoop();
   });
 }
