@@ -119,10 +119,11 @@ koppen.
 
 ### Vorm
 
-- **Knoppen zijn scherpe rechthoeken, geen pill.** `border: 1px solid`, hoogte
-  48px, `padding: 0 30px`, 13px label. Hover: vult met `--fg`, tekst wit.
-  Op de foto (nav, hero) krijgt de knop een donkere variant (`#0D1424`) voor
-  contrast — zie `.nav:not(.is-solid)` en `.hero-copy .btn-primary` in de code.
+- **Knoppen hebben een lichte afronding, geen pill.** `border: 1px solid`,
+  `border-radius: 6px`, hoogte 48px, `padding: 0 30px`, 13px label. Hover:
+  vult met `--fg`, tekst wit. Op de foto (nav, hero) krijgt de knop een
+  donkere variant (`#0D1424`) voor contrast — zie `.nav:not(.is-solid)` en
+  `.hero-copy .btn-primary` in de code.
 - Placeholder-elementen (cases, portret, logo-chips): `border: 1px dashed
   var(--hairline)` — bewust duidelijk "nog niet echt", nooit stilletjes
   ingevuld met verzonnen content.

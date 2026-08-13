@@ -105,6 +105,7 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
         height: 48px;
         padding: 0 30px;
         border: 1px solid var(--fg);
+        border-radius: 6px;
         color: var(--fg);
         font-size: 13px;
         font-weight: 500;
@@ -148,45 +149,16 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
       .nav-inner {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
         height: 76px;
       }
       .brand {
         font-weight: 500;
         letter-spacing: 0.01em;
       }
-      .nav-links {
-        display: none;
-        gap: 30px;
-        font-size: 14px;
-        color: var(--muted);
-      }
-      .nav-links a:hover {
-        color: var(--fg);
-      }
       /* over the photograph the nav has to carry its own contrast */
       .nav:not(.is-solid) .brand {
         color: #0d1424;
-      }
-      .nav:not(.is-solid) .nav-links a {
-        color: #2c3348;
-      }
-      .nav:not(.is-solid) .nav-links a:hover {
-        color: #0d1424;
-      }
-      .nav:not(.is-solid) .btn-primary {
-        border-color: #0d1424;
-        color: #0d1424;
-      }
-      .nav:not(.is-solid) .btn-primary:hover,
-      .nav:not(.is-solid) .btn-primary:focus-visible {
-        background: #0d1424;
-        color: #fff;
-      }
-      @media (min-width: 880px) {
-        .nav-links {
-          display: flex;
-        }
       }
 
       /* ---------- Cinematic hero ---------- */
@@ -686,11 +658,6 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
     <nav class="nav" data-nav>
       <div class="wrap nav-inner">
         <span class="brand">{copy.nav.brand}</span>
-        <div class="nav-links">
-          <a href="#werkwijze">Werkwijze</a>
-          <a href="#werk">Werk</a>
-          <a href="#team">Team</a>
-        </div>
       </div>
     </nav>
 
