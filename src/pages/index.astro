@@ -152,13 +152,28 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
         justify-content: center;
         height: 76px;
       }
-      .brand {
-        font-weight: 500;
-        letter-spacing: 0.01em;
+      /* Magnetic nudge (JS, .brand-mark) and the 3D flip (CSS, .brand-mark-img)
+         live on different elements on purpose, so the two transforms never
+         fight each other. */
+      .brand-mark {
+        display: inline-block;
+        perspective: 500px;
+        transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
       }
-      /* over the photograph the nav has to carry its own contrast */
-      .nav:not(.is-solid) .brand {
-        color: #0d1424;
+      .brand-mark-img {
+        display: block;
+        height: 24px;
+        width: auto;
+      }
+      @keyframes brand-flip {
+        to {
+          transform: rotateY(360deg);
+        }
+      }
+      @media (prefers-reduced-motion: no-preference) {
+        .brand-mark:hover .brand-mark-img {
+          animation: brand-flip 0.9s cubic-bezier(0.4, 0.1, 0.2, 1);
+        }
       }
 
       /* ---------- Cinematic hero ---------- */
@@ -275,7 +290,11 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
       }
       @media (max-width: 640px) {
         .layer-content {
-          padding-top: clamp(104px, 13vh, 150px);
+          /* min() keeps this from eating too much of a short viewport: caps
+             against the facades layer's own top edge (46vh from the bottom
+             at this tier) minus the room the copy block + gap + mockup need,
+             instead of a fixed clamp ceiling tuned for one phone height. */
+          padding-top: clamp(48px, min(12vh, 54vh - 280px), 150px);
         }
         .hero-copy h1 {
           font-size: 28px;
@@ -287,7 +306,7 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
         .mockup-holder {
           width: min(76vw, 300px);
           --mockup-fs: calc(min(76vw, 300px) / 62);
-          margin-top: 26px;
+          margin-top: clamp(14px, 5vh, 40px);
         }
       }
 
@@ -634,12 +653,77 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
         color: var(--muted);
         font-size: 13px;
       }
+
+      /* ---------- Custom cursor ---------- */
+      /* Only switched on by cursor.ts once it confirms a fine pointer and no
+         reduced-motion preference, so a script failure just leaves the
+         native cursor visible instead of hiding it with nothing to replace. */
+      .has-custom-cursor,
+      .has-custom-cursor a,
+      .has-custom-cursor button {
+        cursor: none;
+      }
+      .cursor-dot,
+      .cursor-ring {
+        position: fixed;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        pointer-events: none;
+        z-index: 100;
+        border-radius: 50%;
+        will-change: transform;
+      }
+      .cursor-dot {
+        width: 8px;
+        height: 8px;
+        background: #fff;
+        mix-blend-mode: difference;
+        transition: transform 0.15s ease-out, opacity 0.2s ease;
+      }
+      .cursor-ring {
+        width: 38px;
+        height: 38px;
+        border: 1px solid #fff;
+        mix-blend-mode: difference;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.2s ease;
+      }
+      .cursor-arrow {
+        width: 13px;
+        height: 9px;
+        color: #fff;
+        mix-blend-mode: difference;
+        opacity: 0;
+        transform: scale(0.6);
+        transition: opacity 0.2s ease, transform 0.2s ease;
+      }
+      .cursor-ring.is-hover .cursor-arrow {
+        opacity: 1;
+        transform: scale(1);
+      }
+      @media (pointer: coarse) {
+        .cursor-dot,
+        .cursor-ring {
+          display: none;
+        }
+      }
     </style>
   </head>
   <body>
     <nav class="nav" data-nav>
       <div class="wrap nav-inner">
-        <span class="brand">{copy.nav.brand}</span>
+        <a href="#" class="brand-mark" data-magnetic aria-label={copy.nav.brand}>
+          <img
+            src="/images/logo-kobama.webp"
+            alt={copy.nav.brand}
+            class="brand-mark-img"
+            width="480"
+            height="125"
+          />
+        </a>
       </div>
     </nav>
 
@@ -798,13 +882,30 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
       </div>
     </footer>
 
+    <div class="cursor-dot" data-cursor-dot aria-hidden="true"></div>
+    <div class="cursor-ring" data-cursor-ring aria-hidden="true">
+      <svg class="cursor-arrow" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M0.5 5H13M13 5L9 1M13 5L9 9"
+          stroke="currentColor"
+          stroke-width="1.3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </div>
+
     <script>
       import { initScrollTransform } from "../scripts/scroll-transform";
       import { initReveal } from "../scripts/reveal";
       import { initCinematicHero } from "../scripts/hero-cinematic";
+      import { initCustomCursor } from "../scripts/cursor";
+      import { initMagneticLogo } from "../scripts/magnetic-logo";
       initCinematicHero();
       initScrollTransform();
       initReveal();
+      initCustomCursor();
+      initMagneticLogo();
     </script>
   </body>
 </html>
