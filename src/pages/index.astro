@@ -8,8 +8,6 @@ import "../styles/reset.css";
 import { copy } from "../content/copy";
 import SiteMockup from "../components/SiteMockup.astro";
 import LogoIntro from "../components/LogoIntro.astro";
-
-const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
 ---
 
 <html lang="nl">
@@ -617,49 +615,32 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
         color: rgba(255, 255, 255, 0.6);
         letter-spacing: -0.01em;
       }
-      /* navy → white handoff, so the intro doesn't end on a hard edge either */
+      /* navy → white handoff, so the intro doesn't end on a hard edge
+         either. A plain 2-stop alpha ramp reads as a visible seam here —
+         linear alpha over a dark fill isn't perceived as linear
+         brightness, it looks like it "jumps" through the middle. These
+         stops approximate an eased curve instead (near-flat at both
+         ends, doing most of the work in the middle third), and the taller
+         band gives it room to actually read as gradual rather than a
+         quick wash. */
       .intro::after {
         content: "";
         position: absolute;
         left: 0;
         right: 0;
         bottom: 0;
-        height: 140px;
-        background: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--bg));
+        height: 320px;
+        background: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0.02) 20%,
+          rgba(255, 255, 255, 0.1) 38%,
+          rgba(255, 255, 255, 0.3) 53%,
+          rgba(255, 255, 255, 0.6) 68%,
+          rgba(255, 255, 255, 0.87) 84%,
+          var(--bg) 100%
+        );
         pointer-events: none;
-      }
-
-      /* ---------- Logos ---------- */
-      .logos {
-        display: flex;
-        gap: clamp(24px, 4vw, 56px);
-        align-items: center;
-        flex-wrap: wrap;
-        padding-block: 40px;
-        border-bottom: 1px solid var(--hairline);
-      }
-      .logos-label {
-        font-size: 12px;
-        color: var(--muted);
-        width: 100%;
-        margin-bottom: 4px;
-      }
-      /* Chips pop in one after another (transition-delay set per-chip
-         inline, see the .map() in the markup) rather than sliding —
-         reads as "logos loading in", distinct from the werkwijze steps'
-         vertical rise below. */
-      .logo-chip {
-        width: 92px;
-        height: 26px;
-        border-radius: 6px;
-        background: var(--hairline);
-        opacity: 0;
-        scale: 0.85;
-        transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), scale 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-      .logos.is-revealed .logo-chip {
-        opacity: 0.65;
-        scale: 1;
       }
 
       section {
@@ -667,28 +648,72 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
       }
 
       /* ---------- Transformatie ---------- */
+      /* Height here is scrub distance (progress 0→1) + the sticky stage's
+         own height — a sticky element always needs its own height's worth
+         of scroll to unpin and clear the viewport after the scrub
+         finishes, no matter how tall this wrapper is. That's exactly why
+         .transform-sticky is capped below instead of left at a full
+         100dvh: shrinking that unpin distance is the only lever that
+         actually shortens the "wipe already finished, still scrolling"
+         stretch before Werkwijze — a taller wrapper here just delays it,
+         doesn't remove it (scroll-transform.ts measures the sticky child's
+         real height, so this stays correct whatever it resolves to).
+         Scrub trimmed to 70vh and the cap to 720px (were 90vh/800px) to
+         keep the whole section quick to get through — see the heading
+         and spacing changes below for where that extra headroom came from. */
       .transform-wrap {
-        height: 250vh;
+        height: calc(70vh + min(calc(100dvh - 92px), 720px));
         position: relative;
         --progress: 0;
       }
       .transform-sticky {
         position: sticky;
-        top: 0;
-        height: 100dvh;
+        /* top:0 pinned this flush with the viewport top — directly under
+           the fixed nav (76px tall, z-index:60, no stacking context on
+           this element to paint above it), so the heading was rendering
+           hidden behind it the whole time it was pinned. 92px matches the
+           nav-menu-panel's own "just under the nav" offset elsewhere in
+           this file. The height formula subtracts that same 92px so the
+           box still can't overflow past the viewport bottom on shorter
+           screens — it's not just a flat 100dvh anymore. */
+        top: 92px;
+        height: min(calc(100dvh - 92px), 720px);
         display: flex;
         flex-direction: column;
         justify-content: center;
       }
+      /* .wrap has no explicit width — normally harmless, since a block
+         box fills its container by default. But as a flex item here
+         (.transform-sticky is display:flex) its margin-inline:auto
+         becomes real auto cross-axis margins, and flexbox centers auto-
+         margined items in their *content* size instead of stretching
+         them — .transform-stage was rendering at roughly a third of its
+         1080px max-width because of it. Same fix .layer-content .wrap
+         already needed for the same reason. */
+      .transform-sticky .wrap {
+        width: 100%;
+      }
+      /* Now inside the pinned view, above the stage, instead of in normal
+         flow before it — so it's still on screen for the whole wipe
+         instead of having scrolled away before the pin even starts,
+         same as the caption already was. Tightened margin (was 30px)
+         since it now has to share the fixed sticky height with the stage
+         and caption. */
       .transform-heading {
-        margin-bottom: 30px;
+        margin-bottom: 12px;
       }
       .transform-stage {
         position: relative;
         width: 100%;
-        max-width: 1080px;
+        /* 1000px, down from 1080 — barely visible, but combined with the
+           92px top offset above, it's what keeps this fitting comfortably
+           on ~800px-tall viewports (common with browser chrome eating
+           into the screen) instead of just barely fitting on tall ones. */
+        max-width: 1000px;
         margin-inline: auto;
-        aspect-ratio: 16 / 10;
+        /* 16:9 instead of 16:10 — same visual width, less height, freeing
+           up room for the heading without growing the sticky cap. */
+        aspect-ratio: 16 / 9;
         border: 1px solid var(--fg);
         border-radius: 12px;
         overflow: hidden;
@@ -721,13 +746,21 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
         font-size: 12px;
       }
       .transform-caption {
-        margin-top: 20px;
+        margin-top: 10px;
         text-align: center;
         color: var(--muted);
         font-size: 14px;
       }
 
       /* ---------- Werkwijze ---------- */
+      /* Scoped to just this boundary — the generic `section` rule below
+         gives every section top+bottom padding, which stacked into a very
+         wide gap specifically between the last step and "Wie het maakt."
+         Halving it here only, rather than lowering the shared rule, keeps
+         every other section-to-section gap on the page unchanged. */
+      #werkwijze {
+        padding-bottom: clamp(40px, 8vh, 80px);
+      }
       /* Each step reveals on its own as it scrolls into view (reveal.ts
          observes every [data-reveal] element independently, so this needs
          no extra JS) — the hairline above it draws in first, left to
@@ -800,45 +833,12 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
         }
       }
 
-      /* ---------- Werk ---------- */
-      /* Cases slide in sideways instead of rising vertically like the
-         werkwijze steps — alternating left/right per case reads as two
-         distinct pieces of work arriving, not one repeated template. */
-      .case {
-        border: 1px dashed var(--hairline);
-        border-radius: 12px;
-        padding: clamp(28px, 5vw, 56px);
-        min-height: 42vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        opacity: 0;
-        transform: translateX(-32px);
-        transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-      .case:nth-of-type(even) {
-        transform: translateX(32px);
-      }
-      .case.is-revealed {
-        opacity: 1;
-        transform: translateX(0);
-      }
-      .case + .case {
-        margin-top: 28px;
-      }
-      .case h3 {
-        font-size: clamp(21px, 2.2vw, 28px);
-        margin-bottom: 10px;
-      }
-      .case p {
-        color: var(--muted);
-        max-width: 560px;
-      }
-      .case p + p {
-        margin-top: 6px;
-      }
-
       /* ---------- Team ---------- */
+      /* Pairs with #werkwijze's padding-bottom override above — same
+         reasoning, just the other side of that one gap. */
+      #team {
+        padding-top: clamp(40px, 8vh, 80px);
+      }
       /* Three individual founders now, not one shared portrait+bio block.
          Same wipe-then-text-follows idea as before, but each person's
          --stagger (set inline per card, see the .map() in the markup)
@@ -882,13 +882,6 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
         opacity: 1;
         transform: translateY(0);
       }
-      .price-line {
-        margin-top: 40px;
-        padding-top: 22px;
-        border-top: 1px solid var(--hairline);
-        color: var(--fg);
-        font-size: 15px;
-      }
       @media (max-width: 640px) {
         .people-grid {
           grid-template-columns: 1fr;
@@ -929,6 +922,23 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
           background 0.2s ease, color 0.2s ease;
       }
       .closing.is-revealed .btn-primary {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      /* Reassurance note under the CTA — italic and a size down so it
+         reads as a quiet aside, not a second headline. Trails in after
+         the button (0.4s, later than the button's own 0.25s) so the
+         order of arrival matches the order you'd actually read them. */
+      .closing-note {
+        margin-top: 14px;
+        font-style: italic;
+        font-size: 13px;
+        color: var(--muted);
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.4s, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.4s;
+      }
+      .closing.is-revealed .closing-note {
         opacity: 1;
         transform: translateY(0);
       }
@@ -1131,22 +1141,11 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
         </div>
       </section>
 
-      <div class="wrap">
-        <div class="logos" data-reveal>
-          <span class="logos-label">Gewerkt voor: logo's volgen zodra de eerste projecten zijn opgeleverd</span>
-          {logoPlaceholders.map((_, i) => (
-            <div class="logo-chip" role="img" aria-label="Klantlogo volgt" style={`transition-delay: ${i * 0.08}s`}></div>
-          ))}
-        </div>
-      </div>
-
       <section id="transformatie">
-        <div class="wrap">
-          <h2 class="transform-heading">{copy.transformatie.heading}</h2>
-        </div>
         <div class="transform-wrap" data-scroll-transform>
           <div class="transform-sticky">
             <div class="wrap">
+              <h2 class="transform-heading">{copy.transformatie.heading}</h2>
               <div class="transform-stage">
                 <div class="transform-panel before">
                   <span class="transform-tag">{copy.transformatie.before.label}</span>
@@ -1186,19 +1185,6 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
         </div>
       </section>
 
-      <section id="werk">
-        <div class="wrap">
-          <h2 style="margin-bottom: 36px;">{copy.work.heading}</h2>
-          {copy.work.cases.map((c) => (
-            <div class="case" data-reveal>
-              <h3>{c.name}</h3>
-              <p>{c.problem}</p>
-              <p>{c.outcome}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       <section id="team">
         <div class="wrap">
           <h2 style="margin-bottom: 36px;">{copy.people.heading}</h2>
@@ -1215,7 +1201,6 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
               </div>
             ))}
           </div>
-          <p class="price-line">{copy.people.priceLine}</p>
         </div>
       </section>
 
@@ -1223,6 +1208,7 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
         <div class="wrap">
           <h2>{copy.closing.heading}</h2>
           <a class="btn-primary" href="mailto:kobama.info@gmail.com">{copy.closing.cta}</a>
+          <p class="closing-note">{copy.closing.priceLine}</p>
         </div>
       </section>
     </main>

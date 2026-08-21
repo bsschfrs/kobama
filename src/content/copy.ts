@@ -19,7 +19,6 @@ export const copy = {
     links: [
       { label: "Transformatie", href: "#transformatie" },
       { label: "Werkwijze", href: "#werkwijze" },
-      { label: "Werk", href: "#werk" },
       { label: "Team", href: "#team" },
       { label: "Contact", href: "#contact" },
     ],
@@ -66,24 +65,6 @@ export const copy = {
     ],
   },
 
-  work: {
-    heading: "Recent werk.",
-    cases: [
-      {
-        isPlaceholder: true,
-        name: "[Klantnaam volgt]",
-        problem: "[Wat het probleem was: volgt zodra het eerste project is opgeleverd.]",
-        outcome: "[Wat er gebeurde: volgt.]",
-      },
-      {
-        isPlaceholder: true,
-        name: "[Klantnaam volgt]",
-        problem: "[Wat het probleem was: volgt zodra het eerste project is opgeleverd.]",
-        outcome: "[Wat er gebeurde: volgt.]",
-      },
-    ],
-  },
-
   people: {
     heading: "Wie het maakt.",
     members: [
@@ -91,12 +72,12 @@ export const copy = {
       { name: "Bas Schaefers", bio: "[Bio volgt]", isPlaceholder: true },
       { name: "Mats Jongmans", bio: "[Bio volgt]", isPlaceholder: true },
     ],
-    priceLine: "Een eerste gesprek is vrijblijvend en kost niets. We kijken samen of het klikt.",
   },
 
   closing: {
     heading: "Klaar voor een site die klopt?",
     cta: "Plan een gesprek",
+    priceLine: "Een eerste gesprek is vrijblijvend en kost niets. We kijken samen of het klikt.",
   },
 
   footer: {

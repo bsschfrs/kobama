@@ -19,8 +19,17 @@ export function initScrollTransform(): void {
   function update() {
     ticking = false;
     for (const el of containers) {
+      // The scrub distance is the container's own height minus its sticky
+      // child's height, not the viewport height — a sticky element only
+      // stays pinned for exactly that long regardless of how tall the
+      // viewport is. Measuring the child directly (rather than assuming
+      // it's 100dvh) keeps progress reaching 1 exactly when the pin
+      // naturally ends, however tall the sticky child actually renders —
+      // see the min(100dvh, 800px) cap on .transform-sticky.
+      const sticky = el.querySelector<HTMLElement>(":scope > *");
+      const stickyHeight = sticky ? sticky.getBoundingClientRect().height : window.innerHeight;
       const rect = el.getBoundingClientRect();
-      const total = rect.height - window.innerHeight;
+      const total = rect.height - stickyHeight;
       const scrolled = -rect.top;
       const progress = total > 0 ? Math.min(1, Math.max(0, scrolled / total)) : 0;
       el.style.setProperty("--progress", progress.toFixed(4));
