@@ -582,7 +582,11 @@ import LogoIntro from "../components/LogoIntro.astro";
       .intro {
         background: var(--navy);
         color: rgba(255, 255, 255, 0.9);
-        padding-block: clamp(90px, 16vh, 180px) clamp(120px, 20vh, 220px);
+        /* Bottom value matches .intro::after's height exactly below — the
+           gradient fades through this padding, so if the two drift apart
+           it either overlaps real content (padding too short for the
+           gradient) or leaves a flat unfaded strip (padding too tall). */
+        padding-block: clamp(90px, 16vh, 180px) clamp(100px, 16vh, 180px);
         position: relative;
       }
       .intro .statement-text {
@@ -629,7 +633,11 @@ import LogoIntro from "../components/LogoIntro.astro";
         left: 0;
         right: 0;
         bottom: 0;
-        height: 320px;
+        /* Matches .intro's own bottom padding above exactly — was a fixed
+           320px regardless of viewport, which on mobile was taller than
+           that padding and bled the fade up into the real intro-meta
+           content instead of just softening blank space underneath it. */
+        height: clamp(100px, 16vh, 180px);
         background: linear-gradient(
           to bottom,
           rgba(255, 255, 255, 0) 0%,
@@ -645,6 +653,25 @@ import LogoIntro from "../components/LogoIntro.astro";
 
       section {
         padding-block: clamp(80px, 15vh, 150px);
+      }
+      /* Scoped smaller than the generic rule above — stacked with the
+         intro's own bottom padding + gradient right before it, the two
+         full section paddings made the gap before "Zo ziet een upgrade
+         eruit" drag, especially on mobile where vh units don't shrink
+         with the (much smaller) viewport the way this needed. */
+      #transformatie {
+        padding-top: clamp(60px, 10vh, 110px);
+      }
+      @media (max-width: 640px) {
+        .intro {
+          padding-bottom: clamp(60px, 9vh, 90px);
+        }
+        .intro::after {
+          height: clamp(60px, 9vh, 90px);
+        }
+        #transformatie {
+          padding-top: clamp(36px, 6vh, 60px);
+        }
       }
 
       /* ---------- Transformatie ---------- */
@@ -681,6 +708,22 @@ import LogoIntro from "../components/LogoIntro.astro";
         display: flex;
         flex-direction: column;
         justify-content: center;
+      }
+      /* The 720px cap above assumes a desktop-width stage (1000px max,
+         16:9 → ~562px tall). On mobile the stage is only as wide as the
+         screen minus padding, so at 16:9 its content is often under
+         200px tall — centered in a box still capped at 720px, that left
+         a couple hundred px of dead space above and below it (the actual
+         source of the "not lekker lopen" gap, more than any section
+         padding). Capped much smaller here to match what mobile content
+         really needs. */
+      @media (max-width: 640px) {
+        .transform-wrap {
+          height: calc(70vh + min(calc(100dvh - 92px), 380px));
+        }
+        .transform-sticky {
+          height: min(calc(100dvh - 92px), 380px);
+        }
       }
       /* .wrap has no explicit width — normally harmless, since a block
          box fills its container by default. But as a flex item here
