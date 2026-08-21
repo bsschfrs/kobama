@@ -735,6 +735,70 @@ import LogoIntro from "../components/LogoIntro.astro";
         border-left: 2px solid var(--accent);
         clip-path: inset(0 calc((1 - var(--progress)) * 100%) 0 0);
       }
+      /* Nudges people to scroll rather than just glance at the static
+         "before" state and move on — same dot-in-a-track motif as the
+         hero's own scroll hint, recoloured for this light box instead of
+         invented fresh. Reads --progress directly (inherited from
+         .transform-wrap, which scroll-transform.ts already sets) so it
+         fades out the moment scrolling actually starts, no separate JS. */
+      .transform-hint {
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        pointer-events: none;
+        opacity: calc(1 - var(--progress, 0) * 8);
+        transition: opacity 0.3s ease;
+      }
+      .transform-hint-label {
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .transform-hint-track {
+        position: relative;
+        width: 1px;
+        height: 22px;
+        background: var(--hairline);
+      }
+      .transform-hint-dot {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        width: 4px;
+        height: 4px;
+        margin-left: -2px;
+        border-radius: 50%;
+        background: var(--accent);
+        animation: transform-hint-travel 1.8s ease-in-out infinite;
+      }
+      @keyframes transform-hint-travel {
+        0% {
+          top: 0;
+          opacity: 0;
+        }
+        15% {
+          opacity: 1;
+        }
+        85% {
+          opacity: 1;
+        }
+        100% {
+          top: 17px;
+          opacity: 0;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .transform-hint-dot {
+          animation: none;
+          top: 8px;
+          opacity: 0.8;
+        }
+      }
       .transform-tag {
         font-size: 12px;
         border: 1px solid var(--fg);
@@ -1154,6 +1218,12 @@ import LogoIntro from "../components/LogoIntro.astro";
                 <div class="transform-panel after">
                   <span class="transform-tag">{copy.transformatie.after.label}</span>
                   <span class="transform-note">{copy.transformatie.after.placeholderNote}</span>
+                </div>
+                <div class="transform-hint" aria-hidden="true">
+                  <span class="transform-hint-label">Scroll</span>
+                  <span class="transform-hint-track">
+                    <span class="transform-hint-dot"></span>
+                  </span>
                 </div>
               </div>
               <p class="transform-caption">{copy.transformatie.caption}</p>

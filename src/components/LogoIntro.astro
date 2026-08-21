@@ -181,6 +181,29 @@
     will-change: transform, opacity, filter;
   }
 
+  @media (max-width: 640px) {
+    /* Side-by-side doesn't fit a phone screen — the word's own minimum
+       width (14rem) is wider than the space left next to the mark once
+       its offset (4.5rem+) is subtracted from a ~23rem viewport, so it
+       was overflowing off the right edge and getting clipped by
+       .intro-overlay's overflow:hidden. Moved below the mark instead,
+       centered the same left/right + margin-inline:auto way .wrap
+       centers itself elsewhere — not `transform`, since the keyframes
+       above already own that property for the slide, and a static
+       translateX here would just get overwritten every frame instead of
+       composing with it. The slide animation itself is untouched: same
+       rightward translateX, just now relative to this position. */
+    .intro-word {
+      left: 0;
+      right: 0;
+      top: calc(50% + clamp(4.5rem, 20vw, 6.5rem));
+      bottom: auto;
+      margin-inline: auto;
+      margin-block: 0;
+      width: min(75vw, 20rem);
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .intro-overlay,
     .intro-mark,
