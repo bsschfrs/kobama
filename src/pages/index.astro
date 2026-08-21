@@ -4,10 +4,10 @@
 // dissolves into the navy intro section below.
 import "@fontsource/inter/400.css";
 import "@fontsource/inter/500.css";
-import "@fontsource/source-serif-4/400-italic.css";
 import "../styles/reset.css";
 import { copy } from "../content/copy";
 import SiteMockup from "../components/SiteMockup.astro";
+import LogoIntro from "../components/LogoIntro.astro";
 
 const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
 ---
@@ -24,8 +24,8 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
       THESIS: Calm reads as competence. One cinematic Amsterdam viewport, then
       extreme quiet — refusing the icon-grid landing page entirely.
       OWN-WORLD: White ground, near-black text, hairline rules, periwinkle
-      #9399BB sky and #111A2B canal navy drawn straight from the photograph,
-      one Source Serif 4 italic word as the only ornament.
+      #9399BB sky and #111A2B canal navy drawn straight from the photograph.
+      No italics, no em dashes in copy. Plain, declarative sentences only.
       STORY: An SMB owner sees a site rise out of an Amsterdam canal, believes
       this studio makes things that look better than what they have, books a call.
       FIRST VIEWPORT: Headline left over open sky; the site mockup floats centre
@@ -58,11 +58,6 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
         line-height: 24px;
         letter-spacing: -0.2px;
         overflow-x: hidden;
-      }
-      em {
-        font-family: "Source Serif 4", serif;
-        font-style: italic;
-        font-weight: 400;
       }
       .wrap {
         max-width: 1240px;
@@ -461,6 +456,7 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
       /* --mockup-fs must always equal the holder's rendered width / 62 —
          that ratio is what keeps the mockup proportional. */
       .mockup-holder {
+        pointer-events: auto;
         width: min(50vw, 460px);
         margin-top: 40px;
         --mockup-fs: calc(min(50vw, 460px) / 62);
@@ -648,11 +644,22 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
         width: 100%;
         margin-bottom: 4px;
       }
+      /* Chips pop in one after another (transition-delay set per-chip
+         inline, see the .map() in the markup) rather than sliding —
+         reads as "logos loading in", distinct from the werkwijze steps'
+         vertical rise below. */
       .logo-chip {
         width: 92px;
         height: 26px;
+        border-radius: 6px;
         background: var(--hairline);
+        opacity: 0;
+        scale: 0.85;
+        transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), scale 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .logos.is-revealed .logo-chip {
         opacity: 0.65;
+        scale: 1;
       }
 
       section {
@@ -683,6 +690,7 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
         margin-inline: auto;
         aspect-ratio: 16 / 10;
         border: 1px solid var(--fg);
+        border-radius: 12px;
         overflow: hidden;
       }
       .transform-panel {
@@ -705,6 +713,7 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
       .transform-tag {
         font-size: 12px;
         border: 1px solid var(--fg);
+        border-radius: 6px;
         padding: 5px 14px;
       }
       .transform-note {
@@ -719,12 +728,42 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
       }
 
       /* ---------- Werkwijze ---------- */
+      /* Each step reveals on its own as it scrolls into view (reveal.ts
+         observes every [data-reveal] element independently, so this needs
+         no extra JS) — the hairline above it draws in first, left to
+         right, then the content rises up underneath it. Two beats instead
+         of one flat fade, and it reuses the hairline motif that's already
+         the site's own structural language rather than inventing a new
+         effect. */
       .step {
+        position: relative;
         display: grid;
         grid-template-columns: 90px 1fr;
         gap: 28px;
         padding-block: 44px;
-        border-top: 1px solid var(--hairline);
+        opacity: 0;
+        transform: translateY(28px);
+        transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.15s,
+          transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
+      }
+      .step::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: var(--hairline);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .step.is-revealed {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .step.is-revealed::before {
+        transform: scaleX(1);
       }
       .step:last-child {
         border-bottom: 1px solid var(--hairline);
@@ -751,6 +790,7 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
         font-size: 12px;
         color: var(--muted);
         border: 1px solid var(--hairline);
+        border-radius: 6px;
         padding: 5px 12px;
       }
       @media (max-width: 640px) {
@@ -761,13 +801,27 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
       }
 
       /* ---------- Werk ---------- */
+      /* Cases slide in sideways instead of rising vertically like the
+         werkwijze steps — alternating left/right per case reads as two
+         distinct pieces of work arriving, not one repeated template. */
       .case {
         border: 1px dashed var(--hairline);
+        border-radius: 12px;
         padding: clamp(28px, 5vw, 56px);
         min-height: 42vh;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
+        opacity: 0;
+        transform: translateX(-32px);
+        transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .case:nth-of-type(even) {
+        transform: translateX(32px);
+      }
+      .case.is-revealed {
+        opacity: 1;
+        transform: translateX(0);
       }
       .case + .case {
         margin-top: 28px;
@@ -785,23 +839,51 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
       }
 
       /* ---------- Team ---------- */
+      /* Three individual founders now, not one shared portrait+bio block.
+         Same wipe-then-text-follows idea as before, but each person's
+         --stagger (set inline per card, see the .map() in the markup)
+         offsets both their portrait and their text together, so the row
+         reveals left to right instead of all three snapping in at once. */
       .people-grid {
         display: grid;
-        grid-template-columns: 220px 1fr;
-        gap: clamp(28px, 5vw, 56px);
-        align-items: start;
+        grid-template-columns: repeat(3, 1fr);
+        gap: clamp(28px, 5vw, 48px);
       }
-      .portrait {
+      .person-portrait {
         aspect-ratio: 3 / 4;
         background: #f1efe9;
         border: 1px dashed var(--hairline);
+        border-radius: 12px;
+        clip-path: inset(0 0 100% 0);
+        transition: clip-path 0.8s cubic-bezier(0.16, 1, 0.3, 1) var(--stagger, 0s);
       }
-      .people-grid p {
+      .people-grid.is-revealed .person-portrait {
+        clip-path: inset(0 0 0% 0);
+      }
+      .person-name {
+        margin-top: 16px;
+        font-size: 17px;
+        font-weight: 500;
+      }
+      .person-bio {
+        margin-top: 4px;
         color: var(--muted);
-        max-width: 560px;
+        font-size: 14px;
+      }
+      .person-name,
+      .person-bio {
+        opacity: 0;
+        transform: translateY(16px);
+        transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) calc(var(--stagger, 0s) + 0.3s),
+          transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) calc(var(--stagger, 0s) + 0.3s);
+      }
+      .people-grid.is-revealed .person-name,
+      .people-grid.is-revealed .person-bio {
+        opacity: 1;
+        transform: translateY(0);
       }
       .price-line {
-        margin-top: 22px;
+        margin-top: 40px;
         padding-top: 22px;
         border-top: 1px solid var(--hairline);
         color: var(--fg);
@@ -810,19 +892,45 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
       @media (max-width: 640px) {
         .people-grid {
           grid-template-columns: 1fr;
-        }
-        .portrait {
-          max-width: 170px;
+          max-width: 220px;
+          margin-inline: auto;
+          gap: 40px;
         }
       }
 
       /* ---------- Closing ---------- */
+      /* The last word on the page gets the most typographic treatment
+         rather than another slide: the heading settles into its normal
+         tight tracking as it fades in (starts slightly splayed out), and
+         the button arrives a beat after, distinct from every other
+         reveal on this page. */
       .closing {
         text-align: center;
         border-top: 1px solid var(--hairline);
       }
       .closing h2 {
         margin-bottom: 30px;
+        opacity: 0;
+        letter-spacing: 0.06em;
+        transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), letter-spacing 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .closing.is-revealed h2 {
+        opacity: 1;
+        letter-spacing: -0.03em;
+      }
+      .closing .btn-primary {
+        opacity: 0;
+        transform: translateY(12px);
+        /* Keeps .btn-primary's own background/color hover transition
+           alive — a full `transition: opacity, transform` here would
+           silently replace that list and make the hover fill snap
+           instantly instead of easing. */
+        transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.25s, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.25s,
+          background 0.2s ease, color 0.2s ease;
+      }
+      .closing.is-revealed .btn-primary {
+        opacity: 1;
+        transform: translateY(0);
       }
 
       footer {
@@ -841,10 +949,16 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
       /* ---------- Custom cursor ---------- */
       /* Only switched on by cursor.ts once it confirms a fine pointer and no
          reduced-motion preference, so a script failure just leaves the
-         native cursor visible instead of hiding it with nothing to replace. */
+         native cursor visible instead of hiding it with nothing to replace.
+         :global() on the a/button parts: without it, Astro's scoped-styles
+         compiler appends THIS file's own data-astro-cid attribute to every
+         simple selector in the rule — including the descendant `a`/`button`
+         — so it silently stops matching links/buttons rendered by a child
+         component (like SiteMockup.astro's own scope id), leaving the
+         native pointer cursor showing through on those. */
       .has-custom-cursor,
-      .has-custom-cursor a,
-      .has-custom-cursor button {
+      .has-custom-cursor :global(a),
+      .has-custom-cursor :global(button) {
         cursor: none;
       }
       .cursor-dot,
@@ -897,6 +1011,7 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
     </style>
   </head>
   <body>
+    <LogoIntro />
     <nav class="nav" data-nav>
       <div class="wrap nav-inner">
         <button
@@ -906,7 +1021,7 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
           data-nav-toggle
           aria-expanded="false"
           aria-controls="site-menu"
-          aria-label={`${copy.nav.brand} — menu openen`}
+          aria-label={`${copy.nav.brand} menu openen`}
         >
           <img
             src="/images/logo-kobama.webp"
@@ -950,7 +1065,7 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
               </li>
             ))}
           </ul>
-          <a class="btn-primary nav-menu-cta" href="mailto:hallo@kobama.nl" data-nav-link>
+          <a class="btn-primary nav-menu-cta" href="mailto:kobama.info@gmail.com" data-nav-link>
             {copy.nav.cta}
           </a>
         </div>
@@ -992,10 +1107,10 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
       <section class="intro" data-reveal>
         <div class="wrap">
           <p class="statement-text">
-            KOBAMA is een klein team dat elk project <em>zelf</em> van begin tot eind doet.
+            KOBAMA is een klein team dat elk project zelf van begin tot eind doet.
           </p>
           <p class="statement-text">
-            Geen sjablonen, geen tussenlagen — één site, gebouwd door de mensen die hem ook
+            Geen sjablonen, geen tussenlagen: één site, gebouwd door de mensen die hem ook
             opleveren.
           </p>
 
@@ -1017,10 +1132,10 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
       </section>
 
       <div class="wrap">
-        <div class="logos">
-          <span class="logos-label">Gewerkt voor — logo's volgen zodra de eerste projecten zijn opgeleverd</span>
-          {logoPlaceholders.map(() => (
-            <div class="logo-chip" role="img" aria-label="Klantlogo volgt"></div>
+        <div class="logos" data-reveal>
+          <span class="logos-label">Gewerkt voor: logo's volgen zodra de eerste projecten zijn opgeleverd</span>
+          {logoPlaceholders.map((_, i) => (
+            <div class="logo-chip" role="img" aria-label="Klantlogo volgt" style={`transition-delay: ${i * 0.08}s`}></div>
           ))}
         </div>
       </div>
@@ -1052,7 +1167,7 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
         <div class="wrap">
           <h2 style="margin-bottom: 20px;">{copy.werkwijze.heading}</h2>
           {copy.werkwijze.steps.map((step, i) => (
-            <div class="step">
+            <div class="step" data-reveal>
               <span class="step-number">{step.number}</span>
               <div>
                 <h3>{step.title}</h3>
@@ -1075,7 +1190,7 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
         <div class="wrap">
           <h2 style="margin-bottom: 36px;">{copy.work.heading}</h2>
           {copy.work.cases.map((c) => (
-            <div class="case">
+            <div class="case" data-reveal>
               <h3>{c.name}</h3>
               <p>{c.problem}</p>
               <p>{c.outcome}</p>
@@ -1087,28 +1202,35 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
       <section id="team">
         <div class="wrap">
           <h2 style="margin-bottom: 36px;">{copy.people.heading}</h2>
-          <div class="people-grid">
-            <div class="portrait" role="img" aria-label="Portret volgt"></div>
-            <div>
-              <p>{copy.people.bio}</p>
-              <p class="price-line">{copy.people.priceLine}</p>
-            </div>
+          <div class="people-grid" data-reveal>
+            {copy.people.members.map((person, i) => (
+              <div class="person" style={`--stagger: ${i * 0.12}s`}>
+                <div
+                  class="person-portrait"
+                  role="img"
+                  aria-label={`Portret van ${person.name} volgt`}
+                ></div>
+                <p class="person-name">{person.name}</p>
+                <p class="person-bio">{person.bio}</p>
+              </div>
+            ))}
           </div>
+          <p class="price-line">{copy.people.priceLine}</p>
         </div>
       </section>
 
-      <section class="closing" id="contact">
+      <section class="closing" id="contact" data-reveal>
         <div class="wrap">
           <h2>{copy.closing.heading}</h2>
-          <a class="btn-primary" href="mailto:hallo@kobama.nl">{copy.closing.cta}</a>
+          <a class="btn-primary" href="mailto:kobama.info@gmail.com">{copy.closing.cta}</a>
         </div>
       </section>
     </main>
 
     <footer>
       <div class="wrap footer-inner">
-        <span>{copy.footer.brand} — {copy.footer.city}</span>
-        <a href="mailto:hallo@kobama.nl">{copy.footer.cta}</a>
+        <span>{copy.footer.brand}, {copy.footer.city}</span>
+        <a href="mailto:kobama.info@gmail.com">{copy.footer.cta}</a>
       </div>
     </footer>
 
@@ -1132,12 +1254,18 @@ const logoPlaceholders = Array.from({ length: 5 }, (_, i) => i);
       import { initCustomCursor } from "../scripts/cursor";
       import { initMagneticLogo } from "../scripts/magnetic-logo";
       import { initNavMenu } from "../scripts/nav-menu";
+      import { initMockupTilt } from "../scripts/mockup-tilt";
+      import { initMockupMobileReveal } from "../scripts/mockup-mobile-reveal";
+      import { initLogoIntro } from "../scripts/logo-intro";
+      initLogoIntro();
       initCinematicHero();
       initScrollTransform();
       initReveal();
       initCustomCursor();
       initMagneticLogo();
       initNavMenu();
+      initMockupTilt();
+      initMockupMobileReveal();
     </script>
   </body>
 </html>

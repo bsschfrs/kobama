@@ -8,7 +8,7 @@
 
 export const copy = {
   meta: {
-    title: "KOBAMA — websites voor het mkb",
+    title: "KOBAMA, websites voor het mkb",
     description:
       "KOBAMA ontwerpt en bouwt websites voor kleine en middelgrote bedrijven. Strategie, design en development in één traject.",
   },
@@ -34,7 +34,7 @@ export const copy = {
   statement: {
     lines: [
       "KOBAMA is een klein team dat elk project zelf van begin tot eind doet.",
-      "Geen sjablonen, geen tussenlagen — één site, gebouwd door de mensen die hem ook opleveren.",
+      "Geen sjablonen, geen tussenlagen: één site, gebouwd door de mensen die hem ook opleveren.",
     ],
   },
 
@@ -51,7 +51,7 @@ export const copy = {
       {
         number: "01",
         title: "Ontdekken.",
-        body: "We beginnen met een gesprek over je bedrijf, je klanten en wat je site vandaag niet voor je doet. Geen vragenlijst — een gesprek.",
+        body: "We beginnen met een gesprek over je bedrijf, je klanten en wat je site vandaag niet voor je doet. Geen vragenlijst. Een gesprek.",
       },
       {
         number: "02",
@@ -61,7 +61,7 @@ export const copy = {
       {
         number: "03",
         title: "Live.",
-        body: "Bij livegang staan hosting, onderhoud, vindbaarheid en laadsnelheid al goed. Je site werkt vanaf dag één — en blijft werken.",
+        body: "Bij livegang staan hosting, onderhoud, vindbaarheid en laadsnelheid al goed. Je site werkt vanaf dag één en blijft werken.",
       },
     ],
   },
@@ -72,23 +72,26 @@ export const copy = {
       {
         isPlaceholder: true,
         name: "[Klantnaam volgt]",
-        problem: "[Wat het probleem was — volgt zodra het eerste project is opgeleverd.]",
-        outcome: "[Wat er gebeurde — volgt.]",
+        problem: "[Wat het probleem was: volgt zodra het eerste project is opgeleverd.]",
+        outcome: "[Wat er gebeurde: volgt.]",
       },
       {
         isPlaceholder: true,
         name: "[Klantnaam volgt]",
-        problem: "[Wat het probleem was — volgt zodra het eerste project is opgeleverd.]",
-        outcome: "[Wat er gebeurde — volgt.]",
+        problem: "[Wat het probleem was: volgt zodra het eerste project is opgeleverd.]",
+        outcome: "[Wat er gebeurde: volgt.]",
       },
     ],
   },
 
   people: {
     heading: "Wie het maakt.",
-    bio: "Achter KOBAMA zit een klein team dat vakmanschap boven volume zet. [Portret en namen volgen.]",
-    priceLine: "Een eerste gesprek is vrijblijvend en kost niets — we kijken samen of het klikt.",
-    isPlaceholder: true,
+    members: [
+      { name: "Koen Verhoeff", bio: "[Bio volgt]", isPlaceholder: true },
+      { name: "Bas Schaefers", bio: "[Bio volgt]", isPlaceholder: true },
+      { name: "Mats Jongmans", bio: "[Bio volgt]", isPlaceholder: true },
+    ],
+    priceLine: "Een eerste gesprek is vrijblijvend en kost niets. We kijken samen of het klikt.",
   },
 
   closing: {

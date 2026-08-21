@@ -12,9 +12,12 @@
 // background of the section that follows — so the two never read as a seam.
 //
 // The mockup's own CTA (`[data-layer='cta']`, the site's real "Plan een
-// gesprek" button) starts subdued and sharpens to full strength over the same
-// scroll range, independent of the mockup's own transform: it's meant to read
-// as a button the visitor notices more, not less, once they start scrolling.
+// gesprek" button) starts subdued and sharpens to full opacity over the same
+// scroll range: it's meant to read as a button the visitor notices more, not
+// less, once they start scrolling. Opacity only, deliberately — the button's
+// own `transform` is owned by its hover/tilt state (see SiteMockup.astro),
+// and GSAP setting an inline transform here would permanently win over any
+// CSS hover transform on the same element.
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -54,7 +57,7 @@ export function initCinematicHero(): void {
   if (copy) tl.to(copy, { yPercent: -26, opacity: 0, ease: "power1.in" }, 0);
   if (mockup) tl.to(mockup, { yPercent: -78, scale: 0.965 }, 0);
   if (facades) tl.to(facades, { yPercent: -14 }, 0);
-  if (cta) tl.fromTo(cta, { opacity: 0.5, scale: 0.92 }, { opacity: 1, scale: 1, ease: "power1.out" }, 0);
+  if (cta) tl.fromTo(cta, { opacity: 0.5 }, { opacity: 1, ease: "power1.out" }, 0);
 
   const hint = stage.querySelector<HTMLElement>("[data-hero-hint]");
   if (hint) tl.to(hint, { opacity: 0, duration: 0.18, ease: "power1.in" }, 0);

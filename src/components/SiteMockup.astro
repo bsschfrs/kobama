@@ -10,6 +10,18 @@
 // other part of the mockup stays `aria-hidden` individually so this one real
 // link isn't buried under a blanket aria-hidden on the whole component.
 //
+// Hovering the card tilts it gently in 3D toward the cursor (mockup-tilt.ts,
+// pointer-fine + motion-ok only) while the rest of the mockup dims and the
+// button flies to the card's centre and grows into a real, legible button —
+// "emerging" from the card rather than sitting there as a static rectangle.
+// On touch, there's no hover to trigger that: mockup-mobile-reveal.ts
+// triggers the same state (`.is-active`, see the `:is()` selectors below)
+// once, automatically, shortly after the visitor starts scrolling. The tilt
+// and the fly-to-centre distance are JS (the distance depends on live
+// layout); the dim/grow itself is plain `:hover`/`:focus-within`/`.is-active`
+// CSS so it still works — just without the tilt or the centring — if a
+// script never runs.
+//
 // Scaling: every internal dimension is in `em` against the mockup's own
 // font-size, so the whole thing scales as one object. The parent sets
 // `--mockup-fs` = renderedWidth / 62 (the design is 62em wide, 620px @ 10px).
@@ -18,7 +30,7 @@
 import { copy } from "../content/copy";
 ---
 
-<div class="mockup">
+<div class="mockup" data-tilt>
   <div class="mockup-chrome" aria-hidden="true">
     <span class="dot"></span><span class="dot"></span><span class="dot"></span>
     <div class="mockup-url"></div>
@@ -60,6 +72,13 @@ import { copy } from "../content/copy";
     box-shadow: 0 24px 60px -12px rgba(17, 26, 43, 0.32), 0 4px 14px -4px rgba(17, 26, 43, 0.2);
     border: 1px solid rgba(17, 26, 43, 0.1);
     border-bottom: none;
+    /* mockup-tilt.ts drives --tilt-x/--tilt-y on mousemove; the transition
+       smooths both the follow and the release into one calm easing instead
+       of a jittery 1:1 tilt. Scroll parallax lives one level up, on
+       .mockup-holder — a different element, so the two transforms never
+       fight over the same `transform` property. */
+    transform: perspective(1000px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .mockup-chrome {
@@ -155,6 +174,8 @@ import { copy } from "../content/copy";
     width: 62%;
   }
   .m-button {
+    position: relative;
+    z-index: 4; /* so it paints over mockup-figure/mockup-cols once it moves to centre on hover */
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -168,11 +189,84 @@ import { copy } from "../content/copy";
     font-weight: 500;
     text-decoration: none;
     pointer-events: auto;
-    transition: background 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 8px 20px -10px rgba(17, 17, 17, 0);
+    /* --cta-x/--cta-y (set by mockup-tilt.ts on hover/focus) are only read
+       by the active-state rule below — at rest this is always identity, so
+       a stale value left over from a previous hover can't shift it. */
+    transition: background 0.2s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .m-button:hover,
   .m-button:focus-visible {
     background: #2c2c2c;
+  }
+
+  /* Card-wide hover/focus: the rest of the mockup recedes and the CTA lifts
+     forward — the button "emerging" from the card. Pure CSS (no JS
+     dependency) so it still works if mockup-tilt.ts never runs. */
+  .mockup-chrome,
+  .mockup-nav,
+  .m-headline,
+  .m-sub,
+  .mockup-figure,
+  .mockup-cols {
+    transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  /* :is(:hover, :focus-within, .is-active) — three ways into the same
+     state: mouse hover and keyboard focus on desktop, and .is-active for
+     the touch fallback (mockup-mobile-reveal.ts adds the class once, the
+     first time a touch visitor scrolls a little). */
+  .mockup:is(:hover, :focus-within, .is-active) .mockup-chrome,
+  .mockup:is(:hover, :focus-within, .is-active) .mockup-nav,
+  .mockup:is(:hover, :focus-within, .is-active) .m-headline,
+  .mockup:is(:hover, :focus-within, .is-active) .m-sub,
+  .mockup:is(:hover, :focus-within, .is-active) .mockup-figure,
+  .mockup:is(:hover, :focus-within, .is-active) .mockup-cols {
+    opacity: 0.4;
+  }
+  /* The CTA flies to the card's centre and grows into a real, legible
+     button — at rest it's tiny (the whole mockup is a scaled-down em
+     ladder), so the jump has to be big enough to actually read as "now
+     press this", not just a nudge. --cta-x/--cta-y are the measured
+     distance from the button's natural spot to the card's centre
+     (mockup-tilt.ts / mockup-mobile-reveal.ts, recomputed on every trigger
+     so it holds up across breakpoints). Longer, considered entrance;
+     quicker return (the base transition above), per "exit faster than
+     entrance". */
+  .mockup:is(:hover, :focus-within, .is-active) .m-button {
+    /* Pinned solid — beats .m-button:hover's lighter #2c2c2c below via
+       specificity, so the button doesn't wash out to grey the moment the
+       (now much bigger) cursor target is directly under the pointer.
+       opacity needs !important: hero-cinematic.ts's ScrollTrigger tween
+       sets this element's opacity inline (0.5 at the top of the page,
+       fading to 1 on scroll), and mockup-tilt.ts/mockup-mobile-reveal.ts
+       override that inline — this is the fallback for the no-JS case, and
+       only !important beats another script's inline style.
+       Black-to-navy — the same --navy the hero photo dissolves into, not
+       an invented gradient, so the one flashy moment still ties back to
+       the site's own palette instead of reaching for a generic CTA
+       gradient. */
+    background: linear-gradient(150deg, #171717 0%, #111a2b 100%);
+    border-radius: 0.5em;
+    opacity: 1 !important;
+    letter-spacing: -0.01em;
+    transform: translate(var(--cta-x, 0px), var(--cta-y, 0px)) scale(2.6);
+    /* Layered from the inside out: a hairline top sheen for a lifted,
+       tactile edge; a thin accent-tinted ring instead of a flat border; a
+       warm accent-coloured glow (ties to --accent, not a generic shadow);
+       the grounding dark ambient shadow underneath. */
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 0 0 1px rgba(176, 96, 47, 0.35),
+      0 18px 30px -12px rgba(176, 96, 47, 0.35), 0 32px 56px -16px rgba(17, 17, 17, 0.55);
+    /* easeOutBack on the move/grow only — one confident pop for this one
+       authored moment, not a bounce sprinkled everywhere. Shadow settles on
+       the calmer curve used for the rest of this reveal. */
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+      box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease, border-radius 0.6s ease;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .mockup {
+      transform: none;
+    }
   }
 
   .mockup-figure {

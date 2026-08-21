@@ -1,0 +1,194 @@
+---
+// Full-screen intro, ported 1:1 from the "Kobama Logo Intro" Lovable
+// project (src/components/LogoIntro.tsx + the intro-* utilities in
+// styles.css there): logo appears on a dark blue/orange-glow gradient, the
+// pinwheel mark spins + grows while the wordmark fades in then out, then
+// the whole overlay fades to the site. Total duration ~2s — kept exactly
+// as approved in Lovable rather than the longer 3-4s of the earlier,
+// removed build.
+//
+// Assets (public/images/logo-mark.webp, logo-word-light.webp) are the same
+// files Lovable generated: a transparent icon-only mark and an
+// already-white wordmark (no CSS recolor filter needed this time).
+//
+// No session gating, no click-to-skip, no full skip under reduced motion —
+// this mirrors the Lovable version's own behavior (it only shortens the
+// animation there) rather than the extra behavior the earlier build had.
+---
+
+<div class="intro-overlay" data-logo-intro aria-hidden="true">
+  <div class="intro-lockup">
+    <img src="/images/logo-mark.webp" alt="" class="intro-mark" />
+    <img src="/images/logo-word-light.webp" alt="" class="intro-word" />
+  </div>
+</div>
+
+<style>
+  /* Per-keyframe `animation-timing-function` sets the curve for the
+     segment *starting* at that keyframe — lets each stretch ease
+     independently instead of one function stretched over the whole
+     animation, which is what made the original feel a little mechanical
+     (a visible rate-change "kink" at each keyframe boundary). */
+  @keyframes intro-overlay-out {
+    0% {
+      opacity: 1;
+    }
+    60% {
+      opacity: 1;
+      animation-timing-function: cubic-bezier(0.4, 0, 1, 1);
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  /* Rotation stays its own animation at a flat linear rate — a constant
+     spin reads as more mechanical/precise ("techy") than an eased one, and
+     it's masked by the fade at the very end anyway so it never looks like
+     it "slams" to a stop. */
+  @keyframes intro-mark-rotate {
+    0% {
+      rotate: 0deg;
+    }
+    100% {
+      rotate: 720deg;
+    }
+  }
+  /* Scale + opacity get their own easing per segment: a quick confident
+     pop into view, a smooth accelerating build, then a fast final burst
+     into the fade — same "confident arrival" curve used for the mockup
+     CTA elsewhere on this site, so even this borrowed asset moves like
+     the rest of the page. */
+  @keyframes intro-mark-scale {
+    0% {
+      scale: 1;
+      opacity: 0;
+      animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    10% {
+      scale: 1.14;
+      opacity: 1;
+      animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    62% {
+      scale: 1.9;
+      opacity: 1;
+      animation-timing-function: cubic-bezier(0.55, 0, 0.85, 0.35);
+    }
+    100% {
+      scale: 2.6;
+      opacity: 0;
+    }
+  }
+  /* A brief cool-blue bloom that peaks exactly as the mark hits its 62%
+     mark (the moment scale/rotate are moving fastest) — the "power up"
+     beat that reads as tech rather than purely ornamental. */
+  @keyframes intro-mark-glow {
+    0%,
+    100% {
+      filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.45)) drop-shadow(0 0 0 rgba(28, 134, 184, 0));
+    }
+    62% {
+      filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.45)) drop-shadow(0 0 34px rgba(28, 134, 184, 0.65));
+    }
+  }
+
+  @keyframes intro-word-out {
+    0% {
+      opacity: 0;
+      filter: blur(6px);
+      transform: translateX(-8px);
+      animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    14% {
+      opacity: 1;
+      filter: blur(0);
+      transform: translateX(0);
+    }
+    30% {
+      opacity: 1;
+      filter: blur(0);
+      transform: translateX(0);
+      animation-timing-function: cubic-bezier(0.4, 0, 1, 1);
+    }
+    60%,
+    100% {
+      opacity: 0;
+      filter: blur(4px);
+      transform: translateX(24px) scale(0.97);
+    }
+  }
+
+  .intro-overlay {
+    position: fixed;
+    inset: 0;
+    /* Above the custom cursor's z-index (100, see index.astro) — same
+       value would leave it a coin-flip on DOM order, and the cursor dot
+       + ring were winning and showing through on top of this overlay. */
+    z-index: 110;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    /* Same shape as Lovable's --gradient-hero: a blue glow (matches the
+       mark's own blue block) and a warm glow in this site's own --accent,
+       over a dark navy diagonal base. */
+    background: radial-gradient(120% 90% at 20% 10%, rgba(28, 134, 184, 0.28), transparent 60%),
+      radial-gradient(100% 80% at 85% 90%, rgba(176, 96, 47, 0.22), transparent 60%),
+      linear-gradient(160deg, #1b2436, #0d1219);
+    animation: intro-overlay-out 2s linear forwards;
+    will-change: opacity;
+  }
+  .intro-overlay.is-done {
+    display: none;
+  }
+
+  .intro-lockup {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .intro-mark {
+    width: clamp(7rem, 16vw, 13rem);
+    height: auto;
+    transform-origin: center;
+    rotate: 0deg;
+    scale: 1;
+    /* Three independent animations on the same element: rotate/scale are
+       genuinely separate CSS properties now (not the `transform`
+       shorthand), so each keeps its own easing without fighting the
+       other; the glow rides along as a fourth, on `filter`. */
+    animation: intro-mark-rotate 2s linear forwards, intro-mark-scale 2s linear forwards,
+      intro-mark-glow 2s linear forwards;
+    will-change: rotate, scale, opacity, filter;
+  }
+
+  .intro-word {
+    position: absolute;
+    left: calc(50% + clamp(4.5rem, 10vw, 8.5rem));
+    /* top+bottom+auto margin centers it vertically without `transform` —
+       the keyframes above own `transform` for the slide, and a base
+       translateY(-50%) here would get clobbered every frame instead of
+       composing with it. */
+    top: 0;
+    bottom: 0;
+    margin-block: auto;
+    width: clamp(14rem, 34vw, 30rem);
+    height: fit-content;
+    animation: intro-word-out 2s linear forwards;
+    will-change: transform, opacity, filter;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .intro-overlay,
+    .intro-mark,
+    .intro-word {
+      animation-duration: 0.5s;
+    }
+    .intro-mark {
+      animation-name: none;
+    }
+  }
+</style>

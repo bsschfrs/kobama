@@ -1,7 +1,7 @@
-// Sticky-cursor logo: within a wide catch radius the nav mark tracks the
-// cursor closely (like it's glued to it, up to a max reach), and once the
-// cursor leaves that radius it lets go and springs back to rest with a
-// couple of frames of overshoot — the "bounce" the brief asked for.
+// Sticky-cursor logo: within a modest catch radius the nav mark nudges
+// toward the cursor (like it's gently held, up to a small max reach), and
+// once the cursor leaves that radius it lets go and settles back to rest
+// with barely a hint of spring — subtle, not a bounce you'd notice.
 //
 // Runs its own requestAnimationFrame spring instead of a CSS transition,
 // since a snap-back transition can't overshoot past its resting position.
@@ -16,10 +16,10 @@ export function initMagneticLogo(): void {
   const logo = document.querySelector<HTMLElement>("[data-magnetic]");
   if (!logo) return;
 
-  const radius = 170; // catch area the mark starts reaching for the cursor within
-  const stickMax = 30; // how far it can actually travel — the "stuck to the cursor" cap
-  const stiffness = 0.16;
-  const friction = 0.72; // < 1 so the release has a little spring overshoot (the "bounce")
+  const radius = 90; // catch area the mark starts reaching for the cursor within
+  const stickMax = 10; // how far it can actually travel — kept small so the pull stays a subtle hint
+  const stiffness = 0.1; // soft response — also low-pass-filters small hand jitter near the mark
+  const friction = 0.82; // close to critical damping — a faint settle, not a visible bounce
   const settleThreshold = 0.03;
 
   let targetX = 0;

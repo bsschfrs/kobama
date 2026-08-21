@@ -20,7 +20,7 @@ export function initNavMenu(): void {
     menu.classList.toggle("is-open", isOpen);
     toggle.classList.toggle("is-open", isOpen);
     toggle.setAttribute("aria-expanded", String(isOpen));
-    toggle.setAttribute("aria-label", `KOBAMA — menu ${isOpen ? "sluiten" : "openen"}`);
+    toggle.setAttribute("aria-label", `KOBAMA menu ${isOpen ? "sluiten" : "openen"}`);
     menu.setAttribute("aria-hidden", String(!isOpen));
     document.body.classList.toggle("nav-open", isOpen);
   }
