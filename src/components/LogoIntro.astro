@@ -176,7 +176,13 @@
     bottom: 0;
     margin-block: auto;
     width: clamp(14rem, 34vw, 30rem);
-    height: fit-content;
+    /* `auto` — not `fit-content`, which Mobile Safari doesn't reliably
+       resolve to the image's own aspect ratio on an absolutely positioned
+       replaced element; it was stretching the wordmark tall and thin.
+       `auto` is the standard, universally-supported way an <img> keeps
+       its aspect ratio when only width is set — works the same here even
+       with top+bottom both set, since that's still a replaced element. */
+    height: auto;
     animation: intro-word-out 2s linear forwards;
     will-change: transform, opacity, filter;
   }
