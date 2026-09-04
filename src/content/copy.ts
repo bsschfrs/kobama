@@ -68,9 +68,24 @@ export const copy = {
   people: {
     heading: "Wie het maakt.",
     members: [
-      { name: "Koen Verhoeff", bio: "[Bio volgt]", isPlaceholder: true },
-      { name: "Bas Schaefers", bio: "[Bio volgt]", isPlaceholder: true },
-      { name: "Mats Jongmans", bio: "[Bio volgt]", isPlaceholder: true },
+      {
+        name: "Koen Verhoeff",
+        bio: "Olie sjeik en financiële kracht van het drietal. Bachelor Informatiekunde, nu bezig met de master Business Information & Technology Management. Zorgt voor de technische kant van de website.",
+        photo: "/images/team-koen.webp",
+        isPlaceholder: false,
+      },
+      {
+        name: "Bas Schaefers",
+        bio: "Bachelor Bedrijfskunde en master Entrepreneurship. Ervaring in marketing.",
+        photo: "/images/team-bas.webp",
+        isPlaceholder: false,
+      },
+      {
+        name: "Mats Jongmans",
+        bio: "Bachelor Bedrijfskunde, met ruime ervaring in sales.",
+        photo: "/images/team-mats.webp",
+        isPlaceholder: false,
+      },
     ],
   },
 

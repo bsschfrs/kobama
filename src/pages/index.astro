@@ -973,11 +973,22 @@ import LogoIntro from "../components/LogoIntro.astro";
       }
       .person-portrait {
         aspect-ratio: 3 / 4;
-        background: #f1efe9;
-        border: 1px dashed var(--hairline);
         border-radius: 12px;
         clip-path: inset(0 0 100% 0);
         transition: clip-path 0.8s cubic-bezier(0.16, 1, 0.3, 1) var(--stagger, 0s);
+      }
+      /* Dashed placeholder styling only applies to the empty div used
+         before a real photo exists — the <img> variant (see the map() in
+         the markup) needs none of it, just to fill its box. */
+      div.person-portrait {
+        background: #f1efe9;
+        border: 1px dashed var(--hairline);
+      }
+      img.person-portrait {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
       .people-grid.is-revealed .person-portrait {
         clip-path: inset(0 0 0% 0);
@@ -1319,11 +1330,22 @@ import LogoIntro from "../components/LogoIntro.astro";
           <div class="people-grid" data-reveal>
             {copy.people.members.map((person, i) => (
               <div class="person" style={`--stagger: ${i * 0.12}s`}>
-                <div
-                  class="person-portrait"
-                  role="img"
-                  aria-label={`Portret van ${person.name} volgt`}
-                ></div>
+                {person.photo ? (
+                  <img
+                    class="person-portrait"
+                    src={person.photo}
+                    alt={`Portret van ${person.name}`}
+                    width="900"
+                    height="1200"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div
+                    class="person-portrait"
+                    role="img"
+                    aria-label={`Portret van ${person.name} volgt`}
+                  ></div>
+                )}
                 <p class="person-name">{person.name}</p>
                 <p class="person-bio">{person.bio}</p>
               </div>
