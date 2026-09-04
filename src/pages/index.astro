@@ -4,6 +4,7 @@
 // dissolves into the navy intro section below.
 import "@fontsource/inter/400.css";
 import "@fontsource/inter/500.css";
+import "@fontsource/inter/600.css";
 import "../styles/reset.css";
 import { copy } from "../content/copy";
 import SiteMockup from "../components/SiteMockup.astro";
@@ -75,14 +76,19 @@ import LogoIntro from "../components/LogoIntro.astro";
       h3 {
         font-weight: 500;
         letter-spacing: -0.03em;
+        text-wrap: balance;
       }
       h1 {
         font-size: clamp(32px, 3.9vw, 54px);
         line-height: 1.06;
       }
+      /* Section titles read as an afterthought at the shared 500 weight —
+         one step heavier than body/h3 gives each section opener the
+         presence a title needs without the hero's own scale. */
       h2 {
         font-size: clamp(24px, 3.2vw, 40px);
         line-height: 1.15;
+        font-weight: 600;
       }
       .statement-text {
         font-size: clamp(20px, 2.5vw, 31px);
@@ -743,7 +749,12 @@ import LogoIntro from "../components/LogoIntro.astro";
          since it now has to share the fixed sticky height with the stage
          and caption. */
       .transform-heading {
-        margin-bottom: 12px;
+        text-align: center;
+        /* Modest vh-based bump (was a flat 12px) — the sticky stage above
+           is already tuned to just barely clear the fixed nav on short
+           viewports (see .transform-sticky's top/height comments), so this
+           can't grow as freely as it would in a normal-flow section. */
+        margin-bottom: clamp(16px, 2.5vh, 24px);
       }
       .transform-stage {
         position: relative;
@@ -853,7 +864,11 @@ import LogoIntro from "../components/LogoIntro.astro";
         font-size: 12px;
       }
       .transform-caption {
-        margin-top: 10px;
+        /* Trimmed as the heading's own margin-bottom grew, so the extra
+           room goes to the heading/stage gap that actually needed it
+           without pushing this section's total height past what the
+           capped sticky box above has room for. */
+        margin-top: 4px;
         text-align: center;
         color: var(--muted);
         font-size: 14px;
