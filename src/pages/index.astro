@@ -595,22 +595,66 @@ import LogoIntro from "../components/LogoIntro.astro";
         padding-block: clamp(90px, 16vh, 180px) clamp(100px, 16vh, 180px);
         position: relative;
       }
+      /* Split layout: statement copy and the proof cards sit side by side
+         instead of stacked, so the section reads as one composed row
+         rather than a wall of centered text with cards tacked on
+         underneath. Falls back to the original stacked order at 900px
+         (same tier .mockup-holder already steps at), where a side-by-side
+         column pair has no room left to mean anything. */
+      .intro-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 1fr;
+        gap: 56px;
+        align-items: start;
+      }
+      .intro-copy {
+        max-width: 620px;
+      }
       .intro .statement-text {
         color: rgba(255, 255, 255, 0.28);
         transition: color 0.5s cubic-bezier(0.44, 0, 0.56, 1);
-        max-width: 780px;
       }
-      .intro.is-revealed .statement-text {
+      /* Two weights instead of one: the opening line is the actual claim
+         and reads as a headline, the second line is context underneath it
+         (dimmer, smaller) rather than a second, equally loud sentence. */
+      .statement-lead {
+        font-size: clamp(26px, 3vw, 38px);
+        line-height: 1.28;
+        font-weight: 500;
+        letter-spacing: -0.03em;
+      }
+      .statement-support {
+        margin-top: 18px;
+        font-size: 17px;
+        line-height: 1.6;
+        font-weight: 400;
+        letter-spacing: -0.02em;
+      }
+      .intro.is-revealed .statement-lead {
         color: #fff;
       }
-      .intro .statement-text + .statement-text {
-        margin-top: 26px;
+      .intro.is-revealed .statement-support {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .statement-accent {
+        transition: color 0.5s cubic-bezier(0.44, 0, 0.56, 1);
+      }
+      .intro.is-revealed .statement-accent {
+        color: var(--accent);
       }
       .intro-meta {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-        gap: 20px;
-        margin-top: clamp(56px, 9vh, 96px);
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      @media (max-width: 900px) {
+        .intro-grid {
+          grid-template-columns: 1fr;
+          gap: 0;
+        }
+        .intro-meta {
+          margin-top: 44px;
+        }
       }
       /* Cards instead of a hairline-divided row: --navy-soft (already in
          the palette, used nowhere else yet) reads as a distinct raised
@@ -1278,26 +1322,31 @@ import LogoIntro from "../components/LogoIntro.astro";
     <main>
       <section class="intro" data-reveal>
         <div class="wrap">
-          <p class="statement-text">
-            KOBAMA is een klein team dat elk project zelf van begin tot eind doet.
-          </p>
-          <p class="statement-text">
-            Geen sjablonen, geen tussenlagen: één site, gebouwd door de mensen die hem ook
-            opleveren.
-          </p>
+          <div class="intro-grid">
+            <div class="intro-copy">
+              <p class="statement-text statement-lead">
+                KOBAMA is een klein team dat <span class="statement-accent">elk project zelf</span> van
+                begin tot eind doet.
+              </p>
+              <p class="statement-text statement-support">
+                Geen sjablonen, geen tussenlagen: één site, gebouwd door de mensen die hem ook
+                opleveren.
+              </p>
+            </div>
 
-          <div class="intro-meta">
-            <div>
-              <h3>Eén aanspreekpunt</h3>
-              <p>Je praat met de mensen die het werk doen, niet met een accountmanager.</p>
-            </div>
-            <div>
-              <h3>Vaste doorlooptijd</h3>
-              <p>Je weet vooraf wanneer je site live gaat, en dat verschuift niet stilletjes.</p>
-            </div>
-            <div>
-              <h3>Klaar bij oplevering</h3>
-              <p>Hosting, onderhoud, vindbaarheid en snelheid staan goed op dag één.</p>
+            <div class="intro-meta">
+              <div>
+                <h3>Eén aanspreekpunt</h3>
+                <p>Je praat met de mensen die het werk doen, niet met een accountmanager.</p>
+              </div>
+              <div>
+                <h3>Vaste doorlooptijd</h3>
+                <p>Je weet vooraf wanneer je site live gaat, en dat verschuift niet stilletjes.</p>
+              </div>
+              <div>
+                <h3>Klaar bij oplevering</h3>
+                <p>Hosting, onderhoud, vindbaarheid en snelheid staan goed op dag één.</p>
+              </div>
             </div>
           </div>
         </div>
