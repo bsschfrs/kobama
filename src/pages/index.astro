@@ -614,9 +614,36 @@ import LogoIntro from "../components/LogoIntro.astro";
         padding-top: 34px;
         border-top: 1px solid rgba(255, 255, 255, 0.16);
       }
+      /* Vertical hairlines turn three loose blocks into one trust bar,
+         same hairline language the rest of the page already uses (step
+         dividers, transform-hint track) instead of a foreign pattern.
+         Each item also gets its own small rise-in, staggered per column
+         and gated on .intro's own [data-reveal] state (reveal.ts already
+         adds is-revealed there); before this it just popped in ahead of
+         the statement text above it finishing its own fade. */
+      .intro-meta > div {
+        opacity: 0;
+        transform: translateY(14px);
+        transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .intro-meta > div:not(:first-child) {
+        border-left: 1px solid rgba(255, 255, 255, 0.14);
+        padding-left: 32px;
+      }
+      .intro.is-revealed .intro-meta > div {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .intro.is-revealed .intro-meta > div:nth-child(2) {
+        transition-delay: 0.1s;
+      }
+      .intro.is-revealed .intro-meta > div:nth-child(3) {
+        transition-delay: 0.2s;
+      }
       .intro-meta h3 {
-        font-size: 15px;
-        font-weight: 500;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: -0.01em;
         color: #fff;
         margin-bottom: 8px;
       }
@@ -624,6 +651,12 @@ import LogoIntro from "../components/LogoIntro.astro";
         font-size: 14px;
         color: rgba(255, 255, 255, 0.6);
         letter-spacing: -0.01em;
+      }
+      @media (max-width: 640px) {
+        .intro-meta > div:not(:first-child) {
+          border-left: none;
+          padding-left: 0;
+        }
       }
       /* navy → white handoff, so the intro doesn't end on a hard edge
          either. A plain 2-stop alpha ramp reads as a visible seam here —
