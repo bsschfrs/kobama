@@ -605,7 +605,7 @@ import LogoIntro from "../components/LogoIntro.astro";
         display: grid;
         grid-template-columns: 1.15fr 1fr;
         gap: 56px;
-        align-items: start;
+        align-items: center;
       }
       .intro-copy {
         max-width: 620px;
@@ -642,10 +642,19 @@ import LogoIntro from "../components/LogoIntro.astro";
       .intro.is-revealed .statement-accent {
         color: var(--accent);
       }
+      /* Two-up instead of one full-width column: at the split layout's
+         ~1fr column width, a single stacked card spans nearly 500px for
+         maybe two lines of text, so it reads as a long bar rather than a
+         card. Two narrower cards per row keep each one closer to its own
+         proportions; the third spans full width underneath rather than
+         leaving a half-empty row. */
       .intro-meta {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
         gap: 16px;
+      }
+      .intro-meta > div:last-child {
+        grid-column: 1 / -1;
       }
       @media (max-width: 900px) {
         .intro-grid {
@@ -653,7 +662,11 @@ import LogoIntro from "../components/LogoIntro.astro";
           gap: 0;
         }
         .intro-meta {
+          grid-template-columns: 1fr;
           margin-top: 44px;
+        }
+        .intro-meta > div:last-child {
+          grid-column: auto;
         }
       }
       /* Cards instead of a hairline-divided row: --navy-soft (already in
