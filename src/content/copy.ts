@@ -1,10 +1,6 @@
-// Single source of truth for copy across all five exploration versions (v1–v5).
-// Structure and content are identical across versions; only aesthetic treatment
-// differs. Keeps the five directions genuinely comparable.
-//
-// Voice: je-vorm, sentence case, declarative headings with a period.
-// No fabricated clients, testimonials, team members, or prices — see PRODUCT.md
-// "Evidence on Hand". Placeholder fields are marked isPlaceholder.
+// Vastgestelde copy voor KOBAMA.nl: de enige bron voor alle tekst op de site.
+// Stem: je-vorm, koppen zijn korte zinnen met een punt.
+// Niets verzinnen: geen klanten, resultaten, testimonials of bedragen (zie DESIGN-BRIEF.md).
 
 export const copy = {
   meta: {
@@ -30,6 +26,8 @@ export const copy = {
     cta: "Plan een gesprek",
   },
 
+  contact: "mailto:kobama.info@gmail.com",
+
   statement: {
     lines: [
       "KOBAMA is een klein team dat elk project zelf van begin tot eind doet.",
@@ -37,10 +35,17 @@ export const copy = {
     ],
   },
 
+  proof: [
+    { title: "Eén aanspreekpunt", body: "Je praat met de mensen die het werk doen, niet met een accountmanager." },
+    { title: "Vaste doorlooptijd", body: "Je weet vooraf wanneer je site live gaat, en dat verschuift niet stilletjes." },
+    { title: "Klaar bij oplevering", body: "Hosting, onderhoud, vindbaarheid en snelheid staan goed op dag één." },
+  ],
+
   transformatie: {
     heading: "Zo ziet een upgrade eruit.",
-    before: { label: "Voor", isPlaceholder: true, placeholderNote: "Screenshot bestaande site volgt" },
-    after: { label: "Na", isPlaceholder: true, placeholderNote: "Screenshot nieuwe site volgt" },
+    // Verzonnen voorbeeldbedrijf ("Voorbeeld") tot de eerste echte klantcase er is (zie DESIGN-BRIEF.md).
+    before: { label: "Voor" },
+    after: { label: "Na" },
     caption: "Zelfde bedrijf. Zelfde verhaal. Een site die het eindelijk waarmaakt.",
   },
 
@@ -72,7 +77,8 @@ export const copy = {
         name: "Koen Verhoeff",
         bio: "Olie sjeik en financiële kracht van het drietal. Bachelor Informatiekunde, nu bezig met de master Business Information & Technology Management. Zorgt voor de technische kant van de website.",
         photo: "/images/team-koen.webp",
-        isPlaceholder: false,
+        // Grapversie (zie README "Nog open"): vervangen vóór livegang. `qa --launch` houdt hem tegen.
+        isPlaceholder: true,
       },
       {
         name: "Bas Schaefers",
@@ -99,5 +105,6 @@ export const copy = {
     brand: "KOBAMA",
     city: "Amsterdam",
     cta: "Plan een gesprek",
+    privacy: "Privacyverklaring",
   },
 } as const;

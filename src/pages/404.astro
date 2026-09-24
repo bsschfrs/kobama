@@ -1,0 +1,19 @@
+---
+import Base from "../layouts/Base.astro";
+import PageHeader from "../components/PageHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import { copy } from "../content/copy";
+---
+<Base title="Pagina niet gevonden | KOBAMA" description="Deze pagina bestaat niet (meer)." noindex>
+  <a class="skip" href="#main">Naar de inhoud</a>
+  <PageHeader />
+  <main id="main" class="wrap prose not-found">
+    <h1>Deze pagina bestaat niet (meer).</h1>
+    <p class="lead">Misschien is hij verplaatst. Ga terug naar de homepage, of plan direct een gesprek.</p>
+    <p class="not-found-actions">
+      <a class="btn" href="/">Naar de homepage</a>
+      <a href={copy.contact}>{copy.nav.cta}</a>
+    </p>
+  </main>
+  <SiteFooter />
+</Base>

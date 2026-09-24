@@ -1,0 +1,8 @@
+---
+// Kopbalk voor de losse pagina's (privacy, 404). De homepage heeft zijn eigen hero.
+import { copy } from "../content/copy";
+---
+<header class="page-header wrap">
+  <a href="/"><img src="/images/logo-kobama.webp" alt="KOBAMA, naar de homepage" width="480" height="125" /></a>
+  <a class="btn btn-sm" href={copy.contact}>{copy.nav.cta}</a>
+</header>

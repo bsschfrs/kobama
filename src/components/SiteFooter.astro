@@ -1,0 +1,20 @@
+---
+// Footer met de wettelijke bedrijfsgegevens (playbook §9). Onbekende gegevens staan als
+// zichtbare placeholder tot ze bevestigd zijn; `npm run qa -- --launch` houdt ze tegen.
+import { copy } from "../content/copy";
+import { site, fact } from "../content/site";
+---
+<footer class="footer">
+  <div class="wrap footer-row">
+    <a href="/" class="footer-logo"><img src="/images/logo-word-light.webp" alt="KOBAMA" width="773" height="152" /></a>
+    <span>{copy.footer.city}</span>
+    <a href={copy.contact}>{copy.footer.cta}</a>
+  </div>
+  <div class="wrap footer-facts">
+    <span>KvK {fact(site.kvk, "KvK-nummer")}</span>
+    <span>Btw {fact(site.btw, "btw-nummer")}</span>
+    <span>{fact(site.address, "Adres")}</span>
+    <a href={`mailto:${site.email}`}>{site.email}</a>
+    <a href="/privacy/">{copy.footer.privacy}</a>
+  </div>
+</footer>

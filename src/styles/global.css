@@ -1,0 +1,338 @@
+/* KOBAMA v2 "Bouwstenen": zie DESIGN-BRIEF.md voor de regels achter deze waarden. */
+:root {
+  --bg: #f1f2f0;
+  --paper: #ffffff;
+  --ink: #1a1a1a;
+  --muted: #5b5e5c;
+  --line: #cfd2ce;
+  --charcoal: #262626;
+  --blue: #0a74a6;
+  --orange: #db521c;
+  --orange-deep: #b03f12;
+
+  /* Kleuren die met de secties meeschuiven (zie motion.ts) */
+  --surface: var(--bg);
+  --text: var(--ink);
+  --text-2: var(--muted);
+  --rule: var(--line);
+
+  --pad: 96px;
+  --max: 1248px;
+  --font: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --ease: cubic-bezier(0.2, 0.7, 0.1, 1);
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+body {
+  margin: 0;
+  background: var(--surface);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 18px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+p, h1, h2, h3, figure, ol { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+
+.wrap { width: 100%; max-width: calc(var(--max) + 2 * var(--pad)); margin: 0 auto; padding: 0 var(--pad); }
+
+.skip {
+  position: absolute; left: 16px; top: -100px; z-index: 100;
+  background: var(--ink); color: #fff; padding: 12px 16px; text-decoration: none;
+}
+.skip:focus { top: 16px; }
+
+/* ---------- typografie ---------- */
+h1 {
+  font-size: clamp(40px, 5.6vw, 84px);
+  line-height: 0.98;
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+.h2 {
+  font-size: clamp(36px, 4.2vw, 60px);
+  line-height: 1.02;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+.h3 { font-size: 22px; line-height: 1.2; font-weight: 700; letter-spacing: -0.015em; }
+.lead { font-size: clamp(18px, 1.5vw, 21px); line-height: 1.5; color: var(--text-2); max-width: 30em; }
+
+/* ---------- knoppen ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 56px; padding: 0 28px;
+  background: var(--orange-deep); color: #fff;
+  font-weight: 700; font-size: 16px; text-decoration: none;
+  border-radius: 2px;
+  transition: background-color 0.2s var(--ease);
+}
+.btn:hover { background: #8f320d; }
+.btn-dark { background: var(--ink); }
+.btn-dark:hover { background: #000; }
+.btn-sm { min-height: 44px; padding: 0 18px; font-size: 15px; }
+
+/* ---------- vaste balk ---------- */
+.topbar {
+  position: fixed; inset: 0 0 auto 0; z-index: 50;
+  height: 68px; padding: 0 var(--pad);
+  display: flex; align-items: center; justify-content: space-between; gap: 32px;
+  background: rgba(241, 242, 240, 0.96);
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  transform: translateY(-101%);
+  transition: transform 0.45s var(--ease);
+}
+.topbar.is-visible { transform: none; }
+html:not(.motion) .topbar { display: none; }
+.topbar-logo img { height: 26px; width: auto; }
+.topbar-nav { display: flex; gap: 32px; margin-left: auto; }
+.topbar-nav a, .hero-nav a { text-decoration: none; font-size: 15px; font-weight: 500; }
+.topbar-nav a:hover, .hero-nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+/* =========================================================
+   1. HERO: het logo zet zichzelf in elkaar (animatie in motion.ts)
+   ========================================================= */
+.hero {
+  position: relative; background: var(--bg); color: var(--ink); --text-2: var(--muted);
+  min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column;
+  overflow: hidden;
+}
+.hero-head { height: 96px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.hero-logo { height: 32px; width: auto; }
+.hero-nav { display: flex; gap: 36px; }
+.hero-body {
+  flex: 1; display: grid; grid-template-columns: 52fr 48fr; gap: 32px; align-items: center;
+  padding-bottom: 72px;
+}
+.hero-copy { display: flex; flex-direction: column; gap: 30px; }
+.hero h1 { font-size: clamp(44px, 6.4vw, 104px); line-height: 0.96; letter-spacing: -0.05em; }
+.hero h1 .w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.06em; margin-bottom: -0.06em; }
+.hero h1 .w > span { display: inline-block; }
+.hero-blocks { display: flex; justify-content: center; align-items: center; }
+.hero-iso { width: min(100%, 680px); height: auto; overflow: visible; }
+
+.split-handle {
+  position: absolute; top: 50%; left: 50%;
+  width: 52px; height: 52px; margin: -26px 0 0 -26px;
+  border-radius: 50%; background: var(--blue); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+}
+html.motion .ghost line { stroke: #9da19e; stroke-width: 1.5; stroke-dasharray: 6 6; }
+.ghost { opacity: 0; }
+
+/* =========================================================
+   Secties die in kleur in elkaar overlopen
+   Zonder .motion heeft elke sectie haar eigen achtergrond.
+   ========================================================= */
+.flow { color: var(--text); }
+[data-theme="dark"]  { --s: var(--charcoal); --t: #ffffff; --t2: #c9cbc9; --r: #4a4a4a; }
+[data-theme="light"] { --s: var(--bg);       --t: var(--ink); --t2: var(--muted); --r: var(--line); }
+[data-theme="paper"] { --s: var(--paper);    --t: var(--ink); --t2: var(--muted); --r: var(--line); }
+[data-theme="orange"]{ --s: var(--orange-deep); --t: #ffffff; --t2: #ffe6da; --r: #d9764f; }
+html:not(.motion) .flow { background: var(--s); --text: var(--t); --text-2: var(--t2); --rule: var(--r); }
+
+/* ---------- 2. statement ---------- */
+.statement { padding: 150px 0 140px; }
+.statement-text { display: flex; flex-direction: column; gap: 28px; max-width: 1040px; }
+.st1 { font-size: clamp(32px, 3.8vw, 54px); line-height: 1.1; font-weight: 700; letter-spacing: -0.03em; }
+.st2 { font-size: clamp(20px, 1.9vw, 27px); line-height: 1.45; color: var(--text-2); max-width: 760px; }
+.proof { margin-top: 110px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px; }
+.proof-item { border-top: 3px solid var(--accent); padding-top: 24px; display: flex; flex-direction: column; gap: 10px; }
+.proof-item p { color: var(--text-2); font-size: 17px; }
+
+/* ---------- 3. transformatie: realistische vergelijking ---------- */
+.transform { padding: 140px 0 120px; }
+.transform .wrap { display: flex; flex-direction: column; gap: 40px; }
+.compare {
+  /* 1em = 1% van de breedte: beide sites schalen mee zonder container queries */
+  --cw: min(var(--max), calc(100vw - 2 * var(--pad)));
+  font-size: calc(var(--cw) / 100);
+  position: relative; width: 100%; aspect-ratio: 16 / 10; overflow: hidden;
+  border: 1px solid var(--rule); background: #fff;
+}
+.compare-pane { position: absolute; inset: 0; }
+.compare-pane.after { clip-path: inset(0 calc(100% - var(--cmp, 50%)) 0 0); }
+.compare-line { position: absolute; top: 0; bottom: 0; left: var(--cmp, 50%); width: 3px; margin-left: -1.5px; background: var(--blue); z-index: 3; }
+.compare { overflow: visible; }
+.compare-pane { overflow: hidden; }
+.cmp-label {
+  position: absolute; top: 0; z-index: 4; font-size: 14px; font-weight: 700;
+  padding: 5px 12px; background: var(--ink); color: #fff; transform: translateY(-50%);
+}
+.cmp-label.l { left: 16px; background: var(--blue); }
+.cmp-label.r { right: 16px; }
+.caption { color: var(--text-2); font-size: 20px; }
+html.motion .transform { height: 240vh; padding: 0; }
+html.motion .transform-stage { position: sticky; top: 0; height: 100vh; height: 100svh; display: flex; align-items: center; padding-top: 68px; }
+html.motion .transform .wrap { gap: 28px; }
+html.motion .compare {
+  --cw: min(var(--max), calc(100vw - 2 * var(--pad)), calc((100svh - 300px) * 1.6));
+  width: var(--cw);
+}
+
+/* de oude site (~2014), verzonnen loodgieter */
+.os { width: 100%; height: 100%; background: #dcdcdc; font-family: Arial, Helvetica, sans-serif; color: #444; overflow: hidden; }
+.os-box { width: 80em; height: 100%; margin: 0 auto; background: #fff; box-shadow: 0 0 1.2em rgba(0,0,0,.35); display: flex; flex-direction: column; }
+.os-topbar { background: #1e5ba8; color: #fff; font-size: 0.95em; padding: 0.6em 1.6em; }
+.os-header { display: flex; justify-content: space-between; align-items: center; padding: 1.6em 1.6em 1.3em; }
+.os-logo { font-size: 2.3em; font-weight: 700; color: #1e5ba8; letter-spacing: -0.02em; }
+.os-tag { font-size: 1em; font-style: italic; color: #888; margin-top: 0.2em; }
+.os-cta { font-size: 1.05em; font-weight: 700; color: #fff; padding: 0.7em 1.2em; border-radius: 0.4em; background: linear-gradient(#f7a33b, #e0771b); border: 1px solid #c86410; }
+.os-menu { display: flex; background: linear-gradient(#f7f7f7, #d6d6d6); border-top: 1px solid #c4c4c4; border-bottom: 1px solid #b5b5b5; }
+.os-menu span { font-size: 1.05em; padding: 0.8em 1.5em; border-right: 1px solid #c4c4c4; color: #333; }
+.os-menu .on { background: linear-gradient(#2b6fc2, #1e5ba8); color: #fff; }
+.os-slider { position: relative; height: 22em; background: linear-gradient(135deg, #8c9aa6, #c9d2da 55%, #9aa6b0); display: flex; align-items: flex-end; }
+.os-caption { margin: 0 0 3.2em 5em; background: rgba(0,0,0,.55); color: #fff; padding: 1em 1.4em; max-width: 44em; }
+.os-cap-h { font-size: 1.9em; font-weight: 700; }
+.os-cap-p { font-size: 1.1em; margin-top: 0.3em; }
+.os-arrow { position: absolute; top: 50%; font-size: 3.4em; color: #fff; line-height: 1; transform: translateY(-50%); opacity: .8; }
+.os-arrow.l { left: 0.4em; } .os-arrow.r { right: 0.4em; }
+.os-dots { position: absolute; bottom: 1.2em; left: 50%; transform: translateX(-50%); display: flex; gap: 0.6em; }
+.os-dots i { width: 0.8em; height: 0.8em; border-radius: 50%; background: rgba(255,255,255,.5); }
+.os-dots i.on { background: #fff; }
+.os-cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2em; padding: 2em 1.6em; flex: 1; }
+.os-icon { width: 3.6em; height: 3.6em; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #6fa3e0, #1e5ba8); margin-bottom: 0.8em; }
+.os-h { font-size: 1.35em; font-weight: 700; color: #1e5ba8; margin-bottom: 0.4em; }
+.os-p { font-size: 0.95em; line-height: 1.45; color: #666; }
+.os-more { font-size: 0.95em; color: #e0771b; margin-top: 0.5em; font-weight: 700; }
+.os-footer { background: #3a3a3a; color: #aaa; font-size: 0.85em; padding: 1em 1.6em; }
+
+/* dezelfde loodgieter, nieuw */
+.ns { width: 100%; height: 100%; background: #f3f4f6; color: #0f1d2e; font-family: var(--font); display: flex; flex-direction: column; }
+.ns-nav { height: 7.4em; flex: none; display: flex; align-items: center; gap: 3em; padding: 0 4.4em; border-bottom: 1px solid #dde1e7; }
+.ns-brand { display: flex; align-items: center; gap: 0.5em; }
+.ns-mark { width: 2.4em; height: 2.4em; }
+.ns-name { font-size: 2em; font-weight: 800; letter-spacing: -0.04em; }
+.ns-sub { font-size: 1.2em; font-weight: 500; color: #5d6b7c; margin-left: 0.1em; }
+.ns-links { display: flex; gap: 2.4em; margin-left: auto; font-size: 1.15em; font-weight: 500; }
+.ns-phone { display: inline-flex; align-items: center; gap: 0.5em; font-size: 1.2em; font-weight: 800; background: #c8733a; color: #0f1d2e; padding: 0.8em 1.1em; border-radius: 0.25em; white-space: nowrap; }
+.ns-ic { width: 1.1em; height: 1.1em; }
+.ns-hero { flex: 1; min-height: 0; display: grid; grid-template-columns: 47fr 53fr; gap: 4em; padding: 3.6em 4.4em 3.6em; align-items: center; }
+.ns-copy { display: flex; flex-direction: column; gap: 2.2em; }
+.ns-h { font-size: 6em; line-height: 0.94; font-weight: 800; letter-spacing: -0.055em; text-wrap: balance; }
+.ns-p { font-size: 1.45em; line-height: 1.5; color: #4b5a6b; max-width: 28em; }
+.ns-actions { display: flex; align-items: center; gap: 2em; }
+.ns-btn { font-size: 1.35em; font-weight: 700; background: #0f1d2e; color: #fff; padding: 0.95em 1.4em; border-radius: 0.25em; white-space: nowrap; }
+.ns-link { font-size: 1.3em; font-weight: 700; color: #0f1d2e; }
+.ns-photo { position: relative; align-self: stretch; min-height: 0; border-radius: 0.5em; overflow: hidden; background: #0f1d2e; }
+.ns-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.ns-tags { position: absolute; inset: 0; width: 100%; height: 100%; font-family: var(--font); }
+.ns-services { flex: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.6em; padding: 0 4.4em 3.4em; }
+.ns-svc { display: flex; justify-content: space-between; align-items: center; padding: 1.2em 0 0; border-top: 0.35em solid var(--c); font-size: 1.4em; font-weight: 800; letter-spacing: -0.02em; }
+.ns-arr { color: #5d6b7c; }
+
+/* ---------- 4. werkwijze ---------- */
+.werkwijze { padding: 120px 0; }
+.werk-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 64px; align-items: start; }
+.werk-visual { position: sticky; top: 120px; display: flex; justify-content: center; }
+.werk-iso { width: 100%; max-width: 440px; height: auto; }
+.steps { list-style: none; padding: 0; margin-top: 24px; }
+.step {
+  min-height: 46vh; padding: 40px 0; border-top: 1px solid var(--rule);
+  display: flex; flex-direction: column; justify-content: center; gap: 16px;
+}
+.step:last-child { border-bottom: 1px solid var(--rule); }
+.step-title { font-size: clamp(30px, 2.8vw, 40px); font-weight: 800; letter-spacing: -0.03em; }
+.step p { color: var(--text-2); max-width: 32em; }
+
+/* ---------- 5. team ---------- */
+.team { padding: 140px 0 130px; }
+.team-grid { margin-top: 56px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px; }
+.member img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; filter: grayscale(1) contrast(1.04); }
+.member figcaption { margin-top: 18px; display: flex; flex-direction: column; gap: 8px; }
+.member p { color: var(--text-2); font-size: 16px; }
+
+/* ---------- 6. afsluiting ---------- */
+.closing { padding: 160px 0; }
+.closing .wrap { display: flex; flex-direction: column; gap: 32px; }
+.closing-h {
+  font-size: clamp(48px, 7.4vw, 108px); line-height: 0.96; font-weight: 800;
+  letter-spacing: -0.05em; max-width: 11em; text-wrap: balance;
+}
+
+/* ---------- footer ---------- */
+.footer { background: var(--charcoal); color: #c9cbc9; font-size: 15px; }
+.footer-row { min-height: 112px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.footer img { height: 22px; width: auto; }
+.footer a { color: #fff; font-weight: 700; text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+.footer-facts {
+  display: flex; flex-wrap: wrap; gap: 8px 28px;
+  padding-top: 20px; padding-bottom: 28px; border-top: 1px solid #3d3d3d; font-size: 14px;
+}
+.footer-facts a { font-weight: 500; }
+
+/* ---------- losse pagina's (privacy, 404) ---------- */
+.page-header { min-height: 104px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.page-header img { height: 32px; width: auto; }
+.prose { max-width: calc(46em + 2 * var(--pad)); margin: 0; padding-top: 72px; padding-bottom: 120px; }
+.prose h1 { font-size: clamp(40px, 4.4vw, 64px); margin-bottom: 24px; }
+.prose h2 { margin-top: 48px; margin-bottom: 8px; }
+.prose p + p { margin-top: 12px; }
+.prose a:not(.btn) { color: var(--blue); }
+.not-found { min-height: 60vh; }
+.not-found-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; margin-top: 36px; }
+
+/* =========================================================
+   Tablet en mobiel
+   ========================================================= */
+@media (max-width: 1100px) {
+  :root { --pad: 48px; }
+  .hero-nav, .topbar-nav { display: none; }
+}
+
+@media (max-width: 800px) {
+  :root { --pad: 24px; }
+  body { font-size: 17px; }
+
+  .hero-head { height: 72px; }
+  .hero-logo { height: 24px; }
+  .hero-body { grid-template-columns: 1fr; grid-template-rows: auto auto; gap: 8px; padding-bottom: 48px; align-content: start; }
+  .hero-blocks { order: -1; padding: 8px 0 12px; }
+  .hero-iso { width: min(78vw, 320px); }
+  .hero h1 { font-size: clamp(38px, 11vw, 54px); }
+  .hero-copy { gap: 22px; }
+
+  .topbar { height: 60px; padding: 0 var(--pad); }
+  .topbar-logo img { height: 22px; }
+
+  .statement { padding: 100px 0; }
+  .proof { grid-template-columns: 1fr; gap: 36px; margin-top: 72px; }
+
+  html.motion .transform { height: 190vh; }
+  html.motion .transform-stage { padding-top: 60px; }
+  html.motion .compare { --cw: calc(100vw - 2 * var(--pad)); width: var(--cw); }
+  .cmp-label { font-size: 12px; padding: 3px 8px; }
+  .cmp-label.l { left: 8px; } .cmp-label.r { right: 8px; }
+
+  .werkwijze { padding: 0 0 90px; }
+  .werk-grid { grid-template-columns: 1fr; gap: 0; }
+  .werk-visual {
+    top: 60px; z-index: 2; background: var(--surface);
+    padding: 14px 0 10px; margin: 0 calc(-1 * var(--pad)); border-bottom: 1px solid var(--rule);
+  }
+  html:not(.motion) .werk-visual { position: static; background: none; border: 0; }
+  .werk-iso { max-width: none; width: auto; height: 116px; }
+  .werk-steps { padding-top: 48px; }
+  .step { min-height: 0; padding: 36px 0 44px; }
+
+  .team { padding: 100px 0; }
+  .team-grid { grid-template-columns: 1fr; gap: 56px; margin-top: 40px; }
+  .closing { padding: 110px 0; }
+  .footer-row { flex-direction: column; align-items: flex-start; justify-content: center; gap: 12px; padding-top: 36px; padding-bottom: 36px; }
+}

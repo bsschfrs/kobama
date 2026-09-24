@@ -1,0 +1,39 @@
+---
+// Realistische verouderde mkb-site (stijl ~2014) van een VERZONNEN loodgieter.
+// Alle maten in em: 1em = 1% van de breedte van de vergelijking (zie .compare).
+---
+<div class="os" aria-hidden="true">
+  <div class="os-box">
+    <div class="os-topbar">Bel ons: 012 - 345 67 89&nbsp;&nbsp;|&nbsp;&nbsp;24 uur per dag bereikbaar voor spoed</div>
+    <div class="os-header">
+      <div>
+        <div class="os-logo">Loodgietersbedrijf Voorbeeld</div>
+        <div class="os-tag">Uw loodgieter in de regio</div>
+      </div>
+      <span class="os-cta">Offerte aanvragen &raquo;</span>
+    </div>
+    <div class="os-menu">
+      <span class="on">Home</span><span>Over ons</span><span>Diensten</span><span>Tarieven</span><span>Nieuws</span><span>Contact</span>
+    </div>
+    <div class="os-slider">
+      <span class="os-arrow l">&lsaquo;</span>
+      <div class="os-caption">
+        <div class="os-cap-h">Welkom bij Loodgietersbedrijf Voorbeeld</div>
+        <div class="os-cap-p">Voor lekkages, verstoppingen en cv-onderhoud</div>
+      </div>
+      <span class="os-arrow r">&rsaquo;</span>
+      <div class="os-dots"><i class="on"></i><i></i><i></i><i></i></div>
+    </div>
+    <div class="os-cols">
+      {["Lekkages", "Verstoppingen", "Cv-ketels"].map((t) => (
+        <div class="os-col">
+          <div class="os-icon"></div>
+          <div class="os-h">{t}</div>
+          <div class="os-p">Wij verzorgen dit voor zowel particulieren als bedrijven. Neem gerust contact met ons op voor meer informatie of een vrijblijvende offerte.</div>
+          <div class="os-more">Lees meer &raquo;</div>
+        </div>
+      ))}
+    </div>
+    <div class="os-footer">&copy; 2014 Loodgietersbedrijf Voorbeeld&nbsp;&nbsp;|&nbsp;&nbsp;Alle rechten voorbehouden&nbsp;&nbsp;|&nbsp;&nbsp;Sitemap&nbsp;&nbsp;|&nbsp;&nbsp;Disclaimer</div>
+  </div>
+</div>

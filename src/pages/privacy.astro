@@ -1,0 +1,58 @@
+---
+// Privacyverklaring. CONCEPT: playbook §9 zegt dit één keer door een adviseur te laten
+// checken vóór livegang. Onbekende gegevens staan als "[… volgt]" en houden `qa --launch` tegen.
+import Base from "../layouts/Base.astro";
+import PageHeader from "../components/PageHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import { site, fact } from "../content/site";
+---
+<Base title="Privacyverklaring | KOBAMA" description="Hoe KOBAMA omgaat met de gegevens die je stuurt als je contact opneemt.">
+  <a class="skip" href="#main">Naar de inhoud</a>
+  <PageHeader />
+  <main id="main" class="wrap prose">
+    <h1>Privacyverklaring.</h1>
+    <p class="lead">Wat we doen met de gegevens die je ons stuurt. Kort en zonder kleine lettertjes.</p>
+
+    <h2 class="h3">Wie we zijn</h2>
+    <p>
+      {site.name}, {fact(site.address, "Adres")}, {site.city}. KvK: {fact(site.kvk, "KvK-nummer")}.
+      Je bereikt ons via <a href={`mailto:${site.email}`}>{site.email}</a>.
+    </p>
+
+    <h2 class="h3">Welke gegevens we krijgen</h2>
+    <p>
+      Alleen wat je zelf stuurt. Mail je ons, dan krijgen we je naam, je e-mailadres en wat je in
+      je bericht zet. Deze website heeft geen formulier en houdt niet bij wie er langskomt.
+    </p>
+
+    <h2 class="h3">Waarvoor we ze gebruiken</h2>
+    <p>
+      Om op je bericht te reageren en, als je dat wilt, een eerste gesprek te plannen. We gebruiken
+      je gegevens niet voor nieuwsbrieven of reclame, en we verkopen ze niet.
+    </p>
+
+    <h2 class="h3">Hoe lang we ze bewaren</h2>
+    <p>{fact(null, "Bewaartermijn")}</p>
+
+    <h2 class="h3">Wie ze nog meer ziet</h2>
+    <p>
+      Onze e-mail loopt via Gmail van Google. De website draait bij {fact(null, "Naam hostingpartij")}.
+      Verder delen we je gegevens met niemand.
+    </p>
+
+    <h2 class="h3">Cookies</h2>
+    <p>
+      Deze website plaatst geen tracking- of marketingcookies. Daarom zie je ook geen cookiemelding.
+      Lettertypes staan op onze eigen server, dus bij het laden gaan er geen gegevens naar anderen.
+    </p>
+
+    <h2 class="h3">Jouw rechten</h2>
+    <p>
+      Je mag altijd vragen welke gegevens we van je hebben, en ze laten aanpassen of verwijderen.
+      Stuur daarvoor een mail naar <a href={`mailto:${site.email}`}>{site.email}</a>. Ben je het niet
+      eens met hoe we met je gegevens omgaan, dan kun je een klacht indienen bij de{" "}
+      <a href="https://www.autoriteitpersoonsgegevens.nl/">Autoriteit Persoonsgegevens</a>.
+    </p>
+  </main>
+  <SiteFooter />
+</Base>

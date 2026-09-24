@@ -29,3 +29,9 @@ pnpm-debug.log*
 
 # external skills reference, not site source
 designer-skills/
+
+# QA-screenshots (npm run qa)
+qa/
+
+# impeccable hook cache (per machine)
+.impeccable/hook.cache.json

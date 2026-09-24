@@ -1,43 +1,46 @@
-# Astro Starter Kit: Minimal
+# KOBAMA.nl v2 "Bouwstenen"
 
-```sh
-npm create astro@latest -- --template minimal
+One-page site voor KOBAMA, gebouwd met Astro en GSAP. Lees eerst `DESIGN-BRIEF.md` (bindend)
+en `CLAUDE.md` (werkafspraken voor Claude Code).
+
+## Starten
+
+```bash
+npm install
+npm run dev        # lokaal op http://localhost:4321
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Bouwen en controleren (definition of done)
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+npx playwright install chromium   # eenmalig
+npm run build
+npm run qa        # screenshots in qa/, faalt bij console-errors, overflow, a11y, SEO, Lighthouse, kapotte links
+npm run qa -- --launch --external   # vóór livegang: faalt ook op placeholders
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Structuur
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- `src/content/copy.ts`: alle tekst (vastgestelde copy)
+- `src/content/site.ts`: bedrijfsgegevens (KvK, btw, adres, e-mail, domein)
+- `src/pages/index.astro`: de pagina
+- `src/pages/privacy.astro`, `src/pages/404.astro`, `src/pages/robots.txt.ts`: vaste pagina's
+- `src/layouts/Base.astro`: head, SEO en structured data
+- `src/components/SiteFooter.astro`, `PageHeader.astro`: footer en kopbalk losse pagina's
+- `src/components/IsoBlocks.astro`: de drie logoblokken in isometrie
+- `src/components/OldSite.astro`: de verzonnen 2011-site voor de openingsovergang
+- `src/scripts/motion.ts`: alle beweging (alleen zonder prefers-reduced-motion)
+- `src/styles/global.css`: tokens en layout
+- `scripts/qa.mjs`: de QA-gate
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Nog open
 
-## 🧞 Commands
+Zie `PILOT-LOG.md` voor alles wat livegang blokkeert en de afwijkingen van het playbook.
 
-All commands are run from the root of the project, from a terminal:
+- Bio en portret van Koen (nu nog de grapversie).
+- Echte voor/na-screenshots zodra de eerste klant live is.
+- Licentie van de oude grachtenfoto's is niet meer nodig: v2 gebruikt ze niet.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Beeld
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- `public/images/loodgieter-sifon.webp`: uitsnede van een foto van Timur Shakerzianov via Unsplash (Unsplash License: gratis, ook commercieel, geen naamsvermelding verplicht).

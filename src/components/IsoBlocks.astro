@@ -1,0 +1,54 @@
+---
+// De drie logoblokken van KOBAMA in isometrie (kleuren gemeten uit logo-mark.webp).
+// data-block="1|2|3" = blauw, antraciet, oranje; data-ghost = gestippelde contour.
+interface Props { class?: string; label?: string }
+const { class: cls = "" } = Astro.props;
+
+const U = 104, OX = 280, OY = 330;
+const C30 = Math.cos(Math.PI / 6), S30 = 0.5;
+const P = (x: number, y: number, z: number) => [OX + (x - y) * C30 * U, OY + (x + y) * S30 * U - z * U];
+const pts = (a: number[][]) => a.map((p) => `${p[0].toFixed(1)},${p[1].toFixed(1)}`).join(" ");
+
+type Blk = { id: number; x: number; y: number; z: number; dx: number; dy: number; dz: number; c: [string, string, string] };
+const blocks: Blk[] = [
+  { id: 1, x: 0, y: 0, z: 0, dx: 1, dy: 1, dz: 3, c: ["#2E96C8", "#0A74A6", "#075B83"] },
+  { id: 3, x: 1, y: 0, z: 0, dx: 2, dy: 1, dz: 1, c: ["#F2804D", "#DB521C", "#AE3F13"] },
+  { id: 2, x: 0, y: 1, z: 0, dx: 1, dy: 2, dz: 1, c: ["#4B4B4B", "#2F2F2F", "#1C1C1C"] },
+];
+
+function faces(b: Blk) {
+  const { x, y, z, dx, dy, dz } = b;
+  const z1 = z + dz;
+  return [
+    { fill: b.c[0], p: pts([P(x, y, z1), P(x + dx, y, z1), P(x + dx, y + dy, z1), P(x, y + dy, z1)]) },
+    { fill: b.c[1], p: pts([P(x, y + dy, z), P(x + dx, y + dy, z), P(x + dx, y + dy, z1), P(x, y + dy, z1)]) },
+    { fill: b.c[2], p: pts([P(x + dx, y, z), P(x + dx, y + dy, z), P(x + dx, y + dy, z1), P(x + dx, y, z1)]) },
+  ];
+}
+function edges(b: Blk) {
+  const { x, y, z, dx, dy, dz } = b;
+  const z1 = z + dz;
+  const E = [
+    [P(x, y, z1), P(x + dx, y, z1)], [P(x + dx, y, z1), P(x + dx, y + dy, z1)], [P(x + dx, y + dy, z1), P(x, y + dy, z1)], [P(x, y + dy, z1), P(x, y, z1)],
+    [P(x, y + dy, z), P(x + dx, y + dy, z)], [P(x + dx, y + dy, z), P(x + dx, y, z)],
+    [P(x, y + dy, z), P(x, y + dy, z1)], [P(x + dx, y + dy, z), P(x + dx, y + dy, z1)], [P(x + dx, y, z), P(x + dx, y, z1)],
+  ];
+  return E.map(([a, c]) => ({ x1: a[0].toFixed(1), y1: a[1].toFixed(1), x2: c[0].toFixed(1), y2: c[1].toFixed(1) }));
+}
+---
+<svg class={`iso ${cls}`} viewBox="0 0 560 560" aria-hidden="true" focusable="false">
+  <g class="ghosts">
+    {blocks.map((b) => (
+      <g class="ghost" data-ghost={b.id}>
+        {edges(b).map((e) => <line {...e} />)}
+      </g>
+    ))}
+  </g>
+  {blocks.map((b) => (
+    <g data-par={b.id}><g data-exp={b.id}>
+      <g class="blk" data-block={b.id}>
+        {faces(b).map((f) => <polygon points={f.p} fill={f.fill} />)}
+      </g>
+    </g></g>
+  ))}
+</svg>
