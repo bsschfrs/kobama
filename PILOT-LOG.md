@@ -32,8 +32,7 @@ Wat moest met de hand worden hersteld, en welke regel in CLAUDE.md had dat voork
 
 `npm run qa -- --launch` faalt tot deze punten zijn opgelost:
 
-- [ ] Bio van Koen is nog de grapversie ("Olie sjeik …"). Vervangen en `isPlaceholder`
-      in `copy.ts` op `false` zetten.
+- [x] Bio en portret van Koen vervangen, `isPlaceholder` in `copy.ts` staat op `false`.
 - [ ] KvK-nummer, btw-nummer en adres in `src/content/site.ts`.
 - [ ] Bewaartermijn en hostingpartij in de privacyverklaring; privacyverklaring één keer
       laten checken door een adviseur (playbook §9).

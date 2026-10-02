@@ -37,10 +37,10 @@ npm run qa -- --launch --external   # vóór livegang: faalt ook op placeholders
 
 Zie `PILOT-LOG.md` voor alles wat livegang blokkeert en de afwijkingen van het playbook.
 
-- Bio en portret van Koen (nu nog de grapversie).
 - Echte voor/na-screenshots zodra de eerste klant live is.
 - Licentie van de oude grachtenfoto's is niet meer nodig: v2 gebruikt ze niet.
 
 ## Beeld
 
 - `public/images/loodgieter-sifon.webp`: uitsnede van een foto van Timur Shakerzianov via Unsplash (Unsplash License: gratis, ook commercieel, geen naamsvermelding verplicht).
+- `public/images/team-koen.webp`: eigen portretfoto van Koen Verhoeff, door hemzelf aangeleverd (2 oktober 2026) en bijgesneden naar 3:4.

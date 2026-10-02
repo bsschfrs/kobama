@@ -75,14 +75,13 @@ export const copy = {
     members: [
       {
         name: "Koen Verhoeff",
-        bio: "Olie sjeik en financiële kracht van het drietal. Bachelor Informatiekunde, nu bezig met de master Business Information & Technology Management. Zorgt voor de technische kant van de website.",
+        bio: "Bachelor Informatiekunde, nu in de master Business Information & Technology Management. Zorgt voor de techniek achter de website.",
         photo: "/images/team-koen.webp",
-        // Grapversie (zie README "Nog open"): vervangen vóór livegang. `qa --launch` houdt hem tegen.
-        isPlaceholder: true,
+        isPlaceholder: false,
       },
       {
         name: "Bas Schaefers",
-        bio: "Bachelor Bedrijfskunde en master Entrepreneurship. Ervaring in marketing.",
+        bio: "Bachelor Bedrijfskunde en master Entrepreneurship, met ervaring in marketing.",
         photo: "/images/team-bas.webp",
         isPlaceholder: false,
       },
