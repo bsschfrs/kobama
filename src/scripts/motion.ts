@@ -3,6 +3,7 @@
 // Draait alleen als <html> de class "motion" heeft (geen prefers-reduced-motion).
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { fromScroll } from "./compare";
 
 const root = document.documentElement;
 
@@ -101,13 +102,13 @@ if (root.classList.contains("motion")) {
   });
 
   // ---------- 3. transformatie: oud naar nieuw ----------
+  // De lijn is ook met de hand te slepen (compare.ts); scrollen stuurt hier de positie.
   const tr = q("[data-transform]");
-  const compare = q("[data-compare]");
+  const cmpScroll = { v: 0 };
+  fromScroll(0);
   gsap.timeline({ scrollTrigger: { trigger: tr, start: "top top", end: "bottom bottom", scrub: 0.6 } })
-    .fromTo(compare, { "--cmp": "0%" }, { "--cmp": "100%", ease: "none", duration: 0.85 }, 0.05)
-    .fromTo(q("[data-compare-line]"), { opacity: 1 }, { opacity: 0, duration: 0.08 }, 0.82)
-    .fromTo(q("[data-cmp-after]"), { opacity: 0 }, { opacity: 1, duration: 0.1 }, 0.08)
-    .to(q("[data-cmp-before]"), { opacity: 0, duration: 0.1 }, 0.8);
+    .fromTo(cmpScroll, { v: 0 }, { v: 100, ease: "none", duration: 0.85, onUpdate: () => fromScroll(cmpScroll.v) }, 0.05)
+    .to({}, { duration: 0.1 });
 
   // ---------- 4. werkwijze: het logo bouwt zich op ----------
   const werkIso = q<SVGElement>(".werk-iso");

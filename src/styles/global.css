@@ -9,6 +9,7 @@
   --blue: #0a74a6;
   --orange: #db521c;
   --orange-deep: #b03f12;
+  --radius-btn: 8px;
 
   /* Kleuren die met de secties meeschuiven (zie motion.ts) */
   --surface: var(--bg);
@@ -45,6 +46,11 @@ body {
 img { display: block; max-width: 100%; height: auto; }
 p, h1, h2, h3, figure, ol { margin: 0; }
 a { color: inherit; }
+/* Boven kopieerbare tekst een gespiegelde pijl (punt rechtsboven) in plaats van de
+   tekstcursor. Elders de gewone cursor, links en knoppen houden het handje. */
+p, h1, h2, h3, h4, li, figcaption, address, small { cursor: url("/cursor-arrow.svg") 22 1, text; }
+a, button { cursor: pointer; }
+a *, button * { cursor: inherit; }
 :focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
 
 .wrap { width: 100%; max-width: calc(var(--max) + 2 * var(--pad)); margin: 0 auto; padding: 0 var(--pad); }
@@ -78,7 +84,7 @@ h1 {
   min-height: 56px; padding: 0 28px;
   background: var(--orange-deep); color: #fff;
   font-weight: 700; font-size: 16px; text-decoration: none;
-  border-radius: 2px;
+  border-radius: var(--radius-btn);
   transition: background-color 0.2s var(--ease);
 }
 .btn:hover { background: #8f320d; }
@@ -131,7 +137,9 @@ html:not(.motion) .topbar { display: none; }
   width: 52px; height: 52px; margin: -26px 0 0 -26px;
   border-radius: 50%; background: var(--blue); color: #fff;
   display: flex; align-items: center; justify-content: center;
+  cursor: grab; touch-action: none; user-select: none;
 }
+.split-handle.is-dragging, html.is-comparing, html.is-comparing * { cursor: grabbing !important; user-select: none; }
 html.motion .ghost line { stroke: #9da19e; stroke-width: 1.5; stroke-dasharray: 6 6; }
 .ghost { opacity: 0; }
 
@@ -256,6 +264,8 @@ html.motion .compare {
 .member img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; filter: grayscale(1) contrast(1.04); }
 .member figcaption { margin-top: 18px; display: flex; flex-direction: column; gap: 8px; }
 .member p { color: var(--text-2); font-size: 16px; }
+.member-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.member-link { display: inline-flex; flex: none; padding: 10px; margin: -10px; color: var(--blue); }
 
 /* ---------- 6. afsluiting ---------- */
 .closing { padding: 160px 0; }

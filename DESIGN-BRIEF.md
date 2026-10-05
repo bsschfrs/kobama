@@ -36,6 +36,8 @@ Geen tweede familie, geen cursief nadrukwoord.
 ## Compositieregel
 
 Vlakke, harde kleurvlakken en blokken. Niets zweeft, niets heeft een schaduw of verloop.
+Uitzondering: knoppen hebben licht afgeronde hoeken (`--radius-btn`, 8px), bewust gekozen
+op 5 oktober 2026 zodat ze minder hard ogen. Kleurvlakken, foto's en blokken blijven recht.
 Eén content-kolom van max. 1248px, marges 96px (24px mobiel).
 
 ## Signature-elementen (twee bewegingsmomenten)
@@ -56,6 +58,9 @@ Eén content-kolom van max. 1248px, marges 96px (24px mobiel).
 boxed layout, Arial, verloopknoppen, slider zonder foto, drie kolommen met iconen) en de
 nieuwe versie van hetzelfde bedrijf. Een blauwe scheidslijn schuift tijdens het scrollen
 van links naar rechts; de nieuwe site groeit van links over de oude heen.
+De bezoeker kan de lijn ook zelf heen en weer slepen aan het blauwe bolletje (muis, touch,
+en pijltjestoetsen). Wat het laatst gebeurt wint: na slepen schuift de lijn bij de volgende
+scroll rustig terug naar de scrollpositie. De lijn blijft daarom ook aan het eind zichtbaar.
 
 Het voorbeeld is een loodgieter. Het bedrijf is verzonnen en heet bewust "Voorbeeld",
 zodat het zonder apart label eerlijk blijft. De nieuwe versie is licht, strak en

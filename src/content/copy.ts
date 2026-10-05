@@ -46,6 +46,7 @@ export const copy = {
     // Verzonnen voorbeeldbedrijf ("Voorbeeld") tot de eerste echte klantcase er is (zie DESIGN-BRIEF.md).
     before: { label: "Voor" },
     after: { label: "Na" },
+    sliderLabel: "Schuif tussen de oude en de nieuwe site",
     caption: "Zelfde bedrijf. Zelfde verhaal. Een site die het eindelijk waarmaakt.",
   },
 
@@ -72,23 +73,27 @@ export const copy = {
 
   people: {
     heading: "Wie het maakt.",
+    linkedinLabel: "LinkedIn",
     members: [
       {
         name: "Koen Verhoeff",
-        bio: "Bachelor Informatiekunde, nu in de master Business Information & Technology Management. Zorgt voor de techniek achter de website.",
+        bio: "Wordt blij van een leeg scherm dat stukje bij beetje een werkende site wordt. Koen is de techneut van het stel: hij zorgt dat alles snel laadt en blijft werken.",
         photo: "/images/team-koen.webp",
+        linkedin: "https://www.linkedin.com/in/koen-verhoeff/",
         isPlaceholder: false,
       },
       {
         name: "Bas Schaefers",
-        bio: "Bachelor Bedrijfskunde en master Entrepreneurship, met ervaring in marketing.",
+        bio: "Bouwt het liefst aan iets wat mensen echt gebruiken. Bas verbindt het gesprek met de techniek: hij vertaalt wat jij voor ogen hebt naar wat er gebouwd wordt.",
         photo: "/images/team-bas.webp",
+        linkedin: "https://www.linkedin.com/in/bas-schaefers",
         isPlaceholder: false,
       },
       {
         name: "Mats Jongmans",
-        bio: "Bachelor Bedrijfskunde, met ruime ervaring in sales.",
+        bio: "Praat het liefst met ondernemers over wat ze aan het bouwen zijn. Mats hoort snel wat jouw klant wil weten en zorgt ervoor dat je site dat ook precies zegt.",
         photo: "/images/team-mats.webp",
+        linkedin: "https://www.linkedin.com/in/mats-jongmans/",
         isPlaceholder: false,
       },
     ],
