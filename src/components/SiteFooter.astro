@@ -10,11 +10,16 @@ import { site, fact } from "../content/site";
     <span>{copy.footer.city}</span>
     <a href={copy.contact}>{copy.footer.cta}</a>
   </div>
-  <div class="wrap footer-facts">
-    <span>KvK {fact(site.kvk, "KvK-nummer")}</span>
-    <span>Btw {fact(site.btw, "btw-nummer")}</span>
-    <span>{fact(site.address, "Adres")}</span>
-    <a href={`mailto:${site.email}`}>{site.email}</a>
+  <div class="wrap footer-legal">
+    <details class="footer-details">
+      <summary>{copy.footer.details}</summary>
+      <div class="footer-facts">
+        <span>KvK {fact(site.kvk, "KvK-nummer")}</span>
+        <span>Btw {fact(site.btw, "btw-nummer")}</span>
+        <span>{fact(site.address, "Adres")}</span>
+        <a href={`mailto:${site.email}`}>{site.email}</a>
+      </div>
+    </details>
     <a href="/privacy/">{copy.footer.privacy}</a>
   </div>
 </footer>

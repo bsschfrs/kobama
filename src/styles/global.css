@@ -267,6 +267,53 @@ html.motion .compare {
 .member-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .member-link { display: inline-flex; flex: none; padding: 10px; margin: -10px; color: var(--blue); }
 
+/* ---------- 3b. track record ---------- */
+.werk { padding: 140px 0 150px; }
+.tr { margin-top: 56px; }
+.tr-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+.tr-item { border-bottom: 1px solid var(--rule); position: relative; transition: opacity 0.3s ease; }
+.tr-item::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 3px; background: var(--accent);
+  transform: scaleX(0); transform-origin: left; transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.tr-item.is-active::after { transform: scaleX(1); }
+.tr-list:has(.is-active) .tr-item:not(.is-active) { opacity: 0.4; }
+.tr-link {
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 12px 28px;
+  padding: 30px 0; text-decoration: none; color: inherit;
+}
+.tr-block { transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
+.tr-item.is-active .tr-block { transform: rotate(60deg); }
+.tr-name { font-size: clamp(30px, 4.4vw, 64px); line-height: 1; font-weight: 800; letter-spacing: -0.04em; }
+.tr-domain { color: var(--text-2); font-size: 16px; }
+.tr-link:hover .tr-name, .tr-link:focus-visible .tr-name { text-decoration: none; }
+.tr-thumb {
+  grid-column: 1 / -1; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top;
+  filter: grayscale(1); transition: filter 0.5s ease;
+}
+.tr-item.is-active .tr-thumb { filter: grayscale(0); }
+.tr-preview { display: none; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* Desktop met beweging: zwevende preview in drie stroken, geen thumbnails in de lijst */
+@media (hover: hover) and (pointer: fine) {
+  html.motion .tr-thumb { display: none; }
+  html.motion .tr-preview {
+    display: block; position: fixed; top: 0; left: 0; z-index: 40; pointer-events: none;
+    width: clamp(300px, 32vw, 480px); aspect-ratio: 16 / 10; opacity: 0;
+    filter: grayscale(var(--gs, 1));
+  }
+  .tr-strip { position: absolute; left: 0; right: 0; top: calc(var(--i) * 33.333%); height: 33.334%; overflow: hidden; }
+  .tr-full { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; opacity: 0; }
+  .tr-strip img {
+    position: absolute; left: 0; top: calc(var(--i) * -100%); width: 100%; height: 300%;
+    object-fit: cover; object-position: top;
+  }
+}
+
 /* ---------- 6. afsluiting ---------- */
 .closing { padding: 160px 0; }
 .closing .wrap { display: flex; flex-direction: column; gap: 32px; }
@@ -281,11 +328,28 @@ html.motion .compare {
 .footer img { height: 22px; width: auto; }
 .footer a { color: #fff; font-weight: 700; text-decoration: none; }
 .footer a:hover { text-decoration: underline; }
-.footer-facts {
-  display: flex; flex-wrap: wrap; gap: 8px 28px;
-  padding-top: 20px; padding-bottom: 28px; border-top: 1px solid #3d3d3d; font-size: 14px;
+.footer-legal {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 8px 28px;
+  padding-top: 16px; padding-bottom: 20px; border-top: 1px solid #3d3d3d; font-size: 14px;
 }
+.footer-legal > a { font-weight: 500; padding: 4px 0; }
+.footer-details summary {
+  display: inline-flex; align-items: center; gap: 10px; padding: 4px 0;
+  list-style: none; cursor: pointer; color: #fff; font-weight: 500;
+}
+.footer-details summary::-webkit-details-marker { display: none; }
+.footer-details summary::after {
+  content: ""; width: 7px; height: 7px; margin-top: -4px;
+  border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+  transform: rotate(45deg); transition: transform 0.2s ease;
+}
+.footer-details[open] summary::after { transform: rotate(-135deg); margin-top: 4px; }
+.footer-details summary:hover { text-decoration: underline; }
+.footer-facts { display: flex; flex-wrap: wrap; gap: 8px 28px; padding: 12px 0 8px; }
 .footer-facts a { font-weight: 500; }
+@media (prefers-reduced-motion: reduce) {
+  .footer-details summary::after, .tr-item, .tr-item::after, .tr-block, .tr-thumb { transition: none; }
+}
 
 /* ---------- losse pagina's (privacy, 404) ---------- */
 .page-header { min-height: 104px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
@@ -341,6 +405,12 @@ html.motion .compare {
   .werk-steps { padding-top: 48px; }
   .step { min-height: 0; padding: 36px 0 44px; }
 
+  .werk { padding: 100px 0 110px; }
+  .tr { margin-top: 40px; }
+  .tr-link { grid-template-columns: auto 1fr; gap: 6px 16px; padding: 24px 0 28px; }
+  .tr-block { width: 22px; height: 24px; }
+  .tr-domain { grid-column: 2; font-size: 15px; }
+  .tr-thumb { margin-top: 12px; }
   .team { padding: 100px 0; }
   .team-grid { grid-template-columns: 1fr; gap: 56px; margin-top: 40px; }
   .closing { padding: 110px 0; }

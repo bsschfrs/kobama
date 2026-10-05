@@ -1,0 +1,35 @@
+---
+// Track record: een typografische lijst van echte klantsites (zie DESIGN-BRIEF.md, "Track record").
+// Desktop met beweging: een zwevende preview volgt de cursor en zet zichzelf in drie stroken
+// in elkaar, zoals de logoblokken in de hero; pas als hij compleet is, loopt de kleur erin.
+// Touch en reduced-motion: een vaste thumbnail per regel die in kleur gaat als de regel actief is.
+import { copy } from "../content/copy";
+
+const domain = (url: string) => new URL(url).hostname.replace(/^www\./, "");
+---
+<div class="tr" data-tr>
+  <ul class="tr-list" role="list">
+    {copy.werk.items.map((item) => (
+      <li class="tr-item" style={`--accent: ${item.accent}`}>
+        <a class="tr-link" href={item.url} target="_blank" rel="noopener" data-tr-item data-image={item.image}>
+          <svg class="tr-block" viewBox="0 0 24 26" width="28" height="30" aria-hidden="true" focusable="false">
+            <path d="M12 1 23 7 12 13 1 7Z" fill="var(--accent)" />
+            <path d="M12 1 23 7 12 13 1 7Z" fill="#fff" opacity="0.28" />
+            <path d="M1 7 12 13 12 25 1 19Z" fill="var(--accent)" />
+            <path d="M23 7 23 19 12 25 12 13Z" fill="var(--accent)" />
+            <path d="M23 7 23 19 12 25 12 13Z" fill="#000" opacity="0.32" />
+          </svg>
+          <span class="tr-name">{item.name}</span>
+          <span class="tr-domain">{domain(item.url)}<span class="sr-only"> ({copy.werk.newTab})</span></span>
+          <img class="tr-thumb" src={item.image} alt="" width="1200" height="750" loading="lazy" decoding="async" />
+        </a>
+      </li>
+    ))}
+  </ul>
+  <div class="tr-preview" aria-hidden="true" data-tr-preview>
+    {[0, 1, 2].map((i) => (
+      <span class="tr-strip" style={`--i: ${i}`}><img alt="" width="1200" height="750" decoding="async" /></span>
+    ))}
+    <img class="tr-full" alt="" width="1200" height="750" decoding="async" />
+  </div>
+</div>

@@ -14,6 +14,7 @@ export const copy = {
     cta: "Plan een gesprek",
     links: [
       { label: "Transformatie", href: "#transformatie" },
+      { label: "Werk", href: "#werk" },
       { label: "Werkwijze", href: "#werkwijze" },
       { label: "Team", href: "#team" },
       { label: "Contact", href: "#contact" },
@@ -48,6 +49,20 @@ export const copy = {
     after: { label: "Na" },
     sliderLabel: "Schuif tussen de oude en de nieuwe site",
     caption: "Zelfde bedrijf. Zelfde verhaal. Een site die het eindelijk waarmaakt.",
+  },
+
+  // Track record: echte klanten, met toestemming genoemd (bevestigd door Bas, 5 oktober 2026).
+  // `accent` is de huiskleur van de klant, gemeten uit de screenshot van hun site.
+  werk: {
+    heading: "Deze sites bouwden we al.",
+    newTab: "opent in een nieuw tabblad",
+    items: [
+      { name: "De Garengarage", url: "https://www.degarengarage.nl/", image: "/images/werk/garengarage.webp", accent: "#dcccbf" },
+      { name: "BB-Collect", url: "https://bb-collect.com/", image: "/images/werk/bb-collect.webp", accent: "#6cc3b3" },
+      { name: "WBMS Vastgoed", url: "https://www.wbms-vastgoed.nl/", image: "/images/werk/wbms-vastgoed.webp", accent: "#1671e4" },
+      { name: "BLS Service", url: "https://basschaefers.com/", image: "/images/werk/bls-service.webp", accent: "#3c5bff" },
+      { name: "GweBas", url: "https://gwebas.nl/", image: "/images/werk/gwebas.webp", accent: "#368c63" },
+    ],
   },
 
   werkwijze: {
@@ -110,5 +125,6 @@ export const copy = {
     city: "Amsterdam",
     cta: "Plan een gesprek",
     privacy: "Privacyverklaring",
+    details: "Bedrijfsgegevens",
   },
 } as const;

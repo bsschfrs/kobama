@@ -73,6 +73,23 @@ net als het bedrijf. Geen verlopen of glaseffecten.
 Foto: Timur Shakerzianov via Unsplash (Unsplash License); het gezicht is niet herkenbaar. Vervang dit door een echte
 klantcase zodra die er is.
 
+## Track record: "Van bouwsteen naar live"
+
+Na de transformatie en vóór Werkwijze, op antraciet. Een typografische lijst van echte
+klantsites (met toestemming genoemd, bevestigd door Bas op 5 oktober 2026): per regel een
+klein isometrisch blok in de huiskleur van de klant, de naam groot en het domein.
+De huiskleuren zijn gemeten uit de screenshots van hun eigen site en worden alleen gebruikt
+voor dat blok en de lijn eronder; het zijn geen nieuwe huisstijlkleuren van KOBAMA.
+
+- Desktop met muis: bij hover volgt een preview van de site de cursor. Hij zet zichzelf in
+  drie stroken in elkaar in de volgorde van het logo (boven valt, links en rechts schuiven
+  langs hun as) en is zwart-wit tot hij compleet is; dan loopt de kleur erin. De lijn onder
+  de regel kleurt vol in de huiskleur, het blok draait, de andere regels worden zachter.
+- Touch: elke regel heeft een vaste thumbnail. De regel in het midden van het scherm is
+  actief en gaat in kleur. Geen layout shift.
+- Reduced motion: thumbnails zoals op touch, alleen de wissel naar kleur, zonder overgang.
+- Elke regel linkt naar de live site in een nieuw tabblad.
+
 ## Overige beweging
 
 - Achtergrond verloopt tijdens het scrollen tussen secties (licht naar antraciet en terug)
