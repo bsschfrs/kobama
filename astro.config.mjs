@@ -8,7 +8,7 @@ export default defineConfig({
   // Canonical, sitemap en robots.txt gebruiken deze waarde.
   site: 'https://kobama.nl',
   trailingSlash: 'always',
-  integrations: [sitemap({ filter: (page) => !page.includes('/404') })],
+  integrations: [sitemap({ filter: (page) => !page.includes('/404') && !page.includes('/privacy') && !page.includes('/bedrijfsgegevens') })],
   server: {
     port: process.env.PORT ? Number(process.env.PORT) : 4321,
   },

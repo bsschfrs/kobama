@@ -10,8 +10,9 @@ beslistermijn en leiden naar één actie: "Plan een gesprek" (mailto:kobama.info
 Copy staat vast in `src/content/copy.ts`. Niets verzinnen: geen klanten, cijfers,
 testimonials of bedragen. Ontbrekende inhoud is een zichtbare placeholder.
 Naast de homepage zijn er twee losse pagina's in dezelfde stijl: `/privacy/`
-(privacyverklaring) en een 404. Bedrijfsgegevens (KvK, btw, adres) staan in
-`src/content/site.ts` en verschijnen in de footer.
+(privacybeleid) en `/bedrijfsgegevens/`, allebei `noindex` en alleen klein gelinkt vanuit de
+footer, plus een 404. Bedrijfsgegevens (KvK, btw, adres) staan in
+`src/content/site.ts` en verschijnen op `/bedrijfsgegevens/`.
 
 ## Tokens
 

@@ -33,9 +33,10 @@ Wat moest met de hand worden hersteld, en welke regel in CLAUDE.md had dat voork
 `npm run qa -- --launch` faalt tot deze punten zijn opgelost:
 
 - [x] Bio en portret van Koen vervangen, `isPlaceholder` in `copy.ts` staat op `false`.
-- [ ] KvK-nummer, btw-nummer en adres in `src/content/site.ts`.
-- [ ] Bewaartermijn en hostingpartij in de privacyverklaring; privacyverklaring één keer
-      laten checken door een adviseur (playbook §9).
+- [ ] KvK-nummer, btw-nummer en adres in `src/content/site.ts` (verschijnen op `/bedrijfsgegevens/`).
+- [x] Bewaartermijn in het privacybeleid (12 maanden voor leads, 6 oktober 2026).
+- [ ] Privacybeleid één keer laten checken door een
+      adviseur (playbook §9), ook op het Meta-leadformulier.
 - [ ] Domein bevestigen (`kobama.nl` is aangenomen) in `site.ts` en `astro.config.mjs`.
 - [ ] Bas en Mats bevestigen hun eigen bio (feiten over opleiding en ervaring).
 - [ ] Na livegang: sitemap indienen in Google Search Console, en `npm run qa -- --launch --external`.

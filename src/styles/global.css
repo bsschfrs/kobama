@@ -328,37 +328,45 @@ html.motion .compare {
 .footer img { height: 22px; width: auto; }
 .footer a { color: #fff; font-weight: 700; text-decoration: none; }
 .footer a:hover { text-decoration: underline; }
-.footer-legal {
-  display: flex; align-items: flex-start; justify-content: space-between; gap: 8px 28px;
-  padding-top: 16px; padding-bottom: 20px; border-top: 1px solid #3d3d3d; font-size: 14px;
+.footer-mid { display: flex; flex-direction: column; align-items: center; }
+/* Desktop: pijltje en links hangen onder de plaatsnaam, zodat die op één lijn blijft met logo en CTA */
+@media (min-width: 801px) {
+  .footer-mid { position: relative; }
+  .footer-mid .footer-more, .footer-mid .footer-legal { position: absolute; left: 50%; transform: translateX(-50%); }
+  .footer-mid .footer-more { top: 100%; }
+  .footer-mid .footer-legal { top: calc(100% + 24px); flex-wrap: nowrap; white-space: nowrap; }
+  .footer:has(.footer-more[aria-expanded="true"]) .footer-row { padding-bottom: 36px; }
 }
-.footer-legal > a { font-weight: 500; padding: 4px 0; }
-.footer-details summary {
-  display: inline-flex; align-items: center; gap: 10px; padding: 4px 0;
-  list-style: none; cursor: pointer; color: #fff; font-weight: 500;
+.footer-legal { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 20px; padding-bottom: 8px; font-size: 13px; }
+.footer-legal a { font-weight: 500; color: #c9cbc9; padding: 2px 0; }
+.footer-legal[hidden] { display: none; }
+.footer-more {
+  display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 24px;
+  padding: 0; border: 0; background: none; color: #6b6e6c; cursor: pointer;
 }
-.footer-details summary::-webkit-details-marker { display: none; }
-.footer-details summary::after {
-  content: ""; width: 7px; height: 7px; margin-top: -4px;
-  border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
-  transform: rotate(45deg); transition: transform 0.2s ease;
-}
-.footer-details[open] summary::after { transform: rotate(-135deg); margin-top: 4px; }
-.footer-details summary:hover { text-decoration: underline; }
-.footer-facts { display: flex; flex-wrap: wrap; gap: 8px 28px; padding: 12px 0 8px; }
-.footer-facts a { font-weight: 500; }
+.footer-more:hover { color: #c9cbc9; }
+.footer-more svg { transition: transform 0.2s ease; }
+.footer-more[aria-expanded="true"] svg { transform: rotate(180deg); }
+@media (prefers-reduced-motion: reduce) { .footer-more svg { transition: none; } }
 @media (prefers-reduced-motion: reduce) {
-  .footer-details summary::after, .tr-item, .tr-item::after, .tr-block, .tr-thumb { transition: none; }
+  .tr-item, .tr-item::after, .tr-block, .tr-thumb { transition: none; }
 }
 
 /* ---------- losse pagina's (privacy, 404) ---------- */
 .page-header { min-height: 104px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .page-header img { height: 32px; width: auto; }
-.prose { max-width: calc(46em + 2 * var(--pad)); margin: 0; padding-top: 72px; padding-bottom: 120px; }
+.prose { max-width: calc(46em + 2 * var(--pad)); margin: 0; padding-top: 72px; padding-bottom: 120px; min-height: calc(100svh - 260px); }
 .prose h1 { font-size: clamp(40px, 4.4vw, 64px); margin-bottom: 24px; }
 .prose h2 { margin-top: 48px; margin-bottom: 8px; }
 .prose p + p { margin-top: 12px; }
 .prose a:not(.btn) { color: var(--blue); }
+.facts { margin-top: 32px; display: grid; grid-template-columns: max-content 1fr; gap: 10px 32px; }
+.facts dt { color: var(--muted); }
+.facts dd { margin: 0; }
+.prose-meta { color: var(--muted); font-size: 15px; margin-top: 12px; }
+.prose ul { margin: 12px 0 0; padding-left: 1.2em; }
+.prose li + li { margin-top: 6px; }
+.prose ul + p { margin-top: 12px; }
 .not-found { min-height: 60vh; }
 .not-found-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; margin-top: 36px; }
 
@@ -414,5 +422,7 @@ html.motion .compare {
   .team { padding: 100px 0; }
   .team-grid { grid-template-columns: 1fr; gap: 56px; margin-top: 40px; }
   .closing { padding: 110px 0; }
+  .footer-mid, .footer-legal { align-items: flex-start; justify-content: flex-start; }
+  .footer-more { justify-content: flex-start; }
   .footer-row { flex-direction: column; align-items: flex-start; justify-content: center; gap: 12px; padding-top: 36px; padding-bottom: 36px; }
 }

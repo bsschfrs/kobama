@@ -124,7 +124,8 @@ export const copy = {
     brand: "KOBAMA",
     city: "Amsterdam",
     cta: "Plan een gesprek",
-    privacy: "Privacyverklaring",
+    privacy: "Privacybeleid",
     details: "Bedrijfsgegevens",
+    more: "Bedrijfsgegevens en privacybeleid tonen",
   },
 } as const;

@@ -1,0 +1,24 @@
+---
+// Bedrijfsgegevens: wettelijk verplicht op een site die diensten aanbiedt (art. 3:15d BW).
+// Bewust `noindex` en alleen gelinkt vanuit de footer. Onbekende gegevens staan als
+// "[… volgt]" en houden `qa --launch` tegen.
+import Base from "../layouts/Base.astro";
+import PageHeader from "../components/PageHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import { site, fact } from "../content/site";
+---
+<Base title="Bedrijfsgegevens | KOBAMA" description="De bedrijfsgegevens van KOBAMA: adres, KvK-nummer, btw-nummer en contact." noindex>
+  <a class="skip" href="#main">Naar de inhoud</a>
+  <PageHeader />
+  <main id="main" class="wrap prose">
+    <h1>Bedrijfsgegevens.</h1>
+    <dl class="facts">
+      <dt>Naam</dt><dd>{site.name}</dd>
+      <dt>Adres</dt><dd>{fact(site.address, "Adres")}, {site.city}</dd>
+      <dt>KvK</dt><dd>{fact(site.kvk, "KvK-nummer")}</dd>
+      <dt>Btw</dt><dd>{fact(site.btw, "btw-nummer")}</dd>
+      <dt>E-mail</dt><dd><a href={`mailto:${site.email}`}>{site.email}</a></dd>
+    </dl>
+  </main>
+  <SiteFooter />
+</Base>

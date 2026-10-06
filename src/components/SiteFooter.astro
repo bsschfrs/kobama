@@ -1,25 +1,37 @@
 ---
-// Footer met de wettelijke bedrijfsgegevens (playbook §9). Onbekende gegevens staan als
-// zichtbare placeholder tot ze bevestigd zijn; `npm run qa -- --launch` houdt ze tegen.
+// Footer. De wettelijke bedrijfsgegevens (art. 3:15d BW) staan op /bedrijfsgegevens/,
+// met een klein linkje hier op elke pagina.
 import { copy } from "../content/copy";
-import { site, fact } from "../content/site";
 ---
 <footer class="footer">
   <div class="wrap footer-row">
     <a href="/" class="footer-logo"><img src="/images/logo-word-light.webp" alt="KOBAMA" width="773" height="152" /></a>
-    <span>{copy.footer.city}</span>
+    <div class="footer-mid">
+      <span>{copy.footer.city}</span>
+      <button class="footer-more" type="button" aria-expanded="false" aria-controls="footer-legal" aria-label={copy.footer.more} data-footer-more>
+        <svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
+      </button>
+      <div class="footer-legal" id="footer-legal" data-footer-legal>
+        <a href="/bedrijfsgegevens/">{copy.footer.details}</a>
+        <a href="/privacy/">{copy.footer.privacy}</a>
+      </div>
+    </div>
     <a href={copy.contact}>{copy.footer.cta}</a>
   </div>
-  <div class="wrap footer-legal">
-    <details class="footer-details">
-      <summary>{copy.footer.details}</summary>
-      <div class="footer-facts">
-        <span>KvK {fact(site.kvk, "KvK-nummer")}</span>
-        <span>Btw {fact(site.btw, "btw-nummer")}</span>
-        <span>{fact(site.address, "Adres")}</span>
-        <a href={`mailto:${site.email}`}>{site.email}</a>
-      </div>
-    </details>
-    <a href="/privacy/">{copy.footer.privacy}</a>
-  </div>
 </footer>
+
+<script>
+  // Bedrijfsgegevens en privacybeleid zitten achter het kleine pijltje onder de plaatsnaam.
+  // Zonder JavaScript blijven de twee links gewoon zichtbaar.
+  const more = document.querySelector<HTMLButtonElement>("[data-footer-more]");
+  const legal = document.querySelector<HTMLElement>("[data-footer-legal]");
+  if (more && legal) {
+    legal.hidden = true;
+    more.addEventListener("click", () => {
+      const open = more.getAttribute("aria-expanded") !== "true";
+      more.setAttribute("aria-expanded", String(open));
+      legal.hidden = !open;
+      if (open) legal.scrollIntoView({ block: "nearest", behavior: document.documentElement.classList.contains("motion") ? "smooth" : "auto" });
+    });
+  }
+</script>

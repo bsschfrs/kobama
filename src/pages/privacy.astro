@@ -1,57 +1,105 @@
 ---
-// Privacyverklaring. CONCEPT: playbook §9 zegt dit één keer door een adviseur te laten
-// checken vóór livegang. Onbekende gegevens staan als "[… volgt]" en houden `qa --launch` tegen.
+// Privacybeleid. Geschreven voor het Meta-leadformulier (versie 6 oktober 2026).
+// CONCEPT: playbook §9 zegt dit één keer door een adviseur te laten checken vóór livegang.
+// Bewust `noindex` en alleen gelinkt vanuit de footer: de pagina is er voor wie hem zoekt.
 import Base from "../layouts/Base.astro";
 import PageHeader from "../components/PageHeader.astro";
 import SiteFooter from "../components/SiteFooter.astro";
-import { site, fact } from "../content/site";
+import { site } from "../content/site";
+
+const updated = "6 oktober 2026";
+const mail = `mailto:${site.email}`;
 ---
-<Base title="Privacyverklaring | KOBAMA" description="Hoe KOBAMA omgaat met de gegevens die je stuurt als je contact opneemt.">
+<Base title="Privacybeleid | KOBAMA" description="Hoe KOBAMA omgaat met de gegevens die je via ons aanvraagformulier of per e-mail deelt." noindex>
   <a class="skip" href="#main">Naar de inhoud</a>
   <PageHeader />
   <main id="main" class="wrap prose">
-    <h1>Privacyverklaring.</h1>
-    <p class="lead">Wat we doen met de gegevens die je ons stuurt. Kort en zonder kleine lettertjes.</p>
+    <h1>Privacybeleid.</h1>
+    <p class="lead">Wat we doen met de gegevens die je met ons deelt, bijvoorbeeld via ons aanvraagformulier op Facebook of Instagram.</p>
+    <p class="prose-meta">Laatst bijgewerkt op {updated}.</p>
 
     <h2 class="h3">Wie we zijn</h2>
     <p>
-      {site.name}, {fact(site.address, "Adres")}, {site.city}. KvK: {fact(site.kvk, "KvK-nummer")}.
-      Je bereikt ons via <a href={`mailto:${site.email}`}>{site.email}</a>.
+      {site.name} ontwerpt en bouwt websites voor kleine en middelgrote bedrijven. Wij zijn
+      verantwoordelijk voor wat er met je gegevens gebeurt. Je bereikt ons via
+      <a href={mail}>{site.email}</a>.
     </p>
 
     <h2 class="h3">Welke gegevens we krijgen</h2>
+    <p>Vul je ons aanvraagformulier in, dan krijgen we:</p>
+    <ul>
+      <li>je naam, telefoonnummer en e-mailadres;</li>
+      <li>je antwoorden op de vragen in het formulier: wat voor bedrijf je hebt, hoe het met je website staat, wat voor website je zoekt, wanneer je wilt starten en wanneer we je het beste kunnen bellen.</li>
+    </ul>
     <p>
-      Alleen wat je zelf stuurt. Mail je ons, dan krijgen we je naam, je e-mailadres en wat je in
-      je bericht zet. Deze website heeft geen formulier en houdt niet bij wie er langskomt.
+      Neem je op een andere manier contact op, per e-mail, telefoon of WhatsApp, dan krijgen we
+      wat je ons daarin zelf vertelt.
     </p>
 
     <h2 class="h3">Waarvoor we ze gebruiken</h2>
     <p>
-      Om op je bericht te reageren en, als je dat wilt, een eerste gesprek te plannen. We gebruiken
-      je gegevens niet voor nieuwsbrieven of reclame, en we verkopen ze niet.
+      Alleen om contact met je op te nemen over je aanvraag: we bellen, mailen of appen je om
+      een eerste gesprek te plannen en te kijken wat we voor je kunnen doen. We sturen je geen
+      nieuwsbrief of reclame, en we verkopen je gegevens niet.
+    </p>
+    <p>
+      We doen dit omdat jij ons vraagt contact op te nemen. Dat is de stap vóór een eventuele
+      opdracht (artikel 6 lid 1 sub b AVG).
     </p>
 
-    <h2 class="h3">Hoe lang we ze bewaren</h2>
-    <p>{fact(null, "Bewaartermijn")}</p>
-
     <h2 class="h3">Wie ze nog meer ziet</h2>
+    <p>We werken met een paar diensten die je gegevens voor ons verwerken:</p>
+    <ul>
+      <li><strong>Meta</strong> (Facebook en Instagram) toont het aanvraagformulier en geeft je antwoorden aan ons door.</li>
+      <li><strong>Google</strong>: we zetten aanvragen in Google Sheets en mailen via Gmail.</li>
+      <li><strong>WhatsApp</strong>, als we je via WhatsApp een bericht sturen.</li>
+      <li>Onze <strong>hostingpartij</strong>, die deze website online houdt. Bij een bezoek kan die technische gegevens zoals je IP-adres kort verwerken.</li>
+    </ul>
     <p>
-      Onze e-mail loopt via Gmail van Google. De website draait bij {fact(null, "Naam hostingpartij")}.
-      Verder delen we je gegevens met niemand.
+      Meta en Google zijn Amerikaanse bedrijven, dus je gegevens kunnen buiten de Europese Unie
+      terechtkomen. Beide bedrijven vallen onder het EU-VS Data Privacy Framework, waarmee de
+      Europese Commissie heeft vastgesteld dat je gegevens daar voldoende beschermd zijn.
+    </p>
+    <p>Verder delen we je gegevens met niemand.</p>
+
+    <h2 class="h3">Hoe lang we ze bewaren</h2>
+    <p>
+      Word je geen klant, dan verwijderen we je gegevens uiterlijk 12 maanden na ons laatste
+      contact. Word je wel klant, dan bewaren we wat nodig is voor de opdracht en onze
+      administratie, zolang de wet dat van ons vraagt.
+    </p>
+
+    <h2 class="h3">Hoe we ze beveiligen</h2>
+    <p>
+      Alleen het team van {site.name} kan bij je gegevens. Ze staan in beveiligde accounts bij
+      de diensten die hierboven staan.
     </p>
 
     <h2 class="h3">Cookies</h2>
     <p>
-      Deze website plaatst geen tracking- of marketingcookies. Daarom zie je ook geen cookiemelding.
-      Lettertypes staan op onze eigen server, dus bij het laden gaan er geen gegevens naar anderen.
+      Deze website plaatst geen tracking- of marketingcookies en houdt niet bij wie er langskomt.
+      Daarom zie je ook geen cookiemelding. Lettertypes staan op onze eigen server, dus bij het
+      laden gaan er geen gegevens naar anderen.
     </p>
 
     <h2 class="h3">Jouw rechten</h2>
+    <p>Je mag altijd:</p>
+    <ul>
+      <li>vragen welke gegevens we van je hebben;</li>
+      <li>je gegevens laten aanpassen of verwijderen;</li>
+      <li>bezwaar maken tegen hoe we ze gebruiken, of het gebruik laten beperken;</li>
+      <li>je gegevens opvragen om ze aan een ander te geven.</li>
+    </ul>
     <p>
-      Je mag altijd vragen welke gegevens we van je hebben, en ze laten aanpassen of verwijderen.
-      Stuur daarvoor een mail naar <a href={`mailto:${site.email}`}>{site.email}</a>. Ben je het niet
-      eens met hoe we met je gegevens omgaan, dan kun je een klacht indienen bij de{" "}
-      <a href="https://www.autoriteitpersoonsgegevens.nl/">Autoriteit Persoonsgegevens</a>.
+      Stuur daarvoor een mail naar <a href={mail}>{site.email}</a>. We reageren binnen een maand.
+      Ben je het niet eens met hoe we met je gegevens omgaan, dan kun je een klacht indienen bij
+      de <a href="https://www.autoriteitpersoonsgegevens.nl/">Autoriteit Persoonsgegevens</a>.
+    </p>
+
+    <h2 class="h3">Wijzigingen</h2>
+    <p>
+      Gaan we anders met je gegevens om, dan passen we dit privacybeleid aan. Bovenaan zie je
+      wanneer dat voor het laatst is gebeurd.
     </p>
   </main>
   <SiteFooter />
