@@ -95,6 +95,7 @@ export const copy = {
     linkedinLabel: "LinkedIn",
     members: [
       {
+        id: "koen",
         name: "Koen Verhoeff",
         bio: "Wordt blij van een leeg scherm dat stukje bij beetje een werkende site wordt. Koen is de techneut van het stel: hij zorgt dat alles snel laadt en blijft werken.",
         photo: "/images/team-koen.webp",
@@ -102,6 +103,7 @@ export const copy = {
         isPlaceholder: false,
       },
       {
+        id: "bas",
         name: "Bas Schaefers",
         bio: "Bouwt het liefst aan iets wat mensen echt gebruiken. Bas verbindt het gesprek met de techniek: hij vertaalt wat jij voor ogen hebt naar wat er gebouwd wordt.",
         photo: "/images/team-bas.webp",
@@ -109,6 +111,7 @@ export const copy = {
         isPlaceholder: false,
       },
       {
+        id: "mats",
         name: "Mats Jongmans",
         bio: "Praat het liefst met ondernemers over wat ze aan het bouwen zijn. Mats hoort snel wat jouw klant wil weten en zorgt ervoor dat je site dat ook precies zegt.",
         photo: "/images/team-mats.webp",
@@ -134,6 +137,10 @@ export const copy = {
     empty: "Er staan nog geen artikelen online.",
     back: "Alle artikelen",
     datePending: "[Datum volgt]",
+    authorPending: "[Auteur volgt]",
+    writtenBy: "Geschreven door",
+    on: "op",
+    updated: "Bijgewerkt op",
     closing: "Wil je weten wat dit voor jouw site betekent?",
   },
 

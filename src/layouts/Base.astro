@@ -11,9 +11,13 @@ interface Props {
   title?: string;
   description?: string;
   noindex?: boolean;
+  /** "article" voor blogartikelen, anders "website". */
+  ogType?: "website" | "article";
+  /** Extra structured data naast de bedrijfsgegevens, bijvoorbeeld BlogPosting. */
+  extraJsonLd?: Record<string, unknown>;
 }
 
-const { title = copy.meta.title, description = copy.meta.description, noindex = false } = Astro.props;
+const { title = copy.meta.title, description = copy.meta.description, noindex = false, ogType = "website", extraJsonLd } = Astro.props;
 const base = Astro.site ?? site.url;
 const canonical = new URL(Astro.url.pathname, base).href;
 const ogImage = new URL(copy.meta.ogImage, base).href;
@@ -51,7 +55,7 @@ const jsonLd = {
     {noindex && <meta name="robots" content="noindex" />}
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:locale" content="nl_NL" />
     <meta property="og:url" content={canonical} />
     <meta property="og:site_name" content={site.name} />
@@ -71,6 +75,7 @@ const jsonLd = {
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    {extraJsonLd && <script type="application/ld+json" set:html={JSON.stringify(extraJsonLd)} />}
     <script is:inline>
       // Beweging alleen als de bezoeker dat niet heeft uitgezet. Zonder deze class
       // toont de pagina overal de rustige eindstaat.
