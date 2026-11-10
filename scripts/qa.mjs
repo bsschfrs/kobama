@@ -11,6 +11,7 @@
 // structured data, links, em-dashes en Lighthouse (mobiel). Verder: robots.txt, sitemap en
 // een echte 404. Exit-code 1 als er iets faalt; waarschuwingen laten de gate niet falen.
 import http from "node:http";
+import zlib from "node:zlib";
 import fs from "node:fs";
 import path from "node:path";
 import { chromium } from "playwright";
@@ -33,7 +34,14 @@ const server = http.createServer((req, res) => {
     res.writeHead(404, { "content-type": "text/html" });
     return fs.createReadStream(path.join(DIST, "404.html")).on("error", () => res.end("404")).pipe(res);
   }
-  res.writeHead(200, { "content-type": types[path.extname(f)] || "application/octet-stream" });
+  // Comprimeren zoals Vercel live doet (gzip/brotli). Zonder dit meet Lighthouse een
+  // tragere site dan bezoekers krijgen: de homepage scoorde 88-93 in plaats van 97-98.
+  const type = types[path.extname(f)] || "application/octet-stream";
+  if (/text|javascript|json|xml|svg/.test(type) && /\bgzip\b/.test(req.headers["accept-encoding"] ?? "")) {
+    res.writeHead(200, { "content-type": type, "content-encoding": "gzip" });
+    return fs.createReadStream(f).pipe(zlib.createGzip()).pipe(res);
+  }
+  res.writeHead(200, { "content-type": type });
   fs.createReadStream(f).pipe(res);
 }).listen(4399);
 const URL_ = "http://localhost:4399/";

@@ -4,6 +4,8 @@
 
 export const copy = {
   meta: {
+    ogImage: "/images/og-kobama.png",
+    ogImageAlt: "KOBAMA: Wij bouwen de site die je bedrijf nog niet heeft.",
     title: "KOBAMA, websites voor het mkb",
     description:
       "KOBAMA ontwerpt en bouwt websites voor kleine en middelgrote bedrijven. Strategie, design en development in één traject.",
@@ -17,6 +19,7 @@ export const copy = {
       { label: "Werk", href: "#werk" },
       { label: "Werkwijze", href: "#werkwijze" },
       { label: "Team", href: "#team" },
+      { label: "Blog", href: "/blog/" },
       { label: "Contact", href: "#contact" },
     ],
   },
@@ -56,6 +59,7 @@ export const copy = {
   werk: {
     heading: "Deze sites bouwden we al.",
     newTab: "opent in een nieuw tabblad",
+    thumbAlt: "Website van",
     items: [
       { name: "De Garengarage", url: "https://www.degarengarage.nl/", image: "/images/werk/garengarage.webp", accent: "#dcccbf" },
       { name: "BB-Collect", url: "https://bb-collect.com/", image: "/images/werk/bb-collect.webp", accent: "#6cc3b3" },
@@ -120,12 +124,26 @@ export const copy = {
     priceLine: "Een eerste gesprek is vrijblijvend en kost niets. We kijken samen of het klikt.",
   },
 
+  blog: {
+    meta: {
+      title: "Blog | KOBAMA",
+      description: "Artikelen van KOBAMA over websites voor het mkb: wat werkt, wat het kost aan tijd en waar je op let.",
+    },
+    heading: "Blog.",
+    intro: "Wat we leren bij het bouwen van websites voor kleine en middelgrote bedrijven.",
+    empty: "Er staan nog geen artikelen online.",
+    back: "Alle artikelen",
+    datePending: "[Datum volgt]",
+    closing: "Wil je weten wat dit voor jouw site betekent?",
+  },
+
   footer: {
     brand: "KOBAMA",
     city: "Amsterdam",
     cta: "Plan een gesprek",
     privacy: "Privacybeleid",
     details: "Bedrijfsgegevens",
+    blog: "Blog",
     more: "Bedrijfsgegevens en privacybeleid tonen",
   },
 } as const;

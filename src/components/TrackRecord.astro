@@ -6,6 +6,9 @@
 import { copy } from "../content/copy";
 
 const domain = (url: string) => new URL(url).hostname.replace(/^www\./, "");
+// De zwevende preview krijgt pas bij hover zijn echte beeld (track-record.ts). Tot die tijd
+// staat er het eerste screenshot in, lazy: een <img> zonder src telt als kapot beeld.
+const firstImage = copy.werk.items[0].image;
 ---
 <div class="tr" data-tr>
   <ul class="tr-list" role="list">
@@ -21,15 +24,15 @@ const domain = (url: string) => new URL(url).hostname.replace(/^www\./, "");
           </svg>
           <span class="tr-name">{item.name}</span>
           <span class="tr-domain">{domain(item.url)}<span class="sr-only"> ({copy.werk.newTab})</span></span>
-          <img class="tr-thumb" src={item.image} alt="" width="1200" height="750" loading="lazy" decoding="async" />
+          <img class="tr-thumb" src={item.image} alt={`${copy.werk.thumbAlt} ${item.name}`} width="1200" height="750" loading="lazy" decoding="async" />
         </a>
       </li>
     ))}
   </ul>
   <div class="tr-preview" aria-hidden="true" data-tr-preview>
     {[0, 1, 2].map((i) => (
-      <span class="tr-strip" style={`--i: ${i}`}><img alt="" width="1200" height="750" decoding="async" /></span>
+      <span class="tr-strip" style={`--i: ${i}`}><img src={firstImage} alt="" width="1200" height="750" loading="lazy" decoding="async" /></span>
     ))}
-    <img class="tr-full" alt="" width="1200" height="750" decoding="async" />
+    <img class="tr-full" src={firstImage} alt="" width="1200" height="750" loading="lazy" decoding="async" />
   </div>
 </div>

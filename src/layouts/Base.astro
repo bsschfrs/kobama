@@ -14,7 +14,9 @@ interface Props {
 }
 
 const { title = copy.meta.title, description = copy.meta.description, noindex = false } = Astro.props;
-const canonical = new URL(Astro.url.pathname, Astro.site ?? site.url).href;
+const base = Astro.site ?? site.url;
+const canonical = new URL(Astro.url.pathname, base).href;
+const ogImage = new URL(copy.meta.ogImage, base).href;
 
 // Lokale SEO (playbook A.3): alleen bevestigde feiten. Onbekende velden blijven weg in
 // plaats van een placeholder in de structured data.
@@ -23,6 +25,8 @@ const jsonLd = {
   "@type": "ProfessionalService",
   name: site.name,
   url: site.url,
+  logo: new URL("/images/logo-kobama.webp", base).href,
+  image: ogImage,
   email: site.email,
   ...(site.phone && { telephone: site.phone }),
   address: {
@@ -31,6 +35,9 @@ const jsonLd = {
     addressCountry: "NL",
     ...(site.address && { streetAddress: site.address }),
   },
+  ...(site.sameAs.length && { sameAs: site.sameAs }),
+  // De oprichters met hun eigen LinkedIn (dezelfde links als in de teamsectie).
+  founder: copy.people.members.map((m) => ({ "@type": "Person", name: m.name, sameAs: m.linkedin })),
 };
 ---
 <!doctype html>
@@ -47,6 +54,17 @@ const jsonLd = {
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="nl_NL" />
     <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={copy.meta.ogImageAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={copy.meta.ogImageAlt} />
     <meta name="theme-color" content="#F1F2F0" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon.ico" sizes="any" />

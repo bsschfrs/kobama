@@ -367,6 +367,24 @@ html.motion .compare {
 .prose ul { margin: 12px 0 0; padding-left: 1.2em; }
 .prose li + li { margin-top: 6px; }
 .prose ul + p { margin-top: 12px; }
+
+/* ---------- blog ---------- */
+.blog .lead { margin-bottom: 48px; }
+.prose .blog-list { list-style: none; padding: 0; margin: 0; }
+.blog-list li { padding: 32px 0; border-top: 1px solid var(--line); }
+.prose .blog-list li + li { margin-top: 0; }
+.blog-list h2 { margin: 0; font-size: clamp(22px, 2vw, 28px); font-weight: 800; letter-spacing: -0.03em; }
+.prose .blog-list h2 a { color: var(--ink); text-decoration: none; }
+.prose .blog-list h2 a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.blog-list .prose-meta { margin: 6px 0 10px; }
+.blog-back { margin-bottom: 32px; font-size: 15px; }
+.blog-post h1 { margin-bottom: 0; }
+.blog-body { margin-top: 32px; }
+.blog-body h2 { font-size: 22px; line-height: 1.2; font-weight: 700; letter-spacing: -0.015em; }
+.blog-body h3 { margin-top: 32px; margin-bottom: 8px; font-size: 18px; font-weight: 700; }
+.blog-body ol { margin: 12px 0 0; padding-left: 1.4em; }
+.blog-cta { margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--line); }
+.blog-cta .btn { margin-top: 16px; }
 .not-found { min-height: 60vh; }
 .not-found-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; margin-top: 36px; }
 

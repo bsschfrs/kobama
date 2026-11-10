@@ -37,8 +37,10 @@ Wat moest met de hand worden hersteld, en welke regel in CLAUDE.md had dat voork
 - [x] Bewaartermijn in het privacybeleid (12 maanden voor leads, 6 oktober 2026).
 - [ ] Privacybeleid één keer laten checken door een
       adviseur (playbook §9), ook op het Meta-leadformulier.
-- [ ] Domein bevestigen (`kobama.nl` is aangenomen) in `site.ts` en `astro.config.mjs`.
+- [x] Domein bevestigd: `https://www.kobama.nl` is de hoofdversie, kobama.nl stuurt met een
+      308 door (10 november 2026). Staat in `site.ts` en `astro.config.mjs`.
 - [ ] Bas en Mats bevestigen hun eigen bio (feiten over opleiding en ervaring).
+- [ ] Eerste echte blogartikel schrijven en de placeholder in `src/content/blog/` vervangen.
 - [ ] Na livegang: sitemap indienen in Google Search Console, en `npm run qa -- --launch --external`.
 
 ## Bewuste afwijkingen van het playbook
@@ -55,7 +57,8 @@ en werk dan het brief of het playbook bij.
 3. **Mailto in plaats van een contactformulier.** Het playbook vraagt een werkend
    formulier; de formulierdienst is nog open beslissing 4. Mailto is nu de CTA-regel.
 4. **Eén pagina in plaats van 5-12.** Bewust gekozen voor de eigen site (2026-09-24).
-   Privacy en 404 zijn wel losse pagina's.
+   Privacy en 404 zijn wel losse pagina's. Sinds 2026-11-10 is er ook een blog (`/blog/`),
+   met nu alleen een placeholder-artikel tot de founders het eerste artikel schrijven.
 5. **Geen git-repository.** Het playbook gaat uit van Git + een privé GitHub-repo per site.
 
 ## Tools
@@ -64,3 +67,14 @@ en werk dan het brief of het playbook bij.
   2026-09-24). Test uit playbook stap 0.2: laat Claude een site openen met Playwright en
   een screenshot maken op 390px.
 - QA-gate: `npm run qa` (zie de kop van `scripts/qa.mjs` voor de opties).
+
+## Geleerd over de QA-gate (10 november 2026)
+
+- **De QA-server moet comprimeren zoals de host.** `scripts/qa.mjs` serveerde `dist/`
+  zonder gzip. Lighthouse (gesimuleerd 4G) zag daardoor 50 KB HTML en 117 KB JS
+  ongecomprimeerd en gaf de homepage 88-93. Met gzip, zoals Vercel live doet: 97-98.
+  CSS inlinen hielp zonder compressie niets en met compressie ook niet, dus teruggedraaid.
+  Les voor de house kit: meet altijd tegen dezelfde compressie als productie.
+- **Nieuwe Playwright-browser, nieuwe QA-fout.** Na `npx playwright install chromium` telde
+  QA de `<img>`-tags zonder `src` in de track-record-preview als kapot beeld. Die hebben nu
+  het eerste screenshot als lazy `src` tot de hover het echte beeld zet.

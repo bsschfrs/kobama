@@ -14,6 +14,14 @@ Naast de homepage zijn er twee losse pagina's in dezelfde stijl: `/privacy/`
 footer, plus een 404. Bedrijfsgegevens (KvK, btw, adres) staan in
 `src/content/site.ts` en verschijnen op `/bedrijfsgegevens/`.
 
+**Blog** (toegevoegd 10 november 2026): overzicht op `/blog/`, artikelen op `/blog/<slug>/`,
+wel geïndexeerd en in de sitemap. Gelinkt vanuit het hoofdmenu, de vaste balk en de footer.
+Artikelen zijn Markdown in `src/content/blog/` (schema in `src/content.config.ts`), de vaste
+teksten eromheen staan in `copy.blog`. Zelfde stijl als de losse pagina's: één kolom, een
+typografische lijst met titel, datum en samenvatting, geen kaarten of beeld. Elk artikel
+eindigt met de enige CTA. Een artikel dat nog niet geschreven is heeft `placeholder: true`
+en blokkeert `qa --launch`.
+
 ## Tokens
 
 | Token | Waarde | Gebruik |

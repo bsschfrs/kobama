@@ -1,0 +1,36 @@
+---
+// Eén blogartikel. Een artikel met `placeholder: true` is zichtbaar gemarkeerd
+// (data-placeholder) zodat `npm run qa -- --launch` faalt tot het echt geschreven is.
+import { getCollection, render } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import { copy } from "../../content/copy";
+import { formatDate } from "../../scripts/blog";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({ params: { id: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const { title, description, date, placeholder } = post.data;
+---
+<Base title={`${title} | KOBAMA`} description={description}>
+  <a class="skip" href="#main">Naar de inhoud</a>
+  <PageHeader />
+  <main id="main" class="wrap prose blog-post">
+    <p class="blog-back"><a href="/blog/">{copy.blog.back}</a></p>
+    <article data-placeholder={placeholder ? `blog/${post.id}` : undefined}>
+      <h1>{title}</h1>
+      <p class="prose-meta">{date ? <time datetime={date.toISOString().slice(0, 10)}>{formatDate(date)}</time> : copy.blog.datePending}</p>
+      <div class="blog-body"><Content /></div>
+    </article>
+    <div class="blog-cta">
+      <p class="h3">{copy.blog.closing}</p>
+      <p><a class="btn" href={copy.contact}>{copy.nav.cta}</a></p>
+    </div>
+  </main>
+  <SiteFooter />
+</Base>
