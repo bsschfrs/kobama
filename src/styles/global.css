@@ -392,6 +392,10 @@ body:has(> main.prose) > main { flex: 1 0 auto; width: 100%; }
 .blog-body h2 { font-size: 22px; line-height: 1.2; font-weight: 700; letter-spacing: -0.015em; }
 .blog-body h3 { margin-top: 32px; margin-bottom: 8px; font-size: 18px; font-weight: 700; }
 .blog-body ol { margin: 12px 0 0; padding-left: 1.4em; }
+.blog-body ol + p, .blog-body table + p, .blog-body p + table { margin-top: 12px; }
+.blog-body table { width: 100%; margin-top: 16px; border-collapse: collapse; font-size: 16px; line-height: 1.45; }
+.blog-body th, .blog-body td { padding: 10px 12px 10px 0; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+.blog-body th { font-weight: 700; border-bottom-color: var(--ink); }
 .blog-cta { margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--line); }
 .blog-cta .btn { margin-top: 16px; }
 .not-found { min-height: 60vh; }
