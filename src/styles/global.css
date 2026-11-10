@@ -377,6 +377,8 @@ html.motion .compare {
 .prose .blog-list h2 a { color: var(--ink); text-decoration: none; }
 .prose .blog-list h2 a:hover { text-decoration: underline; text-underline-offset: 4px; }
 .blog-list .prose-meta { margin: 6px 0 10px; }
+/* Blog en artikel: één gecentreerde leeskolom van ~70 tekens per regel. Tekst blijft links uitgelijnd. */
+.blog, .blog-post { max-width: calc(38em + 2 * var(--pad)); margin-inline: auto; }
 .blog-back { margin-bottom: 32px; font-size: 15px; }
 .blog-post h1 { margin-bottom: 0; }
 .blog-body { margin-top: 32px; }
