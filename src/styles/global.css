@@ -389,6 +389,7 @@ body:has(> main.prose) > main { flex: 1 0 auto; width: 100%; }
 .blog-list .blog-scheduled { margin: 0 0 10px; }
 .blog-post h1 { margin-bottom: 0; }
 .blog-body { margin-top: 32px; }
+.blog-image { display: block; width: 100%; height: auto; margin-top: 32px; }
 .blog-body h2 { font-size: 22px; line-height: 1.2; font-weight: 700; letter-spacing: -0.015em; }
 .blog-body h3 { margin-top: 32px; margin-bottom: 8px; font-size: 18px; font-weight: 700; }
 .blog-body ol { margin: 12px 0 0; padding-left: 1.4em; }

@@ -186,8 +186,14 @@ placeholder: false
   LinkedIn), `og:type` article en `BlogPosting`-structured data met auteur, datums,
   uitgever en beeld. Daar hoef je in het artikel niets voor te doen.
 
-- Afbeeldingen alleen met vastgelegde rechten, met vaste afmetingen en een alt-tekst
-  die beschrijft wat er te zien is.
+- **Illustratie (standaard bij elk artikel):** bedenk een compositie van de logoblokken die
+  het onderwerp uitbeeldt, zonder tekst in het beeld. Voeg hem toe aan `VISUALS` in
+  `scripts/blog-visuals.mjs` (sleutel = slug), draai `node scripts/blog-visuals.mjs`, bekijk
+  de PNG en verbeter tot hij in één oogopslag leesbaar is. Zet dan in de frontmatter:
+  `image: "/images/blog/<slug>.svg"` en `imageAlt: "…"` (beschrijf wat je ziet en wat het
+  betekent). De template toont hem onder de byline en gebruikt de PNG als deelbeeld.
+- Andere afbeeldingen alleen met vastgelegde rechten, met vaste afmetingen en een alt-tekst
+  die beschrijft wat er te zien is. Geen AI-beeld van werk, team of pand.
 - Na publicatie: in Google Search Console en Bing Webmaster Tools de URL laten
   indexeren. Volg zichtbaarheid in het Search Console-rapport voor generatieve AI.
 
@@ -206,6 +212,7 @@ placeholder: false
 - [ ] B1, je-vorm, geen em-dashes, geen AI-tells (humanizer gedraaid).
 - [ ] Interne links naar pijler en verwante artikelen, met beschrijvende linktekst.
 - [ ] Auteur is een echte founder; datum klopt.
+- [ ] Illustratie gemaakt, bekeken en gekoppeld met `image` en een beschrijvende `imageAlt`.
 - [ ] `npm run build` en `npm run qa` slagen.
 - [ ] Status in `CONTENT-ROADMAP.md` bijgewerkt.
 

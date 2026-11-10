@@ -20,12 +20,17 @@ const blog = defineCollection({
       // Alleen invullen bij een echte inhoudelijke wijziging (geen nep-versheid).
       updated: z.coerce.date().optional(),
       author: z.enum(authorIds).optional(),
+      // Illustratie uit scripts/blog-visuals.mjs: "/images/blog/<slug>.svg". De .png ernaast
+      // (1200x630) wordt het deelbeeld en de BlogPosting-image.
+      image: z.string().regex(/^\/images\/blog\/[a-z0-9-]+\.svg$/).optional(),
+      imageAlt: z.string().optional(),
       placeholder: z.boolean().default(false),
     })
     // Een gepubliceerd artikel heeft altijd een echte auteur en een datum.
     .refine((d) => d.placeholder || (d.author && d.date), {
       message: "Een artikel zonder `placeholder: true` heeft `author` en `date` nodig.",
-    }),
+    })
+    .refine((d) => !d.image || d.imageAlt, { message: "Een `image` heeft ook een `imageAlt` nodig." }),
 });
 
 export const collections = { blog };

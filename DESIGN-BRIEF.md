@@ -28,6 +28,13 @@ Artikelen kunnen worden ingepland: een `date` in de toekomst blijft uit de build
 `.github/workflows/publish-scheduled.yml` start elke 15 minuten zo nodig een nieuwe build
 (Vercel Deploy Hook in het GitHub-secret `VERCEL_DEPLOY_HOOK`).
 
+**Beeld bij artikelen** (10 november 2026, gekozen door Bas): per artikel een illustratie met de
+isometrische bouwstenen uit het logo, getekend als code in `scripts/blog-visuals.mjs` (geen AI-beeld).
+Zelfde projectie en kleuren als `IsoBlocks.astro`, vlakke kleuren op `--bg`, geen tekst in het beeld,
+geen schaduw of verloop. De compositie zegt iets over het onderwerp (bijvoorbeeld oplopende blokken
+voor terugkerende kosten). De SVG staat onder de byline, de PNG van 1200x630 is het deelbeeld en de
+`BlogPosting`-image. Rechten: eigen werk.
+
 ## Tokens
 
 | Token | Waarde | Gebruik |

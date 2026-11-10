@@ -3,6 +3,8 @@ title: "Wat kost een website laten maken?"
 description: "Waar de prijs van een website van afhangt, welke kosten er na de oplevering bijkomen en waarom veel ondernemers jaarlijks te veel betalen."
 date: 2026-11-10T16:30:00+01:00
 author: bas
+image: "/images/blog/wat-kost-een-website-laten-maken.svg"
+imageAlt: "Illustratie met bouwblokken: één blauw blok voor de eenmalige bouw van een website, en oranje blokken die per jaar hoger worden voor terugkerende kosten."
 ---
 
 Wat een website laten maken kost, hangt af van wat je nodig hebt: één pagina of meerdere, en of je ook hulp wilt bij vindbaarheid en onderhoud. Bij KOBAMA kan een website al vanaf €800. Let daarnaast goed op de kosten ná de oplevering, want daar betalen veel ondernemers elk jaar meer dan nodig.
