@@ -34,7 +34,8 @@ Elk cluster linkt naar de pijler, de pijler linkt naar elk cluster.
 | 8 | open | Domeinnaam en hosting uitgelegd | wat is een domeinnaam (600, 0), wat is hosting (400, 6), wat kost een domeinnaam (200, 7) |
 
 Status: `open` = nog te schrijven, `beslissen` = eerst een keuze van de founders nodig,
-`concept` = staat als placeholder of in review, `live` = gepubliceerd.
+`concept` = staat als placeholder of in review, `gepland` = ingepland (noteer datum en tijd),
+`live` = gepubliceerd.
 
 ## Volgorde
 

@@ -1,15 +1,12 @@
 ---
 // Blogoverzicht. Artikelen staan als Markdown in src/content/blog/ (zie src/content.config.ts).
-import { getCollection } from "astro:content";
 import Base from "../../layouts/Base.astro";
 import PageHeader from "../../components/PageHeader.astro";
 import SiteFooter from "../../components/SiteFooter.astro";
 import { copy } from "../../content/copy";
-import { formatDate } from "../../scripts/blog";
+import { formatDate, formatDateTime, getPosts, isScheduled } from "../../scripts/blog";
 
-const posts = (await getCollection("blog")).sort(
-  (a, b) => (b.data.date?.getTime() ?? Infinity) - (a.data.date?.getTime() ?? Infinity),
-);
+const posts = await getPosts();
 ---
 <Base title={copy.blog.meta.title} description={copy.blog.meta.description}>
   <a class="skip" href="#main">Naar de inhoud</a>
@@ -24,6 +21,7 @@ const posts = (await getCollection("blog")).sort(
         {posts.map((post) => (
           <li data-placeholder={post.data.placeholder ? `blog/${post.id}` : undefined}>
             <h2 class="h3"><a href={`/blog/${post.id}/`}>{post.data.title}</a></h2>
+            {isScheduled(post) && post.data.date && <p class="blog-scheduled">{copy.blog.scheduled} {formatDateTime(post.data.date)}</p>}
             <p class="prose-meta">{post.data.date ? <time datetime={post.data.date.toISOString().slice(0, 10)}>{formatDate(post.data.date)}</time> : copy.blog.datePending}</p>
             <p>{post.data.description}</p>
           </li>

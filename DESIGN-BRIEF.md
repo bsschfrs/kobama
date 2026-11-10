@@ -24,6 +24,9 @@ en blokkeert `qa --launch`.
 Welke artikelen er komen en in welke volgorde staat in `CONTENT-ROADMAP.md`.
 Elk gepubliceerd artikel heeft een byline in zinsvorm ("Geschreven door [founder] op [datum].",
 geen meta-regel met puntjes) en `BlogPosting`-structured data. Schrijfmethode: skill `kobama-artikelen`.
+Artikelen kunnen worden ingepland: een `date` in de toekomst blijft uit de build tot dat moment;
+`.github/workflows/publish-scheduled.yml` start elke 15 minuten zo nodig een nieuwe build
+(Vercel Deploy Hook in het GitHub-secret `VERCEL_DEPLOY_HOOK`).
 
 ## Tokens
 

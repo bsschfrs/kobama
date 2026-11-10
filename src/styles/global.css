@@ -384,6 +384,9 @@ body:has(> main.prose) > main { flex: 1 0 auto; width: 100%; }
 /* Blog en artikel: één gecentreerde leeskolom van ~70 tekens per regel. Tekst blijft links uitgelijnd. */
 .blog, .blog-post { max-width: calc(38em + 2 * var(--pad)); margin-inline: auto; }
 .blog-back { margin-bottom: 32px; font-size: 15px; }
+/* Alleen in de devserver: label boven een gepland artikel. */
+.blog-scheduled { display: inline-block; margin-bottom: 16px; padding: 4px 10px; border: 1px solid var(--orange-deep); color: var(--orange-deep); font-size: 14px; font-weight: 500; }
+.blog-list .blog-scheduled { margin: 0 0 10px; }
 .blog-post h1 { margin-bottom: 0; }
 .blog-body { margin-top: 32px; }
 .blog-body h2 { font-size: 22px; line-height: 1.2; font-weight: 700; letter-spacing: -0.015em; }

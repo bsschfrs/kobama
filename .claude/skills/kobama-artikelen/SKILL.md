@@ -73,6 +73,16 @@ Wie is de auteur van dit artikel? Dat moet een echte founder zijn.
 Haal `placeholder: true` weg, zet de datum, zet de status in de roadmap op `live`,
 draai `npm run build` en `npm run qa`, en vraag of het gecommit en gepusht mag worden.
 
+**Inplannen in plaats van direct live:** zet `date` op het gewenste moment mét tijd en
+tijdzone, bijvoorbeeld `date: 2026-11-17T09:00:00+01:00` (winter +01:00, zomer +02:00).
+Commit en push gewoon. Tot dat moment slaat de build het artikel over (niet in het
+overzicht, niet in de sitemap). De workflow `.github/workflows/publish-scheduled.yml`
+controleert elke 15 minuten en start dan een nieuwe build: reken op 15 tot 20 minuten
+na het geplande tijdstip. In de devserver zie je het artikel wel, met het label
+"Gepland, niet live". Zet de roadmap-status op `gepland` met datum en tijd.
+Een datum zonder tijd (`2026-11-17`) gaat live om 01:00 Nederlandse tijd.
+Controleer lokaal met `node scripts/check-scheduled.mjs --dry-run`.
+
 ## Vaste opbouw
 
 **Titel (frontmatter `title`, wordt de H1)**

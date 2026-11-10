@@ -1,0 +1,29 @@
+# Zet geplande blogartikelen live. Zie scripts/check-scheduled.mjs.
+# Nodig: repository secret VERCEL_DEPLOY_HOOK (Vercel > Settings > Git > Deploy Hooks, branch main).
+name: Geplande artikelen publiceren
+
+on:
+  schedule:
+    - cron: "*/15 * * * *" # elke 15 minuten (UTC); GitHub start soms een paar minuten later
+  workflow_dispatch: {} # handmatig starten via het tabblad Actions
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-scheduled
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Controleer geplande artikelen
+        run: node scripts/check-scheduled.mjs
+        env:
+          VERCEL_DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}

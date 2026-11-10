@@ -141,6 +141,8 @@ export const copy = {
     writtenBy: "Geschreven door",
     on: "op",
     updated: "Bijgewerkt op",
+    // Alleen zichtbaar in de devserver: geplande artikelen staan niet in de build.
+    scheduled: "Gepland, niet live. Gaat live op",
     closing: "Wil je weten wat dit voor jouw site betekent?",
   },
 

@@ -3,16 +3,16 @@
 // (data-placeholder) zodat `npm run qa -- --launch` faalt tot het echt geschreven is.
 // Echte artikelen krijgen een byline van een founder en BlogPosting structured data
 // (Google Article-richtlijnen: auteur met url, datePublished en dateModified).
-import { getCollection, render } from "astro:content";
+import { render } from "astro:content";
 import Base from "../../layouts/Base.astro";
 import PageHeader from "../../components/PageHeader.astro";
 import SiteFooter from "../../components/SiteFooter.astro";
 import { copy } from "../../content/copy";
 import { site } from "../../content/site";
-import { formatDate } from "../../scripts/blog";
+import { formatDate, formatDateTime, getPosts, isScheduled } from "../../scripts/blog";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog");
+  const posts = await getPosts();
   return posts.map((post) => ({ params: { id: post.id }, props: { post } }));
 }
 
@@ -51,6 +51,7 @@ const blogPosting = !placeholder && author && date
   <PageHeader />
   <main id="main" class="wrap prose blog-post">
     <p class="blog-back"><a href="/blog/">{copy.blog.back}</a></p>
+    {isScheduled(post) && date && <p class="blog-scheduled">{copy.blog.scheduled} {formatDateTime(date)}</p>}
     <article data-placeholder={placeholder ? `blog/${post.id}` : undefined}>
       <h1>{title}</h1>
       <p class="prose-meta blog-byline">
