@@ -21,6 +21,7 @@ teksten eromheen staan in `copy.blog`. Zelfde stijl als de losse pagina's: één
 typografische lijst met titel, datum en samenvatting, geen kaarten of beeld. Elk artikel
 eindigt met de enige CTA. Een artikel dat nog niet geschreven is heeft `placeholder: true`
 en blokkeert `qa --launch`.
+Welke artikelen er komen en in welke volgorde staat in `CONTENT-ROADMAP.md`.
 
 ## Tokens
 
