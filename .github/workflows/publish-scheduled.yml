@@ -5,7 +5,12 @@ name: Geplande artikelen publiceren
 on:
   schedule:
     - cron: "*/15 * * * *" # elke 15 minuten (UTC); GitHub start soms een paar minuten later
-  workflow_dispatch: {} # handmatig starten via het tabblad Actions
+  workflow_dispatch: # handmatig starten via het tabblad Actions
+    inputs:
+      force:
+        description: "Build nu starten (test van de deploy hook)"
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -27,3 +32,4 @@ jobs:
         run: node scripts/check-scheduled.mjs
         env:
           VERCEL_DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+          FORCE_DEPLOY: ${{ inputs.force }}
