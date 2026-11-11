@@ -1,6 +1,7 @@
 # KOBAMA.nl: instructies voor Claude Code
 
 Lees eerst `DESIGN-BRIEF.md` (bindend) en `src/content/copy.ts` (vastgestelde copy).
+Wat de founders hebben bevestigd (prijzen, werkwijze, voorbeelden) staat in `FOUNDER-INPUT.md`.
 Blogartikelen schrijf je altijd met de skill `kobama-artikelen` (`.claude/skills/kobama-artikelen/SKILL.md`),
 op basis van `CONTENT-ROADMAP.md`.
 Deze site is **pilot 1** van het playbook *Websites with Claude* (Phase 0, stap 0.6).

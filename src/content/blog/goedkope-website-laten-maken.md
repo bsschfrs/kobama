@@ -15,7 +15,7 @@ Je leest hier waar je op kunt besparen zonder dat je site slechter wordt, welke 
 
 Een website is echt goedkoop als de bouw én de jaren daarna weinig kosten. Kijk dus niet alleen naar de prijs van de bouw. Tel ook hosting, je domeinnaam en onderhoud mee over een paar jaar.
 
-Een voorbeeld uit een gesprek dat we laatst hadden: een ondernemer betaalde elk jaar meer dan €2.400 voor een oude, statische website waar ongeveer één keer per jaar iets aan veranderde. Hoe goedkoop de bouw ooit was, maakt dan weinig meer uit. Meer over eenmalige en terugkerende kosten lees je in [wat een website laten maken kost](/blog/wat-kost-een-website-laten-maken/).
+Een voorbeeld uit een gesprek dat we laatst hadden: een ondernemer betaalde elk jaar meer dan €2.400 aan onderhoud voor een oude, statische website. Aan die website veranderde ongeveer één keer per jaar iets. Voor dat onderhoud gebeurde dus bijna niets. Hoe goedkoop de bouw ooit was, maakt dan weinig meer uit. Meer over eenmalige en terugkerende kosten lees je in [wat een website laten maken kost](/blog/wat-kost-een-website-laten-maken/).
 
 ## Waar kun je op besparen zonder dat je site slechter wordt?
 

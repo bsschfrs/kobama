@@ -47,7 +47,7 @@ Onderhoud helemaal zelf doen is lastiger, omdat je dan zelf in de techniek van j
 
 Veel ondernemers betalen elk jaar voor hosting en onderhoud zonder dat er iets aan hun website gebeurt. Ze zien de factuur, maar niet wat ze ervoor krijgen.
 
-Een voorbeeld uit een gesprek dat we laatst hadden: een ondernemer kreeg elk jaar meer dan €2.400 gefactureerd voor een oude, statische website. Er hoefde ongeveer één keer per jaar iets op aangepast te worden. Zo'n bedrag zouden wij zelf nooit accepteren voor onze eigen site, en daarom brengen we het een klant ook niet in rekening.
+Een voorbeeld uit een gesprek dat we laatst hadden: een ondernemer kreeg elk jaar meer dan €2.400 gefactureerd voor het onderhoud van een oude, statische website. Er hoefde ongeveer één keer per jaar iets op aangepast te worden. Zo'n bedrag zouden wij zelf nooit accepteren voor onze eigen site, en daarom brengen we het een klant ook niet in rekening.
 
 Check daarom je eigen facturen. Vraag je webbouwer wat er voor het bedrag gebeurt: welke updates en welke aanpassingen. Krijg je daar geen duidelijk antwoord op, dan is het tijd om kritisch te kijken naar wat je betaalt.
 

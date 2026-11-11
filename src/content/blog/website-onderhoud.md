@@ -41,7 +41,7 @@ Wat website onderhoud kost, hangt af van hoeveel er technisch bij te houden is e
 1. **Per aanpassing.** Je betaalt alleen als je iets wilt laten veranderen. Dat past bij een site die weinig verandert.
 2. **Per maand.** Je betaalt een vast bedrag per maand voor een afgesproken hoeveelheid werk. Dat past bij een site waar je regelmatig iets aan wilt veranderen.
 
-Let op wat er voor een maandbedrag gebeurt. Bij KOBAMA spraken we laatst een ondernemer die elk jaar meer dan €2.400 betaalde voor een oude, statische website waar ongeveer één keer per jaar iets aan veranderde. Vraag je webbouwer dus welke updates en aanpassingen er voor jouw bedrag worden gedaan.
+Let op wat er voor een maandbedrag gebeurt. Bij KOBAMA spraken we laatst een ondernemer die elk jaar meer dan €2.400 aan onderhoud betaalde voor een oude, statische website. Aan die website veranderde ongeveer één keer per jaar iets. Vraag je webbouwer dus welke updates en aanpassingen er voor jouw bedrag worden gedaan.
 
 Meer over alle kosten van een website, eenmalig en terugkerend, lees je in [wat een website laten maken kost](/blog/wat-kost-een-website-laten-maken/).
 

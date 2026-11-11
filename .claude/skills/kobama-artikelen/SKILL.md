@@ -7,6 +7,8 @@ description: Schrijf blogartikelen voor kobama.nl volgens de vaste SEO- en AEO-m
 
 Methode vastgesteld op 10 november 2026, op basis van de bronnen onderaan.
 Lees ook `CLAUDE.md`, `DESIGN-BRIEF.md` en `CONTENT-ROADMAP.md`. Die regels gaan vóór.
+Wat KOBAMA zelf heeft bevestigd (prijzen, werkwijze, voorbeelden) staat in `FOUNDER-INPUT.md`.
+Gebruik alleen dat, en vul het bestand aan na elk interview.
 
 ## Uitgangspunt
 
