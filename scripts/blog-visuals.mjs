@@ -39,6 +39,13 @@ const VISUALS = {
     [0.3, -2.4, 0, 1, 1, 1.8, "orange"],
     [0.3, -3.9, 0, 1, 1, 2.8, "ghost"],
   ],
+  // Gevonden worden in de buurt: een raster van lage gestippelde blokjes (andere bedrijven),
+  // met in het midden één blauw blok dat eruit springt (een volledig ingevuld profiel).
+  "google-bedrijfsprofiel-aanmaken": [
+    ...[0, 1.5, 3].flatMap((x) => [0, 1.5, 3].filter((y) => !(x === 1.5 && y === 1.5))
+      .map((y) => [x, y, 0, 1, 1, 0.5, "ghost"])),
+    [1.5, 1.5, 0, 1, 1, 2.2, "blue"],
+  ],
 };
 
 const C30 = Math.cos(Math.PI / 6), S30 = 0.5;
@@ -55,8 +62,10 @@ function render(blocks) {
   const P = (x, y, z) => { const [a, b] = proj(x, y, z); return [ox + a * U, oy + b * U]; };
   const pts = (a) => a.map((p) => `${p[0].toFixed(1)},${p[1].toFixed(1)}`).join(" ");
 
-  // Schildersvolgorde: verst weg eerst.
-  const order = [...blocks].sort((a, b) => (a[0] + a[1] + a[2]) - (b[0] + b[1] + b[2]));
+  // Contouren eerst (dan lopen er nooit stippellijnen over een massief blok), daarna de
+  // massieve blokken in schildersvolgorde: verst weg eerst.
+  const depth = (b) => b[0] + b[1] + b[2];
+  const order = [...blocks].sort((a, b) => (a[6] === "ghost" ? 0 : 1) - (b[6] === "ghost" ? 0 : 1) || depth(a) - depth(b));
   const out = [];
   for (const [x, y, z, dx, dy, dz, color] of order) {
     const z1 = z + dz;
