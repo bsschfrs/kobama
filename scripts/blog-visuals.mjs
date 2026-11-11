@@ -24,7 +24,9 @@ const COLORS = {
 const GHOST = "#9da19e"; // zelfde stippellijn als de werkwijze-sectie
 
 /**
- * Composities. Een blok: [x, y, z, dx, dy, dz, kleur]. kleur "ghost" = gestippelde contour.
+ * Composities. Een blok: [x, y, z, dx, dy, dz, kleur]. kleur "ghost" = gestippelde contour
+ * achter of naast blokken (eerst getekend); "ghost-top" = gestippelde contour die óp of vóór
+ * een blok staat (als laatste getekend, zodat hij zichtbaar blijft).
  * x loopt naar rechtsonder, y naar linksonder, z omhoog.
  */
 const VISUALS = {
@@ -46,6 +48,23 @@ const VISUALS = {
       .map((y) => [x, y, 0, 1, 1, 0.5, "ghost"])),
     [1.5, 1.5, 0, 1, 1, 2.2, "blue"],
   ],
+  // Onderhoud: een site van twee blokken (antraciet onder, blauw boven). Bovenop een
+  // gestippelde contour: daar komt de aanpassing. Het kleine oranje blok ernaast is die
+  // aanpassing, klaar om erop te zetten.
+  "website-onderhoud": [
+    [0, 0, 0, 1.6, 1.6, 1.2, "charcoal"],
+    [0, 0, 1.2, 1.6, 1.6, 1.2, "blue"],
+    [0.3, 0.3, 2.4, 1, 1, 0.6, "ghost-top"],
+    [2.4, 0.3, 0, 1, 1, 0.6, "orange"],
+  ],
+  // Domeinnaam en hosting: een brede antraciet plaat is de hosting (de grond waarop je
+  // site staat), het blauwe blok erop is de website, het lage oranje blok ervoor is het
+  // naambordje: de domeinnaam.
+  "domeinnaam-en-hosting": [
+    [0, 0, 0, 3.2, 3.2, 0.4, "charcoal"],
+    [0.7, 0.7, 0.4, 1.6, 1.6, 1.6, "blue"],
+    [3.6, 1.1, 0, 0.9, 0.9, 0.35, "orange"],
+  ],
 };
 
 const C30 = Math.cos(Math.PI / 6), S30 = 0.5;
@@ -65,11 +84,12 @@ function render(blocks) {
   // Contouren eerst (dan lopen er nooit stippellijnen over een massief blok), daarna de
   // massieve blokken in schildersvolgorde: verst weg eerst.
   const depth = (b) => b[0] + b[1] + b[2];
-  const order = [...blocks].sort((a, b) => (a[6] === "ghost" ? 0 : 1) - (b[6] === "ghost" ? 0 : 1) || depth(a) - depth(b));
+  const pass = (b) => (b[6] === "ghost" ? 0 : b[6] === "ghost-top" ? 2 : 1);
+  const order = [...blocks].sort((a, b) => pass(a) - pass(b) || depth(a) - depth(b));
   const out = [];
   for (const [x, y, z, dx, dy, dz, color] of order) {
     const z1 = z + dz;
-    if (color === "ghost") {
+    if (color === "ghost" || color === "ghost-top") {
       const E = [
         [P(x, y, z1), P(x + dx, y, z1)], [P(x + dx, y, z1), P(x + dx, y + dy, z1)], [P(x + dx, y + dy, z1), P(x, y + dy, z1)], [P(x, y + dy, z1), P(x, y, z1)],
         [P(x, y + dy, z), P(x, y + dy, z1)], [P(x + dx, y + dy, z), P(x + dx, y + dy, z1)], [P(x + dx, y, z), P(x + dx, y, z1)],

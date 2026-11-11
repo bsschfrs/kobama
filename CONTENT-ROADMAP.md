@@ -27,11 +27,11 @@ Elk cluster linkt naar de pijler, de pijler linkt naar elk cluster.
 | 1 | live (10-11-2026) | Wat kost een website laten maken? | website laten maken kosten (1.300, 12), kosten website laten maken (700, 20), website laten maken prijs (500, 3), wat kost een website (500, 8), website bouwen kosten (500, 8), professionele website laten maken kosten (450, 20), prijs website laten maken (350, 11), wat kost een website laten maken (300, 12), hoeveel kost een website laten maken (250, 2), hoe duur is een website laten maken (200, 11) |
 | 2 | open | Maatwerk, WordPress of sjabloon: wat past bij jou? | maatwerk website laten maken (1.700, 3), wordpress website laten maken (1.700, 3), wordpress website laten bouwen (1.100, 1), website laten maken wordpress (800, 12), website op maat laten maken (500, 16), wordpress website laten maken prijs (400, 7) |
 | 3 | live (11-11-2026) | Google-bedrijfsprofiel: aanmaken en goed invullen | google mijn bedrijf (10.000, 4), google bedrijfsprofiel (3.500, 13), bedrijfsprofiel google (800, 4), google bedrijfsprofiel aanmaken (500, 5), google bedrijfsprofiel optimaliseren (250, n.b.), mijn bedrijf op google maps (150, 14) |
-| 4 | open | Website onderhoud: wat het is en wat je zelf moet doen | website onderhoud (1.100, 3) |
+| 4 | gepland (12-11-2026 09:00) | Website onderhoud: wat is het en wat heb je nodig? | website onderhoud (1.100, 3) |
 | 5 | beslissen | Webshop laten maken: waar begin je? | webshop laten maken (2.200, 3), shopify website laten maken kosten (300, 2), wat kost een webshop laten maken (150, 0) |
 | 6 | open | Een website laten maken als zzp'er | website laten maken zzp (600, 1) |
 | 7 | open | Goedkope website laten maken: waar je op let | betaalbare website laten maken (600, 18), goedkope website laten maken (500, 14), goedkoop website laten maken (350, 35) |
-| 8 | open | Domeinnaam en hosting uitgelegd | wat is een domeinnaam (600, 0), wat is hosting (400, 6), wat kost een domeinnaam (200, 7) |
+| 8 | gepland (13-11-2026 09:00) | Domeinnaam en hosting: wat is het verschil? | wat is een domeinnaam (600, 0), wat is hosting (400, 6), wat kost een domeinnaam (200, 7) |
 
 Status: `open` = nog te schrijven, `beslissen` = eerst een keuze van de founders nodig,
 `concept` = staat als placeholder of in review, `gepland` = ingepland (noteer datum en tijd),
