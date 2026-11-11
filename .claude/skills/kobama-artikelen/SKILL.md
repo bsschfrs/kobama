@@ -124,7 +124,14 @@ Controleer lokaal met `node scripts/check-scheduled.mjs --dry-run`.
   mogelijk niet.
 
 **Interne links**
-- Link naar de pijler en naar 1 tot 3 verwante clusterartikelen (zodra die live zijn).
+- Link naar de pijler en naar 2 tot 4 verwante clusterartikelen. Ook naar geplande
+  artikelen: `src/components/BlogLinks.astro` laat zo'n verwijzing weg tot het doelartikel
+  live is, en de geplande build zet hem er vanzelf in. Er staat dus nooit een dode link online.
+- Schrijf een verwijzing als eigen zin die eindigt met de link, bijvoorbeeld
+  "Wat onderhoud inhoudt, lees je in [website onderhoud](/blog/website-onderhoud/)."
+  Dan valt de hele zin netjes weg zolang het artikel nog niet live is.
+- Werk bij elk nieuw artikel ook de bestaande artikelen bij: zet in 1 tot 3 verwante
+  artikelen een zin die naar het nieuwe artikel linkt. Links gaan beide kanten op.
 - Linktekst zegt waar de link naartoe gaat. Nooit "klik hier".
 
 **Afsluiting**
@@ -210,7 +217,8 @@ placeholder: false
 - [ ] Lijsten en tabellen waar de inhoud een lijst of vergelijking is.
 - [ ] Geen "dit", "hierboven", "hieronder" zonder onderwerp.
 - [ ] B1, je-vorm, geen em-dashes, geen AI-tells (humanizer gedraaid).
-- [ ] Interne links naar pijler en verwante artikelen, met beschrijvende linktekst.
+- [ ] Interne links naar pijler en verwante artikelen, als eigen zin met beschrijvende linktekst.
+- [ ] Bestaande verwante artikelen linken terug naar het nieuwe artikel.
 - [ ] Auteur is een echte founder; datum klopt.
 - [ ] Illustratie gemaakt, bekeken en gekoppeld met `image` en een beschrijvende `imageAlt`.
 - [ ] `npm run build` en `npm run qa` slagen.

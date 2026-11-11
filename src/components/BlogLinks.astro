@@ -1,0 +1,20 @@
+---
+// Interne links tussen blogartikelen. Een artikel mag in de tekst al linken naar een
+// artikel dat nog gepland staat. Zolang dat artikel niet live is:
+//   1. valt een verwijszin weg ("Meer daarover lees je in [artikel].", een eigen zin);
+//   2. lukt dat niet, dan wordt de link gewone tekst.
+// Zo staan er nooit dode links online. De geplande build die het artikel live zet, bouwt
+// alle pagina's opnieuw, en dan staan de zinnen en links er vanzelf weer. In dev blijft
+// alles staan. Schrijf een verwijzing daarom als eigen zin die eindigt met de link.
+import { getPosts } from "../scripts/blog";
+
+const live = new Set((await getPosts()).map((p) => p.id));
+const link = String.raw`<a href="/blog/([a-z0-9-]+)/"[^>]*>[\s\S]*?</a>`;
+const html = (await Astro.slots.render("default"))
+  // Een hele zin: begint na <p>, <li> of een vorige zin, eindigt met een punt na de link.
+  .replace(new RegExp(String.raw`(<p>|<li>|[.?!] )([^.?!<>]*)${link}([^.<]*\.)`, "g"),
+    (sentence, start, _before, id) => (live.has(id) ? sentence : start === "<p>" || start === "<li>" ? start : start.trim()))
+  .replace(new RegExp(link, "g"), (a, id) => (live.has(id) ? a : a.replace(/<[^>]+>/g, "")))
+  .replace(/<p>\s*<\/p>\n?/g, "");
+---
+<Fragment set:html={html} />

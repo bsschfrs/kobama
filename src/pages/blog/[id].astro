@@ -7,6 +7,7 @@ import { render } from "astro:content";
 import Base from "../../layouts/Base.astro";
 import PageHeader from "../../components/PageHeader.astro";
 import SiteFooter from "../../components/SiteFooter.astro";
+import BlogLinks from "../../components/BlogLinks.astro";
 import { copy } from "../../content/copy";
 import { site } from "../../content/site";
 import { formatDate, formatDateTime, getPosts, isScheduled } from "../../scripts/blog";
@@ -63,7 +64,7 @@ const blogPosting = !placeholder && author && date
         {updated && <> {copy.blog.updated} <time datetime={iso(updated)}>{formatDate(updated)}</time>.</>}
       </p>
       {image && <img class="blog-image" src={image} alt={imageAlt} width="1200" height="630" decoding="async" fetchpriority="high" />}
-      <div class="blog-body"><Content /></div>
+      <div class="blog-body"><BlogLinks><Content /></BlogLinks></div>
     </article>
     <div class="blog-cta">
       <p class="h3">{copy.blog.closing}</p>

@@ -60,7 +60,7 @@ Zet daarom automatisch verlengen aan, en zorg dat het e-mailadres bij je registr
 
 Bij KOBAMA mag je je hosting zelf regelen, en wij helpen je daarbij. Dan heb je zelf in handen waar je website staat en wat je daarvoor betaalt. Wil je liever dat wij meedenken over hosting, dan bespreken we dat in het eerste gesprek.
 
-Wat een website in totaal kost, inclusief hosting en domeinnaam, lees je in [wat een website laten maken kost](/blog/wat-kost-een-website-laten-maken/). Hoe je hem daarna bijhoudt, lees je in [website onderhoud](/blog/website-onderhoud/).
+Wat een website in totaal kost, inclusief hosting en domeinnaam, lees je in [wat een website laten maken kost](/blog/wat-kost-een-website-laten-maken/). Hoe je hem daarna bijhoudt, lees je in [website onderhoud](/blog/website-onderhoud/). Welke gegevens als zzp'er op je website moeten, lees je in [website laten maken als zzp'er](/blog/website-laten-maken-zzp/).
 
 ## Veelgestelde vragen
 

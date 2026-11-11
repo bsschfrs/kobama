@@ -65,6 +65,20 @@ const VISUALS = {
     [0.7, 0.7, 0.4, 1.6, 1.6, 1.6, "blue"],
     [3.6, 1.1, 0, 0.9, 0.9, 0.35, "orange"],
   ],
+  // Zzp'er: één compacte site die op zichzelf staat. Antraciet fundament (de verplichte
+  // gegevens), één blauw blok (de one-pager), een klein oranje blok bovenop (contact).
+  "website-laten-maken-zzp": [
+    [0, 0, 0, 2.4, 2.4, 0.4, "charcoal"],
+    [0.4, 0.4, 0.4, 1.6, 1.6, 1.6, "blue"],
+    [0.7, 0.7, 2, 1, 1, 0.6, "orange"],
+  ],
+  // Goedkoop: de site (blauw met oranje) is zo groot als nodig. De grote gestippelde
+  // contour eromheen is wat je niet hoeft te bouwen of te betalen.
+  "goedkope-website-laten-maken": [
+    [0, 0, 0, 3.2, 3.2, 3.2, "ghost"],
+    [0.8, 0.8, 0, 1.6, 1.6, 1.4, "blue"],
+    [1.1, 1.1, 1.4, 1, 1, 0.6, "orange"],
+  ],
 };
 
 const C30 = Math.cos(Math.PI / 6), S30 = 0.5;

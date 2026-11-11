@@ -49,13 +49,13 @@ Meer over alle kosten van een website, eenmalig en terugkerend, lees je in [wat 
 
 Je kunt kleine aanpassingen aan je website soms zelf doen, maar technisch onderhoud zelf doen is lastig. Je moet dan zelf in de techniek van je site werken: updates installeren, back-ups maken en controleren of alles nog goed werkt na een update.
 
-Twijfel je, maak dan afspraken met je webbouwer over wat jij zelf doet en wat zij doen. Leg ook vast wie toegang heeft tot je site, je hosting en je domeinnaam.
+Twijfel je, maak dan afspraken met je webbouwer over wat jij zelf doet en wat zij doen. Leg ook vast wie toegang heeft tot je site, je hosting en je domeinnaam. Waarom je domeinnaam op je eigen naam moet staan, lees je in [domeinnaam en hosting: wat is het verschil?](/blog/domeinnaam-en-hosting/).
 
 ## Hoe wij dit aanpakken
 
 Bij KOBAMA kies je zelf hoe je onderhoud en aanpassingen regelt. Je betaalt per aanpassing, of je kiest een vast bedrag per maand met een maximum aantal aanpassingen. We rekenen geen jaarbedrag voor onderhoud dat we niet doen.
 
-Wil je het onderhoud zelf doen, dan overleggen we wat er kan. Dat is niet altijd makkelijk, maar we kijken per site wat haalbaar is. Je hosting mag je zelf regelen, en daar helpen we je bij.
+Wil je het onderhoud zelf doen, dan overleggen we wat er kan. Dat is niet altijd makkelijk, maar we kijken per site wat haalbaar is. Je hosting mag je zelf regelen, en daar helpen we je bij. Hoe je een site maakt die weinig onderhoud nodig heeft, lees je in [goedkope website laten maken](/blog/goedkope-website-laten-maken/).
 
 ## Veelgestelde vragen
 

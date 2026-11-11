@@ -95,7 +95,7 @@ Bij elke website die KOBAMA bouwt, zetten we de naam, het adres en het telefoonn
 
 Heb je nog geen profiel, of staat er een oud profiel online waar je niet meer bij kunt? Dan kijken we in het eerste gesprek wat er nodig is.
 
-Wil je weten wat een website met deze basis kost, lees dan [wat een website laten maken kost](/blog/wat-kost-een-website-laten-maken/).
+Wil je weten wat een website met deze basis kost, lees dan [wat een website laten maken kost](/blog/wat-kost-een-website-laten-maken/). Werk je als zzp'er, lees dan [website laten maken als zzp'er](/blog/website-laten-maken-zzp/).
 
 ## Veelgestelde vragen
 

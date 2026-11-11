@@ -29,8 +29,8 @@ Elk cluster linkt naar de pijler, de pijler linkt naar elk cluster.
 | 3 | live (11-11-2026) | Google-bedrijfsprofiel: aanmaken en goed invullen | google mijn bedrijf (10.000, 4), google bedrijfsprofiel (3.500, 13), bedrijfsprofiel google (800, 4), google bedrijfsprofiel aanmaken (500, 5), google bedrijfsprofiel optimaliseren (250, n.b.), mijn bedrijf op google maps (150, 14) |
 | 4 | gepland (12-11-2026 09:00) | Website onderhoud: wat is het en wat heb je nodig? | website onderhoud (1.100, 3) |
 | 5 | beslissen | Webshop laten maken: waar begin je? | webshop laten maken (2.200, 3), shopify website laten maken kosten (300, 2), wat kost een webshop laten maken (150, 0) |
-| 6 | open | Een website laten maken als zzp'er | website laten maken zzp (600, 1) |
-| 7 | open | Goedkope website laten maken: waar je op let | betaalbare website laten maken (600, 18), goedkope website laten maken (500, 14), goedkoop website laten maken (350, 35) |
+| 6 | gepland (14-11-2026 09:00) | Een website laten maken als zzp'er | website laten maken zzp (600, 1) |
+| 7 | gepland (15-11-2026 09:00) | Goedkope website laten maken: waar je op let | betaalbare website laten maken (600, 18), goedkope website laten maken (500, 14), goedkoop website laten maken (350, 35) |
 | 8 | gepland (13-11-2026 09:00) | Domeinnaam en hosting: wat is het verschil? | wat is een domeinnaam (600, 0), wat is hosting (400, 6), wat kost een domeinnaam (200, 7) |
 
 Status: `open` = nog te schrijven, `beslissen` = eerst een keuze van de founders nodig,

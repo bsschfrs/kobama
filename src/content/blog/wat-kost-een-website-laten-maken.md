@@ -41,7 +41,7 @@ Bij KOBAMA kies je zelf hoe je aanpassingen betaalt:
 1. **Per keer.** Je betaalt alleen als je iets wilt laten veranderen. Dat past bij een site die weinig verandert.
 2. **Per maand.** Je betaalt een vast bedrag per maand en kunt daarvoor een maximum aantal aanpassingen laten doen. Dat past bij een site waar je regelmatig iets aan wilt veranderen.
 
-Onderhoud helemaal zelf doen is lastiger, omdat je dan zelf in de techniek van je site moet werken. Wil je dat toch, dan overleggen we wat er kan.
+Onderhoud helemaal zelf doen is lastiger, omdat je dan zelf in de techniek van je site moet werken. Wil je dat toch, dan overleggen we wat er kan. Wat onderhoud precies inhoudt, lees je in [website onderhoud: wat is het en wat heb je nodig?](/blog/website-onderhoud/).
 
 ## Waarom betalen veel ondernemers te veel voor hun website?
 
@@ -55,7 +55,7 @@ Check daarom je eigen facturen. Vraag je webbouwer wat er voor het bedrag gebeur
 
 Je hoeft je hosting niet bij je webbouwer af te nemen. Bij KOBAMA mag je de hosting zelf regelen, en wij helpen je daarbij. Dan heb je zelf in handen waar je website staat en wat je daarvoor betaalt.
 
-Wil je liever dat wij meedenken over de hosting, dan bespreken we dat in het eerste gesprek.
+Wil je liever dat wij meedenken over de hosting, dan bespreken we dat in het eerste gesprek. Het verschil tussen hosting en een domeinnaam lees je in [domeinnaam en hosting: wat is het verschil?](/blog/domeinnaam-en-hosting/).
 
 ## Hoe wij dit aanpakken
 
@@ -68,13 +68,13 @@ Zo werkt het in het kort:
 3. Wij schrijven de teksten. Jij krijgt één ronde om ze aan te passen.
 4. Na de oplevering kies je zelf hoe je hosting en aanpassingen regelt.
 
-Hoe een traject verder loopt, lees je bij [onze werkwijze](/#werkwijze).
+Hoe een traject verder loopt, lees je bij [onze werkwijze](/#werkwijze). Ben je zzp'er, lees dan ook [website laten maken als zzp'er](/blog/website-laten-maken-zzp/).
 
 ## Veelgestelde vragen
 
 ### Wat is de goedkoopste manier om een website te laten maken?
 
-De goedkoopste manier om een website te laten maken is meestal een one-pager: één pagina met alle informatie over je bedrijf. Er is dan minder te ontwerpen en te bouwen dan bij een site met meerdere pagina's. Kijk daarnaast naar de kosten na de oplevering, want een lage bouwprijs met een duur onderhoudscontract is over een paar jaar alsnog duur.
+De goedkoopste manier om een website te laten maken is meestal een one-pager: één pagina met alle informatie over je bedrijf. Er is dan minder te ontwerpen en te bouwen dan bij een site met meerdere pagina's. Kijk daarnaast naar de kosten na de oplevering, want een lage bouwprijs met een duur onderhoudscontract is over een paar jaar alsnog duur. Waar je verder op let, lees je in [goedkope website laten maken](/blog/goedkope-website-laten-maken/).
 
 ### Zijn de kosten van een website eenmalig?
 
