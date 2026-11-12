@@ -25,8 +25,10 @@ Welke artikelen er komen en in welke volgorde staat in `CONTENT-ROADMAP.md`.
 Elk gepubliceerd artikel heeft een byline in zinsvorm ("Geschreven door [founder] op [datum].",
 geen meta-regel met puntjes) en `BlogPosting`-structured data. Schrijfmethode: skill `kobama-artikelen`.
 Artikelen kunnen worden ingepland: een `date` in de toekomst blijft uit de build tot dat moment;
-`.github/workflows/publish-scheduled.yml` start elke 15 minuten zo nodig een nieuwe build
-(Vercel Deploy Hook in het GitHub-secret `VERCEL_DEPLOY_HOOK`).
+een Vercel Cron (`vercel.json`, `api/publish.js`) bouwt de site elke ochtend opnieuw, zodat
+artikelen van 09:00 tussen 09:00 en 10:00 live staan. `.github/workflows/publish-scheduled.yml`
+is de reserve (GitHub voert die soms maar eens per paar uur uit). Deploy Hook staat als
+`VERCEL_DEPLOY_HOOK` in het GitHub-secret en in Vercel, met `CRON_SECRET` in Vercel.
 
 **Beeld bij artikelen** (10 november 2026, gekozen door Bas): per artikel een illustratie met de
 isometrische bouwstenen uit het logo, getekend als code in `scripts/blog-visuals.mjs` (geen AI-beeld).

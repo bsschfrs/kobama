@@ -78,3 +78,13 @@ en werk dan het brief of het playbook bij.
 - **Nieuwe Playwright-browser, nieuwe QA-fout.** Na `npx playwright install chromium` telde
   QA de `<img>`-tags zonder `src` in de track-record-preview als kapot beeld. Die hebben nu
   het eerste screenshot als lazy `src` tot de hover het echte beeld zet.
+
+## Geleerd over inplannen (12 november 2026)
+
+- **GitHub-cron is niet op tijd.** `*/15 * * * *` werd in de praktijk ongeveer elke 6 à 7 uur
+  uitgevoerd. Het artikel van 09:00 bleef daardoor offline tot iemand handmatig een run startte.
+  GitHub garandeert geen tijdstip voor geplande workflows, zeker niet bij kleine repo's.
+- **Oplossing:** een Vercel Cron (`vercel.json` + `api/publish.js`) die de deploy hook elke
+  ochtend aanroept, met de GitHub-workflow als reserve. Op het Hobby-plan draait een cron één
+  keer per dag ergens binnen het ingestelde uur; twee crons (07:00 en 08:00 UTC) dekken
+  winter- en zomertijd. Les voor de house kit: geplande publicatie hoort bij de host, niet bij CI.

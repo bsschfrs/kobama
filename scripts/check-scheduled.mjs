@@ -6,7 +6,8 @@
 // build via een Vercel Deploy Hook. Het vergelijkt met de live site, dus een gemiste run
 // wordt bij de volgende vanzelf ingehaald.
 //
-// Draait elke 15 minuten via .github/workflows/publish-scheduled.yml.
+// Draait via .github/workflows/publish-scheduled.yml (ingesteld op elke 15 minuten, maar GitHub
+// voert dat soms maar eens per paar uur uit). De vaste basis is de Vercel Cron in api/publish.js.
 // Lokaal proberen zonder iets te starten:
 //   node scripts/check-scheduled.mjs --dry-run
 // Deploy hook testen (start altijd een build, ook zonder gepland artikel):
