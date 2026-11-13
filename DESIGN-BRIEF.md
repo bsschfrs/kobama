@@ -151,3 +151,13 @@ vergelijking staat stil op de helft.
 Dit brief wijkt op een paar punten bewust af van het playbook *Websites with Claude*
 (twee bewegingsmomenten, verzonnen voorbeeld zonder label, mailto in plaats van formulier,
 één pagina). De lijst en de open beslissingen staan in `PILOT-LOG.md`.
+
+## Aanvraagformulier (pop-up)
+
+Elke "Plan een gesprek"-knop opent een klein formulier als pop-up (400px, witte kaart met
+radius 22px) boven de pagina met een blur (14px) en een lichte donkere sluier. Bewuste
+afwijking van de harde vlakken: het formulier mag zacht ogen, in de stijl van Apple.
+Keuzes zijn segmentknoppen (gekozen = antraciet), invoervelden zijn lichtgrijs en krijgen bij
+focus een antracieten rand. Extra vragen schuiven zacht open. Open en dicht gaat met een korte,
+rustige beweging; met reduced-motion staat alles direct. Geen schaduwen, geen verlopen.
+Verzenden gaat naar `api/lead.js` (Resend, zie de kop van dat bestand voor de omgevingsvariabelen).

@@ -73,8 +73,8 @@ export const copy = {
     name: { label: "Wat is je naam?", placeholder: "Je naam" },
     site: {
       legend: "Heb je al een website?",
-      yes: "Ja, ik heb al een website",
-      no: "Nee, nog niet",
+      yes: "Ik heb al een site",
+      no: "Nog geen site",
       nameLabel: "Wat is de naam van je website?",
       namePlaceholder: "www.kobama.nl",
     },

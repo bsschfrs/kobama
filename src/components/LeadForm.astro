@@ -27,36 +27,46 @@ const t = copy.lead;
 
       <fieldset class="lead-field">
         <legend>{t.site.legend}</legend>
-        <label class="lead-choice"><input type="radio" name="hasSite" value="ja" required /><span>{t.site.yes}</span></label>
-        <label class="lead-choice"><input type="radio" name="hasSite" value="nee" /><span>{t.site.no}</span></label>
+        <div class="lead-seg">
+          <label class="lead-choice"><input type="radio" name="hasSite" value="ja" required /><span>{t.site.yes}</span></label>
+          <label class="lead-choice"><input type="radio" name="hasSite" value="nee" /><span>{t.site.no}</span></label>
+        </div>
         <p class="lead-err" data-err="hasSite" hidden>{t.required}</p>
       </fieldset>
 
-      <div class="lead-field" data-when-site hidden>
-        <label for="lead-site">{t.site.nameLabel}</label>
-        <input id="lead-site" name="siteName" type="text" inputmode="url" autocomplete="off" placeholder={t.site.namePlaceholder} />
-        <p class="lead-err" data-err="siteName" hidden>{t.required}</p>
-      </div>
+      <div class="lead-cond" data-when-site inert><div>
+        <div class="lead-field">
+          <label for="lead-site">{t.site.nameLabel}</label>
+          <input id="lead-site" name="siteName" type="text" inputmode="url" autocomplete="off" placeholder={t.site.namePlaceholder} />
+          <p class="lead-err" data-err="siteName" hidden>{t.required}</p>
+        </div>
+      </div></div>
 
       <fieldset class="lead-field">
         <legend>{t.method.legend}</legend>
-        <label class="lead-choice"><input type="radio" name="method" value="bellen" required /><span>{t.method.call}</span></label>
-        <label class="lead-choice"><input type="radio" name="method" value="whatsapp" /><span>{t.method.whatsapp}</span></label>
-        <label class="lead-choice"><input type="radio" name="method" value="mailen" /><span>{t.method.mail}</span></label>
+        <div class="lead-seg">
+          <label class="lead-choice"><input type="radio" name="method" value="bellen" required /><span>{t.method.call}</span></label>
+          <label class="lead-choice"><input type="radio" name="method" value="whatsapp" /><span>{t.method.whatsapp}</span></label>
+          <label class="lead-choice"><input type="radio" name="method" value="mailen" /><span>{t.method.mail}</span></label>
+        </div>
         <p class="lead-err" data-err="method" hidden>{t.required}</p>
       </fieldset>
 
-      <div class="lead-field" data-when-phone hidden>
-        <label for="lead-phone">{t.method.phoneLabel}</label>
-        <input id="lead-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder={t.method.phonePlaceholder} />
-        <p class="lead-err" data-err="phone" hidden>{t.invalidPhone}</p>
-      </div>
+      <div class="lead-cond" data-when-phone inert><div>
+        <div class="lead-field">
+          <label for="lead-phone">{t.method.phoneLabel}</label>
+          <input id="lead-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder={t.method.phonePlaceholder} />
+          <p class="lead-err" data-err="phone" hidden>{t.invalidPhone}</p>
+        </div>
+      </div></div>
 
-      <div class="lead-field" data-when-email hidden>
-        <label for="lead-email">{t.method.emailLabel}</label>
-        <input id="lead-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder={t.method.emailPlaceholder} />
-        <p class="lead-err" data-err="email" hidden>{t.invalidEmail}</p>
-      </div>
+      <div class="lead-cond" data-when-email inert><div>
+        <div class="lead-field">
+          <label for="lead-email">{t.method.emailLabel}</label>
+          <input id="lead-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder={t.method.emailPlaceholder} />
+          <p class="lead-err" data-err="email" hidden>{t.invalidEmail}</p>
+        </div>
+      </div></div>
 
       <p class="lead-fail" role="alert" hidden>{t.error} <a href={`mailto:${site.email}`}>{site.email}</a></p>
 
@@ -85,11 +95,12 @@ const t = copy.lead;
     const checked = (n: string) => form.querySelector<HTMLInputElement>(`input[name="${n}"]:checked`)?.value ?? "";
     let opener: HTMLElement | null = null;
 
+    const toggle = (el: HTMLElement, on: boolean) => { el.toggleAttribute("data-open", on); el.inert = !on; };
     const sync = () => {
       const method = checked("method");
-      q("[data-when-site]").hidden = checked("hasSite") !== "ja";
-      q("[data-when-phone]").hidden = !(method === "bellen" || method === "whatsapp");
-      q("[data-when-email]").hidden = method !== "mailen";
+      toggle(q("[data-when-site]"), checked("hasSite") === "ja");
+      toggle(q("[data-when-phone]"), method === "bellen" || method === "whatsapp");
+      toggle(q("[data-when-email]"), method === "mailen");
     };
     const showErr = (n: string, on: boolean) => {
       q(`[data-err="${n}"]`).hidden = !on;
