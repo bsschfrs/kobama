@@ -129,8 +129,21 @@ html:not(.motion) .topbar { display: none; }
 .hero h1 { font-size: clamp(38px, 4.2vw, 64px); line-height: 1.04; letter-spacing: -0.035em; text-wrap: balance; }
 .hero h1 .w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.06em; margin-bottom: -0.06em; }
 .hero h1 .w > span { display: inline-block; }
+.hero .lead { font-size: clamp(19px, 1.75vw, 25px); line-height: 1.4; font-weight: 400; max-width: none; }
 .hero-blocks { display: flex; justify-content: center; align-items: center; }
-.hero-iso { width: min(100%, 680px); height: auto; overflow: visible; }
+.hero-visual { position: relative; width: min(100%, 680px); }
+.hero-iso { width: 100%; height: auto; overflow: visible; display: block; }
+.hero-points { position: absolute; inset: 0; pointer-events: none; }
+.hero-points ul { list-style: none; margin: 0; padding: 0; }
+.hero-leaders { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.hero-leaders line { stroke-width: 2; }
+.hero-leaders .l1 { stroke: var(--blue); }
+.hero-leaders .l2 { stroke: var(--ink); }
+.hero-leaders .l3 { stroke: var(--orange-deep); }
+.hero-points .pt { position: absolute; font-size: clamp(16px, 1.45vw, 21px); line-height: 1.15; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+.hero-points .pt-1 { left: 71.8%; top: 26.8%; transform: translateY(-50%); max-width: 26%; }
+.hero-points .pt-2 { left: 23.2%; top: 47%; transform: translate(-50%, -100%); white-space: nowrap; }
+.hero-points .pt-3 { left: 74.5%; top: 47%; transform: translateY(-100%); max-width: 22%; }
 
 .split-handle {
   position: absolute; top: 50%; left: 50%;
@@ -456,7 +469,12 @@ body:has(> main.prose) > main { flex: 1 0 auto; width: 100%; }
   .hero-logo { height: 24px; }
   .hero-body { grid-template-columns: 1fr; grid-template-rows: auto auto; gap: 8px; padding-bottom: 48px; align-content: start; }
   .hero-blocks { order: -1; padding: 8px 0 12px; }
-  .hero-iso { width: min(78vw, 320px); }
+  .hero-visual { width: min(78vw, 320px); }
+  .hero-points { position: static; margin-top: 16px; }
+  .hero-leaders { display: none; }
+  .hero-points ul { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+  .hero-points .pt { position: static; transform: none; max-width: none; white-space: nowrap; font-size: 16px; display: flex; align-items: center; gap: 8px; }
+  .hero-points .pt::before { content: ""; width: 10px; height: 10px; background: var(--c); flex: none; }
   .hero h1 { font-size: clamp(32px, 8.8vw, 42px); }
   .hero-copy { gap: 22px; }
 

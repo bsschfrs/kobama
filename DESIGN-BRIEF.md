@@ -71,6 +71,9 @@ Eén content-kolom van max. 1248px, marges 96px (24px mobiel).
    isometrische as naar binnen en klikken vast. De kop verschijnt woord voor woord uit een
    masker, daarna subregel en knop. Totaal circa 1,6 seconde. Daarna reageren de blokken
    licht op de muis (desktop), en bij het wegscrollen schuiven ze uit elkaar.
+   Kop op 4,2vw (max 64px), subkop als H2 in één zin. Bij elk blok staat één kenmerk met een
+   dun lijntje: blauw "Persoonlijk", antraciet "Op maat", oranje "Zonder onnodige kosten".
+   Op mobiel staan ze als rij onder de blokken, met een klein vierkantje in de kleur van het blok.
 2. **Werkwijze: het logo bouwt zich opnieuw op.** Per stap valt één blok op zijn plek
    (Ontdekken = blauw, Ontwerpen & bouwen = antraciet, Live = oranje). Bij "Live." is het
    beeldmerk compleet. Ontbrekende blokken zijn gestippelde contouren. Zo sluit het aan op

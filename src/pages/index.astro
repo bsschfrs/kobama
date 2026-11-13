@@ -14,6 +14,7 @@ const infoIds = ["wat-kost-een-website-laten-maken", "website-onderhoud", "googl
 const infoPosts = (await getPosts()).filter((p) => infoIds.includes(p.id)).sort((a, b) => infoIds.indexOf(a.id) - infoIds.indexOf(b.id));
 const accents = ["var(--blue)", "#8A8A8A", "var(--orange)"];
 const words = copy.hero.heading.split(" ");
+const colors = ["var(--blue)", "var(--ink)", "var(--orange)"];
 const arrowsLeftRight = `<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6" /></svg>`;
 const arrow = `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7" /></svg>`;
 ---
@@ -40,10 +41,24 @@ const arrow = `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" strok
     <div class="hero-body wrap">
       <div class="hero-copy">
         <h1 data-hero-h1>{words.map((w, i) => <><span class="w"><span>{w}</span></span>{i < words.length - 1 ? " " : ""}</>)}</h1>
-        <p class="lead" data-hero-fade>{copy.hero.sub}</p>
+        <h2 class="lead" data-hero-fade>{copy.hero.sub}</h2>
         <p data-hero-fade><a class="btn" href={copy.contact}>{copy.hero.cta}</a></p>
       </div>
-      <div class="hero-blocks" data-hero-blocks><IsoBlocks class="hero-iso" /></div>
+      <div class="hero-blocks" data-hero-blocks>
+        <div class="hero-visual">
+          <IsoBlocks class="hero-iso" />
+          <div class="hero-points" data-hero-fade>
+            <svg class="hero-leaders" viewBox="0 0 560 560" aria-hidden="true" focusable="false">
+              <line class="l1" x1="340" y1="150" x2="394" y2="150" />
+              <line class="l2" x1="130" y1="266" x2="130" y2="335" />
+              <line class="l3" x1="420" y1="266" x2="420" y2="345" />
+            </svg>
+            <ul>
+              {copy.hero.points.map((p, i) => <li class={`pt pt-${i + 1}`} style={`--c:${colors[i]}`}>{p}</li>)}
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 

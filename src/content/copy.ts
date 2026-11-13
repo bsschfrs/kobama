@@ -58,7 +58,9 @@ export const copy = {
 
   hero: {
     heading: "Wij bouwen websites die je bedrijf verder brengen.",
-    sub: "KOBAMA ontwerpt en bouwt professionele websites voor zzp'ers en mkb-bedrijven in heel Nederland. Persoonlijk, op maat en zonder onnodige kosten.",
+    sub: "Voor zzp'ers en mkb in heel Nederland.",
+    // Bij de drie blokken: blauw, antraciet, oranje
+    points: ["Persoonlijk", "Op maat", "Zonder onnodige kosten"],
     cta: "Plan een gesprek",
   },
 
