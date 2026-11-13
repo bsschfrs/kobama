@@ -1,0 +1,47 @@
+---
+// Projectpagina. Zolang het project in src/content/cases.ts staat, is de pagina noindex en
+// staat hij niet in de sitemap: de inhoud is dan nog niet door een founder bevestigd.
+import Base from "../../layouts/Base.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import { copy } from "../../content/copy";
+import { unpublishedCases } from "../../content/cases";
+
+export function getStaticPaths() {
+  return copy.werk.items
+    .filter((i) => "caseSlug" in i)
+    .map((item) => ({ params: { slug: (item as { caseSlug: string }).caseSlug }, props: { item } }));
+}
+
+const { item } = Astro.props;
+const slug = (item as { caseSlug: keyof typeof copy.cases.items }).caseSlug;
+const c = copy.cases.items[slug];
+const t = copy.cases;
+const path = `/projecten/${slug}/`;
+---
+<Base title={c.title} description={c.description} breadcrumbs={[{ name: item.name, path }]} noindex={unpublishedCases.includes(slug)} ogImage={item.image.replace(/\.webp$/, ".webp")} ogImageAlt={c.alt} ogImageType="image/webp" ogImageSize={[1200, 750]}>
+  <a class="skip" href="#main">Naar de inhoud</a>
+  <PageHeader />
+  <main id="main" class="wrap prose blog-post landing">
+    <h1>{c.h1}</h1>
+    <p class="lead">{c.lead}</p>
+    <img class="blog-image" src={item.image} alt={c.alt} width="1200" height="750" decoding="async" fetchpriority="high" />
+    <p><a class="btn" href={item.url} target="_blank" rel="noopener">{t.live}<span class="sr-only"> ({copy.werk.newTab})</span></a></p>
+    <section class="landing-section">
+      <h2 class="h3">{t.about}</h2>
+      {c.about.map((x) => <p>{x}</p>)}
+    </section>
+    {c.site.length > 0 && (
+      <section class="landing-section">
+        <h2 class="h3">{t.site}</h2>
+        <p>{t.siteIntro}</p>
+        <ul>{c.site.map((x) => <li>{x}</li>)}</ul>
+      </section>
+    )}
+    <div class="blog-cta">
+      <p class="h3">{t.cta}</p>
+      <p><a class="btn" href={copy.contact}>{copy.nav.cta}</a></p>
+    </div>
+  </main>
+  <SiteFooter />
+</Base>

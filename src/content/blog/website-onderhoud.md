@@ -58,7 +58,7 @@ Twijfel je, maak dan afspraken met je webbouwer over wat jij zelf doet en wat zi
 
 Bij KOBAMA kies je zelf hoe je onderhoud en aanpassingen regelt. Je betaalt per aanpassing, of je kiest een vast bedrag per maand met een maximum aantal aanpassingen. We rekenen geen jaarbedrag voor onderhoud dat we niet doen.
 
-Wil je het onderhoud zelf doen, dan overleggen we wat er kan. Dat is niet altijd makkelijk, maar we kijken per site wat haalbaar is. Je hosting mag je zelf regelen, en daar helpen we je bij. Hoe je een site maakt die weinig onderhoud nodig heeft, lees je in [goedkope website laten maken](/blog/goedkope-website-laten-maken/).
+Wil je het onderhoud zelf doen, dan overleggen we wat er kan. Dat is niet altijd makkelijk, maar we kijken per site wat haalbaar is. Je hosting mag je zelf regelen, en daar helpen we je bij. Hoe je een site maakt die weinig onderhoud nodig heeft, lees je in [goedkope website laten maken](/blog/goedkope-website-laten-maken/). Staat er al een website online die niet meer klopt? Lees dan over [website vernieuwen](/website-vernieuwen/).
 
 ## Veelgestelde vragen
 

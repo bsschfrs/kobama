@@ -21,6 +21,14 @@ export interface ArticleData {
   imagePath: string;
 }
 
+export interface ServiceData {
+  slug: string;
+  name: string;
+  type: string;
+  description: string;
+  audience: string;
+}
+
 interface Options {
   base: string | URL;
   /** Pad van de pagina, bijvoorbeeld "/blog/". */
@@ -30,6 +38,8 @@ interface Options {
   isHome: boolean;
   breadcrumbs?: Crumb[];
   article?: ArticleData;
+  /** Dienstpagina: eigen Service-entiteit met een vaste @id (pagina-URL + #service). */
+  service?: ServiceData;
 }
 
 export function buildGraph(o: Options): Json {
@@ -97,6 +107,22 @@ export function buildGraph(o: Options): Json {
       areaServed: { "@type": "Country", name: "Nederland" },
       audience: { "@type": "Audience", audienceType: copy.schema.service.audience },
     });
+  }
+
+  if (o.service) {
+    const v = o.service;
+    graph.push({
+      "@type": "Service",
+      "@id": `${pageUrl}#service`,
+      name: v.name,
+      serviceType: v.type,
+      description: v.description,
+      url: pageUrl,
+      provider: { "@id": orgId },
+      areaServed: { "@type": "Country", name: "Nederland" },
+      audience: { "@type": "Audience", audienceType: v.audience },
+    });
+    webPage.mainEntity = { "@id": `${pageUrl}#service` };
   }
 
   if (crumbs) {

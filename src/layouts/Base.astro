@@ -6,7 +6,7 @@ import "@fontsource/schibsted-grotesk/800.css";
 import "../styles/global.css";
 import { copy } from "../content/copy";
 import { site } from "../content/site";
-import { buildGraph, serializeJsonLd, type ArticleData, type Crumb } from "../scripts/schema";
+import { buildGraph, serializeJsonLd, type ArticleData, type Crumb, type ServiceData } from "../scripts/schema";
 
 interface Props {
   title?: string;
@@ -18,6 +18,10 @@ interface Props {
   breadcrumbs?: Crumb[];
   /** Gegevens voor BlogPosting structured data (alleen bij echte artikelen). */
   article?: ArticleData;
+  /** Eigen Service-entiteit voor een dienstpagina (naast de algemene Service op de homepage). */
+  service?: ServiceData;
+  ogImageType?: string;
+  ogImageSize?: [number, number];
   /** Zet structured data uit (alleen voor de 404-pagina). */
   schema?: boolean;
   /** Eigen deelbeeld (PNG, 1200x630) en alt-tekst; anders het standaardbeeld. */
@@ -25,14 +29,14 @@ interface Props {
   ogImageAlt?: string;
 }
 
-const { title = copy.meta.title, description = copy.meta.description, noindex = false, ogType = "website", breadcrumbs, article, schema = true, ogImage: ogImagePath = copy.meta.ogImage, ogImageAlt = copy.meta.ogImageAlt } = Astro.props;
+const { title = copy.meta.title, description = copy.meta.description, noindex = false, ogType = "website", breadcrumbs, article, service, ogImageType = "image/png", ogImageSize = [1200, 630], schema = true, ogImage: ogImagePath = copy.meta.ogImage, ogImageAlt = copy.meta.ogImageAlt } = Astro.props;
 const base = Astro.site ?? site.url;
 const canonical = new URL(Astro.url.pathname, base).href;
 const ogImage = new URL(ogImagePath, base).href;
 
 // Structured data: één @graph met Organization, WebSite en WebPage (zie src/scripts/schema.ts).
 const jsonLd = schema
-  ? buildGraph({ base, path: Astro.url.pathname, title, description, isHome: Astro.url.pathname === "/", breadcrumbs, article })
+  ? buildGraph({ base, path: Astro.url.pathname, title, description, isHome: Astro.url.pathname === "/", breadcrumbs, article, service })
   : undefined;
 ---
 <!doctype html>
@@ -51,9 +55,9 @@ const jsonLd = schema
     <meta property="og:url" content={canonical} />
     <meta property="og:site_name" content={site.name} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content={ogImageType} />
+    <meta property="og:image:width" content={String(ogImageSize[0])} />
+    <meta property="og:image:height" content={String(ogImageSize[1])} />
     <meta property="og:image:alt" content={ogImageAlt} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />

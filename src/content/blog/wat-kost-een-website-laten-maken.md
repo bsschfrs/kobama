@@ -76,7 +76,7 @@ Hoe een traject verder loopt, lees je bij [onze werkwijze](/#werkwijze). Ben je 
 
 ### Wat is de goedkoopste manier om een website te laten maken?
 
-De goedkoopste manier om een website te laten maken is meestal een one-pager: één pagina met alle informatie over je bedrijf. Er is dan minder te ontwerpen en te bouwen dan bij een site met meerdere pagina's. Kijk daarnaast naar de kosten na de oplevering, want een lage bouwprijs met een duur onderhoudscontract is over een paar jaar alsnog duur. Waar je verder op let, lees je in [goedkope website laten maken](/blog/goedkope-website-laten-maken/).
+De goedkoopste manier om een website te laten maken is meestal een one-pager: één pagina met alle informatie over je bedrijf. Er is dan minder te ontwerpen en te bouwen dan bij een site met meerdere pagina's. Kijk daarnaast naar de kosten na de oplevering, want een lage bouwprijs met een duur onderhoudscontract is over een paar jaar alsnog duur. Waar je verder op let, lees je in [goedkope website laten maken](/blog/goedkope-website-laten-maken/). Wanneer één pagina genoeg is, lees je bij [one-page website laten maken](/one-page-website-laten-maken/).
 
 ### Zijn de kosten van een website eenmalig?
 

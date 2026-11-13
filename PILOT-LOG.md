@@ -88,3 +88,16 @@ en werk dan het brief of het playbook bij.
   ochtend aanroept, met de GitHub-workflow als reserve. Op het Hobby-plan draait een cron één
   keer per dag ergens binnen het ingestelde uur; twee crons (07:00 en 08:00 UTC) dekken
   winter- en zomertijd. Les voor de house kit: geplande publicatie hoort bij de host, niet bij CI.
+
+## SEO-groeiopdracht (13 november 2026)
+
+- **Een rapport kan buiten de feiten van het project schrijven.** De opdracht vroeg om casepagina's
+  en landingspagina's met inhoud die nergens bevestigd staat (wat KOBAMA per project deed,
+  doorlooptijd, redirectdienst). Oplossing: copy alleen uit FOUNDER-INPUT.md en wat de klantsite
+  zelf toont; de casepagina's staan op `noindex` en buiten de sitemap via `src/content/cases.ts`
+  tot een founder de projectinformatie bevestigt.
+- **Zoekintentie-overlap.** De landingspagina `/website-laten-maken-zzp/` en het geplande artikel
+  `/blog/website-laten-maken-zzp/` mikken op dezelfde zoekterm. Blog is informatief, landing is
+  commercieel en ze linken naar elkaar; volg in Search Console of ze elkaar verdringen.
+- **De loodgietersdemo blijft staan** (zie rapport): HTML met `aria-hidden`, een paar KB, scherp op
+  elke breedte. Twee afbeeldingen zijn zwaarder en minder scherp, voor onzekere SEO-winst.

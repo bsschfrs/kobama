@@ -382,6 +382,34 @@ body:has(> main.prose) > main { flex: 1 0 auto; width: 100%; }
 .info-list h3 a:hover, .info > .wrap > p > a:hover { text-decoration: underline; text-underline-offset: 4px; }
 @media (max-width: 800px) { .info { padding: 72px 0; } .info-list { grid-template-columns: 1fr; gap: 32px; } }
 
+.diensten { padding: 110px 0; }
+.diensten .wrap { display: flex; flex-direction: column; gap: 24px; }
+.diensten .info-list h3 { font-size: 22px; }
+.info-list .text-link { font-weight: 700; color: var(--ink); text-underline-offset: 4px; }
+
+/* ---------- homepage: veelgestelde vragen (native details) ---------- */
+.faq { padding: 110px 0; }
+.faq .wrap { display: flex; flex-direction: column; gap: 32px; }
+.faq-list { max-width: 46em; border-bottom: 1px solid var(--line); }
+.faq-list details { border-top: 1px solid var(--line); }
+.faq-list summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: baseline; gap: 24px; padding: 22px 0; font-size: clamp(18px, 1.6vw, 22px); font-weight: 700; letter-spacing: -0.015em; }
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary::after { content: "+"; font-weight: 500; flex: none; }
+.faq-list details[open] summary::after { content: "\2212"; }
+.faq-list details p { margin: 0 0 24px; max-width: 38em; color: var(--muted); font-size: 17px; }
+@media (max-width: 800px) { .diensten, .faq { padding: 72px 0; } }
+
+/* ---------- landingspagina's ---------- */
+.landing h1 { margin-bottom: 0; }
+.landing .lead { margin-top: 20px; }
+.landing-section { margin-top: 48px; }
+.landing-section h2 { margin-bottom: 12px; }
+.landing-steps { padding-left: 1.2em; margin: 12px 0 0; }
+.landing-related { margin-top: 56px; }
+.landing-related ul { list-style: none; padding: 0; margin: 0; }
+.landing-related li + li { margin-top: 8px; }
+.landing .btn { margin-top: 8px; }
+
 /* ---------- blog ---------- */
 .blog .lead { margin-bottom: 48px; }
 .prose .blog-list { list-style: none; padding: 0; margin: 0; }

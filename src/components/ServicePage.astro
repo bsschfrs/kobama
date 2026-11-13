@@ -1,0 +1,49 @@
+---
+// Commerciële landingspagina (copy.landing.<key>). Eén sjabloon, eigen inhoud per pagina.
+// SEO loopt via Base.astro en src/scripts/schema.ts; hier staat alleen de inhoud.
+import Base from "../layouts/Base.astro";
+import PageHeader from "./PageHeader.astro";
+import SiteFooter from "./SiteFooter.astro";
+import { copy } from "../content/copy";
+import { inline } from "../scripts/inline";
+
+interface Props { page: "zzp" | "vernieuwen" | "onepage" }
+const { page: key } = Astro.props;
+const page = copy.landing[key];
+---
+<Base
+  title={page.title}
+  description={page.description}
+  breadcrumbs={[{ name: page.crumb, path: page.path }]}
+  service={{ slug: key, ...page.service }}
+>
+  <a class="skip" href="#main">Naar de inhoud</a>
+  <PageHeader />
+  <main id="main" class="wrap prose blog-post landing">
+    <h1>{page.h1}</h1>
+    <p class="lead">{page.lead}</p>
+    {page.sections.map((s) => (
+      <section class="landing-section">
+        <h2 class="h3">{s.h2}</h2>
+        {s.p?.map((t) => <p set:html={inline(t)} />)}
+        {s.list && <ul>{s.list.map((t) => <li set:html={inline(t)} />)}</ul>}
+        {s.steps && (
+          <ol class="landing-steps">
+            {s.steps.map((st) => <li><strong>{st.t}</strong> {st.b}</li>)}
+          </ol>
+        )}
+        {s.after && <p set:html={inline(s.after)} />}
+      </section>
+    ))}
+    <nav class="landing-related" aria-label="Lees ook">
+      <ul>
+        {page.related.map((r) => <li><a href={r.href}>{r.text}</a></li>)}
+      </ul>
+    </nav>
+    <div class="blog-cta">
+      <p class="h3">{page.closing}</p>
+      <p><a class="btn" href={copy.contact}>{copy.landing.cta}</a></p>
+    </div>
+  </main>
+  <SiteFooter />
+</Base>

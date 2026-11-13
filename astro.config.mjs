@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import { unpublishedCases } from './src/content/cases.ts';
 
 // https://astro.build/config
 export default defineConfig({
@@ -8,7 +9,7 @@ export default defineConfig({
   // src/content/site.ts. Canonical, og:url, sitemap en robots.txt gebruiken deze waarde.
   site: 'https://www.kobama.nl',
   trailingSlash: 'always',
-  integrations: [sitemap({ filter: (page) => !page.includes('/404') && !page.includes('/privacy') && !page.includes('/bedrijfsgegevens') })],
+  integrations: [sitemap({ filter: (page) => !page.includes('/404') && !page.includes('/privacy') && !page.includes('/bedrijfsgegevens') && !unpublishedCases.some((slug) => page.includes(`/projecten/${slug}/`)) })],
   server: {
     port: process.env.PORT ? Number(process.env.PORT) : 4321,
   },

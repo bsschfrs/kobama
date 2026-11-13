@@ -140,6 +140,10 @@ if (!fs.existsSync(sitemap)) fail("site", "sitemap ontbreekt (dist/sitemap-0.xml
 const routes = fs.existsSync(sitemap)
   ? [...fs.readFileSync(sitemap, "utf8").matchAll(/<loc>(.*?)<\/loc>/g)].map((m) => new URL(m[1]).pathname)
   : ["/"];
+// Conceptpagina's (noindex, buiten de sitemap) testen we ook: ze staan wel online.
+const draftDirs = fs.existsSync(path.join(DIST, "projecten")) ? fs.readdirSync(path.join(DIST, "projecten")) : [];
+for (const d of draftDirs) if (!routes.includes(`/projecten/${d}/`)) routes.push(`/projecten/${d}/`);
+const inSitemap = new Set(fs.existsSync(sitemap) ? [...fs.readFileSync(sitemap, "utf8").matchAll(/<loc>(.*?)<\/loc>/g)].map((m) => new URL(m[1]).pathname) : []);
 const robots = await fetch(URL_ + "robots.txt");
 if (!robots.ok || !(await robots.text()).includes("Sitemap:")) fail("site", "robots.txt ontbreekt of verwijst niet naar de sitemap");
 
@@ -177,6 +181,8 @@ for (const route of routes) {
         lang: document.documentElement.lang,
         h1: document.querySelectorAll("h1").length,
         ld: document.querySelectorAll('script[type="application/ld+json"]').length,
+        ldRaw: [...document.querySelectorAll('script[type="application/ld+json"]')].map((e) => e.textContent),
+        noindex: !!document.querySelector('meta[name="robots"][content*="noindex"]'),
         noAlt: [...document.images].filter((i) => !i.hasAttribute("alt")).map((i) => i.getAttribute("src")),
         hrefs: [...document.querySelectorAll("a[href]")].map((a) => a.getAttribute("href")),
         placeholders: [...document.querySelectorAll("[data-placeholder]")].map((e) => e.dataset.placeholder),
@@ -187,6 +193,15 @@ for (const route of routes) {
       if (!info.canonical) fail(route, "canonical ontbreekt");
       if (info.lang !== "nl") fail(route, `lang="${info.lang}" (nl verwacht)`);
       if (!info.ld) fail(route, "structured data (JSON-LD) ontbreekt");
+      for (const raw of info.ldRaw) {
+        try {
+          const ids = JSON.parse(raw)["@graph"].map((e) => e["@id"]);
+          if (new Set(ids).size !== ids.length) fail(route, "dubbele @id in JSON-LD");
+        } catch { fail(route, "JSON-LD parseert niet"); }
+      }
+      // Sitemap en canonical horen bij elkaar: alleen indexeerbare pagina's staan in de sitemap.
+      if (inSitemap.has(route) && info.noindex) fail(route, "noindex-pagina staat in de sitemap");
+      if (inSitemap.has(route) && new URL(info.canonical).pathname !== route) fail(route, `canonical (${info.canonical}) wijkt af van sitemap-URL`);
       if (info.noAlt.length) fail(route, `afbeelding zonder alt: ${info.noAlt.join(", ")}`);
       for (const p of info.placeholders) launchOnly(route, `placeholder-inhoud (data-placeholder="${p}")`);
       for (const h of info.hrefs) if (!h.startsWith("#") && !links.has(h)) links.set(h, route);
@@ -244,7 +259,9 @@ if (!args.has("--no-lighthouse")) {
     const r = await lighthouse(URL_ + route.slice(1), { port: chrome.port, logLevel: "error", onlyCategories: Object.keys(LH_MIN) });
     const scores = Object.fromEntries(Object.entries(r.lhr.categories).map(([k, v]) => [k, Math.round(v.score * 100)]));
     lhScores.push(`${route}: ${Object.entries(scores).map(([k, v]) => `${k} ${v}`).join(", ")}`);
-    for (const [k, min] of Object.entries(LH_MIN)) if (scores[k] < min * 100) fail(route, `Lighthouse ${k} ${scores[k]} (min ${min * 100})`);
+    // noindex-pagina's scoren bewust lager op Lighthouse SEO (de audit "indexeerbaar" faalt dan).
+    const isNoindex = seo.find((x) => x.route === route)?.noindex;
+    for (const [k, min] of Object.entries(LH_MIN)) if (!(k === "seo" && isNoindex) && scores[k] < min * 100) fail(route, `Lighthouse ${k} ${scores[k]} (min ${min * 100})`);
   }
   await chrome.kill();
 }
