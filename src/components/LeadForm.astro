@@ -94,6 +94,7 @@ const t = copy.lead;
     const field = (n: string) => form.elements.namedItem(n) as HTMLInputElement;
     const checked = (n: string) => form.querySelector<HTMLInputElement>(`input[name="${n}"]:checked`)?.value ?? "";
     let opener: HTMLElement | null = null;
+    const HASH = "#plan-een-gesprek"; // met deze hash in de URL opent het formulier direct (voor advertenties en gedeelde links)
 
     const toggle = (el: HTMLElement, on: boolean) => { el.toggleAttribute("data-open", on); el.inert = !on; };
     const sync = () => {
@@ -126,7 +127,7 @@ const t = copy.lead;
       return first;
     };
 
-    const open = (from: HTMLElement) => {
+    const open = (from: HTMLElement | null) => {
       opener = from;
       form.hidden = false;
       done.hidden = true;
@@ -146,7 +147,13 @@ const t = copy.lead;
       const t = e.target as Element;
       if (t === dialog || t.closest("[data-lead-close]")) close(); // klik op de blur ernaast of op Sluiten
     });
-    dialog.addEventListener("close", () => opener?.focus());
+    dialog.addEventListener("close", () => {
+      opener?.focus();
+      if (location.hash === HASH) history.replaceState(null, "", location.pathname + location.search); // zodat dezelfde link opnieuw kan openen
+    });
+    const openFromHash = () => { if (location.hash === HASH && !dialog.open) open(null); };
+    window.addEventListener("hashchange", openFromHash);
+    openFromHash();
     form.addEventListener("change", sync);
     form.addEventListener("input", () => {
       sync();
