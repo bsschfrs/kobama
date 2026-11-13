@@ -8,7 +8,7 @@ import { formatDate, formatDateTime, getPosts, isScheduled } from "../../scripts
 
 const posts = await getPosts();
 ---
-<Base title={copy.blog.meta.title} description={copy.blog.meta.description}>
+<Base title={copy.blog.meta.title} description={copy.blog.meta.description} breadcrumbs={[{ name: "Blog", path: "/blog/" }]}>
   <a class="skip" href="#main">Naar de inhoud</a>
   <PageHeader />
   <main id="main" class="wrap prose blog">

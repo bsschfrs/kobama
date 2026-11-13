@@ -372,6 +372,16 @@ body:has(> main.prose) > main { flex: 1 0 auto; width: 100%; }
 .prose li + li { margin-top: 6px; }
 .prose ul + p { margin-top: 12px; }
 
+/* ---------- homepage: handige informatie ---------- */
+.info { padding: 110px 0; }
+.info .wrap { display: flex; flex-direction: column; gap: 24px; }
+.info-list { list-style: none; padding: 0; margin: 16px 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px; }
+.info-list li { border-top: 1px solid var(--line); padding-top: 24px; display: flex; flex-direction: column; gap: 10px; }
+.info-list p { color: var(--muted); font-size: 17px; }
+.info-list h3 a { text-decoration: none; }
+.info-list h3 a:hover, .info > .wrap > p > a:hover { text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 800px) { .info { padding: 72px 0; } .info-list { grid-template-columns: 1fr; gap: 32px; } }
+
 /* ---------- blog ---------- */
 .blog .lead { margin-bottom: 48px; }
 .prose .blog-list { list-style: none; padding: 0; margin: 0; }

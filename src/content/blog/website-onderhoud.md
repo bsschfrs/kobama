@@ -3,6 +3,9 @@ title: "Website onderhoud: wat is het en wat heb je nodig?"
 description: "Wat website onderhoud is, welk onderhoud jouw site echt nodig heeft en hoe je voorkomt dat je elk jaar betaalt voor werk dat niemand doet."
 date: 2026-11-12T09:00:00+01:00
 author: bas
+seoTitle: "Website onderhoud: wat heb je nodig? | KOBAMA"
+seoDescription: "Wat houdt website onderhoud in en welke kosten zijn nodig? Lees alles over updates, beheer, hosting en slim onderhoud van je website."
+breadcrumb: "Website onderhoud"
 image: "/images/blog/website-onderhoud.svg"
 imageAlt: "Illustratie met bouwblokken: een antraciet en een blauw blok op elkaar, met daarnaast een klein oranje blok en een gestippelde contour bovenop waar het oranje blok komt."
 ---
@@ -43,7 +46,7 @@ Wat website onderhoud kost, hangt af van hoeveel er technisch bij te houden is e
 
 Let op wat er voor een maandbedrag gebeurt. Bij KOBAMA spraken we laatst een ondernemer die elk jaar meer dan €2.400 aan onderhoud betaalde voor een oude, statische website. Aan die website veranderde ongeveer één keer per jaar iets. Vraag je webbouwer dus welke updates en aanpassingen er voor jouw bedrag worden gedaan.
 
-Meer over alle kosten van een website, eenmalig en terugkerend, lees je in [wat een website laten maken kost](/blog/wat-kost-een-website-laten-maken/).
+Meer over alle kosten van een website, eenmalig en terugkerend, lees je in [wat een website laten maken kost](/blog/wat-kost-een-website-laten-maken/). Hoe een traject bij ons verloopt, lees je bij [onze werkwijze](/#werkwijze).
 
 ## Kun je je website zelf onderhouden?
 

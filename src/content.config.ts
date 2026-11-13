@@ -15,6 +15,12 @@ const blog = defineCollection({
     .object({
       title: z.string(),
       description: z.string(),
+      // Eigen SEO-titel (volledig, inclusief "| KOBAMA") en meta description
+      // als die afwijken van de koptekst en de samenvatting. Anders gelden title en description.
+      seoTitle: z.string().optional(),
+      seoDescription: z.string().optional(),
+      // Korte naam voor de broodkruimel (structured data); anders de titel.
+      breadcrumb: z.string().optional(),
       // Leeg laten zolang het artikel een placeholder is.
       date: z.coerce.date().optional(),
       // Alleen invullen bij een echte inhoudelijke wijziging (geen nep-versheid).

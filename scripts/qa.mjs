@@ -186,7 +186,7 @@ for (const route of routes) {
       if (!info.title || !info.description) fail(route, "titel of meta description ontbreekt");
       if (!info.canonical) fail(route, "canonical ontbreekt");
       if (info.lang !== "nl") fail(route, `lang="${info.lang}" (nl verwacht)`);
-      if (!info.ld) fail(route, "LocalBusiness structured data ontbreekt");
+      if (!info.ld) fail(route, "structured data (JSON-LD) ontbreekt");
       if (info.noAlt.length) fail(route, `afbeelding zonder alt: ${info.noAlt.join(", ")}`);
       for (const p of info.placeholders) launchOnly(route, `placeholder-inhoud (data-placeholder="${p}")`);
       for (const h of info.hrefs) if (!h.startsWith("#") && !links.has(h)) links.set(h, route);

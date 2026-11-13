@@ -6,6 +6,7 @@ import "@fontsource/schibsted-grotesk/800.css";
 import "../styles/global.css";
 import { copy } from "../content/copy";
 import { site } from "../content/site";
+import { buildGraph, serializeJsonLd, type ArticleData, type Crumb } from "../scripts/schema";
 
 interface Props {
   title?: string;
@@ -13,39 +14,26 @@ interface Props {
   noindex?: boolean;
   /** "article" voor blogartikelen, anders "website". */
   ogType?: "website" | "article";
-  /** Extra structured data naast de bedrijfsgegevens, bijvoorbeeld BlogPosting. */
-  extraJsonLd?: Record<string, unknown>;
+  /** Broodkruimels na "Home", bijvoorbeeld [{ name: "Blog", path: "/blog/" }]. */
+  breadcrumbs?: Crumb[];
+  /** Gegevens voor BlogPosting structured data (alleen bij echte artikelen). */
+  article?: ArticleData;
+  /** Zet structured data uit (alleen voor de 404-pagina). */
+  schema?: boolean;
   /** Eigen deelbeeld (PNG, 1200x630) en alt-tekst; anders het standaardbeeld. */
   ogImage?: string;
   ogImageAlt?: string;
 }
 
-const { title = copy.meta.title, description = copy.meta.description, noindex = false, ogType = "website", extraJsonLd, ogImage: ogImagePath = copy.meta.ogImage, ogImageAlt = copy.meta.ogImageAlt } = Astro.props;
+const { title = copy.meta.title, description = copy.meta.description, noindex = false, ogType = "website", breadcrumbs, article, schema = true, ogImage: ogImagePath = copy.meta.ogImage, ogImageAlt = copy.meta.ogImageAlt } = Astro.props;
 const base = Astro.site ?? site.url;
 const canonical = new URL(Astro.url.pathname, base).href;
 const ogImage = new URL(ogImagePath, base).href;
 
-// Lokale SEO (playbook A.3): alleen bevestigde feiten. Onbekende velden blijven weg in
-// plaats van een placeholder in de structured data.
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  name: site.name,
-  url: site.url,
-  logo: new URL("/images/logo-kobama.webp", base).href,
-  image: new URL(copy.meta.ogImage, base).href,
-  email: site.email,
-  ...(site.phone && { telephone: site.phone }),
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: site.city,
-    addressCountry: "NL",
-    ...(site.address && { streetAddress: site.address }),
-  },
-  ...(site.sameAs.length && { sameAs: site.sameAs }),
-  // De oprichters met hun eigen LinkedIn (dezelfde links als in de teamsectie).
-  founder: copy.people.members.map((m) => ({ "@type": "Person", name: m.name, sameAs: m.linkedin })),
-};
+// Structured data: één @graph met Organization, WebSite en WebPage (zie src/scripts/schema.ts).
+const jsonLd = schema
+  ? buildGraph({ base, path: Astro.url.pathname, title, description, isHome: Astro.url.pathname === "/", breadcrumbs, article })
+  : undefined;
 ---
 <!doctype html>
 <html lang="nl">
@@ -77,8 +65,7 @@ const jsonLd = {
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-    {extraJsonLd && <script type="application/ld+json" set:html={JSON.stringify(extraJsonLd)} />}
+    {jsonLd && <script type="application/ld+json" set:html={serializeJsonLd(jsonLd)} />}
     <script is:inline>
       // Beweging alleen als de bezoeker dat niet heeft uitgezet. Zonder deze class
       // toont de pagina overal de rustige eindstaat.

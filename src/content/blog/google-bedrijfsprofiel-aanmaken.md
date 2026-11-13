@@ -3,6 +3,9 @@ title: "Google-bedrijfsprofiel aanmaken en goed invullen"
 description: "Zo maak je een Google-bedrijfsprofiel aan, laat je het verifiëren en vul je het zo in dat klanten in de buurt je vinden in Google Maps."
 date: 2026-11-11T14:58:00+01:00
 author: bas
+seoTitle: "Google-bedrijfsprofiel aanmaken: uitleg | KOBAMA"
+seoDescription: "Leer hoe je een Google-bedrijfsprofiel aanmaakt, verifieert en optimaliseert. Praktische uitleg over lokale vindbaarheid en Google Maps."
+breadcrumb: "Google-bedrijfsprofiel aanmaken"
 image: "/images/blog/google-bedrijfsprofiel-aanmaken.svg"
 imageAlt: "Illustratie met bouwblokken: een raster van gestippelde contouren voor bedrijven in de buurt, met in het midden één blauw blok dat eruit springt."
 ---
@@ -91,7 +94,7 @@ Zet de link naar je website in je profiel. En zet op je website dezelfde gegeven
 
 ## Hoe wij dit aanpakken
 
-Bij elke website die KOBAMA bouwt, zetten we de naam, het adres en het telefoonnummer exact zo neer als in je Google-bedrijfsprofiel. We voegen ook gestructureerde gegevens toe aan de website. Dat is een stukje code dat zoekmachines vertelt wat je bedrijfsnaam, adres en contactgegevens zijn. Zo sluiten je website en je profiel op elkaar aan.
+Bij elke website die KOBAMA bouwt, zetten we de naam, het adres en het telefoonnummer exact zo neer als in je Google-bedrijfsprofiel. We voegen ook gestructureerde gegevens toe aan de website. Dat is een stukje code dat zoekmachines vertelt wat je bedrijfsnaam, adres en contactgegevens zijn. Zo sluiten je website en je profiel op elkaar aan. Hoe een traject bij ons verloopt, lees je bij [onze werkwijze](/#werkwijze).
 
 Heb je nog geen profiel, of staat er een oud profiel online waar je niet meer bij kunt? Dan kijken we in het eerste gesprek wat er nodig is.
 

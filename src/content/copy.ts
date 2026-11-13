@@ -6,9 +6,41 @@ export const copy = {
   meta: {
     ogImage: "/images/og-kobama.png",
     ogImageAlt: "KOBAMA: Wij bouwen de site die je bedrijf nog niet heeft.",
-    title: "KOBAMA, websites voor het mkb",
+    title: "Website laten maken voor zzp & mkb | KOBAMA",
     description:
-      "KOBAMA ontwerpt en bouwt websites voor kleine en middelgrote bedrijven. Strategie, design en development in één traject.",
+      "Laat een professionele website maken door KOBAMA. Persoonlijk webdesign voor zzp en mkb in heel Nederland, met maatwerk en duidelijke afspraken.",
+  },
+
+  // Meta van de losse pagina's (titel en description staan hier, niet in de pagina's).
+  pages: {
+    bedrijfsgegevens: {
+      title: "Bedrijfsgegevens en contact | KOBAMA",
+      description: "Bekijk de bedrijfs- en contactinformatie van KOBAMA. Neem contact op voor vragen over onze websites en dienstverlening.",
+      crumb: "Bedrijfsgegevens",
+    },
+    privacy: {
+      title: "Privacybeleid | KOBAMA",
+      description: "Lees hoe KOBAMA omgaat met persoonsgegevens, contactaanvragen, gegevensbescherming en jouw privacyrechten.",
+      crumb: "Privacybeleid",
+    },
+  },
+
+  // Beschrijving van KOBAMA in de structured data (landelijk, geen plaatsnamen).
+  schema: {
+    organizationDescription: "KOBAMA ontwerpt en bouwt professionele websites voor zzp'ers en mkb-bedrijven in heel Nederland.",
+    service: {
+      name: "Webdesign en websiteontwikkeling voor zzp en mkb",
+      type: "Webdesign en websiteontwikkeling",
+      description: "KOBAMA ontwerpt en bouwt professionele websites op maat voor zelfstandigen en mkb-bedrijven, met persoonlijk contact en duidelijke afspraken.",
+      audience: "Zelfstandige ondernemers en mkb-bedrijven",
+    },
+  },
+
+  // Compacte sectie op de homepage met links naar de blogartikelen.
+  info: {
+    heading: "Handige informatie voor ondernemers.",
+    intro: "Wat een website kost, wat onderhoud inhoudt en hoe je online vindbaar wordt: drie artikelen om je keuze op te baseren.",
+    all: "Alle artikelen",
   },
 
   nav: {
@@ -129,8 +161,8 @@ export const copy = {
 
   blog: {
     meta: {
-      title: "Blog | KOBAMA",
-      description: "Artikelen van KOBAMA over websites voor het mkb: wat werkt, wat het kost aan tijd en waar je op let.",
+      title: "Webdesign tips voor ondernemers | KOBAMA",
+      description: "Praktische tips over websites laten maken, onderhoud, kosten en online vindbaarheid. Voor zzp'ers en mkb-bedrijven, uitgelegd door KOBAMA.",
     },
     heading: "Blog.",
     intro: "Wat we leren bij het bouwen van websites voor kleine en middelgrote bedrijven.",
