@@ -1,15 +1,14 @@
 // Vercel Function: ontvangt het aanvraagformulier en mailt het naar KOBAMA.
 //
 // Waarom een functie: de site is statisch, dus de browser kan zelf geen mail versturen.
-// De mail gaat via Gmail (SMTP), dezelfde dienst die het privacybeleid al noemt.
+// De mail gaat via Resend (https://resend.com), met een gewone fetch: geen pakket nodig.
 //
 // Omgeving (Vercel, Production en Preview), nooit in de repo:
-//   SMTP_USER   Gmail-adres waarmee verstuurd wordt, bijvoorbeeld kobama.info@gmail.com
-//   SMTP_PASS   app-wachtwoord van dat account (Google-account, Beveiliging, 2-stapsverificatie,
-//               App-wachtwoorden). Niet het gewone wachtwoord.
-//   LEAD_TO     optioneel: waar de aanvragen heen gaan. Standaard hetzelfde als SMTP_USER.
-
-import nodemailer from "nodemailer";
+//   RESEND_API_KEY  API-sleutel uit het Resend-dashboard (API Keys, rechten: alleen verzenden).
+//   LEAD_TO         waar de aanvragen heen gaan. Standaard kobama.info@gmail.com.
+//   LEAD_FROM       afzender, bijvoorbeeld "KOBAMA website <aanvraag@kobama.nl>". Het domein
+//                   moet in Resend geverifieerd zijn. Zonder LEAD_FROM gebruiken we
+//                   onboarding@resend.dev: dat mailt alleen naar het adres van het Resend-account.
 
 const METHODS = { bellen: "Bellen", whatsapp: "WhatsApp", mailen: "Mailen" };
 const clean = (v, max) => String(v ?? "").replace(/[\r\n\t]+/g, " ").trim().slice(0, max);
@@ -68,20 +67,23 @@ export default async function handler(request, response) {
   if (v.honeypot) return response.status(200).json({ ok: true }); // bots krijgen een nep-succes
   if (v.error) return response.status(400).json({ ok: false, field: v.error });
 
-  const user = process.env.SMTP_USER;
-  const pass = process.env.SMTP_PASS;
-  if (!user || !pass) return response.status(500).json({ ok: false, error: "mail niet ingesteld" });
+  const key = process.env.RESEND_API_KEY;
+  if (!key) return response.status(500).json({ ok: false, error: "mail niet ingesteld" });
 
   try {
-    const transport = nodemailer.createTransport({ service: "gmail", auth: { user, pass } });
     const mail = buildMail(v.data);
-    await transport.sendMail({
-      from: `KOBAMA website <${user}>`,
-      to: process.env.LEAD_TO || user,
-      subject: mail.subject,
-      text: mail.text,
-      replyTo: mail.replyTo,
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
+      body: JSON.stringify({
+        from: process.env.LEAD_FROM || "KOBAMA website <onboarding@resend.dev>",
+        to: [process.env.LEAD_TO || "kobama.info@gmail.com"],
+        subject: mail.subject,
+        text: mail.text,
+        ...(mail.replyTo ? { reply_to: mail.replyTo } : {}),
+      }),
     });
+    if (!res.ok) return response.status(502).json({ ok: false, error: `Resend gaf HTTP ${res.status}` });
     return response.status(200).json({ ok: true });
   } catch {
     return response.status(502).json({ ok: false, error: "versturen mislukt" });
