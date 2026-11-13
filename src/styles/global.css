@@ -135,6 +135,7 @@ html:not(.motion) .topbar { display: none; }
 .hero-iso { width: 100%; height: auto; overflow: visible; display: block; }
 .hero-points { position: absolute; inset: 0; pointer-events: none; }
 .hero-points ul { list-style: none; margin: 0; padding: 0; }
+.hero-points-m { display: none; }
 .hero-leaders { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
 .hero-leaders line { stroke-width: 2; }
 .hero-leaders .l1 { stroke: var(--blue); }
@@ -470,11 +471,10 @@ body:has(> main.prose) > main { flex: 1 0 auto; width: 100%; }
   .hero-body { grid-template-columns: 1fr; grid-template-rows: auto auto; gap: 8px; padding-bottom: 48px; align-content: start; }
   .hero-blocks { order: -1; padding: 8px 0 12px; }
   .hero-visual { width: min(78vw, 320px); }
-  .hero-points { position: static; margin-top: 16px; }
-  .hero-leaders { display: none; }
-  .hero-points ul { display: flex; flex-wrap: wrap; gap: 8px 20px; }
-  .hero-points .pt { position: static; transform: none; max-width: none; white-space: nowrap; font-size: 16px; display: flex; align-items: center; gap: 8px; }
-  .hero-points .pt::before { content: ""; width: 10px; height: 10px; background: var(--c); flex: none; }
+  .hero-points { display: none; }
+  .hero-points-m { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; list-style: none; margin: 0; padding: 0; }
+  .hero-points-m li { display: flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 700; line-height: 1.15; white-space: nowrap; }
+  .hero-points-m li::before { content: ""; width: 10px; height: 10px; background: var(--c); flex: none; }
   .hero h1 { font-size: clamp(32px, 8.8vw, 42px); }
   .hero-copy { gap: 22px; align-items: center; text-align: center; }
   .hero-points ul { justify-content: center; }
