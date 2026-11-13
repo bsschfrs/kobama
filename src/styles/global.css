@@ -393,13 +393,24 @@ body:has(> main.prose) > main { flex: 1 0 auto; width: 100%; }
 .info-list li { border-top: 1px solid var(--line); padding-top: 24px; display: flex; flex-direction: column; gap: 10px; }
 .info-list p { color: var(--muted); font-size: 17px; }
 .info-list h3 a { text-decoration: none; }
-.info-list h3 a:hover, .info > .wrap > p > a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.info-list h3 a:hover { text-decoration: underline; text-underline-offset: 4px; }
 @media (max-width: 800px) { .info { padding: 72px 0; } .info-list { grid-template-columns: 1fr; gap: 32px; } }
 
 .diensten { padding: 110px 0; }
 .diensten .wrap { display: flex; flex-direction: column; gap: 24px; }
 .diensten .info-list h3 { font-size: 22px; }
 .info-list .text-link { font-weight: 700; color: var(--ink); text-underline-offset: 4px; }
+.diensten .info-list li > p:last-child { margin-top: auto; padding-top: 6px; }
+.diensten .h2, .info .h2 { text-align: center; }
+.diensten .lead, .info .lead { text-align: center; max-width: 46em; margin-inline: auto; }
+.info-more { display: flex; justify-content: center; margin-top: 8px; }
+.btn-quiet {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 24px;
+  border-radius: var(--radius-btn); background: transparent; color: var(--ink);
+  font-weight: 700; font-size: 16px; text-decoration: none;
+  transition: background-color 0.2s var(--ease), color 0.2s var(--ease);
+}
+.btn-quiet:hover { background: var(--orange-deep); color: #fff; }
 
 /* ---------- homepage: veelgestelde vragen (native details) ---------- */
 .faq { padding: 110px 0; }

@@ -108,13 +108,13 @@ export const copy = {
     items: [
       {
         title: "Een professionele website voor jouw onderneming.",
-        body: "Als zelfstandige wil je duidelijk laten zien wat je doet en waarom klanten voor jou kiezen. Wij bouwen een website die professioneel oogt, jouw dienstverlening helder presenteert en het makkelijk maakt om contact op te nemen.",
+        body: "Als zelfstandige laat je duidelijk zien wat je doet en waarom klanten voor jou kiezen. Wij bouwen een professionele website die jouw dienstverlening helder presenteert.",
         href: "/website-laten-maken-zzp/",
         link: "Website laten maken als zzp'er",
       },
       {
         title: "Alles wat je bedrijf nodig heeft, op één pagina.",
-        body: "Een one-page website kan een goede keuze zijn wanneer je jouw bedrijf, aanbod en contactmogelijkheden overzichtelijk wilt presenteren. Zonder onnodige pagina's of ingewikkelde navigatie.",
+        body: "Een one-page website is een goede keuze als je je bedrijf, aanbod en contactgegevens overzichtelijk wilt presenteren. Zonder onnodige pagina's of ingewikkelde navigatie.",
         href: "/one-page-website-laten-maken/",
         link: "One-page website laten maken",
       },
