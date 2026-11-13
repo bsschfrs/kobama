@@ -27,7 +27,7 @@ const arrow = `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" strok
     <nav class="topbar-nav" aria-label="Hoofdmenu">
       {copy.nav.links.filter((l) => l.href !== "#contact").map((l) => <a href={l.href}>{l.label}</a>)}
     </nav>
-    <a class="btn btn-sm" href={copy.contact}>{copy.nav.cta}</a>
+    <a class="btn btn-sm" href={copy.contact} data-lead>{copy.nav.cta}</a>
   </header>
 
   <!-- 1. Hero: het logo zet zichzelf in elkaar -->
@@ -45,7 +45,7 @@ const arrow = `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" strok
         <ul class="hero-points-m" data-hero-fade>
           {copy.hero.points.map((p, i) => <li style={`--c:${colors[i]}`}>{p}</li>)}
         </ul>
-        <p data-hero-fade><a class="btn" href={copy.contact}>{copy.hero.cta}</a></p>
+        <p data-hero-fade><a class="btn" href={copy.contact} data-lead>{copy.hero.cta}</a></p>
       </div>
       <div class="hero-blocks" data-hero-blocks>
         <div class="hero-visual">
@@ -208,7 +208,7 @@ const arrow = `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" strok
       <div class="wrap">
         <h2 class="closing-h">{copy.closing.heading}</h2>
         <p class="lead">{copy.closing.priceLine}</p>
-        <p><a class="btn btn-dark" href={copy.contact}>{copy.closing.cta}</a></p>
+        <p><a class="btn btn-dark" href={copy.contact} data-lead>{copy.closing.cta}</a></p>
       </div>
     </section>
   </main>

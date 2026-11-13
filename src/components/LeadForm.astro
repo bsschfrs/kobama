@@ -1,0 +1,175 @@
+---
+// Aanvraagformulier als pop-up. Opent vanuit elke link met data-lead; zonder JavaScript
+// blijft die link gewoon een mailto: naar KOBAMA. Verzenden gaat naar /api/lead (api/lead.js).
+import { copy } from "../content/copy";
+import { site } from "../content/site";
+import { inline } from "../scripts/inline";
+const t = copy.lead;
+---
+<dialog class="lead-dialog" id="lead-dialog" aria-labelledby="lead-title" data-email={site.email}>
+  <div class="lead-panel">
+    <button class="lead-close" type="button" data-lead-close aria-label={t.close}>
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M5 5l14 14M19 5L5 19" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" /></svg>
+    </button>
+
+    <form class="lead-form" novalidate>
+      <h2 class="h3 lead-title" id="lead-title">{t.title}</h2>
+      <p class="lead-intro">{t.intro}</p>
+
+      <!-- Valstrik voor bots: mensen zien dit veld niet -->
+      <div class="lead-hp" aria-hidden="true"><label>Laat leeg <input type="text" name="company" tabindex="-1" autocomplete="off" /></label></div>
+
+      <div class="lead-field">
+        <label for="lead-name">{t.name.label}</label>
+        <input id="lead-name" name="name" type="text" autocomplete="name" placeholder={t.name.placeholder} required />
+        <p class="lead-err" data-err="name" hidden>{t.required}</p>
+      </div>
+
+      <fieldset class="lead-field">
+        <legend>{t.site.legend}</legend>
+        <label class="lead-choice"><input type="radio" name="hasSite" value="ja" required /><span>{t.site.yes}</span></label>
+        <label class="lead-choice"><input type="radio" name="hasSite" value="nee" /><span>{t.site.no}</span></label>
+        <p class="lead-err" data-err="hasSite" hidden>{t.required}</p>
+      </fieldset>
+
+      <div class="lead-field" data-when-site hidden>
+        <label for="lead-site">{t.site.nameLabel}</label>
+        <input id="lead-site" name="siteName" type="text" inputmode="url" autocomplete="off" placeholder={t.site.namePlaceholder} />
+        <p class="lead-err" data-err="siteName" hidden>{t.required}</p>
+      </div>
+
+      <fieldset class="lead-field">
+        <legend>{t.method.legend}</legend>
+        <label class="lead-choice"><input type="radio" name="method" value="bellen" required /><span>{t.method.call}</span></label>
+        <label class="lead-choice"><input type="radio" name="method" value="whatsapp" /><span>{t.method.whatsapp}</span></label>
+        <label class="lead-choice"><input type="radio" name="method" value="mailen" /><span>{t.method.mail}</span></label>
+        <p class="lead-err" data-err="method" hidden>{t.required}</p>
+      </fieldset>
+
+      <div class="lead-field" data-when-phone hidden>
+        <label for="lead-phone">{t.method.phoneLabel}</label>
+        <input id="lead-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder={t.method.phonePlaceholder} />
+        <p class="lead-err" data-err="phone" hidden>{t.invalidPhone}</p>
+      </div>
+
+      <div class="lead-field" data-when-email hidden>
+        <label for="lead-email">{t.method.emailLabel}</label>
+        <input id="lead-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder={t.method.emailPlaceholder} />
+        <p class="lead-err" data-err="email" hidden>{t.invalidEmail}</p>
+      </div>
+
+      <p class="lead-fail" role="alert" hidden>{t.error} <a href={`mailto:${site.email}`}>{site.email}</a></p>
+
+      <button class="btn lead-submit" type="submit" data-sending={t.sending}>{t.submit}</button>
+      <p class="lead-privacy" set:html={inline(t.privacy)} />
+    </form>
+
+    <div class="lead-done" hidden tabindex="-1">
+      <h2 class="h3">{t.doneTitle}</h2>
+      <p>{t.done}</p>
+      <button class="btn btn-dark" type="button" data-lead-close>{t.close}</button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  const dialog = document.getElementById("lead-dialog") as HTMLDialogElement | null;
+  if (dialog && typeof dialog.showModal === "function") {
+    const form = dialog.querySelector<HTMLFormElement>(".lead-form")!;
+    const done = dialog.querySelector<HTMLElement>(".lead-done")!;
+    const fail = dialog.querySelector<HTMLElement>(".lead-fail")!;
+    const submit = dialog.querySelector<HTMLButtonElement>(".lead-submit")!;
+    const submitLabel = submit.textContent ?? "";
+    const q = <T extends HTMLElement>(s: string) => dialog.querySelector<T>(s)!;
+    const field = (n: string) => form.elements.namedItem(n) as HTMLInputElement;
+    const checked = (n: string) => form.querySelector<HTMLInputElement>(`input[name="${n}"]:checked`)?.value ?? "";
+    let opener: HTMLElement | null = null;
+
+    const sync = () => {
+      const method = checked("method");
+      q("[data-when-site]").hidden = checked("hasSite") !== "ja";
+      q("[data-when-phone]").hidden = !(method === "bellen" || method === "whatsapp");
+      q("[data-when-email]").hidden = method !== "mailen";
+    };
+    const showErr = (n: string, on: boolean) => {
+      q(`[data-err="${n}"]`).hidden = !on;
+      const el = form.elements.namedItem(n);
+      if (el instanceof HTMLInputElement) el.setAttribute("aria-invalid", on ? "true" : "false");
+    };
+    const check = (): string | null => {
+      const method = checked("method");
+      const phoneDigits = field("phone").value.replace(/\D/g, "");
+      const rules: [string, boolean][] = [
+        ["name", field("name").value.trim().length >= 2],
+        ["hasSite", checked("hasSite") !== ""],
+        ["siteName", checked("hasSite") !== "ja" || field("siteName").value.trim().length >= 3],
+        ["method", method !== ""],
+        ["phone", !(method === "bellen" || method === "whatsapp") || (/^[\d\s+()-]+$/.test(field("phone").value) && phoneDigits.length >= 8 && phoneDigits.length <= 15)],
+        ["email", method !== "mailen" || /^[^@\s]+@[^@\s]+\.[a-z]{2,}$/i.test(field("email").value.trim())],
+      ];
+      let first: string | null = null;
+      for (const [n, ok] of rules) {
+        showErr(n, !ok);
+        if (!ok && !first) first = n;
+      }
+      return first;
+    };
+
+    const open = (from: HTMLElement) => {
+      opener = from;
+      form.hidden = false;
+      done.hidden = true;
+      fail.hidden = true;
+      dialog.showModal();
+      field("name").focus();
+    };
+    const close = () => dialog.close();
+
+    document.addEventListener("click", (e) => {
+      const a = (e.target as Element).closest<HTMLElement>("[data-lead]");
+      if (!a || e.metaKey || e.ctrlKey || e.shiftKey) return;
+      e.preventDefault();
+      open(a);
+    });
+    dialog.addEventListener("click", (e) => {
+      const t = e.target as Element;
+      if (t === dialog || t.closest("[data-lead-close]")) close(); // klik op de blur ernaast of op Sluiten
+    });
+    dialog.addEventListener("close", () => opener?.focus());
+    form.addEventListener("change", sync);
+    form.addEventListener("input", () => {
+      sync();
+      form.querySelectorAll<HTMLElement>(".lead-err:not([hidden])").forEach((el) => (el.hidden = true));
+    });
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      fail.hidden = true;
+      const bad = check();
+      if (bad) { form.elements.namedItem(bad) instanceof RadioNodeList ? form.querySelector<HTMLInputElement>(`input[name="${bad}"]`)!.focus() : field(bad).focus(); return; }
+      submit.disabled = true;
+      submit.textContent = submit.dataset.sending ?? "";
+      try {
+        const res = await fetch("/api/lead", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: field("name").value, hasSite: checked("hasSite"), siteName: field("siteName").value,
+            method: checked("method"), phone: field("phone").value, email: field("email").value, company: field("company").value,
+          }),
+        });
+        if (!res.ok) throw new Error(String(res.status));
+        form.hidden = true;
+        done.hidden = false;
+        form.reset();
+        sync();
+        done.focus();
+      } catch {
+        fail.hidden = false;
+      } finally {
+        submit.disabled = false;
+        submit.textContent = submitLabel;
+      }
+    });
+  }
+</script>

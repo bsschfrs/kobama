@@ -66,6 +66,40 @@ export const copy = {
 
   contact: "mailto:kobama.info@gmail.com",
 
+  // Aanvraagformulier (pop-up achter elke "Plan een gesprek"-knop)
+  lead: {
+    title: "Plan een gesprek",
+    intro: "Beantwoord een paar korte vragen. Dan nemen we contact met je op.",
+    name: { label: "Wat is je naam?", placeholder: "Je naam" },
+    site: {
+      legend: "Heb je al een website?",
+      yes: "Ja, ik heb al een website",
+      no: "Nee, nog niet",
+      nameLabel: "Wat is de naam van je website?",
+      namePlaceholder: "www.kobama.nl",
+    },
+    method: {
+      legend: "Hoe mogen we contact met je opnemen?",
+      call: "Bellen",
+      whatsapp: "WhatsApp",
+      mail: "Mailen",
+      phoneLabel: "Wat is je telefoonnummer?",
+      phonePlaceholder: "0612345678",
+      emailLabel: "Wat is je e-mailadres?",
+      emailPlaceholder: "info@kobama.nl",
+    },
+    submit: "Versturen",
+    sending: "Bezig met versturen",
+    close: "Sluiten",
+    privacy: "Met versturen ga je ermee akkoord dat we je gegevens gebruiken om contact met je op te nemen. Lees ons [privacybeleid](/privacy/).",
+    doneTitle: "Bedankt",
+    done: "We hebben je aanvraag ontvangen en nemen contact met je op.",
+    error: "Versturen lukt nu niet. Stuur ons gerust zelf een mail:",
+    required: "Vul dit veld in.",
+    invalidPhone: "Vul een geldig telefoonnummer in.",
+    invalidEmail: "Vul een geldig e-mailadres in.",
+  },
+
   // Homepage: soorten websites, met links naar de landingspagina's.
   diensten: {
     heading: "Een website die past bij jouw onderneming.",
