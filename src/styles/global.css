@@ -141,9 +141,9 @@ html:not(.motion) .topbar { display: none; }
 .hero-leaders .l2 { stroke: var(--ink); }
 .hero-leaders .l3 { stroke: var(--orange-deep); }
 .hero-points .pt { position: absolute; font-size: clamp(16px, 1.45vw, 21px); line-height: 1.15; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
-.hero-points .pt-1 { left: 71.8%; top: 26.8%; transform: translateY(-50%); max-width: 26%; }
+.hero-points .pt-1 { left: 80%; top: 26.8%; transform: translateY(-50%); white-space: nowrap; }
 .hero-points .pt-2 { left: 23.2%; top: 47%; transform: translate(-50%, -100%); white-space: nowrap; }
-.hero-points .pt-3 { left: 74.5%; top: 47%; transform: translateY(-100%); max-width: 22%; }
+.hero-points .pt-3 { left: 89.3%; top: 98.4%; transform: translateX(-50%); white-space: nowrap; }
 
 .split-handle {
   position: absolute; top: 50%; left: 50%;
@@ -476,7 +476,8 @@ body:has(> main.prose) > main { flex: 1 0 auto; width: 100%; }
   .hero-points .pt { position: static; transform: none; max-width: none; white-space: nowrap; font-size: 16px; display: flex; align-items: center; gap: 8px; }
   .hero-points .pt::before { content: ""; width: 10px; height: 10px; background: var(--c); flex: none; }
   .hero h1 { font-size: clamp(32px, 8.8vw, 42px); }
-  .hero-copy { gap: 22px; }
+  .hero-copy { gap: 22px; align-items: center; text-align: center; }
+  .hero-points ul { justify-content: center; }
 
   .topbar { height: 60px; padding: 0 var(--pad); }
   .topbar-logo img { height: 22px; }
