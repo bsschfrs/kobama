@@ -91,9 +91,12 @@ en werk dan het brief of het playbook bij.
 - **Vervolg (14 november 2026): de Vercel Cron bleek ook niet te werken.** De run van de ochtend
   startte geen build, en "Run" in het dashboard bereikte `/api/publish` niet (geen aanroep in de
   runtime-logs). Vermoeden: `kobama.nl` staat op een 308-doorverwijzing naar `www.kobama.nl` en een
-  cron volgt geen doorverwijzingen. De deploy hook zelf werkt wel. Oplossing: een externe
-  scheduler (cron-job.org) roept de deploy hook elke ochtend rechtstreeks aan, tijdzone
-  Europe/Amsterdam. De Vercel Cron en de GitHub-workflow blijven staan als reserve.
+  cron volgt geen doorverwijzingen. De deploy hook zelf werkt wel. Oplossing: een geplande
+  cloud-routine van Claude (09:05 en 12:05 Europe/Amsterdam, in UTC `5 8,11 * * *`, alleen de
+  Vercel-koppeling) start via de Vercel-tools een redeploy van de laatste productie-build en meldt
+  READY. Getest op 14 november: build binnen 40 seconden klaar. De routine draait in UTC: na de
+  overgang naar zomertijd schuiven de tijden een uur op. De Vercel Cron en de GitHub-workflow blijven
+  staan als reserve.
   Les voor de house kit: test een geplande publicatie met een echt proefartikel op de echte
   hostnaam voordat je erop vertrouwt, en controleer of de cron zijn doel zonder doorverwijzing bereikt.
 
