@@ -88,6 +88,14 @@ en werk dan het brief of het playbook bij.
   ochtend aanroept, met de GitHub-workflow als reserve. Op het Hobby-plan draait een cron één
   keer per dag ergens binnen het ingestelde uur; twee crons (07:00 en 08:00 UTC) dekken
   winter- en zomertijd. Les voor de house kit: geplande publicatie hoort bij de host, niet bij CI.
+- **Vervolg (14 november 2026): de Vercel Cron bleek ook niet te werken.** De run van de ochtend
+  startte geen build, en "Run" in het dashboard bereikte `/api/publish` niet (geen aanroep in de
+  runtime-logs). Vermoeden: `kobama.nl` staat op een 308-doorverwijzing naar `www.kobama.nl` en een
+  cron volgt geen doorverwijzingen. De deploy hook zelf werkt wel. Oplossing: een externe
+  scheduler (cron-job.org) roept de deploy hook elke ochtend rechtstreeks aan, tijdzone
+  Europe/Amsterdam. De Vercel Cron en de GitHub-workflow blijven staan als reserve.
+  Les voor de house kit: test een geplande publicatie met een echt proefartikel op de echte
+  hostnaam voordat je erop vertrouwt, en controleer of de cron zijn doel zonder doorverwijzing bereikt.
 
 ## SEO-groeiopdracht (13 november 2026)
 
