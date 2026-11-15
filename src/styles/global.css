@@ -473,6 +473,8 @@ body:has(> main.prose) > main { flex: 1 0 auto; width: 100%; }
 .lead-dialog[open] { display: grid; place-items: center; padding: 20px; }
 .lead-dialog::backdrop { background: rgb(26 26 26 / 0.22); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
 html:has(.lead-dialog[open]) { overflow: hidden; }
+html.lead-lock body { position: fixed; top: var(--lock-y, 0); left: 0; right: 0; width: 100%; }
+.lead-dialog { overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
 .lead-panel { position: relative; width: min(100%, 400px); background: #fff; border-radius: 22px; padding: 28px 24px 22px; }
 .lead-close { position: absolute; top: 14px; right: 14px; width: 30px; height: 30px; display: grid; place-items: center; background: var(--bg); border: 0; border-radius: 50%; color: var(--muted); cursor: pointer; transition: color 0.2s var(--ease), background-color 0.2s var(--ease); }
 .lead-close svg { width: 14px; height: 14px; }
@@ -552,8 +554,10 @@ html:has(.lead-dialog[open]) { overflow: hidden; }
   .hero-points-m li::before { content: ""; width: 10px; height: 10px; background: var(--c); flex: none; }
   .hero h1 { font-size: clamp(32px, 8.8vw, 42px); }
   .hero-copy { gap: 22px; align-items: center; text-align: center; }
-  .lead-dialog[open] { padding: 12px; align-items: end; }
-  .lead-panel { width: 100%; padding: 26px 20px 20px; }
+  .lead-dialog[open] { padding: 10px; align-items: start; }
+  .lead-panel { width: 100%; padding: 22px 18px 18px; }
+  .lead-title { font-size: 20px; }
+  .lead-field { margin-top: 16px; }
   .hero-points ul { justify-content: center; }
 
   .topbar { height: 60px; padding: 0 var(--pad); }

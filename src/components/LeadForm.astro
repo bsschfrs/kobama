@@ -21,7 +21,7 @@ const t = copy.lead;
 
       <div class="lead-field">
         <label for="lead-name">{t.name.label}</label>
-        <input id="lead-name" name="name" type="text" autocomplete="name" placeholder={t.name.placeholder} required />
+        <input id="lead-name" name="name" type="text" autocomplete="off" autocapitalize="words" autocorrect="off" spellcheck="false" enterkeyhint="next" placeholder={t.name.placeholder} required />
         <p class="lead-err" data-err="name" hidden>{t.required}</p>
       </div>
 
@@ -37,7 +37,7 @@ const t = copy.lead;
       <div class="lead-cond" data-when-site inert><div>
         <div class="lead-field">
           <label for="lead-site">{t.site.nameLabel}</label>
-          <input id="lead-site" name="siteName" type="text" inputmode="url" autocomplete="off" placeholder={t.site.namePlaceholder} />
+          <input id="lead-site" name="siteName" type="text" inputmode="url" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" enterkeyhint="next" placeholder={t.site.namePlaceholder} />
           <p class="lead-err" data-err="siteName" hidden>{t.required}</p>
         </div>
       </div></div>
@@ -55,7 +55,7 @@ const t = copy.lead;
       <div class="lead-cond" data-when-phone inert><div>
         <div class="lead-field">
           <label for="lead-phone">{t.method.phoneLabel}</label>
-          <input id="lead-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder={t.method.phonePlaceholder} />
+          <input id="lead-phone" name="phone" type="tel" inputmode="tel" autocomplete="off" autocorrect="off" spellcheck="false" enterkeyhint="done" placeholder={t.method.phonePlaceholder} />
           <p class="lead-err" data-err="phone" hidden>{t.invalidPhone}</p>
         </div>
       </div></div>
@@ -63,7 +63,7 @@ const t = copy.lead;
       <div class="lead-cond" data-when-email inert><div>
         <div class="lead-field">
           <label for="lead-email">{t.method.emailLabel}</label>
-          <input id="lead-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder={t.method.emailPlaceholder} />
+          <input id="lead-email" name="email" type="email" inputmode="email" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" enterkeyhint="done" placeholder={t.method.emailPlaceholder} />
           <p class="lead-err" data-err="email" hidden>{t.invalidEmail}</p>
         </div>
       </div></div>
@@ -127,15 +127,28 @@ const t = copy.lead;
       return first;
     };
 
+    let lockY = 0;
+    const lock = () => {
+      lockY = window.scrollY;
+      document.documentElement.style.setProperty("--lock-y", `-${lockY}px`);
+      document.documentElement.classList.add("lead-lock");
+    };
+    const unlock = () => {
+      if (!document.documentElement.classList.contains("lead-lock")) return;
+      document.documentElement.classList.remove("lead-lock");
+      document.documentElement.style.removeProperty("--lock-y");
+      window.scrollTo({ top: lockY, behavior: "instant" });
+    };
     const open = (from: HTMLElement | null) => {
       opener = from;
+      lock();
       form.hidden = false;
       done.hidden = true;
       fail.hidden = true;
       dialog.showModal();
       field("name").focus();
     };
-    const close = () => dialog.close();
+    const close = () => { dialog.close(); unlock(); };
 
     document.addEventListener("click", (e) => {
       const a = (e.target as Element).closest<HTMLElement>("[data-lead]");
@@ -148,7 +161,9 @@ const t = copy.lead;
       if (t === dialog || t.closest("[data-lead-close]")) close(); // klik op de blur ernaast of op Sluiten
     });
     dialog.addEventListener("close", () => {
-      opener?.focus();
+      if (dialog.open) return; // een late close-gebeurtenis van een eerdere sluiting
+      unlock();
+      opener?.focus({ preventScroll: true });
       if (location.hash === HASH) history.replaceState(null, "", location.pathname + location.search); // zodat dezelfde link opnieuw kan openen
     });
     const openFromHash = () => { if (location.hash === HASH && !dialog.open) open(null); };
