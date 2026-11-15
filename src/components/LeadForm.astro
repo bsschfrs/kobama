@@ -17,11 +17,11 @@ const t = copy.lead;
       <p class="lead-intro">{t.intro}</p>
 
       <!-- Valstrik voor bots: mensen zien dit veld niet -->
-      <div class="lead-hp" aria-hidden="true"><label>Laat leeg <input type="text" name="company" tabindex="-1" autocomplete="off" /></label></div>
+      <div class="lead-hp" aria-hidden="true"><label>Laat leeg <input type="text" name="hp_x" data-k="company" tabindex="-1" autocomplete="off" /></label></div>
 
       <div class="lead-field">
-        <label for="lead-name">{t.name.label}</label>
-        <input id="lead-name" name="name" type="text" autocomplete="off" autocapitalize="words" autocorrect="off" spellcheck="false" enterkeyhint="next" placeholder={t.name.placeholder} required />
+        <label for="lead-f1">{t.name.label}</label>
+        <input id="lead-f1" name="f_a" data-k="name" type="text" autocomplete="off" autocapitalize="words" autocorrect="off" spellcheck="false" enterkeyhint="next" placeholder={t.name.placeholder} required />
         <p class="lead-err" data-err="name" hidden>{t.required}</p>
       </div>
 
@@ -36,8 +36,8 @@ const t = copy.lead;
 
       <div class="lead-cond" data-when-site inert><div>
         <div class="lead-field">
-          <label for="lead-site">{t.site.nameLabel}</label>
-          <input id="lead-site" name="siteName" type="text" inputmode="url" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" enterkeyhint="next" placeholder={t.site.namePlaceholder} />
+          <label for="lead-f2">{t.site.nameLabel}</label>
+          <input id="lead-f2" name="f_b" data-k="siteName" type="text" inputmode="url" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" enterkeyhint="next" placeholder={t.site.namePlaceholder} />
           <p class="lead-err" data-err="siteName" hidden>{t.required}</p>
         </div>
       </div></div>
@@ -54,16 +54,16 @@ const t = copy.lead;
 
       <div class="lead-cond" data-when-phone inert><div>
         <div class="lead-field">
-          <label for="lead-phone">{t.method.phoneLabel}</label>
-          <input id="lead-phone" name="phone" type="tel" inputmode="tel" autocomplete="off" autocorrect="off" spellcheck="false" enterkeyhint="done" placeholder={t.method.phonePlaceholder} />
+          <label for="lead-f3">{t.method.phoneLabel}</label>
+          <input id="lead-f3" name="f_c" data-k="phone" type="text" inputmode="tel" autocomplete="off" autocorrect="off" spellcheck="false" enterkeyhint="done" placeholder={t.method.phonePlaceholder} />
           <p class="lead-err" data-err="phone" hidden>{t.invalidPhone}</p>
         </div>
       </div></div>
 
       <div class="lead-cond" data-when-email inert><div>
         <div class="lead-field">
-          <label for="lead-email">{t.method.emailLabel}</label>
-          <input id="lead-email" name="email" type="email" inputmode="email" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" enterkeyhint="done" placeholder={t.method.emailPlaceholder} />
+          <label for="lead-f4">{t.method.emailLabel}</label>
+          <input id="lead-f4" name="f_d" data-k="email" type="text" inputmode="email" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" enterkeyhint="done" placeholder={t.method.emailPlaceholder} />
           <p class="lead-err" data-err="email" hidden>{t.invalidEmail}</p>
         </div>
       </div></div>
@@ -91,7 +91,7 @@ const t = copy.lead;
     const submit = dialog.querySelector<HTMLButtonElement>(".lead-submit")!;
     const submitLabel = submit.textContent ?? "";
     const q = <T extends HTMLElement>(s: string) => dialog.querySelector<T>(s)!;
-    const field = (n: string) => form.elements.namedItem(n) as HTMLInputElement;
+    const field = (n: string) => form.querySelector<HTMLInputElement>(`[data-k="${n}"]`)!;
     const checked = (n: string) => form.querySelector<HTMLInputElement>(`input[name="${n}"]:checked`)?.value ?? "";
     let opener: HTMLElement | null = null;
     const HASH = "#plan-een-gesprek"; // met deze hash in de URL opent het formulier direct (voor advertenties en gedeelde links)
@@ -105,8 +105,8 @@ const t = copy.lead;
     };
     const showErr = (n: string, on: boolean) => {
       q(`[data-err="${n}"]`).hidden = !on;
-      const el = form.elements.namedItem(n);
-      if (el instanceof HTMLInputElement) el.setAttribute("aria-invalid", on ? "true" : "false");
+      const el = form.querySelector<HTMLInputElement>(`[data-k="${n}"]`);
+      if (el) el.setAttribute("aria-invalid", on ? "true" : "false");
     };
     const check = (): string | null => {
       const method = checked("method");
@@ -179,7 +179,7 @@ const t = copy.lead;
       e.preventDefault();
       fail.hidden = true;
       const bad = check();
-      if (bad) { form.elements.namedItem(bad) instanceof RadioNodeList ? form.querySelector<HTMLInputElement>(`input[name="${bad}"]`)!.focus() : field(bad).focus(); return; }
+      if (bad) { (form.querySelector<HTMLInputElement>(`[data-k="${bad}"]`) ?? form.querySelector<HTMLInputElement>(`input[name="${bad}"]`))!.focus(); return; }
       submit.disabled = true;
       submit.textContent = submit.dataset.sending ?? "";
       try {
