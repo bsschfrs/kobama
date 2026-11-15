@@ -12,14 +12,6 @@ const t = copy.lead;
       <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M5 5l14 14M19 5L5 19" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" /></svg>
     </button>
 
-    <!-- Alleen op mobiel: terugknop en voortgang (het formulier loopt daar stap voor stap) -->
-    <div class="lead-top" aria-hidden="false">
-      <button class="lead-back" type="button" aria-label={t.back}>
-        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
-      </button>
-      <div class="lead-progress" aria-hidden="true"><i></i><i></i><i></i></div>
-    </div>
-
     <form class="lead-form" novalidate>
       <h2 class="h3 lead-title" id="lead-title">{t.title}</h2>
       <p class="lead-intro">{t.intro}</p>
@@ -27,15 +19,11 @@ const t = copy.lead;
       <!-- Valstrik voor bots: mensen zien dit veld niet -->
       <div class="lead-hp" aria-hidden="true"><label>Laat leeg <input type="text" name="hp_x" data-k="company" tabindex="-1" autocomplete="off" /></label></div>
 
-      <div class="lead-step" data-step="1">
       <div class="lead-field">
         <label for="lead-f1">{t.name.label}</label>
         <input id="lead-f1" name="f_a" data-k="name" type="text" autocomplete="off" autocapitalize="words" autocorrect="off" spellcheck="false" enterkeyhint="next" placeholder={t.name.placeholder} required />
         <p class="lead-err" data-err="name" hidden>{t.required}</p>
       </div>
-      </div>
-
-      <div class="lead-step" data-step="2">
 
       <fieldset class="lead-field">
         <legend>{t.site.legend}</legend>
@@ -54,9 +42,6 @@ const t = copy.lead;
         </div>
       </div></div>
 
-      </div>
-
-      <div class="lead-step" data-step="3">
       <fieldset class="lead-field">
         <legend>{t.method.legend}</legend>
         <div class="lead-seg">
@@ -82,11 +67,10 @@ const t = copy.lead;
           <p class="lead-err" data-err="email" hidden>{t.invalidEmail}</p>
         </div>
       </div></div>
-      </div>
 
       <p class="lead-fail" role="alert" hidden>{t.error} <a href={`mailto:${site.email}`}>{site.email}</a></p>
 
-      <button class="btn lead-submit" type="submit" data-sending={t.sending} data-next={t.next}>{t.submit}</button>
+      <button class="btn lead-submit" type="submit" data-sending={t.sending}>{t.submit}</button>
       <p class="lead-privacy" set:html={inline(t.privacy)} />
     </form>
 
@@ -110,22 +94,7 @@ const t = copy.lead;
     const field = (n: string) => form.querySelector<HTMLInputElement>(`[data-k="${n}"]`)!;
     const checked = (n: string) => form.querySelector<HTMLInputElement>(`input[name="${n}"]:checked`)?.value ?? "";
     let opener: HTMLElement | null = null;
-    // Op mobiel loopt het formulier stap voor stap (naam, website, contact); op desktop staat alles onder elkaar.
     const mq = window.matchMedia("(max-width: 800px)");
-    const steps = [...form.querySelectorAll<HTMLElement>(".lead-step")];
-    const back = q<HTMLButtonElement>(".lead-back");
-    const top = q(".lead-top");
-    const bars = [...dialog.querySelectorAll<HTMLElement>(".lead-progress i")];
-    const stepFields: Record<number, string[]> = { 1: ["name"], 2: ["hasSite", "siteName"], 3: ["method", "phone", "email"] };
-    let step = 1;
-    const render = () => {
-      const m = mq.matches;
-      steps.forEach((el, i) => el.classList.toggle("is-current", i + 1 === step));
-      form.dataset.step = String(step);
-      back.style.visibility = m && step > 1 ? "visible" : "hidden";
-      bars.forEach((b, i) => b.classList.toggle("on", i < step));
-      if (!submit.disabled) submit.textContent = m && step < 3 ? (submit.dataset.next ?? "") : submitLabel;
-    };
     // Het toetsenbord verkleint op iOS alleen het zichtbare deel: houd het blad daar binnen.
     const vv = window.visualViewport;
     const fit = () => {
@@ -153,7 +122,7 @@ const t = copy.lead;
       const el = form.querySelector<HTMLInputElement>(`[data-k="${n}"]`);
       if (el) el.setAttribute("aria-invalid", on ? "true" : "false");
     };
-    const check = (only?: string[]): string | null => {
+    const check = (): string | null => {
       const method = checked("method");
       const phoneDigits = field("phone").value.replace(/\D/g, "");
       const rules: [string, boolean][] = [
@@ -166,7 +135,6 @@ const t = copy.lead;
       ];
       let first: string | null = null;
       for (const [n, ok] of rules) {
-        if (only && !only.includes(n)) continue;
         showErr(n, !ok);
         if (!ok && !first) first = n;
       }
@@ -191,9 +159,6 @@ const t = copy.lead;
       form.hidden = false;
       done.hidden = true;
       fail.hidden = true;
-      step = 1;
-      top.hidden = false;
-      render();
       dialog.showModal();
       fit();
       field("name").focus();
@@ -220,18 +185,8 @@ const t = copy.lead;
     const openFromHash = () => { if (location.hash === HASH && !dialog.open) open(null); };
     window.addEventListener("hashchange", openFromHash);
     openFromHash();
-    form.addEventListener("change", (e) => {
-      sync();
-      // Op mobiel: na een keuze meteen naar het veld dat erbij hoort
-      const t = e.target as HTMLInputElement;
-      if (!mq.matches || t.type !== "radio") return;
-      const target = t.name === "hasSite" ? (t.value === "ja" ? "siteName" : "") : t.value === "mailen" ? "email" : t.name === "method" ? "phone" : "";
-      if (target) setTimeout(() => field(target).focus({ preventScroll: true }), 380);
-    });
-    back.addEventListener("click", () => {
-      if (step > 1) { step--; render(); (document.activeElement as HTMLElement | null)?.blur(); }
-    });
-    mq.addEventListener("change", () => { render(); fit(); });
+    form.addEventListener("change", sync);
+    mq.addEventListener("change", fit);
     form.addEventListener("input", () => {
       sync();
       form.querySelectorAll<HTMLElement>(".lead-err:not([hidden])").forEach((el) => (el.hidden = true));
@@ -240,15 +195,8 @@ const t = copy.lead;
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
       fail.hidden = true;
-      const staged = mq.matches;
-      const bad = check(staged ? stepFields[step] : undefined);
+      const bad = check();
       if (bad) { (form.querySelector<HTMLInputElement>(`[data-k="${bad}"]`) ?? form.querySelector<HTMLInputElement>(`input[name="${bad}"]`))!.focus(); return; }
-      if (staged && step < 3) {
-        step++;
-        render();
-        (document.activeElement as HTMLElement | null)?.blur();
-        return;
-      }
       submit.disabled = true;
       submit.textContent = submit.dataset.sending ?? "";
       try {
@@ -262,7 +210,6 @@ const t = copy.lead;
         });
         if (!res.ok) throw new Error(String(res.status));
         form.hidden = true;
-        top.hidden = true;
         done.hidden = false;
         form.reset();
         sync();
@@ -271,7 +218,7 @@ const t = copy.lead;
         fail.hidden = false;
       } finally {
         submit.disabled = false;
-        render();
+        submit.textContent = submitLabel;
       }
     });
   }

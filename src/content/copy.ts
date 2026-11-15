@@ -89,8 +89,6 @@ export const copy = {
       emailPlaceholder: "info@kobama.nl",
     },
     submit: "Versturen",
-    back: "Terug",
-    next: "Volgende",
     sending: "Bezig met versturen",
     close: "Sluiten",
     privacy: "Met versturen ga je ermee akkoord dat we je gegevens gebruiken om contact met je op te nemen. Lees ons [privacybeleid](/privacy/).",
