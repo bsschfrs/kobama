@@ -72,6 +72,8 @@ Zo werkt het in het kort:
 
 Hoe een traject verder loopt, lees je bij [onze werkwijze](/#werkwijze). Ben je zzp'er, lees dan ook [website laten maken als zzp'er](/blog/website-laten-maken-zzp/).
 
+Het hele traject van begin tot eind staat in [website laten maken: de gids voor ondernemers](/blog/website-laten-maken/).
+
 ## Veelgestelde vragen
 
 ### Wat is de goedkoopste manier om een website te laten maken?

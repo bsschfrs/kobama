@@ -79,6 +79,22 @@ const VISUALS = {
     [0.8, 0.8, 0, 1.6, 1.6, 1.4, "blue"],
     [1.1, 1.1, 1.4, 1, 1, 0.6, "orange"],
   ],
+  // Lokale SEO: één blauw blok (jouw bedrijf) midden in een ring van gestippelde contouren,
+  // het gebied waarin klanten zoeken. Het kleine oranje blok ernaast is de klant in de buurt.
+  "lokale-seo": [
+    ...[0, 1.6, 3.2, 4.8].flatMap((x) => [0, 1.6, 3.2, 4.8]
+      .filter((y) => (x === 0 || x === 4.8 || y === 0 || y === 4.8))
+      .map((y) => [x, y, 0, 0.9, 0.9, 0.3, "ghost"])),
+    [2, 2, 0, 1.6, 1.6, 1.8, "blue"],
+    [1.5, 4.2, 0, 0.8, 0.8, 0.5, "orange"],
+  ],
+  // Pijler: de drie blokken van het logo, in elkaar gezet. Antraciet onderaan, blauw erop,
+  // oranje ernaast: een website bouw je uit een paar onderdelen die bij elkaar horen.
+  "website-laten-maken": [
+    [0, 0, 0, 2.4, 2.4, 1.2, "charcoal"],
+    [0, 0, 1.2, 2.4, 2.4, 1.2, "blue"],
+    [2.4, 0.4, 0, 1.4, 1.4, 1.8, "orange"],
+  ],
 };
 
 const C30 = Math.cos(Math.PI / 6), S30 = 0.5;

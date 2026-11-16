@@ -60,6 +60,8 @@ Bij KOBAMA kies je zelf hoe je onderhoud en aanpassingen regelt. Je betaalt per 
 
 Wil je het onderhoud zelf doen, dan overleggen we wat er kan. Dat is niet altijd makkelijk, maar we kijken per site wat haalbaar is. Je hosting mag je zelf regelen, en daar helpen we je bij. Hoe je een site maakt die weinig onderhoud nodig heeft, lees je in [goedkope website laten maken](/blog/goedkope-website-laten-maken/). Staat er al een website online die niet meer klopt? Lees dan over [website vernieuwen](/website-vernieuwen/).
 
+Het hele traject van begin tot eind staat in [website laten maken: de gids voor ondernemers](/blog/website-laten-maken/).
+
 ## Veelgestelde vragen
 
 ### Wat is het verschil tussen website onderhoud en website beheer?

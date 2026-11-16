@@ -100,6 +100,8 @@ Heb je nog geen profiel, of staat er een oud profiel online waar je niet meer bi
 
 Wil je weten wat een website met deze basis kost, lees dan [wat een website laten maken kost](/blog/wat-kost-een-website-laten-maken/). Werk je als zzp'er, lees dan [website laten maken als zzp'er](/blog/website-laten-maken-zzp/).
 
+Hoe je profiel samenwerkt met je website en je reviews, lees je in [lokale SEO](/blog/lokale-seo/).
+
 ## Veelgestelde vragen
 
 ### Waarom is mijn bedrijf niet zichtbaar op Google Maps?

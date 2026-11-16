@@ -71,6 +71,8 @@ KOBAMA heeft veel ervaring met eenvoudige, betaalbare websites voor kleine bedri
 
 Hoe je je site daarna bijhoudt, lees je in [website onderhoud](/blog/website-onderhoud/). Wil je eerst weten waar je op let bij een lage prijs, lees dan [goedkope website laten maken](/blog/goedkope-website-laten-maken/).
 
+Hoe je als zzp'er in je regio gevonden wordt, lees je in [lokale SEO](/blog/lokale-seo/). Het hele traject van begin tot eind staat in [website laten maken: de gids voor ondernemers](/blog/website-laten-maken/).
+
 ## Veelgestelde vragen
 
 ### Moet je je KVK-nummer op je website zetten?
