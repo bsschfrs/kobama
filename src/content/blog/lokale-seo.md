@@ -2,7 +2,6 @@
 title: "Lokale SEO: zo word je gevonden in je regio"
 description: "Wat lokale SEO is, waar Google op let en wat je zelf kunt doen om klanten in de buurt te bereiken. Van je profiel tot je website."
 date: 2026-11-16T09:00:00+01:00
-author: bas
 image: "/images/blog/lokale-seo.svg"
 imageAlt: "Illustratie met bouwblokken: een ring van gestippelde contouren rond één blauw blok met een klein oranje blok ernaast. Het laat zien dat je bedrijf het middelpunt is van het gebied waarin klanten je zoeken."
 ---

@@ -2,7 +2,6 @@
 title: "Domeinnaam en hosting: wat is het verschil?"
 description: "Wat een domeinnaam en hosting zijn, hoe ze samenwerken, van wie je domeinnaam eigenlijk is en waar je op let als je ze regelt."
 date: 2026-11-13T09:00:00+01:00
-author: bas
 image: "/images/blog/domeinnaam-en-hosting.svg"
 imageAlt: "Illustratie met bouwblokken: een brede antraciet plaat als ondergrond, met daarop een blauw blok en ervoor een klein oranje blok als naambordje."
 ---

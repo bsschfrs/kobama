@@ -2,7 +2,6 @@
 title: "Website laten maken: de gids voor ondernemers"
 description: "Wat je moet weten voordat je een website laat maken: wat het kost, wat je zelf aanlevert, wat er daarna nog bijkomt en hoe je een goede partij kiest."
 date: 2026-11-17T09:00:00+01:00
-author: bas
 image: "/images/blog/website-laten-maken.svg"
 imageAlt: "Illustratie met bouwblokken: drie blokken die in elkaar passen, blauw, antraciet en oranje, als in het logo. Een website bouw je uit een paar onderdelen die bij elkaar horen."
 ---

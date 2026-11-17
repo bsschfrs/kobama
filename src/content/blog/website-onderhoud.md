@@ -2,7 +2,6 @@
 title: "Website onderhoud: wat is het en wat heb je nodig?"
 description: "Wat website onderhoud is, welk onderhoud jouw site echt nodig heeft en hoe je voorkomt dat je elk jaar betaalt voor werk dat niemand doet."
 date: 2026-11-12T09:00:00+01:00
-author: bas
 seoTitle: "Website onderhoud: wat heb je nodig? | KOBAMA"
 seoDescription: "Wat houdt website onderhoud in en welke kosten zijn nodig? Lees alles over updates, beheer, hosting en slim onderhoud van je website."
 breadcrumb: "Website onderhoud"

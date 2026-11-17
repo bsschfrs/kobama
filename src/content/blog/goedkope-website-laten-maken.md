@@ -2,7 +2,6 @@
 title: "Goedkope website laten maken: waar let je op?"
 description: "Hoe je een goedkope website laat maken die ook goedkoop blijft: waar je op kunt besparen, welke vragen je stelt en waar de echte kosten zitten."
 date: 2026-11-15T09:00:00+01:00
-author: bas
 image: "/images/blog/goedkope-website-laten-maken.svg"
 imageAlt: "Illustratie met bouwblokken: een blauw blok met een klein oranje blok erop, binnen een veel grotere gestippelde contour. De site is zo groot als nodig, niet groter."
 ---

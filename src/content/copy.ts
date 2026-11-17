@@ -527,9 +527,7 @@ export const copy = {
     empty: "Er staan nog geen artikelen online.",
     back: "Alle artikelen",
     datePending: "[Datum volgt]",
-    authorPending: "[Auteur volgt]",
-    writtenBy: "Geschreven door",
-    on: "op",
+    published: "Gepubliceerd op",
     updated: "Bijgewerkt op",
     // Alleen zichtbaar in de devserver: geplande artikelen staan niet in de build.
     scheduled: "Gepland, niet live. Gaat live op",

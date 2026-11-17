@@ -22,7 +22,7 @@ typografische lijst met titel, datum en samenvatting, geen kaarten of beeld. Elk
 eindigt met de enige CTA. Een artikel dat nog niet geschreven is heeft `placeholder: true`
 en blokkeert `qa --launch`.
 Welke artikelen er komen en in welke volgorde staat in `CONTENT-ROADMAP.md`.
-Elk gepubliceerd artikel heeft een byline in zinsvorm ("Geschreven door [founder] op [datum].",
+Elk gepubliceerd artikel heeft een datumregel in zinsvorm ("Gepubliceerd op [datum].", zonder persoonsnaam;
 geen meta-regel met puntjes) en `BlogPosting`-structured data. Schrijfmethode: skill `kobama-artikelen`.
 Artikelen kunnen worden ingepland: een `date` in de toekomst blijft uit de build tot dat moment;
 een Vercel Cron (`vercel.json`, `api/publish.js`) bouwt de site elke ochtend opnieuw, zodat

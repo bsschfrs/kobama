@@ -2,7 +2,6 @@
 title: "Google-bedrijfsprofiel aanmaken en goed invullen"
 description: "Zo maak je een Google-bedrijfsprofiel aan, laat je het verifiëren en vul je het zo in dat klanten in de buurt je vinden in Google Maps."
 date: 2026-11-11T14:58:00+01:00
-author: bas
 seoTitle: "Google-bedrijfsprofiel aanmaken: uitleg | KOBAMA"
 seoDescription: "Leer hoe je een Google-bedrijfsprofiel aanmaakt, verifieert en optimaliseert. Praktische uitleg over lokale vindbaarheid en Google Maps."
 breadcrumb: "Google-bedrijfsprofiel aanmaken"

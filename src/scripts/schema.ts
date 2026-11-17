@@ -12,8 +12,6 @@ export interface Crumb { name: string; path: string }
 export interface ArticleData {
   headline: string;
   description: string;
-  authorName: string;
-  authorUrl: string;
   datePublished: Date;
   /** Alleen een echte wijzigingsdatum, geen nep-versheid. */
   dateModified?: Date;
@@ -151,7 +149,7 @@ export function buildGraph(o: Options): Json {
       datePublished: a.datePublished.toISOString(),
       ...(a.dateModified && { dateModified: a.dateModified.toISOString() }),
       image: abs(a.imagePath),
-      author: { "@type": "Person", name: a.authorName, url: a.authorUrl },
+      author: { "@id": orgId },
       publisher: { "@id": orgId },
       isPartOf: { "@id": siteId },
     });

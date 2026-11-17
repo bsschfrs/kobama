@@ -57,7 +57,7 @@ zonder antwoorden. Vraag naar:
 - Cijfers die ze kunnen bevestigen (doorlooptijden, prijsindicaties, aantallen).
 - Een uitspraak die je letterlijk mag citeren, met naam.
 - Wat ondernemers volgens hen het vaakst verkeerd doen of verkeerd denken.
-Wie is de auteur van dit artikel? Dat moet een echte founder zijn.
+Artikelen hebben geen persoonlijke auteur: KOBAMA is de afzender. Noem de interviewde founder alleen in de tekst als die met naam geciteerd mag worden.
 
 ### 4. Feiten en bronnen
 - Elk feit dat niet van de founders komt, krijgt een betrouwbare bron die je zelf hebt
@@ -184,17 +184,15 @@ met streepjes, kort: `wat-kost-een-website`, niet `blog-artikel-1`.
 title: "Wat kost een website laten maken?"
 description: "Wat een website voor je bedrijf kost, waar het verschil in zit en waar je op let. Met de prijzen die wij zelf hanteren."
 date: 2026-11-17
-author: bas
 placeholder: false
 ---
 ```
 
-- `author`: `koen`, `bas` of `mats` (de `id` in `copy.people`). Verplicht zodra
-  `placeholder` niet meer `true` is, net als `date`. De build faalt anders.
+- Geen `author` in de front matter: artikelen staan op naam van KOBAMA. `date` is verplicht zodra
+  `placeholder` niet meer `true` is. De build faalt anders.
 - `updated`: alleen invullen bij een echte inhoudelijke wijziging. Wordt "Bijgewerkt op"
   in de byline en `dateModified` in de structured data.
-- De template maakt automatisch de byline ("Geschreven door … op …", gelinkt naar
-  LinkedIn), `og:type` article en `BlogPosting`-structured data met auteur, datums,
+- De template maakt automatisch de datumregel ("Gepubliceerd op …"), `og:type` article en `BlogPosting`-structured data met KOBAMA als auteur, datums,
   uitgever en beeld. Daar hoef je in het artikel niets voor te doen.
 
 - **Illustratie (standaard bij elk artikel):** bedenk een compositie van de logoblokken die
@@ -223,7 +221,7 @@ placeholder: false
 - [ ] B1, je-vorm, geen em-dashes, geen AI-tells (humanizer gedraaid).
 - [ ] Interne links naar pijler en verwante artikelen, als eigen zin met beschrijvende linktekst.
 - [ ] Bestaande verwante artikelen linken terug naar het nieuwe artikel.
-- [ ] Auteur is een echte founder; datum klopt.
+- [ ] Datum klopt; geen `author` in de front matter.
 - [ ] Illustratie gemaakt, bekeken en gekoppeld met `image` en een beschrijvende `imageAlt`.
 - [ ] `npm run build` en `npm run qa` slagen.
 - [ ] Status in `CONTENT-ROADMAP.md` bijgewerkt.

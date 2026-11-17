@@ -2,7 +2,6 @@
 title: "Wat kost een website laten maken?"
 description: "Waar de prijs van een website van afhangt, welke kosten er na de oplevering bijkomen en waarom veel ondernemers jaarlijks te veel betalen."
 date: 2026-11-10T16:30:00+01:00
-author: bas
 seoTitle: "Wat kost een website laten maken? | KOBAMA"
 seoDescription: "Ontdek wat een website laten maken kost, welke kosten terugkomen en waar je op moet letten. Praktische uitleg voor zzp en mkb."
 image: "/images/blog/wat-kost-een-website-laten-maken.svg"

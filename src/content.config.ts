@@ -3,10 +3,7 @@
 // bevestigd is krijgt `placeholder: true` en houdt `npm run qa -- --launch` tegen.
 import { defineCollection } from "astro:content";
 import { z } from "astro/zod";
-import { copy } from "./content/copy";
 
-// Auteur = de `id` van een founder in copy.people (koen, bas, mats). Geen verzonnen auteurs.
-const authorIds = copy.people.members.map((m) => m.id) as [string, ...string[]];
 import { glob } from "astro/loaders";
 
 const blog = defineCollection({
@@ -25,16 +22,15 @@ const blog = defineCollection({
       date: z.coerce.date().optional(),
       // Alleen invullen bij een echte inhoudelijke wijziging (geen nep-versheid).
       updated: z.coerce.date().optional(),
-      author: z.enum(authorIds).optional(),
       // Illustratie uit scripts/blog-visuals.mjs: "/images/blog/<slug>.svg". De .png ernaast
       // (1200x630) wordt het deelbeeld en de BlogPosting-image.
       image: z.string().regex(/^\/images\/blog\/[a-z0-9-]+\.svg$/).optional(),
       imageAlt: z.string().optional(),
       placeholder: z.boolean().default(false),
     })
-    // Een gepubliceerd artikel heeft altijd een echte auteur en een datum.
-    .refine((d) => d.placeholder || (d.author && d.date), {
-      message: "Een artikel zonder `placeholder: true` heeft `author` en `date` nodig.",
+    // Een gepubliceerd artikel heeft altijd een datum. Geen persoonlijke auteur: KOBAMA is de afzender.
+    .refine((d) => d.placeholder || d.date, {
+      message: "Een artikel zonder `placeholder: true` heeft `date` nodig.",
     })
     .refine((d) => !d.image || d.imageAlt, { message: "Een `image` heeft ook een `imageAlt` nodig." }),
 });

@@ -2,7 +2,6 @@
 title: "Website laten maken als zzp'er: wat heb je nodig?"
 description: "Wat er op de website van een zzp'er moet staan, welke gegevens wettelijk verplicht zijn en of een one-pager genoeg is. Met wat het kost."
 date: 2026-11-14T09:00:00+01:00
-author: bas
 image: "/images/blog/website-laten-maken-zzp.svg"
 imageAlt: "Illustratie met bouwblokken: een lage antraciet plaat als fundament, met daarop één blauw blok en bovenop een klein oranje blok. Eén compacte site die op zichzelf staat."
 ---
