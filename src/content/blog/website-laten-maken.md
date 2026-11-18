@@ -59,7 +59,7 @@ Na de oplevering moet je drie dingen regelen: je domeinnaam, je hosting en het o
 
 Een website helpt pas als mensen hem vinden. Voor bedrijven met klanten in de buurt begint dat met een Google-bedrijfsprofiel en een site die duidelijk zegt wat je doet en waar. Hoe je dat aanpakt, lees je in [lokale SEO](/blog/lokale-seo/) en in [Google-bedrijfsprofiel aanmaken en goed invullen](/blog/google-bedrijfsprofiel-aanmaken/).
 
-Doorlopend SEO-werk, zoals content schrijven, hoort niet bij een eenmalige prijs. Dat bespreken we apart.
+Doorlopend SEO-werk, zoals content schrijven, hoort niet bij een eenmalige prijs. Dat bespreken we apart. Wat je zelf kunt doen, lees je in [hoger in Google komen](/blog/hoger-in-google-komen/). Wanneer je het beter uitbesteedt, lees je in [SEO uitbesteden](/blog/seo-uitbesteden/).
 
 ## Waar let je op bij het kiezen van een webbouwer?
 

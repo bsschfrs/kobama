@@ -55,7 +55,7 @@ Een paar dingen horen op je site:
 - Een titel en beschrijving per pagina die zeggen waar de pagina over gaat.
 - Gegevens over je bedrijf in een vorm die zoekmachines kunnen lezen. Dat heet structured data: een stukje code dat Google vertelt dat dit je bedrijf is, op dit adres, met dit telefoonnummer. Google legt dat uit in de [documentatie over lokale bedrijven](https://developers.google.com/search/docs/appearance/structured-data/local-business).
 
-Wat een website kost die dit goed doet, lees je in [wat een website laten maken kost](/blog/wat-kost-een-website-laten-maken/).
+Wat een website kost die dit goed doet, lees je in [wat een website laten maken kost](/blog/wat-kost-een-website-laten-maken/). Wat je site technisch nodig heeft, lees je in [wat is technische SEO?](/blog/technische-seo/).
 
 ## Hoe wij dit aanpakken
 

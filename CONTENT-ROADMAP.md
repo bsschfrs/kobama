@@ -57,15 +57,24 @@ koopintentie. De pijler komt als laatste, zodat hij meteen naar alle clusters li
 - **Maatwerk tegenover WordPress (2):** hoe we zelf bouwen en waarom, in eigen woorden,
   zodat de vergelijking eerlijk is.
 
-## Later: vindbaarheid als tweede tak
+## Tweede tak: vindbaarheid en basis van je website
 
-Kan een eigen pijler worden als de eerste reeks staat:
+Geschreven op 18 november 2026 (Ahrefs, land Nederland, 18-11-2026). Lokale SEO staat al live.
 
-- wat is technische seo (600, 2)
-- ~~lokale seo (500, 3)~~ live (16-11-2026, artikel `lokale-seo`)
-- wat zijn seo teksten (250, 1)
-- hoger in google komen (200, 8)
-- waarom seo uitbesteden (200, 6)
+| Status | Artikel | Belangrijkste zoekwoorden (volume, KD) |
+|---|---|---|
+| live (16-11-2026) | Lokale SEO: zo word je gevonden in je regio | lokale seo (500, 3) |
+| gepland (18-11-2026 09:00) | SEO uitbesteden: wanneer is het slim en waar let je op? | seo uitbesteden (3.000, 6), waarom seo uitbesteden (200), wat kost seo uitbesteden (100) |
+| gepland (19-11-2026 09:00) | Wat is technische SEO? Uitleg voor ondernemers | technische seo (1.400, 1), wat is technische seo (600, 2) |
+| gepland (20-11-2026 09:00) | SEO-teksten schrijven: zo doe je dat goed | seo teksten (1.000, 2), seo teksten schrijven (500, 3), wat zijn seo teksten (250) |
+| gepland (21-11-2026 09:00) | Hoger in Google komen: wat werkt echt? | hoger in google (900, 9), hoe kom ik hoger in google (400), hoger in google komen (200, 8) |
+| gepland (22-11-2026 09:00) | Privacyverklaring op je website: verplicht en wat staat erin? | privacyverklaring (500, 14), privacyverklaring website (100, 7) |
+| gepland (23-11-2026 09:00) | Websiteteksten laten schrijven: wat levert het op? | website teksten laten schrijven (500, 0), website teksten schrijven (150, 0) |
+| gepland (24-11-2026 09:00) | Wat is een SSL-certificaat en heb je het nodig? | ssl certificaat (700, 21), wat is een ssl certificaat (250, 12), wat kost een ssl certificaat (100) |
+| gepland (25-11-2026 09:00) | Wat is een meta description en hoe schrijf je een goede? | meta description (500, 2), wat is een meta description (150) |
+
+Ideeën voor later (nog niet onderzocht op inhoud): wat is een cms (200, 0), core web vitals (900, 21),
+algemene voorwaarden website (150, 10), zakelijk e-mailadres (100, 4), wat is een landingspagina (150, 0).
 
 ## Geen blog: landingspagina's
 

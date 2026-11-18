@@ -95,6 +95,57 @@ const VISUALS = {
     [0, 0, 1.2, 2.4, 2.4, 1.2, "blue"],
     [2.4, 0.4, 0, 1.4, 1.4, 1.8, "orange"],
   ],
+  // SEO uitbesteden: jij zet de basis neer (blauw), een ander zet er iets op (oranje),
+  // de gestippelde contour erboven is wat er nog kan komen.
+  "seo-uitbesteden": [
+    [0, 0, 0, 1.6, 1.6, 1.2, "blue"],
+    [0.3, 0.3, 1.2, 1, 1, 0.8, "orange"],
+    [0.3, 0.3, 2, 1, 1, 0.8, "ghost-top"],
+  ],
+  // Technische SEO: de brede antraciet onderlaag is de techniek waar de rest op staat.
+  "technische-seo": [
+    [0, 0, 0, 3.2, 3.2, 0.5, "charcoal"],
+    [0.4, 0.4, 0.5, 1.4, 1.4, 1.4, "blue"],
+    [1.9, 1.9, 0.5, 1, 1, 0.9, "orange"],
+  ],
+  // SEO-teksten: platte blauwe lagen als regels tekst, oranje bovenop als de kop.
+  "seo-teksten": [
+    [0, 0, 0, 2.6, 1.6, 0.35, "blue"],
+    [0, 0, 0.35, 2.2, 1.6, 0.35, "blue"],
+    [0, 0, 0.7, 1.8, 1.6, 0.35, "blue"],
+    [0, 0, 1.05, 1.2, 1.6, 0.45, "orange"],
+  ],
+  // Hoger in Google: een oplopende rij, van een lage contour naar een hoog oranje blok.
+  "hoger-in-google-komen": [
+    [0.3, 1.5, 0, 1, 1, 0.6, "ghost"],
+    [0.3, 0, 0, 1, 1, 1.2, "blue"],
+    [0.3, -1.5, 0, 1, 1, 1.8, "blue"],
+    [0.3, -3, 0, 1, 1, 2.6, "orange"],
+  ],
+  // Privacyverklaring: een laag antraciet blok schermt het blauwe blok af.
+  "privacyverklaring-website": [
+    [0, 0, 0, 1.6, 1.6, 1.8, "blue"],
+    [1.9, 0, 0, 0.4, 1.6, 0.9, "charcoal"],
+    [0, 2, 0, 0.8, 0.8, 0.5, "orange"],
+  ],
+  // Websiteteksten: wat jij aanlevert (oranje) wordt een rij pagina's tekst (blauw, staand).
+  "website-teksten-laten-schrijven": [
+    [0, 0, 0, 1.4, 0.25, 1.8, "blue"],
+    [0, 0.55, 0, 1.4, 0.25, 1.8, "blue"],
+    [0, 1.1, 0, 1.4, 0.25, 1.8, "blue"],
+    [0.25, 2, 0, 0.9, 0.9, 0.9, "orange"],
+  ],
+  // SSL-certificaat: een gestippelde beschermlaag rond de site, het oranje slot ervoor.
+  "ssl-certificaat": [
+    [0, 0, 0, 2.8, 2.8, 2.4, "ghost"],
+    [0.6, 0.6, 0, 1.6, 1.6, 1.6, "blue"],
+    [3.1, 1.05, 0, 0.7, 0.7, 0.7, "orange"],
+  ],
+  // Meta description: de pagina (blauw) met de korte beschrijving ervoor (lang plat oranje).
+  "meta-description": [
+    [0, 0, 0, 1.8, 1.8, 1.8, "blue"],
+    [2.1, 0, 0, 0.5, 1.8, 0.3, "orange"],
+  ],
 };
 
 const C30 = Math.cos(Math.PI / 6), S30 = 0.5;

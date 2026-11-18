@@ -78,11 +78,11 @@ draai `npm run build` en `npm run qa`, en vraag of het gecommit en gepusht mag w
 **Inplannen in plaats van direct live:** zet `date` op het gewenste moment mét tijd en
 tijdzone, bijvoorbeeld `date: 2026-11-17T09:00:00+01:00` (winter +01:00, zomer +02:00).
 Commit en push gewoon. Tot dat moment slaat de build het artikel over (niet in het
-overzicht, niet in de sitemap). **Plan artikelen op 09:00.** Een Vercel Cron (`vercel.json`,
-`api/publish.js`) bouwt de site elke ochtend opnieuw; het artikel staat dan tussen 09:00 en
-10:00 live. Andere tijden hangen af van de GitHub-workflow
-`.github/workflows/publish-scheduled.yml`, die als reserve draait maar door GitHub soms maar
-eens per paar uur wordt uitgevoerd. Moet het sneller: Actions, "Publish scheduled", Run workflow. In de devserver zie je het artikel wel, met het label
+overzicht, niet in de sitemap). **Plan artikelen op 09:00.** Een geplande cloud-routine van Claude start elke dag om 09:05
+en 12:05 (Europe/Amsterdam) een nieuwe productie-build; het artikel staat dan rond 09:05 live.
+De Vercel Cron (`vercel.json`) en de GitHub-workflow `.github/workflows/publish-scheduled.yml`
+blijven als reserve (zie PILOT-LOG, 12 en 14 november). Moet het sneller: Actions,
+"Geplande artikelen publiceren", Run workflow. In de devserver zie je het artikel wel, met het label
 "Gepland, niet live". Zet de roadmap-status op `gepland` met datum en tijd.
 Een datum zonder tijd (`2026-11-17`) gaat live om 01:00 Nederlandse tijd.
 Controleer lokaal met `node scripts/check-scheduled.mjs --dry-run`.

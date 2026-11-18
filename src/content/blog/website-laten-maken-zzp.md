@@ -45,6 +45,8 @@ Het [Ondernemersplein van de overheid](https://ondernemersplein.overheid.nl/rege
 
 Gebruik op je website het btw-id, niet je omzetbelastingnummer. Volgens het [Ondernemersplein](https://ondernemersplein.overheid.nl/btw-nummer-vermelden-en-controleren/) is het omzetbelastingnummer van een eenmanszaak gemaakt van je burgerservicenummer (BSN). Het btw-id bevat nooit een BSN en is bedoeld voor contact met klanten.
 
+Heeft je website een contactformulier, dan heb je ook een privacyverklaring nodig. Wat daarin moet staan, lees je in [privacyverklaring op je website](/blog/privacyverklaring-website/).
+
 ## Is een one-pager genoeg voor een zzp'er?
 
 Een one-pager is voor veel zzp'ers genoeg. Een one-pager is een website van één pagina waar je doorheen scrolt: bovenaan wat je doet, daaronder je werk, wie je bent en contact.

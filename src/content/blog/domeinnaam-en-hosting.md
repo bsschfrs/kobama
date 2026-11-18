@@ -47,7 +47,7 @@ Wat een .nl-domeinnaam kost, bepaalt de registrar. SIDN schrijft registrars niet
 
 Je stapt met een .nl-domeinnaam over naar een andere registrar met een verhuistoken: een unieke code van je domeinnaam. Je huidige registrar moet je die volgens SIDN binnen vijf dagen geven als je erom vraagt. Die code geef je aan je nieuwe registrar.
 
-Overstappen naar een andere hosting betekent dat je website naar een nieuwe server gaat, en dat je domeinnaam daarna naar die nieuwe server moet verwijzen. Regel dat op een rustig moment, zodat je site zo kort mogelijk onbereikbaar is.
+Overstappen naar een andere hosting betekent dat je website naar een nieuwe server gaat, en dat je domeinnaam daarna naar die nieuwe server moet verwijzen. Regel dat op een rustig moment, zodat je site zo kort mogelijk onbereikbaar is. Controleer bij een nieuwe host ook of je site een beveiligde verbinding heeft. Hoe dat werkt, lees je in [wat is een SSL-certificaat?](/blog/ssl-certificaat/).
 
 ## Wat gebeurt er als je je domeinnaam niet verlengt?
 

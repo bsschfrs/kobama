@@ -18,7 +18,7 @@ De prijs van een website hangt vooral af van het type site en van hoeveel werk j
 
 - **Eén pagina of meerdere pagina's.** Een one-pager zet alle informatie op één pagina waar je doorheen scrolt. Een site met meerdere pagina's heeft bijvoorbeeld aparte pagina's voor je diensten, je werk en contact. Meer pagina's betekent meer ontwerp en meer bouwwerk.
 - **Wat je nog meer wilt laten doen.** Je kunt alleen de website laten bouwen. Je kunt ook hulp vragen bij bijvoorbeeld vindbaarheid in Google (SEO). Dat soort werk loopt door na de oplevering, dus daar hoort geen eenmalige prijs bij.
-- **Teksten en beeld.** Bij KOBAMA schrijven wij de teksten voor je website. Je logo lever je zelf aan.
+- **Teksten en beeld.** Bij KOBAMA schrijven wij de teksten voor je website. Je logo lever je zelf aan. Wat goede teksten opleveren, lees je in [websiteteksten laten schrijven](/blog/website-teksten-laten-schrijven/).
 
 ## Welke kosten van een website zijn eenmalig en welke komen terug?
 
