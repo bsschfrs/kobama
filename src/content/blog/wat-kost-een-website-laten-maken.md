@@ -8,7 +8,7 @@ image: "/images/blog/wat-kost-een-website-laten-maken.svg"
 imageAlt: "Illustratie met bouwblokken: één blauw blok voor de eenmalige bouw van een website, en oranje blokken die per jaar hoger worden voor terugkerende kosten."
 ---
 
-Wat een website laten maken kost, hangt af van wat je nodig hebt: één pagina of meerdere, en of je ook hulp wilt bij vindbaarheid en onderhoud. Bij KOBAMA kan een website al vanaf €800. Let daarnaast goed op de kosten ná de oplevering, want daar betalen veel ondernemers elk jaar meer dan nodig.
+Wat een website laten maken kost, hangt af van wat je nodig hebt: één pagina of meerdere, en of je ook hulp wilt bij vindbaarheid en onderhoud. Bij KOBAMA kan een website al vanaf €800 excl. btw. Let daarnaast goed op de kosten ná de oplevering, want daar betalen veel ondernemers elk jaar meer dan nodig.
 
 Je leest hier waar de prijs van afhangt, welke kosten eenmalig zijn en welke terugkomen, en hoe wij met hosting en onderhoud omgaan.
 
@@ -26,7 +26,7 @@ De bouw van een website betaal je één keer. Hosting, je domeinnaam en onderhou
 
 | Kostenpost | Eenmalig of terugkerend | Hoe het bij KOBAMA werkt |
 |---|---|---|
-| Bouw van de website | Eenmalig | Vanaf €800, afhankelijk van het type site |
+| Bouw van de website | Eenmalig | Vanaf €800 excl. btw, afhankelijk van het type site |
 | Teksten | Eenmalig, onderdeel van de bouw | Wij leveren de teksten aan, jij krijgt één ronde om ze aan te passen |
 | Hosting (de plek waar je website online staat) | Terugkerend | Je mag de hosting zelf regelen, wij helpen je daarbij |
 | Domeinnaam (je webadres, zoals jouwbedrijf.nl) | Terugkerend, per jaar | Betaal je per jaar aan de partij waar je hem registreert |
@@ -77,6 +77,8 @@ Hoe je een offerte voor een website beoordeelt, lees je in [offerte voor een web
 
 Waar je op let bij het kiezen van een webbouwer, lees je in [webdesigner kiezen](/blog/webdesigner-kiezen/).
 
+Alle prijzen van KOBAMA op een rij zie je bij [onze prijzen](/prijzen/).
+
 ## Veelgestelde vragen
 
 ### Wat is de goedkoopste manier om een website te laten maken?
@@ -97,4 +99,4 @@ Een website is vaak duur door een hosting- of onderhoudscontract waarvoor weinig
 
 ## Wat kost een website bij KOBAMA?
 
-Een website bij KOBAMA kan al vanaf €800. Wat jouw site kost, hangt af van het type site en van wat je ons nog meer wilt laten doen. Na de oplevering betaal je alleen voor wat er echt gebeurt: per aanpassing of met een vast maandbedrag, en je hosting mag je zelf regelen.
+Een website bij KOBAMA kan al vanaf €800 excl. btw. Wat jouw site kost, hangt af van het type site en van wat je ons nog meer wilt laten doen. Na de oplevering betaal je alleen voor wat er echt gebeurt: per aanpassing of met een vast maandbedrag, en je hosting mag je zelf regelen.

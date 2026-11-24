@@ -9,7 +9,7 @@ image: "/images/blog/goedkope-website-laten-maken.svg"
 imageAlt: "Illustratie met bouwblokken: een blauw blok met een klein oranje blok erop, binnen een veel grotere gestippelde contour. De site is zo groot als nodig, niet groter."
 ---
 
-Een goedkope of betaalbare website laten maken kan prima, als je op twee dingen let: wat je voor de bouwprijs krijgt en wat je daarna elk jaar betaalt. Een lage bouwprijs met een duur onderhoudscontract is over een paar jaar alsnog duur. Bij KOBAMA kan een website al vanaf €800.
+Een goedkope of betaalbare website laten maken kan prima, als je op twee dingen let: wat je voor de bouwprijs krijgt en wat je daarna elk jaar betaalt. Een lage bouwprijs met een duur onderhoudscontract is over een paar jaar alsnog duur. Bij KOBAMA kan een website al vanaf €800 excl. btw.
 
 Je leest hier waar je op kunt besparen zonder dat je site slechter wordt, welke vragen je vooraf stelt en wanneer zelf een site maken goedkoper is.
 
@@ -50,7 +50,7 @@ Zelf maken past als je tijd hebt en het leuk vindt. Laten maken past als je liev
 
 ## Hoe wij dit aanpakken
 
-KOBAMA maakt websites op maat en heeft veel ervaring met eenvoudige, betaalbare sites voor kleine en middelgrote bedrijven. Een website kan bij ons al vanaf €800. Wat jouw site kost, hangt af van het type site en van wat je ons nog meer wilt laten doen.
+KOBAMA maakt websites op maat en heeft veel ervaring met eenvoudige, betaalbare sites voor kleine en middelgrote bedrijven. Een website kan bij ons al vanaf €800 excl. btw. Wat jouw site kost, hangt af van het type site en van wat je ons nog meer wilt laten doen.
 
 - **Teksten zitten erin.** Wij schrijven de teksten. Jij krijgt één ronde om ze aan te passen.
 - **Je logo lever je zelf aan.**
@@ -83,4 +83,4 @@ Een betaalbare website is een site waarvan de bouw past bij je budget en waarvan
 
 ## Kort samengevat
 
-Een goedkope website laten maken lukt het best met een site die niet groter is dan nodig, eenvoudige techniek en duidelijke afspraken over de kosten na de oplevering. Vraag wat er in de prijs zit, wat je per jaar betaalt en op wiens naam je domeinnaam staat. Bij KOBAMA kan een website al vanaf €800, en je betaalt alleen voor werk dat we echt doen.
+Een goedkope website laten maken lukt het best met een site die niet groter is dan nodig, eenvoudige techniek en duidelijke afspraken over de kosten na de oplevering. Vraag wat er in de prijs zit, wat je per jaar betaalt en op wiens naam je domeinnaam staat. Bij KOBAMA kan een website al vanaf €800 excl. btw, en je betaalt alleen voor werk dat we echt doen.

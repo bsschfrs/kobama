@@ -50,7 +50,7 @@ Welke gegevens verplicht op je website moeten, lees je in [website laten maken a
 
 Bij KOBAMA ontwerpen en bouwen we je website in één doorlopend traject. Wij schrijven de teksten, en jij krijgt één ronde om ze aan te passen. Je logo lever je zelf aan.
 
-Een website kan bij KOBAMA vanaf €800. Na de oplevering betaal je per aanpassing, of een vast bedrag per maand met een maximum aantal aanpassingen. Wil je de site zelf onderhouden, dan is dat lastiger, maar daar praten we over.
+Een website kan bij KOBAMA vanaf €800 excl. btw. Na de oplevering betaal je per aanpassing, of een vast bedrag per maand met een maximum aantal aanpassingen. Wil je de site zelf onderhouden, dan is dat lastiger, maar daar praten we over.
 
 Wat een website laten maken kost, lees je in [wat een website laten maken kost](/blog/wat-kost-een-website-laten-maken/).
 

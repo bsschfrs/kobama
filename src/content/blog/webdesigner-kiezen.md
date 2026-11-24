@@ -51,7 +51,7 @@ Waar de prijs van een website van afhangt, lees je in [wat een website laten mak
 
 KOBAMA is een klein team dat elk project zelf van begin tot eind doet. Je praat met de mensen die je site ontwerpen en bouwen, niet met een accountmanager. Wij schrijven ook de teksten, en jij krijgt één ronde om ze aan te passen.
 
-Een website kan bij KOBAMA vanaf €800. Na de oplevering betaal je per aanpassing, of een vast bedrag per maand met een maximum aantal aanpassingen. We sturen geen facturen voor werk dat niet gebeurt.
+Een website kan bij KOBAMA vanaf €800 excl. btw. Na de oplevering betaal je per aanpassing, of een vast bedrag per maand met een maximum aantal aanpassingen. We sturen geen facturen voor werk dat niet gebeurt.
 
 Alles over het laten maken van een website, van kosten tot onderhoud, lees je in [website laten maken: de gids voor ondernemers](/blog/website-laten-maken/).
 

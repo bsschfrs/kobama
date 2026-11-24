@@ -7,7 +7,7 @@ import SiteFooter from "./SiteFooter.astro";
 import { copy } from "../content/copy";
 import { inline } from "../scripts/inline";
 
-interface Props { page: "zzp" | "vernieuwen" | "onepage" | "amsterdam" | "professioneel" }
+interface Props { page: "zzp" | "vernieuwen" | "onepage" | "amsterdam" | "professioneel" | "prijzen" }
 const { page: key } = Astro.props;
 const page = copy.landing[key];
 ---

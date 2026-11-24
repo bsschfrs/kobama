@@ -6,7 +6,7 @@ image: "/images/blog/website-laten-maken.svg"
 imageAlt: "Illustratie met bouwblokken: drie blokken die in elkaar passen, blauw, antraciet en oranje, als in het logo. Een website bouw je uit een paar onderdelen die bij elkaar horen."
 ---
 
-Een website laten maken doe je in vier stappen: je bepaalt wat de site moet doen, je kiest een partij die hem bouwt, je levert aan wat nodig is en je regelt wat er na de oplevering gebeurt. Wat het kost, hangt af van het type site. Bij KOBAMA kan een website al vanaf €800.
+Een website laten maken doe je in vier stappen: je bepaalt wat de site moet doen, je kiest een partij die hem bouwt, je levert aan wat nodig is en je regelt wat er na de oplevering gebeurt. Wat het kost, hangt af van het type site. Bij KOBAMA kan een website al vanaf €800 excl. btw.
 
 Deze gids loopt die stappen langs. Bij elk onderdeel vind je een link naar een uitgebreider artikel, als je dieper wilt.
 
@@ -29,7 +29,7 @@ Een eenvoudige site is vaak genoeg. Wanneer één pagina volstaat, lees je op de
 
 ## Wat kost een website laten maken?
 
-De bouw van een website betaal je één keer, hosting, een domeinnaam en onderhoud komen daar jaarlijks of maandelijks bij. Bij KOBAMA kan een website vanaf €800. Wat jouw site precies kost, hangt af van het type site en van wat je ons nog meer wilt laten doen, zoals SEO.
+De bouw van een website betaal je één keer, hosting, een domeinnaam en onderhoud komen daar jaarlijks of maandelijks bij. Bij KOBAMA kan een website vanaf €800 excl. btw. Wat jouw site precies kost, hangt af van het type site en van wat je ons nog meer wilt laten doen, zoals SEO.
 
 Wat je naast de bouw betaalt, is vaak het grootste verschil tussen een goedkoop en een duur traject. Alle kostenposten staan in [wat een website laten maken kost](/blog/wat-kost-een-website-laten-maken/). Wil je zo laag mogelijk uitkomen, lees dan [goedkope website laten maken](/blog/goedkope-website-laten-maken/).
 
@@ -88,6 +88,8 @@ Twijfel je of je de site zelf maakt, lees dan [zelf een website maken of laten m
 
 Wat KOBAMA voor bedrijven bouwt, lees je bij [professionele website laten maken](/professionele-website-laten-maken/).
 
+Alle prijzen van KOBAMA op een rij zie je bij [onze prijzen](/prijzen/).
+
 ## Veelgestelde vragen
 
 ### Hoe lang duurt het om een website te laten maken?
@@ -112,4 +114,4 @@ Een one-pager is genoeg als je aanbod duidelijk is en je bezoekers niet veel uit
 
 ## Kort samengevat
 
-Een website laten maken begint bij wat de site moet doen. Kies daarna het type, check wat je na de oplevering betaalt en laat je informeren over hosting, domeinnaam en onderhoud. Bij KOBAMA kan een website vanaf €800, schrijven wij de teksten en regel je de hosting zelf als je dat wilt.
+Een website laten maken begint bij wat de site moet doen. Kies daarna het type, check wat je na de oplevering betaalt en laat je informeren over hosting, domeinnaam en onderhoud. Bij KOBAMA kan een website vanaf €800 excl. btw, schrijven wij de teksten en regel je de hosting zelf als je dat wilt.

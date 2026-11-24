@@ -59,7 +59,7 @@ Waarom de vraag over je domeinnaam belangrijk is, lees je in [domeinnaam en host
 
 ## Hoe wij dit aanpakken
 
-Een website kan bij KOBAMA vanaf €800. Wat je betaalt, hangt af van het type site, een one-pager of meerdere pagina's, en van wat je er verder bij wilt laten doen. Wij schrijven de teksten, en jij krijgt één ronde om ze aan te passen.
+Een website kan bij KOBAMA vanaf €800 excl. btw. Wat je betaalt, hangt af van het type site, een one-pager of meerdere pagina's, en van wat je er verder bij wilt laten doen. Wij schrijven de teksten, en jij krijgt één ronde om ze aan te passen.
 
 Na de oplevering betaal je per aanpassing, of een vast bedrag per maand met een maximum aantal aanpassingen. Je mag de hosting zelf regelen, en wij helpen je daarbij. We sturen geen facturen voor werk dat niet gebeurt.
 

@@ -57,7 +57,7 @@ Twijfel je, begin dan klein. Een eenvoudige site die klopt, doet meer voor je da
 
 ## Wat kost een website laten maken als zzp'er?
 
-Wat een website kost als zzp'er, hangt af van het type site: één pagina of meerdere, en wat je nog meer wilt laten doen. Bij KOBAMA kan een website al vanaf €800.
+Wat een website kost als zzp'er, hangt af van het type site: één pagina of meerdere, en wat je nog meer wilt laten doen. Bij KOBAMA kan een website al vanaf €800 excl. btw.
 
 Let ook op de kosten na de oplevering: hosting, je domeinnaam en aanpassingen. Die betaal je elk jaar of elke maand. Een eenvoudige site die weinig verandert, hoort weinig onderhoud te kosten. Alle kosten op een rij lees je in [wat een website laten maken kost](/blog/wat-kost-een-website-laten-maken/). Wat een domeinnaam en hosting zijn, lees je in [domeinnaam en hosting: wat is het verschil?](/blog/domeinnaam-en-hosting/).
 
@@ -94,4 +94,4 @@ Het btw-identificatienummer (btw-id) moet op je website als je via je website ie
 
 ## Kort samengevat
 
-Een zzp'er heeft genoeg aan een eenvoudige website: wat je doet, voor wie, voorbeelden van je werk, wie je bent en hoe klanten je bereiken. Zet je KVK-nummer, naam, adres, e-mail en telefoonnummer erop, en je btw-id als je online verkoopt. Vaak is een one-pager genoeg, en bij KOBAMA kan dat al vanaf €800. Wat KOBAMA voor zelfstandigen bouwt, lees je bij [website laten maken als zzp'er](/website-laten-maken-zzp/).
+Een zzp'er heeft genoeg aan een eenvoudige website: wat je doet, voor wie, voorbeelden van je werk, wie je bent en hoe klanten je bereiken. Zet je KVK-nummer, naam, adres, e-mail en telefoonnummer erop, en je btw-id als je online verkoopt. Vaak is een one-pager genoeg, en bij KOBAMA kan dat al vanaf €800 excl. btw. Wat KOBAMA voor zelfstandigen bouwt, lees je bij [website laten maken als zzp'er](/website-laten-maken-zzp/).

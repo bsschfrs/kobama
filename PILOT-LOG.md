@@ -118,3 +118,19 @@ en werk dan het brief of het playbook bij.
 - Search Console liet na twee weken vooral vertoningen op informatieve termen zien, op positie 30 tot 70. Daarom twee dienstpagina's met koopintentie toegevoegd: /website-laten-maken-amsterdam/ (1.000 per maand, zwakke concurrentie) en /professionele-website-laten-maken/ (1.500 per maand). Plus een reeks artikelen dichter bij de keuze voor een webbouwer (zie CONTENT-ROADMAP, derde tak).
 - De "Gemaakt door KOBAMA"-links op de klantsites staan er wel, maar alleen na JavaScript (Vite-apps). Ahrefs ziet ze daarom niet; Google rendert JavaScript en vindt ze later wel. Les: controleer een footerlink in een echte browser, niet met curl.
 - GEO: volgens Google is optimaliseren voor AI-antwoorden gewoon SEO. Geen llms.txt. Wel: Bing Webmaster Tools (ChatGPT en Copilot leunen op Bing), antwoord-eerst schrijven, eigen ervaring, en vermeldingen op andere sites.
+
+## Geleerd van sites die klanten via AI-assistenten krijgen (24 november 2026)
+
+Bekeken: esdoorndevries.nl (B2B-afspraken) en dealerpilot.nl (AI-assistent voor autobedrijven). Volgens Bas krijgen
+beide veel klanten via ChatGPT of Claude. Dat konden we niet zelf controleren. Wat wel te zien is:
+
+- Beide scoren bijna niet in Google (Ahrefs: 3 en 0 zoekwoorden). AI-zichtbaarheid komt hier dus niet uit Google-posities.
+- Een smalle, precieze positionering in één zin ("AI-assistent voor autobedrijven"). Een AI-assistent die een
+  specifieke vraag krijgt, heeft dan weinig andere kandidaten.
+- Harde, overneembare feiten: exacte prijzen met "excl. btw", rechtsvorm, KvK, adres, telefoon. Zowel zichtbaar als in
+  structured data (Offer met prijs, Organization met legalName en adres).
+- Een prijzenpagina. Kobama.nl heeft die nog niet.
+- Bewijs van buiten: Google-reviews (4,7) en een opleidingspartner (IVA Driebergen).
+- Weinig pagina's is genoeg: dealerpilot heeft er tien, zonder blog. Esdoorn heeft wel llms.txt, dealerpilot niet.
+
+Voor KOBAMA blokkeert vooral het ontbreken van bevestigde feiten (btw, adres, KvK, telefoon, doorlooptijd, reviews).

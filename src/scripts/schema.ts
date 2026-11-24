@@ -27,6 +27,8 @@ export interface ServiceData {
   audience: string;
   /** Optioneel: stad in plaats van heel Nederland. */
   city?: string;
+  /** Optioneel: vanaf-prijs in euro, exclusief btw (FOUNDER-INPUT.md). */
+  minPrice?: number;
 }
 
 interface Options {
@@ -121,6 +123,18 @@ export function buildGraph(o: Options): Json {
       provider: { "@id": orgId },
       areaServed: v.city ? { "@type": "City", name: v.city } : { "@type": "Country", name: "Nederland" },
       audience: { "@type": "Audience", audienceType: v.audience },
+      ...(v.minPrice && {
+        offers: {
+          "@type": "Offer",
+          priceCurrency: "EUR",
+          priceSpecification: {
+            "@type": "PriceSpecification",
+            minPrice: v.minPrice,
+            priceCurrency: "EUR",
+            valueAddedTaxIncluded: false,
+          },
+        },
+      }),
     });
     webPage.mainEntity = { "@id": `${pageUrl}#service` };
   }

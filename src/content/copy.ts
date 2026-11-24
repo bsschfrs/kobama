@@ -8,7 +8,7 @@ export const copy = {
     ogImageAlt: "KOBAMA: Wij bouwen de site die je bedrijf nog niet heeft.",
     title: "Website laten maken voor zzp & mkb | KOBAMA",
     description:
-      "Laat een professionele website maken door KOBAMA. Persoonlijk webdesign voor zzp en mkb in heel Nederland, met maatwerk en duidelijke afspraken.",
+      "Betaalbare websites voor zzp en mkb door KOBAMA uit Amsterdam. Vanaf €800 excl. btw, zonder verplicht onderhoudscontract en met persoonlijk contact.",
   },
 
   // Meta van de losse pagina's (titel en description staan hier, niet in de pagina's).
@@ -27,7 +27,7 @@ export const copy = {
 
   // Beschrijving van KOBAMA in de structured data (landelijk, geen plaatsnamen).
   schema: {
-    organizationDescription: "KOBAMA ontwerpt en bouwt professionele websites voor zzp'ers en mkb-bedrijven in heel Nederland.",
+    organizationDescription: "KOBAMA is een klein webteam uit Amsterdam dat betaalbare websites bouwt voor zzp'ers en mkb-bedrijven in heel Nederland, vanaf €800 excl. btw en zonder verplicht onderhoudscontract. Je betaalt nooit voor werk dat niet gebeurt.",
     service: {
       name: "Webdesign en websiteontwikkeling voor zzp en mkb",
       type: "Webdesign en websiteontwikkeling",
@@ -134,11 +134,11 @@ export const copy = {
     items: [
       {
         q: "Wat kost een website bij KOBAMA?",
-        a: "Een website kan bij KOBAMA vanaf €800. Wat je betaalt hangt af van het type website, bijvoorbeeld een one-pager of een site met meerdere pagina's, en van wat je er verder bij wilt laten doen. Een uitgebreide uitleg lees je in [wat een website laten maken kost](/blog/wat-kost-een-website-laten-maken/). Alles wat je vooraf wilt weten, lees je in [website laten maken: de gids voor ondernemers](/blog/website-laten-maken/).",
+        a: "Een website kan bij KOBAMA vanaf €800 excl. btw. Wat je betaalt hangt af van het type website, bijvoorbeeld een one-pager of een site met meerdere pagina's, en van wat je er verder bij wilt laten doen. Alle prijzen op een rij zie je bij [onze prijzen](/prijzen/). Een uitgebreide uitleg lees je in [wat een website laten maken kost](/blog/wat-kost-een-website-laten-maken/). Alles wat je vooraf wilt weten, lees je in [website laten maken: de gids voor ondernemers](/blog/website-laten-maken/).",
       },
       {
         q: "Hoe lang duurt het om een website te laten maken?",
-        a: "Dat hangt af van de omvang van je website en van de afspraken die we samen maken. We bespreken het in het eerste gesprek, zodat je vooraf weet waar je aan toe bent.",
+        a: "Een website van KOBAMA staat in twee weken live, als je alles op tijd aanlevert en bereikbaar bent voor overleg. Hoe snel het gaat, hangt dus ook van jou af. We bespreken het in het eerste gesprek, zodat je vooraf weet waar je aan toe bent.",
       },
       {
         q: "Kunnen jullie mijn bestaande website vernieuwen?",
@@ -202,7 +202,7 @@ export const copy = {
         },
         {
           h2: "Zo verloopt het traject",
-          p: ["Het traject heeft drie stappen. Hoe lang het duurt, hangt af van de omvang van je site en de afspraken die we maken."],
+          p: ["Het traject heeft drie stappen. Je site staat in twee weken live, als je alles op tijd aanlevert en bereikbaar bent voor overleg."],
           steps: [
             { t: "Kennismaken.", b: "We beginnen met een gesprek over je bedrijf, je klanten en wat je site moet bereiken." },
             { t: "Ontwerpen en bouwen.", b: "We maken je site in één doorlopend traject. Je ziet het werk voordat het af is." },
@@ -213,8 +213,8 @@ export const copy = {
         {
           h2: "Wat kost het?",
           p: [
-            "Een website kan bij KOBAMA vanaf €800. De prijs hangt af van het type site, een one-pager of meerdere pagina's, en van wat je er verder bij wilt. Doorlopend werk, zoals hulp bij vindbaarheid, heeft geen eenmalige prijs.",
-            "Een uitgebreide uitleg staat in [wat een website laten maken kost](/blog/wat-kost-een-website-laten-maken/). Hoe je een betaalbare website laat maken die ook na de oplevering betaalbaar blijft, lees je in [goedkope website laten maken](/blog/goedkope-website-laten-maken/).",
+            "Een website kan bij KOBAMA vanaf €800 excl. btw. De prijs hangt af van het type site, een one-pager of meerdere pagina's, en van wat je er verder bij wilt. Doorlopend werk, zoals hulp bij vindbaarheid, heeft geen eenmalige prijs.",
+            "Alle prijzen op een rij zie je bij [onze prijzen](/prijzen/). Een uitgebreide uitleg staat in [wat een website laten maken kost](/blog/wat-kost-een-website-laten-maken/). Hoe je een betaalbare website laat maken die ook na de oplevering betaalbaar blijft, lees je in [goedkope website laten maken](/blog/goedkope-website-laten-maken/).",
           ],
         },
         {
@@ -373,8 +373,8 @@ export const copy = {
         {
           h2: "Wat bepaalt de kosten?",
           p: [
-            "Een one-pager is meestal sneller gemaakt dan een site met meerdere pagina's, omdat er minder te ontwerpen en te bouwen is. Een website kan bij KOBAMA vanaf €800. Wat je uiteindelijk betaalt, hangt ook af van wat je er verder bij wilt laten doen.",
-            "Een uitgebreide uitleg staat in [wat een website laten maken kost](/blog/wat-kost-een-website-laten-maken/). Hoe je een betaalbare website laat maken die ook na de oplevering betaalbaar blijft, lees je in [goedkope website laten maken](/blog/goedkope-website-laten-maken/).",
+            "Een one-pager is meestal sneller gemaakt dan een site met meerdere pagina's, omdat er minder te ontwerpen en te bouwen is. Een website kan bij KOBAMA vanaf €800 excl. btw. Wat je uiteindelijk betaalt, hangt ook af van wat je er verder bij wilt laten doen.",
+            "Alle prijzen op een rij zie je bij [onze prijzen](/prijzen/). Een uitgebreide uitleg staat in [wat een website laten maken kost](/blog/wat-kost-een-website-laten-maken/). Hoe je een betaalbare website laat maken die ook na de oplevering betaalbaar blijft, lees je in [goedkope website laten maken](/blog/goedkope-website-laten-maken/).",
           ],
         },
       ],
@@ -388,10 +388,10 @@ export const copy = {
     amsterdam: {
       path: "/website-laten-maken-amsterdam/",
       title: "Website laten maken in Amsterdam vanaf €800 | KOBAMA",
-      description: "Een website laten maken in Amsterdam? KOBAMA is een klein webteam uit Amsterdam voor zzp'ers en mkb. Vanaf €800, met teksten en persoonlijk contact.",
+      description: "Een website laten maken in Amsterdam? KOBAMA is een klein webteam uit Amsterdam voor zzp'ers en mkb. Vanaf €800 excl. btw, met teksten en persoonlijk contact.",
       crumb: "Website laten maken in Amsterdam",
       h1: "Een website laten maken in Amsterdam.",
-      lead: "KOBAMA is een klein webteam uit Amsterdam. We ontwerpen en bouwen websites voor zzp'ers en mkb-bedrijven, in Amsterdam en de rest van Nederland. Een website kan bij KOBAMA vanaf €800.",
+      lead: "KOBAMA is een klein webteam uit Amsterdam. We ontwerpen en bouwen websites voor zzp'ers en mkb-bedrijven, in Amsterdam en de rest van Nederland. Een website kan bij KOBAMA vanaf €800 excl. btw.",
       service: {
         name: "Website laten maken in Amsterdam",
         type: "Webdesign en websiteontwikkeling",
@@ -433,8 +433,8 @@ export const copy = {
         {
           h2: "Wat kost een website laten maken in Amsterdam?",
           p: [
-            "Een website kan bij KOBAMA vanaf €800. De prijs hangt af van het type site, een one-pager of meerdere pagina's, en van wat je er verder bij wilt laten doen. Doorlopend werk, zoals hulp bij vindbaarheid, heeft geen eenmalige prijs.",
-            "Waar de kosten van een website van afhangen, lees je in [wat een website laten maken kost](/blog/wat-kost-een-website-laten-maken/).",
+            "Een website kan bij KOBAMA vanaf €800 excl. btw. De prijs hangt af van het type site, een one-pager of meerdere pagina's, en van wat je er verder bij wilt laten doen. Doorlopend werk, zoals hulp bij vindbaarheid, heeft geen eenmalige prijs.",
+            "Alle prijzen op een rij zie je bij [onze prijzen](/prijzen/). Waar de kosten van een website van afhangen, lees je in [wat een website laten maken kost](/blog/wat-kost-een-website-laten-maken/).",
           ],
         },
         {
@@ -463,10 +463,10 @@ export const copy = {
     professioneel: {
       path: "/professionele-website-laten-maken/",
       title: "Professionele website laten maken vanaf €800 | KOBAMA",
-      description: "Een professionele, zakelijke website laten maken? KOBAMA ontwerpt en bouwt websites op maat voor zzp en mkb, inclusief de teksten. Vanaf €800.",
+      description: "Een professionele, zakelijke website laten maken? KOBAMA ontwerpt en bouwt websites op maat voor zzp en mkb, inclusief de teksten. Vanaf €800 excl. btw.",
       crumb: "Professionele website laten maken",
       h1: "Een professionele website laten maken voor je bedrijf.",
-      lead: "Een professionele website laat in een paar seconden zien wat je doet, voor wie en hoe iemand contact opneemt. Hij werkt op elke telefoon en is goed te vinden in Google. KOBAMA ontwerpt en bouwt zulke websites voor zzp'ers en mkb-bedrijven, vanaf €800.",
+      lead: "Een professionele website laat in een paar seconden zien wat je doet, voor wie en hoe iemand contact opneemt. Hij werkt op elke telefoon en is goed te vinden in Google. KOBAMA ontwerpt en bouwt zulke websites voor zzp'ers en mkb-bedrijven, vanaf €800 excl. btw.",
       service: {
         name: "Professionele website laten maken",
         type: "Webdesign en websiteontwikkeling voor bedrijven",
@@ -507,9 +507,9 @@ export const copy = {
         {
           h2: "Wat kost een professionele website?",
           p: [
-            "Een professionele website kan bij KOBAMA vanaf €800. De prijs hangt af van het type site, een one-pager of meerdere pagina's, en van wat je er verder bij wilt laten doen. Doorlopend werk, zoals hulp bij vindbaarheid, heeft geen eenmalige prijs.",
+            "Een professionele website kan bij KOBAMA vanaf €800 excl. btw. De prijs hangt af van het type site, een one-pager of meerdere pagina's, en van wat je er verder bij wilt laten doen. Doorlopend werk, zoals hulp bij vindbaarheid, heeft geen eenmalige prijs.",
             "Kijk niet alleen naar de bouwprijs. We spraken een ondernemer die elk jaar meer dan €2.400 aan onderhoud betaalde voor een oude website waar ongeveer één keer per jaar iets aan veranderde. Bij KOBAMA betaal je per aanpassing, of een vast bedrag per maand met een maximum aantal aanpassingen.",
-            "Waar de kosten van een website van afhangen, lees je in [wat een website laten maken kost](/blog/wat-kost-een-website-laten-maken/).",
+            "Alle prijzen op een rij zie je bij [onze prijzen](/prijzen/). Waar de kosten van een website van afhangen, lees je in [wat een website laten maken kost](/blog/wat-kost-een-website-laten-maken/).",
           ],
         },
         {
@@ -532,6 +532,76 @@ export const copy = {
         { text: "Zit je in Amsterdam? Lees over een website laten maken in Amsterdam.", href: "/website-laten-maken-amsterdam/" },
       ],
       closing: "Klaar voor een professionele website? Vertel ons over je bedrijf.",
+    },
+
+    prijzen: {
+      path: "/prijzen/",
+      title: "Prijzen: website vanaf €800 excl. btw | KOBAMA",
+      description: "Wat een website bij KOBAMA kost: bouwen vanaf €800 excl. btw, geen verplicht onderhoudscontract en je betaalt nooit voor werk dat niet gebeurt.",
+      crumb: "Prijzen",
+      h1: "Wat kost een website bij KOBAMA?",
+      lead: "Een website laten maken kost bij KOBAMA vanaf €800 excl. btw. Je zit niet vast aan een onderhoudscontract: na de oplevering betaal je per aanpassing, of kies je zelf voor een vast bedrag per maand. Voor werk dat niet gebeurt, betaal je nooit.",
+      service: {
+        name: "Website laten maken",
+        type: "Webdesign en websiteontwikkeling",
+        description: "KOBAMA bouwt betaalbare websites voor zzp'ers en mkb-bedrijven, vanaf €800 excl. btw, zonder verplicht onderhoudscontract.",
+        audience: "Zzp'ers en mkb-bedrijven",
+        minPrice: 800,
+      },
+      sections: [
+        {
+          h2: "Wat je betaalt, op een rij",
+          list: [
+            "**Een website laten bouwen:** eenmalig, vanaf €800 excl. btw.",
+            "**Aanpassingen na de oplevering:** per aanpassing, of een vast bedrag per maand met een maximum aantal aanpassingen. Jij kiest.",
+            "**Hosting:** regel je zelf, en wij helpen je daarbij.",
+            "**Hulp bij vindbaarheid in Google:** doorlopend werk, daarom zonder eenmalige prijs. Dat spreken we apart af.",
+          ],
+        },
+        {
+          h2: "Waar hangt de prijs van je website van af?",
+          p: [
+            "De prijs van een website bij KOBAMA hangt af van het type site en van wat je er verder bij wilt laten doen. Een one-pager is minder werk dan een site met meerdere pagina's. Welke van de twee bij je past, lees je bij [one-page website laten maken](/one-page-website-laten-maken/).",
+            "In het eerste gesprek bespreken we wat je site nodig heeft. Daarna weet je wat het kost, voordat we beginnen.",
+          ],
+        },
+        {
+          h2: "Waarom geen verplicht onderhoudscontract?",
+          p: [
+            "KOBAMA werkt zonder verplicht onderhoudscontract, omdat een website die weinig verandert ook weinig onderhoud nodig heeft. Je betaalt bij ons alleen voor werk dat echt gebeurt.",
+            "We spraken een ondernemer die elk jaar meer dan €2.400 aan onderhoud betaalde voor een oude website waar ongeveer één keer per jaar iets aan veranderde. Zo'n bedrag zouden we voor onze eigen site nooit accepteren, dus rekenen we het een klant ook niet.",
+            "Wat onderhoud inhoudt, lees je in [website onderhoud: wat heb je nodig](/blog/website-onderhoud/).",
+          ],
+        },
+        {
+          h2: "Wat doet KOBAMA voor je?",
+          list: [
+            "We ontwerpen en bouwen je website in één doorlopend traject.",
+            "We schrijven de teksten. Jij krijgt één ronde om ze aan te passen.",
+            "Bij livegang staan vindbaarheid en laadsnelheid al goed.",
+          ],
+          after: "Je logo lever je zelf aan.",
+        },
+        {
+          h2: "Hoe snel staat je website live?",
+          p: [
+            "Een website van KOBAMA staat in twee weken live, als je alles op tijd aanlevert en bereikbaar bent voor overleg. Hoe snel het gaat, hangt dus ook van jou af. Hoe het traject loopt, lees je bij onze [werkwijze](/#werkwijze).",
+          ],
+        },
+        {
+          h2: "Hoe verhoudt dit zich tot andere webbouwers?",
+          p: [
+            "Vergelijk bij elke webbouwer niet alleen de bouwprijs, maar ook wat je na de oplevering per jaar betaalt.",
+            "Waar de kosten van een website in het algemeen van afhangen, lees je in [wat een website laten maken kost](/blog/wat-kost-een-website-laten-maken/).",
+          ],
+        },
+      ],
+      related: [
+        { text: "Ben je zzp'er? Lees over een website laten maken als zelfstandige.", href: "/website-laten-maken-zzp/" },
+        { text: "Meerdere diensten? Lees over een professionele website laten maken.", href: "/professionele-website-laten-maken/" },
+        { text: "Bekijk sites die we al bouwden.", href: "/#werk" },
+      ],
+      closing: "Wil je weten wat jouw website kost?",
     },
   },
 
@@ -695,6 +765,7 @@ export const copy = {
     privacy: "Privacybeleid",
     details: "Bedrijfsgegevens",
     blog: "Blog",
+    prices: "Prijzen",
     more: "Bedrijfsgegevens en privacybeleid tonen",
   },
 } as const;

@@ -9,9 +9,26 @@ Werk dit bestand bij zodra een founder iets bevestigt of corrigeert. Noteer wie 
 ## Prijzen
 
 - Een website kan bij KOBAMA **vanaf €800**. (Bas, 10-11-2026)
-  - Nog onbekend: is dat inclusief of exclusief btw? Tot dat bevestigd is: geen "incl." of "excl." noemen.
+  - Dat bedrag is **exclusief btw**. (Bas, 24-11-2026)
 - De prijs hangt af van het type site (one-pager of meerdere pagina's) en van wat de klant
   nog meer wil laten doen, zoals SEO. Doorlopend werk zoals SEO heeft geen eenmalige prijs. (Bas, 10-11-2026)
+
+## Doorlooptijd
+
+- Een website staat **in twee weken live**, als de klant alles op tijd aanlevert en bereikbaar en flexibel is
+  voor overleg. Het hangt af van de klant. Noem de voorwaarde altijd bij het getal. (Bas, 24-11-2026)
+
+## Positionering
+
+- KOBAMA wil bekendstaan om **betaalbare websites voor zzp en mkb zonder onderhoudscontract**: je betaalt alleen
+  per aanpassing en nooit voor werk dat niet gebeurt. (Bas, 24-11-2026)
+  Let op: er is ook een vast bedrag per maand met een maximum aantal aanpassingen. Schrijf dus "geen verplicht
+  onderhoudscontract", niet "geen maandbedrag".
+
+## Bedrijfsgegevens
+
+- Bas toont adres, telefoon, KvK en rechtsvorm het liefst nergens. (Bas, 24-11-2026)
+  Let op: een zakelijke website moet wettelijk onder meer het KvK-nummer tonen (art. 3:15d BW, zie /bedrijfsgegevens/). Dat besluit ligt bij de founders.
 
 ## Teksten en beeld
 
@@ -42,9 +59,7 @@ Werk dit bestand bij zodra een founder iets bevestigt of corrigeert. Noteer wie 
 
 ## Nog niet bevestigd (niet gebruiken tot een founder het zegt)
 
-- Doorlooptijd van een website (hoe snel live).
 - Wie eigenaar is van de website en de code na oplevering.
 - Een citaat met naam.
-- Prijs incl. of excl. btw.
 - Hoe KOBAMA bouwt (maatwerk, WordPress of iets anders) en waarom: nodig voor roadmap-artikel 2.
 - Of KOBAMA webshops bouwt: nodig voor roadmap-artikel 5.

@@ -48,7 +48,7 @@ Wanneer één pagina genoeg is, lees je bij [one-page website laten maken](/one-
 
 Bij KOBAMA beginnen we met een gesprek over je bedrijf, je klanten en wat je site moet doen. Wij schrijven de teksten, en jij krijgt één ronde om ze aan te passen. Je logo en de foto's van je werk lever je zelf aan.
 
-Een website kan bij KOBAMA vanaf €800. Wat je betaalt, hangt af van het type site, een one-pager of meerdere pagina's, en van wat je er verder bij wilt laten doen.
+Een website kan bij KOBAMA vanaf €800 excl. btw. Wat je betaalt, hangt af van het type site, een one-pager of meerdere pagina's, en van wat je er verder bij wilt laten doen.
 
 Wat een website laten maken kost, lees je in [wat een website laten maken kost](/blog/wat-kost-een-website-laten-maken/).
 
