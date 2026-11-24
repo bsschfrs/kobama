@@ -72,6 +72,8 @@ Je kunt een aantal dingen beter laten, omdat ze niets opleveren of zelfs schade 
 - **Geen betaalde positie in de kaart kopen.** Die bestaat niet.
 - **Geen valse reviews plaatsen of kopen.** Dat is oneerlijk tegenover klanten en riskant voor je profiel.
 
+Wat er op de website van een bouwbedrijf hoort, lees je in [website voor je bouwbedrijf](/blog/website-bouwbedrijf/).
+
 ## Veelgestelde vragen
 
 ### Wat is het verschil tussen lokale SEO en gewone SEO?

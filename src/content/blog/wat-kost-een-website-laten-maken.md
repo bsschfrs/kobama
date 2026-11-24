@@ -73,6 +73,10 @@ Hoe een traject verder loopt, lees je bij [onze werkwijze](/#werkwijze). Ben je 
 
 Het hele traject van begin tot eind staat in [website laten maken: de gids voor ondernemers](/blog/website-laten-maken/).
 
+Hoe je een offerte voor een website beoordeelt, lees je in [offerte voor een website](/blog/website-offerte/).
+
+Waar je op let bij het kiezen van een webbouwer, lees je in [webdesigner kiezen](/blog/webdesigner-kiezen/).
+
 ## Veelgestelde vragen
 
 ### Wat is de goedkoopste manier om een website te laten maken?

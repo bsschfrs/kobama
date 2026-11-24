@@ -76,11 +76,27 @@ Geschreven op 18 november 2026 (Ahrefs, land Nederland, 18-11-2026). Lokale SEO 
 Ideeën voor later (nog niet onderzocht op inhoud): wat is een cms (200, 0), core web vitals (900, 21),
 algemene voorwaarden website (150, 10), zakelijk e-mailadres (100, 4), wat is een landingspagina (150, 0).
 
+## Derde tak: koopintentie en vragen van ondernemers
+
+Geschreven op 24 november 2026 (Ahrefs, land Nederland, 24-11-2026). Gekozen omdat Search Console liet zien dat
+de site wel vertoningen krijgt, maar vooral op informatieve termen. Deze reeks zit dichter bij de keuze voor een webbouwer.
+
+| Status | Artikel | Belangrijkste zoekwoorden (volume, KD) |
+|---|---|---|
+| gepland (26-11-2026 09:00) | Offerte voor een website: waar let je op? | website offerte (250, 0), offerte website laten maken (150, 1) |
+| gepland (27-11-2026 09:00) | Zelf een website maken of laten maken? | zelf website maken of laten maken (60) |
+| gepland (28-11-2026 09:00) | Webdesigner kiezen: freelancer, bureau of klein team? | freelance webdesigner (150, 0), wat doet een webdesigner (150) |
+| gepland (29-11-2026 09:00) | Website voor je bouwbedrijf: wat moet erop? | website laten maken bouwbedrijf (300) |
+| gepland (30-11-2026 09:00) | Wat is een landingspagina en wanneer heb je er een nodig? | wat is een landingspagina (150, 0) |
+| gepland (01-12-2026 09:00) | Zakelijk e-mailadres: hoe krijg je er een? | zakelijk e-mailadres (100, 4), hoe krijg je een zakelijk e-mailadres (100) |
+| gepland (02-12-2026 09:00) | Wat is een cms en heb je er een nodig? | wat is cms (250), wat is een cms (200, 0) |
+
 ## Geen blog: landingspagina's
 
 Deze zoekwoorden horen bij een dienstpagina, niet bij een artikel. Dat is een aparte
 beslissing, want het brief gaat nu uit van één pagina plus blog.
 
-- **Stad:** website laten maken amsterdam (1.000, 3). Past bij onze vestiging.
+- **Stad:** website laten maken amsterdam (1.000, 4). Past bij onze vestiging. **Live op 24-11-2026:** /website-laten-maken-amsterdam/.
+- **Zakelijk:** professionele website laten maken (1.500, 22), zakelijke website laten maken (900, 16), website op maat laten maken (500, 12). **Live op 24-11-2026:** /professionele-website-laten-maken/.
   Andere steden: rotterdam (1.400), eindhoven (1.300), utrecht (1.000).
 - **Branche:** tandarts (300), hovenier (300), bouwbedrijf (300), hotel (300).

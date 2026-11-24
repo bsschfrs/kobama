@@ -112,3 +112,9 @@ en werk dan het brief of het playbook bij.
   commercieel en ze linken naar elkaar; volg in Search Console of ze elkaar verdringen.
 - **De loodgietersdemo blijft staan** (zie rapport): HTML met `aria-hidden`, een paar KB, scherp op
   elke breedte. Twee afbeeldingen zijn zwaarder en minder scherp, voor onzekere SEO-winst.
+
+## Koopintentie en GEO (24 november 2026)
+
+- Search Console liet na twee weken vooral vertoningen op informatieve termen zien, op positie 30 tot 70. Daarom twee dienstpagina's met koopintentie toegevoegd: /website-laten-maken-amsterdam/ (1.000 per maand, zwakke concurrentie) en /professionele-website-laten-maken/ (1.500 per maand). Plus een reeks artikelen dichter bij de keuze voor een webbouwer (zie CONTENT-ROADMAP, derde tak).
+- De "Gemaakt door KOBAMA"-links op de klantsites staan er wel, maar alleen na JavaScript (Vite-apps). Ahrefs ziet ze daarom niet; Google rendert JavaScript en vindt ze later wel. Les: controleer een footerlink in een echte browser, niet met curl.
+- GEO: volgens Google is optimaliseren voor AI-antwoorden gewoon SEO. Geen llms.txt. Wel: Bing Webmaster Tools (ChatGPT en Copilot leunen op Bing), antwoord-eerst schrijven, eigen ervaring, en vermeldingen op andere sites.

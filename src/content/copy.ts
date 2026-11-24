@@ -39,7 +39,7 @@ export const copy = {
   // Compacte sectie op de homepage met links naar de blogartikelen.
   info: {
     heading: "Handige informatie voor ondernemers.",
-    intro: "Wat een website kost, wat onderhoud inhoudt en hoe je online vindbaar wordt: drie artikelen om je keuze op te baseren.",
+    intro: "Wat een website kost, hoe je hem betaalbaar houdt en wat een domeinnaam en hosting zijn: drie artikelen om je keuze op te baseren.",
     all: "Alle artikelen",
   },
 
@@ -104,7 +104,7 @@ export const copy = {
   diensten: {
     heading: "Een website die past bij jouw onderneming.",
     intro:
-      "Niet iedere ondernemer heeft dezelfde website nodig. Daarom kijken we eerst naar je bedrijf, je klanten en wat je website moet bereiken. Van een overzichtelijke one-pager tot een complete bedrijfswebsite of de vernieuwing van je bestaande site.",
+      "Niet iedere ondernemer heeft dezelfde website nodig. Daarom kijken we eerst naar je bedrijf, je klanten en wat je website moet bereiken. Van een overzichtelijke one-pager tot een [complete bedrijfswebsite](/professionele-website-laten-maken/) of de vernieuwing van je bestaande site.",
     items: [
       {
         title: "Een professionele website voor jouw onderneming.",
@@ -134,7 +134,7 @@ export const copy = {
     items: [
       {
         q: "Wat kost een website bij KOBAMA?",
-        a: "Een website kan bij KOBAMA vanaf €800. Wat je betaalt hangt af van het type website, bijvoorbeeld een one-pager of een site met meerdere pagina's, en van wat je er verder bij wilt laten doen. Een uitgebreide uitleg lees je in [wat een website laten maken kost](/blog/wat-kost-een-website-laten-maken/).",
+        a: "Een website kan bij KOBAMA vanaf €800. Wat je betaalt hangt af van het type website, bijvoorbeeld een one-pager of een site met meerdere pagina's, en van wat je er verder bij wilt laten doen. Een uitgebreide uitleg lees je in [wat een website laten maken kost](/blog/wat-kost-een-website-laten-maken/). Alles wat je vooraf wilt weten, lees je in [website laten maken: de gids voor ondernemers](/blog/website-laten-maken/).",
       },
       {
         q: "Hoe lang duurt het om een website te laten maken?",
@@ -146,11 +146,15 @@ export const copy = {
       },
       {
         q: "Wat gebeurt er na de oplevering?",
-        a: "Je mag de hosting zelf regelen en wij helpen je daarbij. Aanpassingen betaal je per aanpassing, of met een vast bedrag per maand met een maximum aantal aanpassingen. Meer daarover lees je in [website onderhoud: wat heb je nodig](/blog/website-onderhoud/).",
+        a: "Je mag de hosting zelf regelen en wij helpen je daarbij. Aanpassingen betaal je per aanpassing, of met een vast bedrag per maand met een maximum aantal aanpassingen. Meer daarover lees je in [website onderhoud: wat heb je nodig](/blog/website-onderhoud/). Het verschil tussen je domeinnaam en je hosting lees je in [domeinnaam en hosting](/blog/domeinnaam-en-hosting/).",
+      },
+      {
+        q: "Waar zit KOBAMA?",
+        a: "KOBAMA zit in Amsterdam en bouwt websites voor ondernemers in heel Nederland. Wat we voor bedrijven in Amsterdam doen, lees je op [website laten maken in Amsterdam](/website-laten-maken-amsterdam/).",
       },
       {
         q: "Is KOBAMA ook geschikt voor een kleine onderneming?",
-        a: "Ja. KOBAMA bouwt websites voor zelfstandige ondernemers en mkb-bedrijven, en heeft de meeste ervaring met eenvoudige, betaalbare sites voor kleine en middelgrote bedrijven. Lees meer over [een website laten maken als zzp'er](/website-laten-maken-zzp/).",
+        a: "Ja. KOBAMA bouwt websites voor zelfstandige ondernemers en mkb-bedrijven, en heeft de meeste ervaring met eenvoudige, betaalbare sites voor kleine en middelgrote bedrijven. Lees meer over [een website laten maken als zzp'er](/website-laten-maken-zzp/). Waar je op let bij een betaalbare website, lees je in [goedkope website laten maken](/blog/goedkope-website-laten-maken/).",
       },
     ],
   },
@@ -210,13 +214,13 @@ export const copy = {
           h2: "Wat kost het?",
           p: [
             "Een website kan bij KOBAMA vanaf €800. De prijs hangt af van het type site, een one-pager of meerdere pagina's, en van wat je er verder bij wilt. Doorlopend werk, zoals hulp bij vindbaarheid, heeft geen eenmalige prijs.",
-            "Een uitgebreide uitleg staat in [wat een website laten maken kost](/blog/wat-kost-een-website-laten-maken/).",
+            "Een uitgebreide uitleg staat in [wat een website laten maken kost](/blog/wat-kost-een-website-laten-maken/). Hoe je een betaalbare website laat maken die ook na de oplevering betaalbaar blijft, lees je in [goedkope website laten maken](/blog/goedkope-website-laten-maken/).",
           ],
         },
         {
           h2: "Hosting en onderhoud na oplevering",
           p: [
-            "Je mag de hosting zelf regelen. Wij helpen je daarbij. Het onderhoud zelf doen is lastiger, maar daar praten we over.",
+            "Je mag de hosting zelf regelen. Wij helpen je daarbij. Het onderhoud zelf doen is lastiger, maar daar praten we over. Wat hosting en een domeinnaam precies zijn, lees je in [domeinnaam en hosting](/blog/domeinnaam-en-hosting/).",
             "Aanpassingen betaal je per aanpassing, of met een vast bedrag per maand met een maximum aantal aanpassingen. Je betaalt niet voor werk dat niet gebeurt. Wat onderhoud inhoudt, lees je in [website onderhoud: wat heb je nodig](/blog/website-onderhoud/).",
           ],
         },
@@ -229,6 +233,7 @@ export const copy = {
       ],
       related: [
         { text: "Heb je al een website? Lees over website vernieuwen.", href: "/website-vernieuwen/" },
+        { text: "Meerdere diensten? Lees over een professionele website laten maken.", href: "/professionele-website-laten-maken/" },
         { text: "Bekijk sites die we al bouwden.", href: "/#werk" },
       ],
       closing: "Vertel ons wat je voor je website zoekt.",
@@ -298,7 +303,7 @@ export const copy = {
         {
           h2: "Wat het kost en hoe het verder gaat",
           p: [
-            "De prijs hangt af van wat je site nodig heeft. Waar de kosten van een website van afhangen, lees je in [wat een website laten maken kost](/blog/wat-kost-een-website-laten-maken/). Over wat er na de oplevering komt kijken, lees je in [website onderhoud](/blog/website-onderhoud/).",
+            "De prijs hangt af van wat je site nodig heeft. Waar de kosten van een website van afhangen, lees je in [wat een website laten maken kost](/blog/wat-kost-een-website-laten-maken/). Over wat er na de oplevering komt kijken, lees je in [website onderhoud](/blog/website-onderhoud/). Alles over het laten maken van een website staat in [website laten maken: de gids voor ondernemers](/blog/website-laten-maken/).",
           ],
         },
       ],
@@ -369,7 +374,7 @@ export const copy = {
           h2: "Wat bepaalt de kosten?",
           p: [
             "Een one-pager is meestal sneller gemaakt dan een site met meerdere pagina's, omdat er minder te ontwerpen en te bouwen is. Een website kan bij KOBAMA vanaf €800. Wat je uiteindelijk betaalt, hangt ook af van wat je er verder bij wilt laten doen.",
-            "Een uitgebreide uitleg staat in [wat een website laten maken kost](/blog/wat-kost-een-website-laten-maken/).",
+            "Een uitgebreide uitleg staat in [wat een website laten maken kost](/blog/wat-kost-een-website-laten-maken/). Hoe je een betaalbare website laat maken die ook na de oplevering betaalbaar blijft, lees je in [goedkope website laten maken](/blog/goedkope-website-laten-maken/).",
           ],
         },
       ],
@@ -378,6 +383,155 @@ export const copy = {
         { text: "Bekijk sites die we al bouwden.", href: "/#werk" },
       ],
       closing: "Laten we kijken of één pagina genoeg is voor jouw bedrijf.",
+    },
+
+    amsterdam: {
+      path: "/website-laten-maken-amsterdam/",
+      title: "Website laten maken in Amsterdam vanaf €800 | KOBAMA",
+      description: "Een website laten maken in Amsterdam? KOBAMA is een klein webteam uit Amsterdam voor zzp'ers en mkb. Vanaf €800, met teksten en persoonlijk contact.",
+      crumb: "Website laten maken in Amsterdam",
+      h1: "Een website laten maken in Amsterdam.",
+      lead: "KOBAMA is een klein webteam uit Amsterdam. We ontwerpen en bouwen websites voor zzp'ers en mkb-bedrijven, in Amsterdam en de rest van Nederland. Een website kan bij KOBAMA vanaf €800.",
+      service: {
+        name: "Website laten maken in Amsterdam",
+        type: "Webdesign en websiteontwikkeling",
+        description: "KOBAMA ontwerpt en bouwt websites voor zzp'ers en mkb-bedrijven in Amsterdam, met persoonlijk contact en duidelijke afspraken.",
+        audience: "Zzp'ers en mkb-bedrijven in Amsterdam",
+        city: "Amsterdam",
+      },
+      sections: [
+        {
+          h2: "Wie bouwt je website?",
+          p: [
+            "Bij KOBAMA werk je met Koen, Bas en Mats. Je praat met de mensen die je site ook ontwerpen en bouwen, niet met een accountmanager. Zo hoef je niets twee keer uit te leggen.",
+            "KOBAMA is klein en doet elk project zelf, van het eerste gesprek tot de livegang. Wie we zijn, zie je bij [ons team](/#team).",
+          ],
+        },
+        {
+          h2: "Websites die we in Amsterdam bouwden",
+          p: [
+            "De Garengarage is een wol- en garenwinkel in Amsterdam West met een webshop. KOBAMA bouwde de website. Wat er op die site staat, lees je bij [het project De Garengarage](/projecten/de-garengarage/).",
+            "We bouwen ook voor bedrijven buiten Amsterdam. Alle sites die we bouwden, zie je bij [ons werk](/#werk).",
+          ],
+        },
+        {
+          h2: "Wat KOBAMA voor je verzorgt",
+          list: [
+            "We ontwerpen en bouwen je website in één doorlopend traject.",
+            "We schrijven de teksten. Jij krijgt één ronde om ze aan te passen.",
+            "Je logo lever je zelf aan.",
+            "Bij livegang staan vindbaarheid en laadsnelheid al goed.",
+          ],
+        },
+        {
+          h2: "Hoe word je gevonden in Amsterdam?",
+          p: [
+            "Om in Amsterdam gevonden te worden, heb je naast je website een Google-bedrijfsprofiel nodig. Dat profiel bepaalt of je in Google Maps en in de lokale resultaten verschijnt. Hoe je het aanmaakt, lees je in [Google-bedrijfsprofiel aanmaken](/blog/google-bedrijfsprofiel-aanmaken/).",
+            "Zet op je website dezelfde bedrijfsnaam, hetzelfde adres en hetzelfde telefoonnummer als in je profiel. Noem ook de plaatsen en wijken waar je werkt. Meer tips lees je in [lokale SEO](/blog/lokale-seo/).",
+          ],
+        },
+        {
+          h2: "Wat kost een website laten maken in Amsterdam?",
+          p: [
+            "Een website kan bij KOBAMA vanaf €800. De prijs hangt af van het type site, een one-pager of meerdere pagina's, en van wat je er verder bij wilt laten doen. Doorlopend werk, zoals hulp bij vindbaarheid, heeft geen eenmalige prijs.",
+            "Waar de kosten van een website van afhangen, lees je in [wat een website laten maken kost](/blog/wat-kost-een-website-laten-maken/).",
+          ],
+        },
+        {
+          h2: "Wat gebeurt er na de oplevering?",
+          p: [
+            "Je mag de hosting zelf regelen, en wij helpen je daarbij. Aanpassingen betaal je per aanpassing, of met een vast bedrag per maand met een maximum aantal aanpassingen. Je betaalt niet voor werk dat niet gebeurt.",
+            "Wat onderhoud inhoudt, lees je in [website onderhoud: wat heb je nodig](/blog/website-onderhoud/).",
+          ],
+        },
+        {
+          h2: "Welke website past bij je bedrijf?",
+          p: [
+            "Heb je een overzichtelijk aanbod, dan kan één pagina genoeg zijn. Lees daarover bij [one-page website laten maken](/one-page-website-laten-maken/).",
+            "Bied je meerdere diensten aan, dan past een site met meerdere pagina's beter. Lees daarover bij [professionele website laten maken](/professionele-website-laten-maken/).",
+          ],
+        },
+      ],
+      related: [
+        { text: "Ben je zzp'er? Lees over een website laten maken als zelfstandige.", href: "/website-laten-maken-zzp/" },
+        { text: "Heb je al een website? Lees over website vernieuwen.", href: "/website-vernieuwen/" },
+        { text: "Bekijk sites die we al bouwden.", href: "/#werk" },
+      ],
+      closing: "Een website laten maken in Amsterdam? Vertel ons wat je zoekt.",
+    },
+
+    professioneel: {
+      path: "/professionele-website-laten-maken/",
+      title: "Professionele website laten maken vanaf €800 | KOBAMA",
+      description: "Een professionele, zakelijke website laten maken? KOBAMA ontwerpt en bouwt websites op maat voor zzp en mkb, inclusief de teksten. Vanaf €800.",
+      crumb: "Professionele website laten maken",
+      h1: "Een professionele website laten maken voor je bedrijf.",
+      lead: "Een professionele website laat in een paar seconden zien wat je doet, voor wie en hoe iemand contact opneemt. Hij werkt op elke telefoon en is goed te vinden in Google. KOBAMA ontwerpt en bouwt zulke websites voor zzp'ers en mkb-bedrijven, vanaf €800.",
+      service: {
+        name: "Professionele website laten maken",
+        type: "Webdesign en websiteontwikkeling voor bedrijven",
+        description: "KOBAMA ontwerpt en bouwt zakelijke websites op maat voor zzp'ers en mkb-bedrijven, inclusief de teksten.",
+        audience: "Zzp'ers en mkb-bedrijven",
+      },
+      sections: [
+        {
+          h2: "Wat maakt een website professioneel?",
+          p: ["Een professionele website helpt je klant snel verder. Dat zie je aan een paar dingen:"],
+          list: [
+            "Een bezoeker ziet direct wat je doet en voor wie.",
+            "Contact opnemen is op elke pagina makkelijk.",
+            "De site werkt net zo goed op een telefoon als op een computer.",
+            "De teksten kloppen met je bedrijf van nu, in de woorden van je klant.",
+            "De site laadt snel en draait op een beveiligde verbinding (https).",
+            "Google kan de site lezen en goed tonen.",
+          ],
+          after: "Wat Google technisch nodig heeft, lees je in [wat is technische SEO](/blog/technische-seo/).",
+        },
+        {
+          h2: "Een website op maat of een sjabloon?",
+          p: [
+            "Een sjabloon is een kant-en-klaar ontwerp dat je invult met je eigen tekst en beeld. Een website op maat is ontworpen voor jouw bedrijf en jouw klanten. Een sjabloon is vaak sneller klaar. Een site op maat past beter bij hoe je bedrijf werkt.",
+            "KOBAMA staat open voor maatwerk. De meeste ervaring hebben we met eenvoudige, betaalbare websites voor kleine en middelgrote bedrijven.",
+          ],
+        },
+        {
+          h2: "Wat KOBAMA voor je verzorgt",
+          list: [
+            "Een gesprek over je bedrijf, je klanten en wat je site moet doen.",
+            "Ontwerp en bouw in één doorlopend traject. Je ziet het werk voordat het af is.",
+            "De teksten voor je website. Jij krijgt één ronde om ze aan te passen.",
+            "Een site waarop vindbaarheid en laadsnelheid bij livegang al goed staan.",
+          ],
+          after: "Je logo lever je zelf aan. Hoe het traject loopt, lees je bij onze [werkwijze](/#werkwijze).",
+        },
+        {
+          h2: "Wat kost een professionele website?",
+          p: [
+            "Een professionele website kan bij KOBAMA vanaf €800. De prijs hangt af van het type site, een one-pager of meerdere pagina's, en van wat je er verder bij wilt laten doen. Doorlopend werk, zoals hulp bij vindbaarheid, heeft geen eenmalige prijs.",
+            "Kijk niet alleen naar de bouwprijs. We spraken een ondernemer die elk jaar meer dan €2.400 aan onderhoud betaalde voor een oude website waar ongeveer één keer per jaar iets aan veranderde. Bij KOBAMA betaal je per aanpassing, of een vast bedrag per maand met een maximum aantal aanpassingen.",
+            "Waar de kosten van een website van afhangen, lees je in [wat een website laten maken kost](/blog/wat-kost-een-website-laten-maken/).",
+          ],
+        },
+        {
+          h2: "Wie regelt hosting en onderhoud?",
+          p: [
+            "Je mag de hosting zelf regelen, en wij helpen je daarbij. Het onderhoud zelf doen is lastiger, maar daar praten we over. Je betaalt niet voor werk dat niet gebeurt.",
+            "Wat een domeinnaam en hosting precies zijn, lees je in [domeinnaam en hosting](/blog/domeinnaam-en-hosting/).",
+          ],
+        },
+        {
+          h2: "Websites die we bouwden",
+          p: [
+            "We bouwden onder meer de websites van [De Garengarage](/projecten/de-garengarage/), [BB-Collect](/projecten/bb-collect/) en [WBMS Vastgoed](/projecten/wbms-vastgoed/). Een winkel met webshop, een online kaartenwinkel en een vastgoedbedrijf: elk met een eigen opzet.",
+          ],
+        },
+      ],
+      related: [
+        { text: "Ben je zzp'er? Lees over een website laten maken als zelfstandige.", href: "/website-laten-maken-zzp/" },
+        { text: "Is één pagina genoeg? Lees over one-pagers.", href: "/one-page-website-laten-maken/" },
+        { text: "Zit je in Amsterdam? Lees over een website laten maken in Amsterdam.", href: "/website-laten-maken-amsterdam/" },
+      ],
+      closing: "Klaar voor een professionele website? Vertel ons over je bedrijf.",
     },
   },
 

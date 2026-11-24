@@ -2,15 +2,18 @@
 title: "Goedkope website laten maken: waar let je op?"
 description: "Hoe je een goedkope website laat maken die ook goedkoop blijft: waar je op kunt besparen, welke vragen je stelt en waar de echte kosten zitten."
 date: 2026-11-15T09:00:00+01:00
+updated: 2026-11-24T12:00:00+01:00
+seoTitle: "Goedkope of betaalbare website laten maken? | KOBAMA"
+seoDescription: "Een goedkope of betaalbare website laten maken die ook na de oplevering goedkoop blijft. Waar je op bespaart, welke vragen je stelt en wat het echt kost."
 image: "/images/blog/goedkope-website-laten-maken.svg"
 imageAlt: "Illustratie met bouwblokken: een blauw blok met een klein oranje blok erop, binnen een veel grotere gestippelde contour. De site is zo groot als nodig, niet groter."
 ---
 
-Een goedkope website laten maken kan prima, als je op twee dingen let: wat je voor de bouwprijs krijgt en wat je daarna elk jaar betaalt. Een lage bouwprijs met een duur onderhoudscontract is over een paar jaar alsnog duur. Bij KOBAMA kan een website al vanaf €800.
+Een goedkope of betaalbare website laten maken kan prima, als je op twee dingen let: wat je voor de bouwprijs krijgt en wat je daarna elk jaar betaalt. Een lage bouwprijs met een duur onderhoudscontract is over een paar jaar alsnog duur. Bij KOBAMA kan een website al vanaf €800.
 
 Je leest hier waar je op kunt besparen zonder dat je site slechter wordt, welke vragen je vooraf stelt en wanneer zelf een site maken goedkoper is.
 
-## Wanneer is een website echt goedkoop?
+## Wanneer is een website echt goedkoop en betaalbaar?
 
 Een website is echt goedkoop als de bouw én de jaren daarna weinig kosten. Kijk dus niet alleen naar de prijs van de bouw. Tel ook hosting, je domeinnaam en onderhoud mee over een paar jaar.
 
@@ -55,6 +58,10 @@ KOBAMA maakt websites op maat en heeft veel ervaring met eenvoudige, betaalbare 
 - **Je betaalt voor werk dat we doen.** Per aanpassing, of een vast bedrag per maand met een maximum aantal aanpassingen. Een jaarbedrag voor onderhoud dat niet gebeurt, rekenen we niet.
 
 Ben je zzp'er, lees dan ook [website laten maken als zzp'er](/blog/website-laten-maken-zzp/).
+
+Of je de site beter zelf maakt of laat maken, lees je in [zelf een website maken of laten maken](/blog/zelf-website-maken-of-laten-maken/).
+
+Hoe je offertes eerlijk vergelijkt, lees je in [offerte voor een website](/blog/website-offerte/).
 
 ## Veelgestelde vragen
 

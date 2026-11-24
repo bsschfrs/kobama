@@ -61,6 +61,8 @@ Wil je het onderhoud zelf doen, dan overleggen we wat er kan. Dat is niet altijd
 
 Het hele traject van begin tot eind staat in [website laten maken: de gids voor ondernemers](/blog/website-laten-maken/).
 
+Wat een cms is en of je er een nodig hebt, lees je in [wat is een cms](/blog/wat-is-een-cms/).
+
 ## Veelgestelde vragen
 
 ### Wat is het verschil tussen website onderhoud en website beheer?

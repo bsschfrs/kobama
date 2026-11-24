@@ -2,6 +2,9 @@
 title: "Domeinnaam en hosting: wat is het verschil?"
 description: "Wat een domeinnaam en hosting zijn, hoe ze samenwerken, van wie je domeinnaam eigenlijk is en waar je op let als je ze regelt."
 date: 2026-11-13T09:00:00+01:00
+updated: 2026-11-24T12:00:00+01:00
+seoTitle: "Domeinnaam en hosting: wat is dat en wat is het verschil? | KOBAMA"
+seoDescription: "Wat een domeinnaam en hosting zijn, waar je een domeinnaam host, van wie je domeinnaam eigenlijk is en waar je op let als je ze regelt."
 image: "/images/blog/domeinnaam-en-hosting.svg"
 imageAlt: "Illustratie met bouwblokken: een brede antraciet plaat als ondergrond, met daarop een blauw blok en ervoor een klein oranje blok als naambordje."
 ---
@@ -61,7 +64,13 @@ Bij KOBAMA mag je je hosting zelf regelen, en wij helpen je daarbij. Dan heb je 
 
 Wat een website in totaal kost, inclusief hosting en domeinnaam, lees je in [wat een website laten maken kost](/blog/wat-kost-een-website-laten-maken/). Hoe je hem daarna bijhoudt, lees je in [website onderhoud](/blog/website-onderhoud/). Welke gegevens als zzp'er op je website moeten, lees je in [website laten maken als zzp'er](/blog/website-laten-maken-zzp/).
 
+Hoe je met je domeinnaam een eigen e-mailadres krijgt, lees je in [zakelijk e-mailadres](/blog/zakelijk-e-mailadres/).
+
 ## Veelgestelde vragen
+
+### Waar host je een domeinnaam?
+
+Een domeinnaam host je niet zelf. Je registreert hem bij een registrar en laat hem verwijzen naar de server van je hosting. Registrar en hosting kunnen hetzelfde bedrijf zijn, maar dat hoeft niet.
 
 ### Kan ik een domeinnaam hebben zonder hosting?
 

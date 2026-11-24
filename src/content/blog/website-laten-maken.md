@@ -80,6 +80,14 @@ Een voorbeeld uit een gesprek dat we laatst hadden: een ondernemer betaalde elk 
 
 Voor zzp'ers hebben we een eigen uitleg: [website laten maken als zzp'er](/blog/website-laten-maken-zzp/).
 
+Hoe je een offerte beoordeelt, lees je in [offerte voor een website](/blog/website-offerte/).
+
+Of je een freelancer, een bureau of een klein team kiest, lees je in [webdesigner kiezen](/blog/webdesigner-kiezen/).
+
+Twijfel je of je de site zelf maakt, lees dan [zelf een website maken of laten maken](/blog/zelf-website-maken-of-laten-maken/).
+
+Wat KOBAMA voor bedrijven bouwt, lees je bij [professionele website laten maken](/professionele-website-laten-maken/).
+
 ## Veelgestelde vragen
 
 ### Hoe lang duurt het om een website te laten maken?

@@ -67,6 +67,8 @@ Wil je weten hoe dat in de praktijk gaat, lees dan [websiteteksten laten schrijv
 
 Alles over het laten maken van een website, van kosten tot onderhoud, lees je in [website laten maken: de gids voor ondernemers](/blog/website-laten-maken/).
 
+Wat een landingspagina is en wat erop hoort, lees je in [wat is een landingspagina](/blog/wat-is-een-landingspagina/).
+
 ## Veelgestelde vragen
 
 ### Wat is het verschil tussen een SEO-tekst en een gewone tekst?

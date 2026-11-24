@@ -25,6 +25,8 @@ export interface ServiceData {
   type: string;
   description: string;
   audience: string;
+  /** Optioneel: stad in plaats van heel Nederland. */
+  city?: string;
 }
 
 interface Options {
@@ -117,7 +119,7 @@ export function buildGraph(o: Options): Json {
       description: v.description,
       url: pageUrl,
       provider: { "@id": orgId },
-      areaServed: { "@type": "Country", name: "Nederland" },
+      areaServed: v.city ? { "@type": "City", name: v.city } : { "@type": "Country", name: "Nederland" },
       audience: { "@type": "Audience", audienceType: v.audience },
     });
     webPage.mainEntity = { "@id": `${pageUrl}#service` };
